@@ -14,6 +14,8 @@ public class Game extends InterfaceJuego {
 	private ListStructures estructuras;
 	private TankController tControl;
 	private KeyEventListener listener;
+	/**/private Tank enemyTank;
+    /**/private EnemyTankController enemyTankControl;
 	
 	public Game() 
 	{
@@ -22,6 +24,8 @@ public class Game extends InterfaceJuego {
 		this.estructuras = new ListStructures(mapa, 10); // cantidad de tipos de estructuras -- num * 3 
 		this.tank = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40)); // ver como ubicar el tanqe
 		this.listener = new KeyEventListener(dibujador.getEntorno());
+		/**/this.enemyTank = new Tank(Orientation.UP,new Coordinate(600,100),new Size(40,40));
+		/**/this.enemyTankControl= new EnemyTankController(enemyTank);
 		
 		this.tControl = new TankController(tank,listener);
 	}
@@ -42,9 +46,12 @@ public class Game extends InterfaceJuego {
 		}
     	
     	this.dibujador.dibujarTank(tank);
-    	/**/this.listener.inicializar(tank); 
+    	/**/this.dibujador.dibujarEnemyTank(enemyTank);
+    	/****/this.listener.inicializar(tank); 
     	this.tControl.ControlTank(estructuras.getLista());
     	this.tControl.control_bullet(dibujador.getEntorno());
+    	/**/this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno());
+    	/**/this.enemyTankControl.control_bullet(dibujador.getEntorno());
     }
     
     
