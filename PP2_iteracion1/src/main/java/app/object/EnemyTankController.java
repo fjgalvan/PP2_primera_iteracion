@@ -129,7 +129,7 @@ public class EnemyTankController {
 			this.enemyTank.getBullet().avanzarBullet();
 			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
-			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala.png"), this.enemyTank.getBullet().getCoordinate().getX(), 
+			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.enemyTank.getBullet().getCoordinate().getX(), 
 					this.enemyTank.getBullet().getCoordinate().getY(), 0);
 			if(this.enemyTank.getBullet().colisionBullet()){
 				this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
