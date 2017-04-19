@@ -50,7 +50,7 @@ public class Game extends InterfaceJuego {
     	/****/this.listener.inicializar(tank); 
     	this.tControl.ControlTank(estructuras.getLista());
     	this.tControl.control_bullet(dibujador.getEntorno());
-    	/**/this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno());
+    	/**/this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
     	/**/this.enemyTankControl.control_bullet(dibujador.getEntorno());
     }
     
