@@ -154,9 +154,9 @@ public class EnemyTankController {
 		{
 			ret = ret || enemyTank.hayColision(obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
 		}
-		if(ret == true){
+		/*if(ret == true){
 			System.out.println("colicion: "+ret);
-		}
+		}*/
 		return ret;
 	}
 	public int colicionEn(List<ObjetoGrafico> lista){
