@@ -22,7 +22,7 @@ public class TestTankController {
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,null); // ver como meter el entorno con la otra clase
 		//tankC.ControlLeft(); esta funcion se paso al statemovetankleft
-		assertNotEquals(400.0,tank.getCoordinate().getX());
+		assertNotEquals(400.50,tank.getCoordinate().getX());
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class TestTankController {
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank, null);
 		//tankC.ControlRigth(); se paso asu estado correspondiente
-		assertNotEquals(400.0,tank.getCoordinate().getX());
+		assertNotEquals(400.50,tank.getCoordinate().getX());
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class TestTankController {
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,null);
 	//	tankC.ControlDown(); se paso asu estado correspondiente
-		assertNotEquals(400.0,tank.getCoordinate().getY());
+		assertNotEquals(400.50,tank.getCoordinate().getY());
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class TestTankController {
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,null);
 		//tankC.ControlUp(); se paso asu estado correspondiente
-		assertNotEquals(400.0,tank.getCoordinate().getY());
+		assertNotEquals(400.50,tank.getCoordinate().getY());
 	}
 	
 	/**disparar*/
