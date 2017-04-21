@@ -149,12 +149,12 @@ public class Colisionador {
 //	            i = 0;
 //	            k = 0;
 //	            do {
-//	                // Validar que no se toque con ningÃƒÂºn otro
+//	                // Validar que no se toque con ningÃƒÆ’Ã‚Âºn otro
 //	                if (!this.posicionado
 //	                        && this.seTocan(plataformas[i], this.separacion)) {
 //	                    k++;
 //	                    if (k == 2)
-//	                        // Se toca consigo y uno mÃƒÂ¡s
+//	                        // Se toca consigo y uno mÃƒÆ’Ã‚Â¡s
 //	                        setocan = true;
 //	                }
 //	                i++;

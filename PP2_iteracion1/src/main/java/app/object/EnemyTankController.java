@@ -155,7 +155,7 @@ public class EnemyTankController {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			ret = ret || enemyTank.hayColision(obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
+			ret = ret || colisionador.hayColision(enemyTank, obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
 		}
 		/*if(ret == true){
 			System.out.println("colicion: "+ret);
@@ -167,18 +167,18 @@ public class EnemyTankController {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			ret = ret || enemyTank.hayColision(obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
+			ret = ret || colisionador.hayColision(enemyTank, obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
 			if(ret == true){
-				if(enemyTank.hayColisionArriba(obj)){
+				if(colisionador.hayColisionArriba(enemyTank, obj)){
 					tipoColicion=1;
 				}
-				if(enemyTank.hayColisionDerecha(obj)){
+				if(colisionador.hayColisionDerecha(enemyTank, obj)){
 					tipoColicion=2;
 				}
-				if(enemyTank.hayColisionAbajo(obj)){
+				if(colisionador.hayColisionAbajo(enemyTank, obj)){
 					tipoColicion=3;
 				}
-				if(enemyTank.hayColisionIzquierda(obj)){
+				if(colisionador.hayColisionIzquierda(enemyTank, obj)){
 					tipoColicion=4;
 				}
 			}

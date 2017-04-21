@@ -1,6 +1,7 @@
 package app.state_tank;
 
 import app.enums.Orientation;
+import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
 import app.object.Tank;
 
@@ -15,7 +16,8 @@ public class StateMoveTankDown extends StateMoveTank
 	@Override
 	public boolean hayColision(ObjetoGrafico obj) 
 	{
-		return tank.hayColisionAbajo(obj);
+		Colisionador col = new Colisionador();
+		return col.hayColisionAbajo(tank, obj);
 	}
 
 	@Override

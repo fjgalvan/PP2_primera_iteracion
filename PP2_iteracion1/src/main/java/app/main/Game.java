@@ -4,7 +4,6 @@ import entorno.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import app.enums.Orientation;
 import app.enums.TankShot;
 import app.modelo.Colisionador;
@@ -53,26 +52,25 @@ public class Game extends InterfaceJuego {
     	this.enemysTanks.add(enemyTank);
     	this.enemysTanks.add(enemyTank2);
     	this.enemysTanks.add(enemyTank3);
-		// ver que mandar -- el profe no queria que solo se cree el objeto game en el main x eso
 	}
 	
     public void tick() 
-    {
-    	//this.listener.inicializar(tank);    	
+    {   	
     	this.dibujador.dibujarMarco(mapa); 
-
+    	if(!(tControl.getTank() == null))
+    	{
     	for (ObjetoGrafico e:estructuras.getLista()) 
     	{
 			this.dibujador.dibujarEstructura(e);
 		}
     	
     	this.listener.inicializar(tank); 
-    	if(!(tControl.getTank() == null))
-    	{
+    	
         	this.dibujador.dibujarTank(tank);
     		this.tControl.ControlTank(estructuras.getLista());
     		this.tControl.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
-    	}
+        	destruccionTanksEnemys();
+    	
     	
     	if(!(enemyTankControl.getTank() == null))
     	{
@@ -96,7 +94,10 @@ public class Game extends InterfaceJuego {
         	this.enemyTankControl3.control_bullet(dibujador.getEntorno(),estructuras.getLista());
         	destruccionTank3();
     	}
-    	destruccionTanksEnemys();
+    	}
+    	else{
+    		this.dibujador.dibujarFinDeJuego();
+    	}
     }
 
 	private void destruccionTanksEnemys() {
