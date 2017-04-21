@@ -58,16 +58,16 @@ public class Game extends InterfaceJuego {
     	this.dibujador.dibujarEnemyTank(enemyTank3);
     	this.listener.inicializar(tank); 
     	this.tControl.ControlTank(estructuras.getLista());
-    	this.tControl.control_bullet(dibujador.getEntorno());
+    	this.tControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
     	
     	this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-    	this.enemyTankControl.control_bullet(dibujador.getEntorno());
+    	this.enemyTankControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
     	
     	this.enemyTankControl2.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-    	this.enemyTankControl2.control_bullet(dibujador.getEntorno());
+    	this.enemyTankControl2.control_bullet(dibujador.getEntorno(),estructuras.getLista());
     	
     	this.enemyTankControl3.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-    	this.enemyTankControl3.control_bullet(dibujador.getEntorno());
+    	this.enemyTankControl3.control_bullet(dibujador.getEntorno(),estructuras.getLista());
     }
     
     

@@ -79,14 +79,14 @@ public class TankController {
 		}
 		//tank.disparar();
 	}
-	public void control_bullet(Entorno entorno){
+	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos){
 		if(this.tank.getTankBullet().equals(TankShot.EXISTS)){
 			this.tank.getBullet().avanzarBullet();
 			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
 			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 0);
-			if(this.tank.getBullet().colisionBullet()){
+			if(this.tank.getBullet().colisionBullet(objetos)){
 				this.tank.setTankBullet(TankShot.NO_EXISTS);
 				this.tank.setBullet(null);
 			}

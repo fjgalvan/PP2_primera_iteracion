@@ -1,9 +1,13 @@
 package app.object;
 
+import java.util.List;
+
 import app.enums.Orientation;
+import app.modelo.Colisionador;
+import app.modelo.ObjetoGrafico;
 import app.util.Util;
 
-public class Bullet {
+public class Bullet extends ObjetoGrafico{
 	private Orientation orientation;
 	private Coordinate coordinate;
 	private Size size;
@@ -16,11 +20,23 @@ public class Bullet {
 	}
 	
 	//seria si colisiona con una estructura o con el limite del tablero
-	public boolean colisionBullet(){
+	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista)
+	{
+
+		Colisionador col = new Colisionador();
+		boolean ret = false;
+		for(ObjetoGrafico obj : lista)
+		{
+			ret = ret || col.chocaConEstructura(this, obj); // dependiendo el estado va atener una colision !=
+		}
+		return ret;
+	}
+	
+	public boolean colisionBullet(List<ObjetoGrafico> objetos){
 		if(Util.estaEnElLimiteDeTablero(orientation, coordinate)){
 			return true;
 		}
-		return false;
+		return hayColisionConUnObjeto(objetos);
 	}
 	
 	public void avanzarBullet(){

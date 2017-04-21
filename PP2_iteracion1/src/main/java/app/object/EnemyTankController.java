@@ -52,7 +52,7 @@ public class EnemyTankController {
 		controlChoqueDerechaMap();
 		controlChoqueAbajoMap();
 		controlChoqueIzquierdaMap();
-		controlDisparoTankEnemy(ent); // FALTARIA UN TEMPORIZADOR PARA QUE NO DISPARE A PENAS bullet==null
+		controlDisparoTankEnemy(ent, objetos); // FALTARIA UN TEMPORIZADOR PARA QUE NO DISPARE A PENAS bullet==null
 		ControlTank(objetos);
 	}
 	public void controChoqueArribaMap(){
@@ -87,8 +87,8 @@ public class EnemyTankController {
 			}
 		}
 	}
-	public void controlDisparoTankEnemy(Entorno ent){
-		control_bullet(ent);
+	public void controlDisparoTankEnemy(Entorno ent,List<ObjetoGrafico> objetos){
+		control_bullet(ent,objetos);
 		if(this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS)){
 			enemyTank.disparar();
 		}
@@ -124,14 +124,14 @@ public class EnemyTankController {
 		}
 		//tank.disparar();
 	}
-	public void control_bullet(Entorno entorno){
+	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos){
 		if(this.enemyTank.getTankBullet().equals(TankShot.EXISTS)){
 			this.enemyTank.getBullet().avanzarBullet();
 			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
 			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.enemyTank.getBullet().getCoordinate().getX(), 
 					this.enemyTank.getBullet().getCoordinate().getY(), 0);
-			if(this.enemyTank.getBullet().colisionBullet()){
+			if(this.enemyTank.getBullet().colisionBullet(objetos)){
 				this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
 				this.enemyTank.setBullet(null);
 			}
