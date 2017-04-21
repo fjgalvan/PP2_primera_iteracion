@@ -8,6 +8,7 @@ import entorno.Entorno;
 import entorno.Herramientas;
 import app.enums.Orientation;
 import app.enums.TankShot;
+import app.modelo.Colisionador;
 //import app.main.Game;
 //import app.util.Util;
 //import sonido.Sonido;
@@ -16,10 +17,12 @@ import app.modelo.ObjetoGrafico;
 
 public class EnemyTankController {
 	private Tank enemyTank;
+	private Colisionador colisionador;
 	
 	
 	public EnemyTankController(Tank enemyTank){
 		this.enemyTank= enemyTank;
+		this.colisionador = new Colisionador();
 	}
 	
 	
@@ -52,7 +55,7 @@ public class EnemyTankController {
 		controlChoqueDerechaMap();
 		controlChoqueAbajoMap();
 		controlChoqueIzquierdaMap();
-		controlDisparoTankEnemy(ent, objetos); // FALTARIA UN TEMPORIZADOR PARA QUE NO DISPARE A PENAS bullet==null
+		controlDisparoTankEnemy(ent,objetos); // FALTARIA UN TEMPORIZADOR PARA QUE NO DISPARE A PENAS bullet==null
 		ControlTank(objetos);
 	}
 	public void controChoqueArribaMap(){
@@ -87,7 +90,7 @@ public class EnemyTankController {
 			}
 		}
 	}
-	public void controlDisparoTankEnemy(Entorno ent,List<ObjetoGrafico> objetos){
+	public void controlDisparoTankEnemy(Entorno ent, List<ObjetoGrafico> objetos){
 		control_bullet(ent,objetos);
 		if(this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS)){
 			enemyTank.disparar();
@@ -124,14 +127,14 @@ public class EnemyTankController {
 		}
 		//tank.disparar();
 	}
-	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos){
+	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos){
 		if(this.enemyTank.getTankBullet().equals(TankShot.EXISTS)){
 			this.enemyTank.getBullet().avanzarBullet();
 			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
 			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.enemyTank.getBullet().getCoordinate().getX(), 
 					this.enemyTank.getBullet().getCoordinate().getY(), 0);
-			if(this.enemyTank.getBullet().colisionBullet(objetos)){
+			if(colisionador.colisionBullet(this.enemyTank.getBullet(), objetos)){
 				this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
 				this.enemyTank.setBullet(null);
 			}
@@ -154,6 +157,9 @@ public class EnemyTankController {
 		{
 			ret = ret || enemyTank.hayColision(obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
 		}
+		/*if(ret == true){
+			System.out.println("colicion: "+ret);
+		}*/
 		return ret;
 	}
 	public int colicionEn(List<ObjetoGrafico> lista){
@@ -183,28 +189,86 @@ public class EnemyTankController {
 		if(hayColisionConUnObjeto(objetos)){
 			//girarRandom();
 			if(colicionEn(objetos)==1){//colicion arriba
+				//System.out.println("colicion arriba");
 				enemyTank.girar(Orientation.DOWN);
 				enemyTank.moverseAbajo();
 				enemyTank.girar(Orientation.RIGHT);
 			}
 			if(colicionEn(objetos)==2){//colicion derecha
+				//System.out.println("colicion derecha");
 				enemyTank.girar(Orientation.LEFT);
 				enemyTank.moverseIzquierda();
 				enemyTank.girar(Orientation.DOWN);
 			}
 			if(colicionEn(objetos)==3){//colicion abajo
+				//System.out.println("colicion abajo");
 				enemyTank.girar(Orientation.UP);
 				enemyTank.moverseArriba();
 				enemyTank.girar(Orientation.LEFT);
 			}
 			if(colicionEn(objetos)==4){//colicion izquierda
+				//System.out.println("colicion izquierda");
 				enemyTank.girar(Orientation.RIGHT);
 				enemyTank.moverseDerecha();
 				enemyTank.girar(Orientation.UP);
 			}
 		}
 	}
+
+
+	public Tank getEnemyTank() {
+		return enemyTank;
+	}
+
+
+	public void setEnemyTank(Tank enemyTank) {
+		this.enemyTank = enemyTank;
+	}
 	
-	
-	
+	/*public void girarRandom(){
+		//generador de numeros aleatorios
+	    Random generadorAleatorios = new Random();
+
+	    //genera un numero entre 1 y 4 y lo guarda en la variable numeroAleatorio
+	    int numeroAleatorio = 1+generadorAleatorios.nextInt(4);
+	   // System.out.println("numeroAleatorio: "+ numeroAleatorio);
+	    if((numeroAleatorio == 1) && (!enemyTank.getOrientation().equals(Orientation.UP) )){
+	    	enemyTank.girar(Orientation.UP);
+	    	enemyTank.moverseArriba();
+	    }
+	    if((numeroAleatorio == 1) && (enemyTank.getOrientation().equals(Orientation.UP) )){
+	    	enemyTank.girar(Orientation.DOWN);
+	    	enemyTank.moverseAbajo();
+	    }
+	    
+	    if((numeroAleatorio == 2) && (!enemyTank.getOrientation().equals(Orientation.RIGHT) )){
+	    	enemyTank.girar(Orientation.RIGHT);
+	    	enemyTank.moverseDerecha();
+	    }
+	    if((numeroAleatorio == 2) && (enemyTank.getOrientation().equals(Orientation.RIGHT) )){
+	    	enemyTank.girar(Orientation.LEFT);
+	    	enemyTank.moverseIzquierda();
+	    }
+	    
+	    if((numeroAleatorio == 3) && (!enemyTank.getOrientation().equals(Orientation.DOWN) )){
+	    	enemyTank.girar(Orientation.DOWN);
+	    	enemyTank.moverseAbajo();
+	    }
+	    if((numeroAleatorio == 3) && (enemyTank.getOrientation().equals(Orientation.DOWN) )){
+	    	enemyTank.girar(Orientation.UP);
+	    	enemyTank.moverseArriba();
+	    }
+	    
+	    if((numeroAleatorio == 4) && (!enemyTank.getOrientation().equals(Orientation.LEFT) )){
+	    	enemyTank.girar(Orientation.LEFT);
+	    	enemyTank.moverseIzquierda();
+	    }
+	    if((numeroAleatorio == 4) && (enemyTank.getOrientation().equals(Orientation.LEFT) )){
+	    	enemyTank.girar(Orientation.RIGHT);
+	    	enemyTank.moverseDerecha();
+	    }
+	}*/
+	public void destruirTank(){
+		this.enemyTank = null;
+	}
 }

@@ -8,6 +8,7 @@ import entorno.Entorno;
 import entorno.Herramientas;
 import app.enums.Orientation;
 import app.enums.TankShot;
+import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
 import app.state_tank.StateMoveTankUp;
 import app.util.Util;
@@ -17,11 +18,13 @@ import sonido.Sonido;
 public class TankController {
 	private Tank tank;
 	private KeyEventListener listener;
+	private Colisionador colisionador;
 	
 	public TankController(Tank tank, KeyEventListener kel)
 	{
 		this.tank = tank;
 		this.listener = kel;
+		this.colisionador = new Colisionador();
 	}
 	
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista)
@@ -79,14 +82,12 @@ public class TankController {
 		}
 		//tank.disparar();
 	}
-	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos){
+	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos, List<Tank> enemysTanks){
 		if(this.tank.getTankBullet().equals(TankShot.EXISTS)){
 			this.tank.getBullet().avanzarBullet();
-			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
-					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
 			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.tank.getBullet().getCoordinate().getX(), 
 					this.tank.getBullet().getCoordinate().getY(), 0);
-			if(this.tank.getBullet().colisionBullet(objetos)){
+			if(colisionador.colisionBullet(this.tank.getBullet(), objetos)){
 				this.tank.setTankBullet(TankShot.NO_EXISTS);
 				this.tank.setBullet(null);
 			}
@@ -101,5 +102,9 @@ public class TankController {
 	public void setTank(Tank tank)  // si este set no se usa , quitar!
 	{
 		this.tank = tank;
+	}
+	
+	public void destruirTank(){
+		this.tank = null;
 	}
 }
