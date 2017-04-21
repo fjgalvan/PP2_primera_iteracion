@@ -10,6 +10,7 @@ public class EstructuraLadrillo extends ObjetoGrafico implements Estructura{
 	
 	public EstructuraLadrillo()
 	{
+		super.imagen = "imagen/ladrillo.png";
 		//this.imagen = new Imagen("agua.png");
 		//System.out.println("me construi estructura ladrillo");
 		this.color = Color.RED;

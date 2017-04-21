@@ -9,6 +9,7 @@ public abstract class ObjetoGrafico {
 	protected Coordinate coordinate;
 	protected Size size;
 	protected Color color;
+	protected String imagen;
 	protected double radio;
 	public ObjetoGrafico()
 	{
@@ -100,6 +101,10 @@ public abstract class ObjetoGrafico {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+	public String getImagen()
+	{
+		return this.imagen;
 	}
 	
 }

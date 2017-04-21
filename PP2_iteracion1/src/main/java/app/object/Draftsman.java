@@ -48,7 +48,8 @@ public class Draftsman {
 	
 	public void dibujarEstructura(ObjetoGrafico e)
 	{
-		this.entorno.dibujarRectangulo(e.getCoordinate().getX()+(e.getSize().getAncho()/2),e.getCoordinate().getY()+e.getSize().getAlto()/2, e.getSize().getAncho(), e.getSize().getAlto(), 0, e.getColor());
+		this.entorno.dibujarImagen(Herramientas.cargarImagen(e.getImagen()), e.getCoordinate().getX()+(e.getSize().getAncho()/2), e.getCoordinate().getY()+e.getSize().getAlto()/2, 0);
+		//this.entorno.dibujarRectangulo(e.getCoordinate().getX()+(e.getSize().getAncho()/2),e.getCoordinate().getY()+e.getSize().getAlto()/2, e.getSize().getAncho(), e.getSize().getAlto(), 0, e.getColor());
 	}
 	public void dibujarTank(Tank t)
 	{

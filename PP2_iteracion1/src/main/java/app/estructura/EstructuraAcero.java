@@ -10,6 +10,7 @@ public class EstructuraAcero extends ObjetoGrafico implements Estructura{
 	
 	public EstructuraAcero()
 	{
+		super.imagen = "imagen/acero.png";
 		//this.imagen = new Imagen("agua.png");
 		//System.out.println("me construi, estructura acero ");
 		this.color = Color.ORANGE;
