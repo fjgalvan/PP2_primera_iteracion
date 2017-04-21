@@ -79,6 +79,7 @@ public class Game extends InterfaceJuego {
         	this.dibujador.dibujarEnemyTank(enemyTank);
         	this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
         	this.enemyTankControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        	destruccionTank1();
     	}
     	
     	if(!(enemyTankControl2.getTank() == null))
@@ -86,39 +87,50 @@ public class Game extends InterfaceJuego {
         	this.dibujador.dibujarEnemyTank(enemyTank2);
         	this.enemyTankControl2.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
         	this.enemyTankControl2.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        	destruccionTank2();
     	}
     	if(!(enemyTankControl3.getTank() == null))
     	{
         	this.dibujador.dibujarEnemyTank(enemyTank3);
         	this.enemyTankControl3.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
         	this.enemyTankControl3.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        	destruccionTank3();
     	}
-    	destruccionTanks();
+    	destruccionTanksEnemys();
     }
 
-	private void destruccionTanks() {
+	private void destruccionTanksEnemys() {
 		if(colisionador.colisionBulletConTank(this.tank.getBullet(), enemysTanks)){
 			this.tank.setTankBullet(TankShot.NO_EXISTS);
 			this.tank.setBullet(null);
 			destruirEnemyTank(enemysTanks);
 		}
+	}
+	
+	public void destruccionTank1(){
 		if(colisionador.colisionBulletConTank(this.enemyTank.getBullet(), tanks)){
 			this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
 			this.enemyTank.setBullet(null);
 			this.tControl.destruirTank();
 		}
+	}
+	
+	public void destruccionTank2(){
 		if(colisionador.colisionBulletConTank(this.enemyTank2.getBullet(), tanks)){
 			this.enemyTank2.setTankBullet(TankShot.NO_EXISTS);
 			this.enemyTank2.setBullet(null);
 			this.tControl.destruirTank();
 		}
+	}
+
+	public void destruccionTank3(){
 		if(colisionador.colisionBulletConTank(this.enemyTank3.getBullet(), tanks)){
 			this.enemyTank3.setTankBullet(TankShot.NO_EXISTS);
 			this.enemyTank3.setBullet(null);
 			this.tControl.destruirTank();
 		}
 	}
-
+	
 	private void destruirEnemyTank(List<Tank> enemysTanks) {
 		enemysTanks.remove(colisionador.getTankADestruir());
 		if(!enemysTanks.contains(enemyTank))
