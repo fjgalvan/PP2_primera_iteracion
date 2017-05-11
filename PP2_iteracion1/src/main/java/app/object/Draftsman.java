@@ -61,6 +61,11 @@ public class Draftsman {
 		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 	}
 	
+	
+	/**/public void dibujarEnemyTankIntermediate(Tank t){
+		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
+	}
+	
 	public void dibujarFinDeJuego(){
 			String mensaje;
 		    mensaje = "GAME OVER";

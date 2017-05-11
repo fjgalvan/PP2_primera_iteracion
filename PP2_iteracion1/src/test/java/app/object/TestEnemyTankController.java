@@ -72,7 +72,7 @@ public class TestEnemyTankController {
 		Coordinate coordinate = new Coordinate(400, 26);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
-		EnemyTankController enemyTankC= new EnemyTankController(enemyTank);
+		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
 		enemyTankC.controChoqueArribaMap();;
 		assertNotEquals(26.0, enemyTankC.getTank().getCoordinate().getY());
 		//System.out.println("Y ARRIBA: "+enemyTankC.getTank().getCoordinate().getY());
@@ -84,7 +84,7 @@ public class TestEnemyTankController {
 		Coordinate coordinate = new Coordinate(943, 400);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
-		EnemyTankController enemyTankC= new EnemyTankController(enemyTank);
+		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
 		enemyTankC.controlChoqueDerechaMap();;
 		assertNotEquals(943.0, enemyTankC.getTank().getCoordinate().getX());
 		//System.out.println("X DERECHA: "+enemyTankC.getTank().getCoordinate().getX());
@@ -96,7 +96,7 @@ public class TestEnemyTankController {
 		Coordinate coordinate = new Coordinate(400, 544);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
-		EnemyTankController enemyTankC= new EnemyTankController(enemyTank);
+		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
 		enemyTankC.controlChoqueAbajoMap();
 		assertNotEquals(544.0, enemyTankC.getTank().getCoordinate().getY());
 		//System.out.println("Y ABAJO: "+enemyTankC.getTank().getCoordinate().getY());
@@ -108,7 +108,7 @@ public class TestEnemyTankController {
 		Coordinate coordinate = new Coordinate(28, 400);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
-		EnemyTankController enemyTankC= new EnemyTankController(enemyTank);
+		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
 		enemyTankC.controlChoqueIzquierdaMap();;
 		assertNotEquals(28.0, enemyTankC.getTank().getCoordinate().getX());
 		//System.out.println("X IZQUIERDA: "+enemyTankC.getTank().getCoordinate().getX());
