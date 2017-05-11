@@ -1,30 +1,37 @@
-package app.object;
+package object;
 
 import java.awt.Color;
 import java.util.List;
 import java.util.Random;
-
 import entorno.Entorno;
 import entorno.Herramientas;
-import app.enums.Orientation;
-import app.enums.TankShot;
-import app.modelo.Colisionador;
-import app.modelo.ObjetoGrafico;
-import app.state_tank.StateMoveTankUp;
-import app.util.Util;
+import enums.Orientation;
+import enums.TankShot;
+import modelo.Colisionador;
+import modelo.ObjetoGrafico;
+import state_tank.StateMoveTankUp;
+import util.Util;
 import sonido.Sonido;
 
 @SuppressWarnings("unused")
 public class TankController {
 	private Tank tank;
 	private KeyEventListener listener;
+	private KeyEventListenerCop listenerCop;
 	private Colisionador colisionador;
 	
-	public TankController(Tank tank, KeyEventListener kel)
+	public TankController(Tank tank, KeyEventListener kel,Colisionador colisionador)
 	{
 		this.tank = tank;
 		this.listener = kel;
-		this.colisionador = new Colisionador();
+		this.colisionador = colisionador;
+	}
+	
+	public TankController(Tank tank, KeyEventListenerCop kel,Colisionador colisionador)
+	{
+		this.tank = tank;
+		this.listenerCop = kel;
+		this.colisionador = colisionador;
 	}
 	
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista)
@@ -50,6 +57,26 @@ public class TankController {
 			}
 		}
 		if(listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion())
+		{
+			Sonido.TanqueDisparo.stop();
+			Sonido.TanqueDisparo.play();
+			this.tank.disparar();
+		}
+	}
+	
+	public void ControlTankCop(List<ObjetoGrafico> objetos)
+	{
+		if(listenerCop.existeEstadoDeMovimiento())
+		{
+			tank.setStateMove(listenerCop.getEstado());			
+			tank.girar(tank.getStateMove().getOrientacion());
+			if(!hayColisionConUnObjeto(objetos))
+			{
+				tank.getStateMove().control();
+				listenerCop.borrarEstado();
+			}
+		}
+		if(listenerCop.seActivoDisparo() && !tank.existeDisparoEnEjecucion())
 		{
 			Sonido.TanqueDisparo.stop();
 			Sonido.TanqueDisparo.play();

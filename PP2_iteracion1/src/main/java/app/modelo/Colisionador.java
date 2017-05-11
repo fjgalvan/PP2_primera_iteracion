@@ -1,13 +1,13 @@
-package app.modelo;
+package modelo;
 
 import java.util.List;
-
-import app.object.Bullet;
-import app.object.Tank;
-import app.util.Util;
+import object.Bullet;
+import object.Tank;
+import util.Util;
 
 public class Colisionador {
 	private Tank tankADestruir;
+	private ObjetoGrafico objetoADestruir;
 	public Colisionador (){
 		
 	}
@@ -28,7 +28,12 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
+			if(!obj.getClass().getName().equals("estructura.EstructuraAgua")){
+				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
+			}
+			if(ret){
+				objetoADestruir = obj;		
+			}
 		}
 		return ret;
 	}
@@ -68,6 +73,10 @@ public class Colisionador {
 		
 	}
 	
+	public ObjetoGrafico getObjetoADestruir() {
+		return objetoADestruir;
+	}
+
 	/**FIN DE BULLET*/
 	
 	//PARA TANQUE
