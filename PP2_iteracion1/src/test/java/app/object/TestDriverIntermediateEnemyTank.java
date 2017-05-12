@@ -6,8 +6,7 @@ import org.junit.Test;
 
 import app.enums.Orientation;
 
-public class TestEnemyTankController {
-	
+public class TestDriverIntermediateEnemyTank {
 	/**moverse*/
 	@Test
 	public void testMoversePorIzquierda() {
@@ -115,6 +114,20 @@ public class TestEnemyTankController {
 	}
 	/**girar cuando choca con el limite del mapa -fin- **/
 	
-	
-	
+	@Test
+	public void testGirarRandom(){
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(28, 400);
+		Size size = new Size(40, 40);
+		Tank enemyTank = new Tank(orientation, coordinate, size);
+		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
+		
+		while(enemyTankC.getTank().getOrientation().equals(Orientation.LEFT)){
+			enemyTankC.girarRandom();
+			//System.out.println("nueva orientacion previa: " + enemyTank.getOrientation());
+		}
+		//System.out.println("nueva orientacion: " + enemyTank.getOrientation());
+		assertNotEquals(Orientation.LEFT, enemyTankC.getTank().getOrientation());
+		
+	}
 }
