@@ -1,11 +1,11 @@
 package app.object;
 
 import entorno.Entorno;
-import state_tank.StateMoveTank;
-import state_tank.StateMoveTankDown;
-import state_tank.StateMoveTankLeft;
-import state_tank.StateMoveTankRight;
-import state_tank.StateMoveTankUp;
+import app.state_tank.StateMoveTank;
+import app.state_tank.StateMoveTankDown;
+import app.state_tank.StateMoveTankLeft;
+import app.state_tank.StateMoveTankRight;
+import app.state_tank.StateMoveTankUp;
 
 public class KeyEventListenerCop {
 	private Entorno entorno;

@@ -1,9 +1,10 @@
-package modelo;
+package app.modelo;
 
 import java.util.List;
-import object.Bullet;
-import object.Tank;
-import util.Util;
+import app.object.Bullet;
+import app.object.Tank;
+import app.util.Util;
+import app.modelo.ObjetoGrafico;
 
 public class Colisionador {
 	private Tank tankADestruir;
@@ -28,11 +29,11 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(!obj.getClass().getName().equals("estructura.EstructuraAgua")){
+			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua")){
 				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
 			}
 			if(ret){
-				objetoADestruir = obj;		
+				objetoADestruir = obj;
 			}
 		}
 		return ret;
@@ -78,6 +79,29 @@ public class Colisionador {
 	}
 
 	/**FIN DE BULLET*/
+	
+	public boolean colisiona(List<ObjetoGrafico> lista){
+		boolean ret = false;
+		for(ObjetoGrafico obj : lista){
+			if(obj!=null){
+				lista.remove(obj);
+				for(ObjetoGrafico obj2 : lista){
+					if(obj2!=null){
+						if(!obj.getClass().getName().equals("estructura.EstructuraAgua")){
+							ret = ret || bulletChocaConEstructura(obj, obj2); // dependiendo el estado va atener una colision !=
+						}
+						if(ret){
+							objetoADestruir = obj;
+						}
+					}}
+				}
+		}
+		return ret;
+	}
+	
+	
+	
+	
 	
 	//PARA TANQUE
 	public boolean chocaConEstructuraTank(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {  
@@ -158,12 +182,12 @@ public class Colisionador {
 //	            i = 0;
 //	            k = 0;
 //	            do {
-//	                // Validar que no se toque con ningÃƒÆ’Ã‚Âºn otro
+//	                // Validar que no se toque con ningÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºn otro
 //	                if (!this.posicionado
 //	                        && this.seTocan(plataformas[i], this.separacion)) {
 //	                    k++;
 //	                    if (k == 2)
-//	                        // Se toca consigo y uno mÃƒÆ’Ã‚Â¡s
+//	                        // Se toca consigo y uno mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s
 //	                        setocan = true;
 //	                }
 //	                i++;

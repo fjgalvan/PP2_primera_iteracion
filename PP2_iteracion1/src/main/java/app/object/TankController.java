@@ -1,16 +1,16 @@
-package object;
+package app.object;
 
 import java.awt.Color;
 import java.util.List;
 import java.util.Random;
 import entorno.Entorno;
 import entorno.Herramientas;
-import enums.Orientation;
-import enums.TankShot;
-import modelo.Colisionador;
-import modelo.ObjetoGrafico;
-import state_tank.StateMoveTankUp;
-import util.Util;
+import app.enums.Orientation;
+import app.enums.TankShot;
+import app.modelo.Colisionador;
+import app.modelo.ObjetoGrafico;
+import app.state_tank.StateMoveTankUp;
+import app.util.Util;
 import sonido.Sonido;
 
 @SuppressWarnings("unused")
