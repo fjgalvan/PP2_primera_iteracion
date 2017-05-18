@@ -70,49 +70,78 @@ public class TestDriverEasyEnemyTank {
 	/**girar cuando choca con el limite del mapa -inicio- **/
 	@Test
 	public void testControlChoqueArribaMap(){
+		System.out.println("_testControlChoqueArribaMap:");
 		Orientation orientation = Orientation.UP;
-		Coordinate coordinate = new Coordinate(400, 26);
+		Coordinate coordinate = new Coordinate(400, 50);//(400, 26);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
 		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
-		enemyTankC.controChoqueArribaMap();;
-		assertNotEquals(26.0, enemyTankC.getTank().getCoordinate().getY());
+		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
+		while(enemyTank.getOrientation().equals(Orientation.UP)){
+			enemyTank.moverseArriba();
+			enemyTankC.controChoqueArribaMap();
+		}
+		enemyTankC.controChoqueArribaMap();
+		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
+		assertNotEquals(orientation, enemyTank.getOrientation());
+		//assertNotEquals(26.0, enemyTankC.getTank().getCoordinate().getY());
 		//System.out.println("Y ARRIBA: "+enemyTankC.getTank().getCoordinate().getY());
 	}
 	
 	@Test
 	public void testControlChoqueDerechaMap(){
+		System.out.println("\n_testControlChoqueDerechaMap:");
 		Orientation orientation = Orientation.RIGHT;
-		Coordinate coordinate = new Coordinate(943, 400);
+		Coordinate coordinate = new Coordinate(900,400);//(943, 400);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
 		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
-		enemyTankC.controlChoqueDerechaMap();;
-		assertNotEquals(943.0, enemyTankC.getTank().getCoordinate().getX());
+		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
+		while(enemyTank.getOrientation().equals(Orientation.RIGHT)){
+			enemyTank.moverseDerecha();
+			enemyTankC.controlChoqueDerechaMap();
+		}
+		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
+		assertNotEquals(orientation, enemyTank.getOrientation());
+		//assertNotEquals(943.0, enemyTankC.getTank().getCoordinate().getX());
 		//System.out.println("X DERECHA: "+enemyTankC.getTank().getCoordinate().getX());
 	}
 	
 	@Test
 	public void testControlChoqueAbajoMap(){
+		System.out.println("\n_testControlChoqueAbajoMap:");
 		Orientation orientation = Orientation.DOWN;
-		Coordinate coordinate = new Coordinate(400, 544);
+		Coordinate coordinate = new Coordinate(400,500);//(400, 544);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
 		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
-		enemyTankC.controlChoqueAbajoMap();
-		assertNotEquals(544.0, enemyTankC.getTank().getCoordinate().getY());
+		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
+		while(enemyTank.getOrientation().equals(Orientation.DOWN)){
+			enemyTank.moverseAbajo();
+			enemyTankC.controlChoqueAbajoMap();
+		}
+		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
+		assertNotEquals(orientation, enemyTank.getOrientation());
+		//assertNotEquals(544.0, enemyTankC.getTank().getCoordinate().getY());
 		//System.out.println("Y ABAJO: "+enemyTankC.getTank().getCoordinate().getY());
 	}
 	
 	@Test
 	public void testControlChoqueIzquierdaMap(){
+		System.out.println("\n_testControlChoqueIzquierdaMap:");
 		Orientation orientation = Orientation.LEFT;
-		Coordinate coordinate = new Coordinate(28, 400);
+		Coordinate coordinate = new Coordinate(50,400);//(28, 400);
 		Size size = new Size(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
 		DriverEasyEnemyTank enemyTankC= new DriverEasyEnemyTank(enemyTank);
-		enemyTankC.controlChoqueIzquierdaMap();;
-		assertNotEquals(28.0, enemyTankC.getTank().getCoordinate().getX());
+		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
+		while(enemyTank.getOrientation().equals(Orientation.LEFT)){
+			enemyTank.moverseIzquierda();
+			enemyTankC.controlChoqueIzquierdaMap();
+		}
+		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
+		assertNotEquals(orientation, enemyTank.getOrientation());
+		//assertNotEquals(28.0, enemyTankC.getTank().getCoordinate().getX());
 		//System.out.println("X IZQUIERDA: "+enemyTankC.getTank().getCoordinate().getX());
 	}
 	/**girar cuando choca con el limite del mapa -fin- **/
