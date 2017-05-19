@@ -38,25 +38,25 @@ public class Game extends InterfaceJuego {
 		this.mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.estructuras = new ListStructures(mapa, 10); // cantidad de tipos de estructuras -- num * 3 
-		this.tank = new Tank(Orientation.UP,new Coordinate(800,400),new Size(40,40)); // ver como ubicar el tanqe
+		this.tank = new Tank(Orientation.UP,new Coordinate(800,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.colisionador = new Colisionador();
-		this.enemyTank = new Tank(Orientation.UP,new Coordinate(600,100),new Size(40,40));
+		this.enemyTank = new Tank(Orientation.UP,new Coordinate(600,100),new Size(40,40),new Energy(1));
 		this.enemyTankControl= new DriverEasyEnemyTank(enemyTank);
-		this.enemyTank2 = new Tank(Orientation.UP,new Coordinate(50,500),new Size(40,40));
+		this.enemyTank2 = new Tank(Orientation.UP,new Coordinate(50,500),new Size(40,40),new Energy(1));
 		this.enemyTankControl2= new DriverEasyEnemyTank(enemyTank2);
-		this.enemyTank3 = new Tank(Orientation.UP,new Coordinate(600,500),new Size(40,40));
+		this.enemyTank3 = new Tank(Orientation.UP,new Coordinate(600,500),new Size(40,40),new Energy(1));
 
 		this.enemyTankControl3= new DriverEasyEnemyTank(enemyTank3);
 		
-		this.enemyTank4 = new Tank(Orientation.UP,new Coordinate(300,300),new Size(40,40));
+		this.enemyTank4 = new Tank(Orientation.UP,new Coordinate(300,300),new Size(40,40),new Energy(2));
 		this.enemyTankControl4= new DriverIntermediateEnemyTank(enemyTank4);
 		
 		this.tControl = new TankController(tank,listener,colisionador);
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		//COP
-		this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40)); // ver como ubicar el tanqe
+		this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop,listenerCop,colisionador);
 	}
@@ -141,7 +141,7 @@ public class Game extends InterfaceJuego {
 		if(colisionador.colisionBulletConTank(tank.getBullet(), enemysTanks)){
 			tank.setTankBullet(TankShot.NO_EXISTS);
 			tank.setBullet(null);
-			destruirEnemyTank(enemysTanks);
+			debilitarEnemyTank(enemysTanks);
 		}
 	}
 	
@@ -149,7 +149,7 @@ public class Game extends InterfaceJuego {
 		if(colisionador.colisionBulletConTank(enemyTank.getBullet(), tanks)){
 			enemyTank.setTankBullet(TankShot.NO_EXISTS);
 			enemyTank.setBullet(null);
-			destruirTankPlayer(tanks);
+			debilitarTankPlayer(tanks);
 		}
 	}
 
@@ -159,6 +159,15 @@ public class Game extends InterfaceJuego {
 			this.tControl.destruirTank();
 		if(!tanksPlayers.contains(tankCop))
 			this.tControlCop.destruirTank();
+	}
+	private void debilitarTankPlayer(List<Tank> tankList) 
+	{
+		Tank t = colisionador.getTankADestruir();
+		t.decreaseHP();
+		if(t.getEnergyVal()==0)
+		{
+			destruirTankPlayer(tankList);
+		}
 	}
 	
 	private void destruirEnemyTank(List<Tank> enemysTanks) {
@@ -171,6 +180,16 @@ public class Game extends InterfaceJuego {
 			enemyTankControl3.destruirTank();
 		if(!enemysTanks.contains(enemyTank4))
 			enemyTankControl4.destruirTank();
+	}
+	
+	private void debilitarEnemyTank(List<Tank> tankList) 
+	{
+		Tank t = colisionador.getTankADestruir();
+		t.decreaseHP();
+		if(t.getEnergyVal()==0)
+		{
+			destruirEnemyTank(tankList);
+		}
 	}
 	
 	public void destruirEstrcuturas(){

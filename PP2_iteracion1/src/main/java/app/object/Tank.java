@@ -11,12 +11,14 @@ public class Tank extends ObjetoGrafico {
 	private Bullet bullet;
 	private StateMoveTank stateMove;
 	private double velocidadDeMovimiento = 2;
+	private Energy energy;
 	
-	public Tank(Orientation orientation, Coordinate coordinate,	Size size){
+	public Tank(Orientation orientation, Coordinate coordinate,	Size size, Energy energy){
 		this.orientation = orientation;
 		this.coordinate = coordinate;
 		this.size = size;
 		this.tankShot = TankShot.NO_EXISTS;
+		this.energy = energy;
 		//this.stateMove = new StateMoveTankUp(this); // el tanque como posicion inicial va empezar mirando hacia arriba
 	}
 	
@@ -136,5 +138,25 @@ public class Tank extends ObjetoGrafico {
 	public boolean existeDisparoEnEjecucion() 
 	{
 		return getTankBullet().equals(TankShot.EXISTS);	
+	}
+	
+	public Integer getEnergyVal()
+	{
+		return energy.getValor();
+	}
+	
+	public void increaseHP()
+	{
+		energy.subirEnergy();
+	}
+	
+	public void decreaseHP()
+	{
+		energy.bajarEnergy();
+	}
+	
+	public boolean sinEnergy()
+	{
+		return energy.getValor().equals(0);
 	}
 }

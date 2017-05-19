@@ -53,17 +53,42 @@ public class Draftsman {
 	}
 	public void dibujarTank(Tank t)
 	{
+		if(t.getEnergyVal()==1)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/TankA1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		else if(t.getEnergyVal()==2)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/TankA2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
 		//this.entorno.dibujarRectangulo(t.getCoordinate().getX()+(t.getSize().getAncho()/2),t.getCoordinate().getY()+t.getSize().getAlto()/2,t.getSize().getAncho(),t.getSize().getAlto(),t.getAngulo(), Color.green);
-		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Tank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
+		//this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Tank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 		//	this.entorno.dibujarRectangulo(x, y, ancho, alto, angulo, color);
 	}
 	/**/public void dibujarEnemyTank(Tank t){
-		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
+		
+		if(t.getEnergyVal()==1)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Enemy1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		else if(t.getEnergyVal()==2)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Enemy2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		//this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 	}
 	
 	
 	/**/public void dibujarEnemyTankIntermediate(Tank t){
-		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
+		if(t.getEnergyVal()==1)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/enemyB1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		else if(t.getEnergyVal()==2)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/enemyB2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		//this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/EnemyTank2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 	}
 	
 	public void dibujarFinDeJuego(){
