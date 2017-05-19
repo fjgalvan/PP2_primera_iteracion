@@ -96,6 +96,8 @@ public class DriverEasyEnemyTank {
 			enemyTank.disparar();
 		}
 	}
+	
+	/*
 	public void controlChoqueConEstructuras(){
 		
 	}
@@ -127,6 +129,8 @@ public class DriverEasyEnemyTank {
 		}
 		//tank.disparar();
 	}
+	*/
+	
 	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos){
 		if(this.enemyTank.getTankBullet().equals(TankShot.EXISTS)){
 			this.enemyTank.getBullet().avanzarBullet();

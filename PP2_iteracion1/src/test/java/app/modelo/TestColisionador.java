@@ -18,6 +18,7 @@ import app.object.Tank;
 
 public class TestColisionador {
 	
+	/* CORREGIR
 	@Test
 	public void colisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
@@ -31,7 +32,7 @@ public class TestColisionador {
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
 		assertTrue(colisionador.colisionBullet(bullet, objetos));
-	}
+	}*/
 	
 	/*@Test
 	public void noColisionBulletConEstructura() {
@@ -126,5 +127,81 @@ public class TestColisionador {
 		
 		assertTrue(ret);
 		
+	}
+	
+	@Test
+	public void hayCoilision(){
+		Colisionador colisionador = new Colisionador();
+		
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(120, 120);
+		Size size = new Size(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size);
+		Coordinate coordinate2 = new Coordinate(140, 160);
+		
+		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
+		ObjetoGrafico objGraf2= new Tank(orientation,coordinate2,size);
+		
+		assertTrue(colisionador.hayColision(objGraf1,objGraf2));
+	}
+	@Test
+	public void hayCoilisionAbajo(){
+		Colisionador colisionador = new Colisionador();
+		
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(120, 120);
+		Size size = new Size(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size);
+		Coordinate coordinate2 = new Coordinate(140, 160);
+		
+		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
+		ObjetoGrafico objGraf2= new Tank(orientation,coordinate2,size);
+		
+		assertTrue(colisionador.hayColisionAbajo(objGraf1,objGraf2));
+	}
+	@Test
+	public void hayCoilisionArriba(){
+		Colisionador colisionador = new Colisionador();
+		
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(120, 120);
+		Size size = new Size(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size);
+		Coordinate coordinate2 = new Coordinate(140, 160);
+		
+		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
+		ObjetoGrafico objGraf2= new Tank(orientation,coordinate2,size);
+		
+		assertFalse(colisionador.hayColisionArriba(objGraf1,objGraf2));
+	}
+	@Test
+	public void hayCoilisionDerecha(){
+		Colisionador colisionador = new Colisionador();
+		
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(120, 120);
+		Size size = new Size(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size);
+		Coordinate coordinate2 = new Coordinate(140, 160);
+		
+		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
+		ObjetoGrafico objGraf2= new Tank(orientation,coordinate2,size);
+		
+		assertFalse(colisionador.hayColisionDerecha(objGraf1,objGraf2));
+	}
+	@Test
+	public void hayCoilisionIzquierda(){
+		Colisionador colisionador = new Colisionador();
+		
+		Orientation orientation = Orientation.LEFT;
+		Coordinate coordinate = new Coordinate(120, 120);
+		Size size = new Size(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size);
+		Coordinate coordinate2 = new Coordinate(140, 160);
+		
+		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
+		ObjetoGrafico objGraf2= new Tank(orientation,coordinate2,size);
+		
+		assertFalse(colisionador.hayColisionIzquierda(objGraf1,objGraf2));
 	}
 }
