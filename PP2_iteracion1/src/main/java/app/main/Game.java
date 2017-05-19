@@ -75,7 +75,7 @@ public class Game extends InterfaceJuego {
     public void tick() 
     {   	
     	this.dibujador.dibujarMarco(mapa); 
-    	if(!(tControl.getTank() == null) || !(tControlCop.getTank() == null))
+    	if(!(tControl.getTank() == null) || !(tControlCop.getTank() == null))//ACA TIRA ERROR DE CONSOLA
     	{
     	for (ObjetoGrafico e:estructuras.getLista()) 
     	{
