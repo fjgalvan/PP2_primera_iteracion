@@ -99,6 +99,15 @@ public class Game extends InterfaceJuego {
         	}
         	destruccionTanksEnemys(tankCop,enemysTanks);
         	
+        	
+//        	for(Tank enemyTank : enemysTanks){
+//        		if(enemyTank!=null){
+//                	this.dibujador.dibujarEnemyTank(enemyTank);
+//                	this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+//                	this.enemyTankControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+//                	destruccionTank(enemyTank,tanks);
+//        		}
+//        	}
     	if(!(enemyTankControl.getTank() == null))
     	{
         	this.dibujador.dibujarEnemyTank(enemyTank);
