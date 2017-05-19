@@ -13,13 +13,20 @@ public class Tank extends ObjetoGrafico {
 	private double velocidadDeMovimiento = 2;
 	private Energy energy;
 	
-	public Tank(Orientation orientation, Coordinate coordinate,	Size size, Energy energy){
+	
+	
+	public Tank(Orientation orientation, Coordinate coordinate,	Size size){
 		this.orientation = orientation;
 		this.coordinate = coordinate;
 		this.size = size;
 		this.tankShot = TankShot.NO_EXISTS;
-		this.energy = energy;
+		//this.energy = energy;
 		//this.stateMove = new StateMoveTankUp(this); // el tanque como posicion inicial va empezar mirando hacia arriba
+	}
+	
+	public Tank(Orientation orientation, Coordinate coordinate,	Size size,Energy energy){
+		this(orientation, coordinate, size);
+		this.energy = energy;
 	}
 	
 	//dependiendo del estado en que se encuentre se gira
