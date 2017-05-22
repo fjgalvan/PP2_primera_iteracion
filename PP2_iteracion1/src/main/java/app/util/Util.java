@@ -1,9 +1,5 @@
 package app.util;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-
 import app.enums.Orientation;
 import app.object.Coordinate;
 

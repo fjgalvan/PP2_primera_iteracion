@@ -14,8 +14,4 @@ public class Puntaje {
 	public void setPuntaje(double puntaje) {
 		this.puntaje = puntaje;
 	}
-	
-	public void agregarPuntaje(double puntaje) {
-		this.puntaje = this.puntaje + puntaje;
-	}
 }

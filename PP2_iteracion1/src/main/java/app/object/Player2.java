@@ -12,6 +12,6 @@ public class Player2 {
 	}
 
 	public void setPuntaje(Puntaje puntaje) {
-		this.puntaje = puntaje;
+		this.puntaje.setPuntaje(this.puntaje.getPuntaje() + puntaje.getPuntaje());
 	}
 }

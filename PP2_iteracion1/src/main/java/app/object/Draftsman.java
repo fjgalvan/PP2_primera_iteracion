@@ -94,17 +94,20 @@ public class Draftsman {
 	public void dibujarFinDeJuego(){
 			String mensaje;
 		    mensaje = "GAME OVER";
-		    this.entorno.cambiarFont("Arial", 46, Color.red);
-		    this.entorno.escribirTexto(mensaje, this.entorno.ancho() / 2-150,
-		    this.entorno.alto() / 2-75);
+		    this.entorno.cambiarFont("Arial", 70, Color.red);
+		    this.entorno.escribirTexto(mensaje, this.entorno.ancho() / 2-250,
+		    							this.entorno.alto() / 2-75);
+		    this.entorno.cambiarFont("Arial", 24, Color.green);
+		    this.entorno.escribirTexto("Puntajes:", 200,
+		    		370);
 	}
 	
-	public void dibujarPuntaje(Puntaje puntaje){
+	public void dibujarPuntaje(String nombre, Puntaje puntaje,int posicionX,int posicionY){
 		String mensaje;
-	    mensaje = "GAME OVER";
-	    this.entorno.cambiarFont("Arial", 46, Color.red);
-	    this.entorno.escribirTexto(mensaje, this.entorno.ancho() / 2-150,
-	    this.entorno.alto() / 2-75);
+	    mensaje = nombre + puntaje.getPuntaje();
+	    this.entorno.cambiarFont("Arial", 24, Color.green);
+	    this.entorno.escribirTexto(mensaje, posicionX,
+	    		posicionY);
 	}
 	
 	public Entorno getEntorno(){

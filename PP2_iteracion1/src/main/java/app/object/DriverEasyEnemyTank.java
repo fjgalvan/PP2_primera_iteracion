@@ -2,8 +2,6 @@ package app.object;
 
 //import java.awt.Color;  
 import java.util.List;
-import java.util.Random;
-
 import entorno.Entorno;
 import entorno.Herramientas;
 import app.enums.Orientation;
