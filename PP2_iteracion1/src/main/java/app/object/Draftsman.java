@@ -99,6 +99,14 @@ public class Draftsman {
 		    this.entorno.alto() / 2-75);
 	}
 	
+	public void dibujarPuntaje(Puntaje puntaje){
+		String mensaje;
+	    mensaje = "GAME OVER";
+	    this.entorno.cambiarFont("Arial", 46, Color.red);
+	    this.entorno.escribirTexto(mensaje, this.entorno.ancho() / 2-150,
+	    this.entorno.alto() / 2-75);
+	}
+	
 	public Entorno getEntorno(){
 		return this.entorno;
 	}

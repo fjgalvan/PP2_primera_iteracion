@@ -60,48 +60,48 @@ public class Game extends InterfaceJuego {
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		//COP
-		this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
-		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
-		this.tControlCop = new TankController(tankCop,listenerCop,colisionador);
+		if(modoJuegoCop){
+			this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
+			this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
+			this.tControlCop = new TankController(tankCop,listenerCop,colisionador);
+			this.tanks.add(tankCop);
+		}
+		
 	}
 	
 	public void iniciar()
 	{
 		this.tanks.add(tank);
-		this.tanks.add(tankCop);
     	this.enemysTanks.add(enemyTank);
     	this.enemysTanks.add(enemyTank2);
     	this.enemysTanks.add(enemyTank3);
-    	
     	this.enemysTanks.add(enemyTank4);
 	}
 	
     public void tick() 
     {   	
     	this.dibujador.dibujarMarco(mapa); 
-    	if(!(tControl.getTank() == null) || !(tControlCop.getTank() == null))//ACA TIRA ERROR DE CONSOLA
+    	if(this.tanks.contains(tank) || this.tanks.contains(tankCop))
     	{
-    	for (ObjetoGrafico e:estructuras.getLista()) 
-    	{
-			this.dibujador.dibujarEstructura(e);
-		}
-    	
-    	if(!(tControl.getTank() == null)){
-    	this.listener.inicializar(tank); 
-    	
-        	this.dibujador.dibujarTank(tank);
-    		this.tControl.ControlTank(estructuras.getLista());
-    		this.tControl.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
-        	destruccionTanksEnemys(tank,enemysTanks);
-    	}
+    		for (ObjetoGrafico e:estructuras.getLista()) 
+    		{
+    			this.dibujador.dibujarEstructura(e);
+    		}
+    		if(this.tanks.contains(tank)){
+    			this.listener.inicializar(tank); 
+    			this.dibujador.dibujarTank(tank);
+    			this.tControl.ControlTank(estructuras.getLista());
+    			this.tControl.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
+    			destruccionTanksEnemys(tank,enemysTanks);
+    		}
         	//COOP
-        	if(!(tControlCop.getTank() == null)){
+        	if(this.tanks.contains(tankCop)){
         		this.listenerCop.inicializar(tankCop); 
         		this.dibujador.dibujarTank(tankCop);
         		this.tControlCop.ControlTankCop(estructuras.getLista());
         		this.tControlCop.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
+            	destruccionTanksEnemys(tankCop,enemysTanks);
         	}
-        	destruccionTanksEnemys(tankCop,enemysTanks);
         	
         	
 //        	for(Tank enemyTank : enemysTanks){
@@ -112,38 +112,34 @@ public class Game extends InterfaceJuego {
 //                	destruccionTank(enemyTank,tanks);
 //        		}
 //        	}
-    	if(!(enemyTankControl.getTank() == null))
-    	{
-        	this.dibujador.dibujarEnemyTank(enemyTank);
-        	this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-        	this.enemyTankControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
-        	destruccionTank(enemyTank,tanks);
-        	//destruccionTank1();
-    	}
-    	
-    	if(!(enemyTankControl2.getTank() == null))
-    	{
-        	this.dibujador.dibujarEnemyTank(enemyTank2);
-        	this.enemyTankControl2.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-        	this.enemyTankControl2.control_bullet(dibujador.getEntorno(),estructuras.getLista());
-        	destruccionTank(enemyTank2,tanks);
-    	}
-    	if(!(enemyTankControl3.getTank() == null))
-    	{
-        	this.dibujador.dibujarEnemyTank(enemyTank3);
-        	this.enemyTankControl3.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-        	this.enemyTankControl3.control_bullet(dibujador.getEntorno(),estructuras.getLista());
-        	destruccionTank(enemyTank3,tanks);
-    	}
-    	
-    	
-    	if(!(enemyTankControl4.getTank() == null))
-    	{
-        	this.dibujador.dibujarEnemyTankIntermediate(enemyTank4);
-        	this.enemyTankControl4.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
-        	this.enemyTankControl4.control_bullet(dibujador.getEntorno(),estructuras.getLista());
-        	destruccionTank(enemyTank4,tanks);
-    	}
+        	if(!(enemyTankControl.getTank() == null))
+        	{
+        		this.dibujador.dibujarEnemyTank(enemyTank);
+        		this.enemyTankControl.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+        		this.enemyTankControl.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        		destruccionTank(enemyTank,tanks);
+        	}
+        	if(!(enemyTankControl2.getTank() == null))
+        	{
+        		this.dibujador.dibujarEnemyTank(enemyTank2);
+        		this.enemyTankControl2.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+        		this.enemyTankControl2.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        		destruccionTank(enemyTank2,tanks);
+        	}
+        	if(!(enemyTankControl3.getTank() == null))
+        	{
+        		this.dibujador.dibujarEnemyTank(enemyTank3);
+        		this.enemyTankControl3.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+        		this.enemyTankControl3.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        		destruccionTank(enemyTank3,tanks);
+        	}
+        	if(!(enemyTankControl4.getTank() == null))
+        	{
+        		this.dibujador.dibujarEnemyTankIntermediate(enemyTank4);
+        		this.enemyTankControl4.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+        		this.enemyTankControl4.control_bullet(dibujador.getEntorno(),estructuras.getLista());
+        		destruccionTank(enemyTank4,tanks);
+        	}
     	}
     	else{
     		this.dibujador.dibujarFinDeJuego();
