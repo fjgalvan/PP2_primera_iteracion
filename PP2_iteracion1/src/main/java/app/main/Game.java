@@ -11,6 +11,7 @@ import app.object.*;
 
 public class Game extends InterfaceJuego {
    
+	private Player1 player1;
     private Tank tank;
     private Draftsman dibujador;
     private GraphicMap mapa;
@@ -30,6 +31,9 @@ public class Game extends InterfaceJuego {
     
 	private List<Tank> tanks;
 	private List<Tank> enemysTanks;
+	
+	private boolean modoJuegoCop = false;
+	private Player2 player2;
     private Tank tankCop;
 	private TankController tControlCop;
 	private KeyEventListenerCop listenerCop;
