@@ -65,6 +65,19 @@ public class Draftsman {
 		//this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Tank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 		//	this.entorno.dibujarRectangulo(x, y, ancho, alto, angulo, color);
 	}
+	
+	public void dibujarTankCop(Tank t)
+	{
+		if(t.getEnergyVal()==1)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/TankB2.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+		else if(t.getEnergyVal()==2)
+		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/TankB1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		}
+	}
+	
 	/**/public void dibujarEnemyTank(Tank t){
 		
 		if(t.getEnergyVal()==1)
@@ -104,7 +117,7 @@ public class Draftsman {
 	
 	public void dibujarPuntaje(String nombre, Puntaje puntaje,int posicionX,int posicionY){
 		String mensaje;
-	    mensaje = nombre + puntaje.getPuntaje();
+	    mensaje = nombre + puntaje.getPuntaje() + "  Enemigos Destruidos: " + puntaje.getCantidadDeEnemigosAsesinados();
 	    this.entorno.cambiarFont("Arial", 24, Color.green);
 	    this.entorno.escribirTexto(mensaje, posicionX,
 	    		posicionY);

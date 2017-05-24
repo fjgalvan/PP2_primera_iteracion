@@ -13,5 +13,6 @@ public class Player2 {
 
 	public void setPuntaje(Puntaje puntaje) {
 		this.puntaje.setPuntaje(this.puntaje.getPuntaje() + puntaje.getPuntaje());
+		this.puntaje.setCantidadDeEnemigosAsesinados(this.puntaje.getCantidadDeEnemigosAsesinados() + puntaje.getCantidadDeEnemigosAsesinados());
 	}
 }
