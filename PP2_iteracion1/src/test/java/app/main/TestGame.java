@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import entorno.Entorno;
+import entorno.InterfaceJuego;
 import app.enums.Orientation;
 import app.modelo.Colisionador;
 import app.object.Coordinate;
@@ -15,7 +17,10 @@ import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
 import app.object.KeyEventListener;
+import app.object.KeyEventListenerCop;
 import app.object.Map;
+import app.object.Player1;
+import app.object.Puntaje;
 import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
@@ -33,6 +38,12 @@ public class TestGame {
 		
 		List<Tank> tanks = new ArrayList<Tank>();
 		List<Tank> enemysTanks = new ArrayList<Tank>();
+		
+		tanks.add(tank);
+		enemysTanks.add(enemyTank);
+		enemysTanks.add(enemyTank2);
+		enemysTanks.add(enemyTank3);
+		enemysTanks.add(enemyTank4);
 		
 		try{ 
 			juego.iniciar();
@@ -61,15 +72,19 @@ public class TestGame {
 		}
 		assertNotEquals(null, mapa);*/
 	}
-	
-	
-	//@Test
-	/*public void testDestruccionTank1() {
+
+	@Test
+	public void testDestruccionTank1() {
+		InterfaceJuego i= null;
+		GraphicMap mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
+		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
+		KeyEventListenerCop listenerCop= new KeyEventListenerCop(dibujador.getEntorno());
+		Colisionador colisionador = new Colisionador();
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(400, 400);
 		Size size = new Size(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
-		TankController tankC = new TankController(tank,null); // ver como meter el entorno con la otra clase
+		TankController tankC = new TankController(tank,listenerCop,null); // ver como meter el entorno con la otra clase
 		
 		Orientation orientation2 = Orientation.RIGHT; 
 		Coordinate coordinate2 = new Coordinate(300, 400);
@@ -79,7 +94,22 @@ public class TestGame {
 		
 		tankC.destruirTank();
 		assertEquals(null,tankC.getTank());
-	}*/
+	}
+	
+	
+	
+	@Test
+	public void testSumarPuntaje() {
+		Player1 player1 = new Player1(new Puntaje(0,0));
+		Game juego= new Game();
+		juego.sumarPuntaje(player1.toString());
+		
+		assertNotEquals(null,player1.toString());
+		player1.setPuntaje(new Puntaje(500,0));
+		
+		String player2= "1";
+		assertEquals("1",player2);
+	}
 	
 	
 }

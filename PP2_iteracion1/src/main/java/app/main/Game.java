@@ -166,7 +166,7 @@ public class Game extends InterfaceJuego {
 		tanks.add(tank);
 	}
 	
-	private void sumarPuntaje(String player) {
+	/*private*/public void sumarPuntaje(String player) {
 		if(player.equals("1"))
 			player1.setPuntaje(new Puntaje(500,0));
 		else
