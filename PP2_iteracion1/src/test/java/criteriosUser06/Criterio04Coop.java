@@ -47,11 +47,11 @@ public class Criterio04Coop extends InterfaceJuego {
 		this.mapa = new GraphicMap(new Map(new Size(250, 600)), new Size(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
-		this.player1 = new Player1(new Puntaje(0,0));
+		this.player1 = new Player1(new Puntaje(0,0),dibujador);
 		this.tank = new Tank(Orientation.DOWN, new Coordinate(100, 50), new Size(40, 40), new Energy(2));
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
-		this.player2 = new Player2(new Puntaje(0,0));
+		this.player2 = new Player2(new Puntaje(0,0),dibujador);
 		this.tankCop = new Tank(Orientation.UP, new Coordinate(100, 300), new Size(40, 40), new Energy(2));
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);

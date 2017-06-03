@@ -59,7 +59,6 @@ public class Criterio02Coop extends InterfaceJuego{
 		this.mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
-		this.player1 = new Player1(new Puntaje(0,0));
 		this.tank = new Tank(Orientation.DOWN, new Coordinate(100, 50), new Size(40, 40), new Energy(2));
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.estructuras = new ListStructures(mapa, 0); 
@@ -73,14 +72,14 @@ public class Criterio02Coop extends InterfaceJuego{
 		this.enemyTank4 = new Tank(Orientation.UP,new Coordinate(300,300),new Size(40,40),new Energy(2));
 		this.enemyTankControl4= new DriverIntermediateEnemyTank(enemyTank4);
 
-		this.player1 = new Player1(new Puntaje(0,0));
+		this.player1 = new Player1(new Puntaje(0,0),dibujador);
 		this.tControl = new TankController(tank,listener,colisionador);
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		//COP
 		this.tanks.add(tank);
 		if(modoJuegoCop){
-			this.player2 = new Player2(new Puntaje(0,0));
+			this.player2 = new Player2(new Puntaje(0,0),dibujador);
 			this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
 			this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 			this.tControlCop = new TankController(tankCop,listenerCop,colisionador);

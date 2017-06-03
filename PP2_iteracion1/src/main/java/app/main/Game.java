@@ -18,7 +18,6 @@ public class Game extends InterfaceJuego {
 	private ListStructures estructuras;
 	private TankController tControl;
 	private Colisionador colisionador;
-	private KeyEventListener listener;
 	private Tank enemyTank;
     private DriverEasyEnemyTank enemyTankControl;
     private Tank enemyTank2;
@@ -36,14 +35,12 @@ public class Game extends InterfaceJuego {
 	private Player2 player2;
     private Tank tankCop;
 	private TankController tControlCop;
-	private KeyEventListenerCop listenerCop;
 	public Game() 
 	{
 		this.mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.estructuras = new ListStructures(mapa, 10); // cantidad de tipos de estructuras -- num * 3 
 		this.tank = new Tank(Orientation.UP,new Coordinate(800,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
-		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.colisionador = new Colisionador();
 		this.enemyTank = new Tank(Orientation.UP,new Coordinate(600,100),new Size(40,40),new Energy(1));
 		this.enemyTankControl= new DriverEasyEnemyTank(enemyTank);
@@ -56,16 +53,15 @@ public class Game extends InterfaceJuego {
 		this.enemyTank4 = new Tank(Orientation.UP,new Coordinate(300,300),new Size(40,40),new Energy(2));
 		this.enemyTankControl4= new DriverIntermediateEnemyTank(enemyTank4);
 
-		this.player1 = new Player1(new Puntaje(0,0));
-		this.tControl = new TankController(tank,listener,colisionador);
+		this.player1 = new Player1(new Puntaje(0,0),dibujador);
+		this.tControl = new TankController(tank,player1.getListener(),colisionador);
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		//COP
 		if(modoJuegoCop){
-			this.player2 = new Player2(new Puntaje(0,0));
+			this.player2 = new Player2(new Puntaje(0,0),dibujador);
 			this.tankCop = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
-			this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
-			this.tControlCop = new TankController(tankCop,listenerCop,colisionador);
+			this.tControlCop = new TankController(tankCop,player2.getListenerCop(),colisionador);
 			this.tanks.add(tankCop);
 		}
 		
@@ -90,7 +86,7 @@ public class Game extends InterfaceJuego {
     			this.dibujador.dibujarEstructura(e);
     		}
     		if(this.tanks.contains(tank)){
-    			this.listener.inicializar(tank); 
+    			player1.getListener().inicializar(tank); 
     			this.dibujador.dibujarTank(tank);
     			this.tControl.ControlTank(estructuras.getLista());
     			this.tControl.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
@@ -98,7 +94,7 @@ public class Game extends InterfaceJuego {
     		}
         	//COOP
         	if(this.tanks.contains(tankCop)){
-        		this.listenerCop.inicializar(tankCop); 
+        		player2.getListenerCop().inicializar(tankCop); 
         		this.dibujador.dibujarTankCop(tankCop);
         		this.tControlCop.ControlTankCop(estructuras.getLista());
         		this.tControlCop.control_bullet(dibujador.getEntorno(),estructuras.getLista(),this.enemysTanks);
