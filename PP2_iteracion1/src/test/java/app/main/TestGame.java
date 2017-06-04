@@ -100,7 +100,10 @@ public class TestGame {
 	
 	@Test
 	public void testSumarPuntaje() {
-		Player1 player1 = new Player1(new Puntaje(0,0));
+		InterfaceJuego i= null;
+		GraphicMap mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
+		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
+		Player1 player1 = new Player1(new Puntaje(0,0),dibujador);
 		Game juego= new Game();
 		juego.sumarPuntaje(player1.toString());
 		
