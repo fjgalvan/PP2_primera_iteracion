@@ -99,35 +99,10 @@ public class DriverEasyEnemyTank {
 	public void controlChoqueConEstructuras(){
 		
 	}
+*/	
 	
 	
-	
-	private void ControlCpu(Orientation direction)
-	{
-		if(direction.equals(Orientation.UP))
-			ControlUp();
-		if(direction.equals(Orientation.DOWN))
-			ControlDown();
-		if(direction.equals(Orientation.RIGHT))
-			ControlRigth();
-		if(direction.equals(Orientation.LEFT))
-			ControlLeft();
-	}
-	private Orientation genDirection()
-	{		
-		    int pick = new Random().nextInt(Orientation.values().length);
-		    return Orientation.values()[pick];
-	}
-	public void ai()
-	{
-		Orientation dir = this.genDirection();
-		for(int i=0;i<1;i++)
-		{
-			this.ControlCpu(dir);
-		}
-		//tank.disparar();
-	}
-	*/
+
 	
 	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos){
 		if(this.enemyTank.getTankBullet().equals(TankShot.EXISTS)){

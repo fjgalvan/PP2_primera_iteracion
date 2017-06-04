@@ -18,19 +18,19 @@ public class KeyEventListenerCop {
 	
 	public void inicializar(Tank tanque)
 	{
-		if(this.entorno.estaPresionada(entorno.TECLA_s))
+		if(this.entorno.estaPresionada(entorno.TECLA_S))
 		{
 			this.estado = new StateMoveTankDown(tanque);
 		}
-		else if (this.entorno.estaPresionada(entorno.TECLA_w))
+		else if (this.entorno.estaPresionada(entorno.TECLA_W))
 		{
 			this.estado = new StateMoveTankUp(tanque);
 		}
-		else if (this.entorno.estaPresionada(entorno.TECLA_d))
+		else if (this.entorno.estaPresionada(entorno.TECLA_D))
 		{
 			this.estado = new StateMoveTankRight(tanque);
 		}
-		else if (this.entorno.estaPresionada(entorno.TECLA_a))
+		else if (this.entorno.estaPresionada(entorno.TECLA_A))
 		{
 			this.estado = new StateMoveTankLeft(tanque);
 		}
