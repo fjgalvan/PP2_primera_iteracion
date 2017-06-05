@@ -18,6 +18,18 @@ public class Draftsman {
 		this.entorno = new Entorno(i, title, (int)gm.getSize().getAncho(), (int)gm.getSize().getAlto());
 	}
 	
+	public void dibujarMapa(int tamañoDeTiles, int altoMapa, int anchoMapa, int lugarDelSprite, String imagen){
+		int contador = 0;
+		for(int y=0; y < altoMapa;y++){
+			for(int x=0; x < anchoMapa; x++){
+				contador = contador + 1 ;
+				if(contador != lugarDelSprite){
+					this.entorno.dibujarImagen(Herramientas.cargarImagen(imagen), x*tamañoDeTiles, y*tamañoDeTiles, 0);
+				}
+			}
+		}
+	}
+	
 	public void dibujarMarco(GraphicMap gm)
 	{
 		Color color = Color.GRAY;
