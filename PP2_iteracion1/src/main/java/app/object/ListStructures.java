@@ -15,10 +15,14 @@ public class ListStructures
 	{
 		this.setLenght(length);
 		this.estructuras = new ArrayList<ObjetoGrafico>();
-		this.inicializarLista(map);
+		//this.inicializarLista(map);
+	}
+	public ListStructures()
+	{
+		this.estructuras = new ArrayList<ObjetoGrafico>();
 	}
 	
-	private void inicializarLista(GraphicMap mapa) 
+	public void inicializarLista(GraphicMap mapa) 
 	{
 		if(listaLenghtValidate)
 		{
@@ -40,7 +44,34 @@ public class ListStructures
 			lista.remove(pos);
 		}
 	}
-
+	
+	public void inicializarListaConTiled(String tipoEstructura, int totalDePaneles, ArrayList<Coordinate> coordenadas){
+		for(int i=0;i<totalDePaneles;i++){
+			if(tipoEstructura.equals("Fondo"))
+				this.estructuras.add((ObjetoGrafico)new EstructuraFondo());
+			if(tipoEstructura.equals("Panel"))
+				this.estructuras.add((ObjetoGrafico)new EstructuraPanel());
+			if(tipoEstructura.equals("Acero")){
+				this.estructuras.add((ObjetoGrafico)new EstructuraAcero());
+				
+			}
+			if(tipoEstructura.equals("Agua"))
+				this.estructuras.add((ObjetoGrafico)new EstructuraAgua());
+			if(tipoEstructura.equals("Ladrillo"))
+				this.estructuras.add((ObjetoGrafico)new EstructuraLadrillo());
+		}
+		for(int est=0; est < this.estructuras.size(); est++){
+			for(int j=0; j < coordenadas.size(); j++){
+				if(this.estructuras.get(est).getClass().getName().equals("app.estructura.Estructura"+tipoEstructura)){
+					this.estructuras.get(est).setCoordinate(coordenadas.get(j));
+					this.estructuras.get(est).setSize(new Size(40,40));
+					coordenadas.remove(coordenadas.get(j));
+					break;
+				}
+			}
+		}
+	}
+	
 	public int getLenght() 
 	{
 		return lenght;

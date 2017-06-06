@@ -1,50 +1,46 @@
 package app.mapa;
 
 import java.util.ArrayList;
-
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import app.object.Coordinate;
+import app.object.ListStructures;
 import app.object.Size;
 import app.util.CargadorRecursos;
 
 public class MapaTiled {
+	private String contenido;
+	private JSONObject globalJSON;
 	private int anchoMapaEnTiles;
 	private int altoMapaEnTiles;
-//	private Coordinate coordinatePlayer1;
-//	private Coordinate coordinatePlayer2;
-	
+	private JSONArray capas;
 	private ArrayList<CapaSprites> capasDeSprites;
-	private ArrayList<CapaColisiones> capasDeColisiones;
 	
 	public MapaTiled(final String ruta){
-		//ANCHO Y ALTO
-		String contenido = CargadorRecursos.leerArchivoTexto(ruta);
-		JSONObject globalJSON = obtenerObjetoJSON(contenido);
+		contenido = CargadorRecursos.leerArchivoTexto(ruta);
+		inicializar();
+	}
+	
+	public void inicializar(){
+		globalJSON = obtenerObjetoJSON(contenido);
 		anchoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"width");
 		altoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"height");
 
-//		//players
-//		JSONObject player1 = obtenerObjetoJSON(globalJSON.get("player1").toString());
-//		coordinatePlayer1 = new Coordinate(obtenerIntDesdeJSON(player1, "x"), obtenerIntDesdeJSON(player1, "y"));
-//		JSONObject player2 = obtenerObjetoJSON(globalJSON.get("player2").toString());
-//		coordinatePlayer2 = new Coordinate(obtenerIntDesdeJSON(player2, "x"), obtenerIntDesdeJSON(player2, "y"));
-//		
 		//CAPAS
-		JSONArray capas = obtenerArrayJSON(globalJSON.get("layers").toString());
+		capas = obtenerArrayJSON(globalJSON.get("layers").toString());
 		this.capasDeSprites = new ArrayList<CapaSprites>();
-		this.capasDeColisiones = new ArrayList<CapaColisiones>();
 		
 		//INICIAR CAPAS
 		//RECORRE TODAS LAS CAPAS
 		for(int i=0; i < capas.size(); i++){
 			JSONObject datosCapa = obtenerObjetoJSON(capas.get(i).toString());
-			
+
 			int anchoCapa = obtenerIntDesdeJSON(datosCapa, "width");
 			int altoCapa = obtenerIntDesdeJSON(datosCapa, "height");
 			int xCapa = obtenerIntDesdeJSON(datosCapa, "y");
 			int yCapa = obtenerIntDesdeJSON(datosCapa, "x");
+			String nombreCapa = obtenerStringDesdeJSON(datosCapa, "name");
 			
 			String tipo = datosCapa.get("type").toString();
 			
@@ -57,14 +53,11 @@ public class MapaTiled {
 						int codigoSprite = Integer.parseInt(sprites.get(j).toString());
 						spritesCapa[j] = codigoSprite -1;
 					}
-					this.capasDeSprites.add(new CapaSprites(new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa));
-					break;
-				case "objectgroup":
+					this.capasDeSprites.add(new CapaSprites(nombreCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa));
 					break;
 			}
 		}
 	}
-	
 	
 	private JSONObject obtenerObjetoJSON(final String codigoJSON){
 		JSONParser lector = new JSONParser();
@@ -94,7 +87,45 @@ public class MapaTiled {
 		return arrayJSON;
 	}
 	
+	public Coordinate obtenerCoordenada(int tamañoDeTiles, int altoMapa, int anchoMapa, int lugarDelSprite){
+		int contador = 0;
+		for(int y=0; y < altoMapa;y++){
+			for(int x=0; x < anchoMapa; x++){
+				if(contador == lugarDelSprite){
+					return new Coordinate (x*tamañoDeTiles,y*tamañoDeTiles);
+				}
+				contador = contador + 1 ;
+			}
+		}
+		return null;
+	}
+	
+
+	public void crearEstructuras(ListStructures estructuras){
+		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
+			int totalTilesPorCapa = 0;
+			ArrayList<Coordinate> coordenadas = new ArrayList<>();
+			for (int j = 0; j < capasDeSprites.get(i).getSprites().length; j++) {//RECORRO LOS TILES DE CADA CAPA
+				if (capasDeSprites.get(i).getSprites()[j] != -1) {
+					totalTilesPorCapa = totalTilesPorCapa + 1; //GUARDO EL TOTAL DE TILES DE LA CAPA
+					coordenadas.add(obtenerCoordenada(40, altoMapaEnTiles, anchoMapaEnTiles, j)); //GUARDO TODAS LAS COORDENADAS
+				}
+			}
+			estructuras.inicializarListaConTiled(capasDeSprites.get(i).getNombre(), totalTilesPorCapa,
+					coordenadas);
+			coordenadas.removeAll(coordenadas);
+		}
+	}
+	
 	private int obtenerIntDesdeJSON(final JSONObject objetoJSON, final String clave){
 		return Integer.parseInt(objetoJSON.get(clave).toString());
+	}
+	
+	private String obtenerStringDesdeJSON(final JSONObject objetoJSON, final String clave){
+		return (objetoJSON.get(clave).toString());
+	}
+
+	public ArrayList<CapaSprites> getCapasDeSprites() {
+		return capasDeSprites;
 	}
 }

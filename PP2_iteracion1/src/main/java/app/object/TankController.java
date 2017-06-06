@@ -39,6 +39,7 @@ public class TankController {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
+			if(obj.getClass().getName()!="app.estructura.EstructuraFondo")
 			ret = ret || tank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
 		}
 		return ret;

@@ -6,6 +6,7 @@ import app.enums.TankShot;
 import app.main.Game;
 import app.object.DriverEasyEnemyTank;
 import app.object.DriverIntermediateEnemyTank;
+import app.object.ListStructures;
 import app.object.Tank;
 import app.object.TankController;
 
@@ -88,8 +89,13 @@ public class Destructor {
 	}
 	
 	//ESTRUCTURAS
-	public void destruirEstructuras(){
-		
+	public void destruirEstructuras(ListStructures estructuras){
+		if(colisionador.getObjetoADestruir()!=null){
+			if(colisionador.getObjetoADestruir().getClass().getName().equals("app.estructura.EstructuraLadrillo")){
+				estructuras.getLista().remove(colisionador.getObjetoADestruir());
+			}
+			colisionador.setObjetoADestruir(null);
+		}
 	}
 	
 	public Colisionador getColisionador() {

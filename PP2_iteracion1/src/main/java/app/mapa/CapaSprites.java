@@ -6,8 +6,8 @@ import app.object.Size;
 public class CapaSprites extends CapaTiled{
 	private int[] sprites;
 	
-	public CapaSprites(Size size, Coordinate coordinate, int []sprites){
-		super(size, coordinate);
+	public CapaSprites(String nombre, Size size, Coordinate coordinate, int []sprites){
+		super(nombre, size, coordinate);
 		this.sprites = sprites;
 	}
 

@@ -29,10 +29,10 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua")){
+			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua") && !obj.getClass().getName().equals("app.estructura.EstructuraFondo")){
 				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
 			}
-			if(ret){
+			if(ret && objetoADestruir==null){
 				objetoADestruir = obj;
 			}
 		}
@@ -74,6 +74,10 @@ public class Colisionador {
 		
 	}
 	
+	public void setObjetoADestruir(ObjetoGrafico objetoADestruir) {
+		this.objetoADestruir = objetoADestruir;
+	}
+
 	public ObjetoGrafico getObjetoADestruir() {
 		return objetoADestruir;
 	}
