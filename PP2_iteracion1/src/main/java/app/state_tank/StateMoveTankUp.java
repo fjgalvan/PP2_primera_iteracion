@@ -22,7 +22,7 @@ public class StateMoveTankUp extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getY() >= 20)
-			tank.moverseArriba();		
+			tank.moverse(Orientation.UP);		
 	}
 
 	public Orientation getOrientacion() 

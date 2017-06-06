@@ -77,7 +77,7 @@ public class TestDriverIntermediateEnemyTank {
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
 		while(enemyTank.getOrientation().equals(Orientation.UP)){
-			enemyTank.moverseArriba();
+			enemyTank.moverse(Orientation.UP);
 			enemyTankC.controChoqueArribaMap();
 		}
 		enemyTankC.controChoqueArribaMap();
@@ -97,7 +97,7 @@ public class TestDriverIntermediateEnemyTank {
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
 		while(enemyTank.getOrientation().equals(Orientation.RIGHT)){
-			enemyTank.moverseDerecha();
+			enemyTank.moverse(Orientation.RIGHT);
 			enemyTankC.controlChoqueDerechaMap();
 		}
 		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
@@ -116,7 +116,7 @@ public class TestDriverIntermediateEnemyTank {
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
 		while(enemyTank.getOrientation().equals(Orientation.DOWN)){
-			enemyTank.moverseAbajo();
+			enemyTank.moverse(Orientation.DOWN);
 			enemyTankC.controlChoqueAbajoMap();
 		}
 		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());
@@ -135,7 +135,7 @@ public class TestDriverIntermediateEnemyTank {
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: "+enemyTank.getOrientation());
 		while(enemyTank.getOrientation().equals(Orientation.LEFT)){
-			enemyTank.moverseIzquierda();
+			enemyTank.moverse(Orientation.LEFT);
 			enemyTankC.controlChoqueIzquierdaMap();
 		}
 		System.out.println("Orientacion Despues del limite: "+enemyTank.getOrientation());

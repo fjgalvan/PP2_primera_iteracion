@@ -29,22 +29,22 @@ public class DriverIntermediateEnemyTank {
 	public void ControlUp()
 	{
 		if(enemyTank.getCoordinate().getY() >= 25)
-			enemyTank.moverseArriba();
+			enemyTank.moverse(Orientation.UP);
 	}
 	public void ControlDown()
 	{
 		if(enemyTank.getCoordinate().getY() <= 547)
-			enemyTank.moverseAbajo();
+			enemyTank.moverse(Orientation.DOWN);
 	}
 	public void ControlRigth()
 	{
 		if(enemyTank.getCoordinate().getX() <= 946 )
-			enemyTank.moverseDerecha();
+			enemyTank.moverse(Orientation.RIGHT);
 	}
 	public void ControlLeft()
 	{
 		if(enemyTank.getCoordinate().getX() >= 25)
-			enemyTank.moverseIzquierda();
+			enemyTank.moverse(Orientation.LEFT);
 	}
 	
 	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos)
@@ -172,28 +172,28 @@ public class DriverIntermediateEnemyTank {
 			if(colicionEn(objetos)==1){//colicion arriba
 				//System.out.println("colicion arriba");
 				enemyTank.girar(Orientation.DOWN);
-				enemyTank.moverseAbajo();
+				enemyTank.moverse(Orientation.DOWN);
 				enemyTank.girar(Orientation.RIGHT);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==2){//colicion derecha
 				//System.out.println("colicion derecha");
 				enemyTank.girar(Orientation.LEFT);
-				enemyTank.moverseIzquierda();
+				enemyTank.moverse(Orientation.LEFT);
 				enemyTank.girar(Orientation.DOWN);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==3){//colicion abajo
 				//System.out.println("colicion abajo");
 				enemyTank.girar(Orientation.UP);
-				enemyTank.moverseArriba();
+				enemyTank.moverse(Orientation.UP);
 				enemyTank.girar(Orientation.LEFT);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==4){//colicion izquierda
 				//System.out.println("colicion izquierda");
 				enemyTank.girar(Orientation.RIGHT);
-				enemyTank.moverseDerecha();
+				enemyTank.moverse(Orientation.RIGHT);
 				enemyTank.girar(Orientation.UP);
 				girarRandom();
 			}
@@ -220,43 +220,43 @@ public class DriverIntermediateEnemyTank {
 	    int numeroAleatorio = 1+generadorAleatorios.nextInt(4);
 	   // System.out.println("numeroAleatorio: "+ numeroAleatorio);
 	    if((numeroAleatorio == 1) && (!enemyTank.getOrientation().equals(Orientation.UP) )){
-	    	enemyTank.moverseArriba();
+	    	enemyTank.moverse(Orientation.UP);
 	    	enemyTank.girar(Orientation.UP);
 	    	
 	    }
 	    if((numeroAleatorio == 1) && (enemyTank.getOrientation().equals(Orientation.UP) )){
-	    	enemyTank.moverseAbajo();
+	    	enemyTank.moverse(Orientation.DOWN);
 	    	enemyTank.girar(Orientation.DOWN);
 	    	
 	    }
 	    
 	    if((numeroAleatorio == 2) && (!enemyTank.getOrientation().equals(Orientation.RIGHT) )){
-	    	enemyTank.moverseDerecha();
+	    	enemyTank.moverse(Orientation.RIGHT);
 	    	enemyTank.girar(Orientation.RIGHT);
 	    	
 	    }
 	    if((numeroAleatorio == 2) && (enemyTank.getOrientation().equals(Orientation.RIGHT) )){
-	    	enemyTank.moverseIzquierda();
+	    	enemyTank.moverse(Orientation.LEFT);
 	    	enemyTank.girar(Orientation.LEFT);
 	    	
 	    }
 	    
 	    if((numeroAleatorio == 3) && (!enemyTank.getOrientation().equals(Orientation.DOWN) )){
 	    	enemyTank.girar(Orientation.DOWN);
-	    	enemyTank.moverseAbajo();
+	    	enemyTank.moverse(Orientation.DOWN);
 	    }
 	    if((numeroAleatorio == 3) && (enemyTank.getOrientation().equals(Orientation.DOWN) )){
 	    	enemyTank.girar(Orientation.UP);
-	    	enemyTank.moverseArriba();
+	    	enemyTank.moverse(Orientation.UP);
 	    }
 	    
 	    if((numeroAleatorio == 4) && (!enemyTank.getOrientation().equals(Orientation.LEFT) )){
 	    	enemyTank.girar(Orientation.LEFT);
-	    	enemyTank.moverseIzquierda();
+	    	enemyTank.moverse(Orientation.LEFT);
 	    }
 	    if((numeroAleatorio == 4) && (enemyTank.getOrientation().equals(Orientation.LEFT) )){
 	    	enemyTank.girar(Orientation.RIGHT);
-	    	enemyTank.moverseDerecha();
+	    	enemyTank.moverse(Orientation.RIGHT);
 	    }
 	}
 	public void destruirTank(){

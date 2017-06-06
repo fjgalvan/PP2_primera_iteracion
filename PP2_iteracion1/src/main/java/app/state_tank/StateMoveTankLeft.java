@@ -24,7 +24,7 @@ public class StateMoveTankLeft extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getX() >= 20)
-			tank.moverseIzquierda();
+			tank.moverse(Orientation.LEFT);
 	}
 
 	@Override

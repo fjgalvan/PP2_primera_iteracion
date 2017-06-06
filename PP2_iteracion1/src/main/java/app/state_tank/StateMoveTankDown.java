@@ -24,7 +24,7 @@ public class StateMoveTankDown extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getY() <= 547)
-			tank.moverseAbajo();
+			tank.moverse(Orientation.DOWN);
 	}
 
 	@Override

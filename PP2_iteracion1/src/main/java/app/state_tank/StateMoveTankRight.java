@@ -23,7 +23,7 @@ public class StateMoveTankRight extends StateMoveTank {
 	public void control() 
 	{
 		if(tank.getCoordinate().getX() <= 946 )
-			tank.moverseDerecha();
+			tank.moverse(Orientation.RIGHT);
 	}
 
 	@Override

@@ -37,31 +37,18 @@ public class Tank extends ObjetoGrafico {
 	}
 	
 	//dependiendo del estado en que se encuentre se mueve
-	public void moverseArriba()
-	{
-		if(getOrientation().equals(Orientation.UP))
-			this.coordinate.setY(this.coordinate.getY()-this.velocidadDeMovimiento);
-		this.girar(Orientation.UP);			
-	}
-	public void moverseAbajo()
-	{
-		if(getOrientation().equals(Orientation.DOWN))
-			this.coordinate.setY(this.coordinate.getY()+this.velocidadDeMovimiento);
-		this.girar(Orientation.DOWN);			
-	}
-	public void moverseDerecha()
-	{
-		if(getOrientation().equals(Orientation.RIGHT))
-			this.coordinate.setX(this.coordinate.getX()+this.velocidadDeMovimiento);
-		this.girar(Orientation.RIGHT);			
-	}
-	public void moverseIzquierda()
-	{
-		if(getOrientation().equals(Orientation.LEFT))
-			this.coordinate.setX(this.coordinate.getX()-this.velocidadDeMovimiento);
-		this.girar(Orientation.LEFT);			
+	public void moverse(Orientation o){
+		if(getOrientation().equals(o)) setearMovimiento(o);  
+		this.girar(o);
 	}
 	
+	public void setearMovimiento(Orientation o){
+		if(o.equals(Orientation.RIGHT)) this.coordinate.setX(this.coordinate.getX()+this.velocidadDeMovimiento);
+		else if(o.equals(Orientation.LEFT))	this.coordinate.setX(this.coordinate.getX()-this.velocidadDeMovimiento);
+		else if(o.equals(Orientation.UP)) this.coordinate.setY(this.coordinate.getY()-this.velocidadDeMovimiento);
+		else this.coordinate.setY(this.coordinate.getY()+this.velocidadDeMovimiento);
+	}
+
 	public void disparar(){
 		if(tankShot.equals(TankShot.NO_EXISTS)){
 			bullet = new Bullet(orientation, 
