@@ -2,12 +2,12 @@ package app.object;
 
 import static org.junit.Assert.*;
 
+import java.awt.Point;
+
 import org.junit.Test;
 
 import app.enums.Orientation;
 import app.modelo.Colisionador;
-import app.object.Coordinate;
-import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.Entorno;
@@ -19,8 +19,8 @@ public class TestTankController {
 	@Test
 	public void testMoversePorIzquierda() {
 		Orientation orientation = Orientation.LEFT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador()); // ver como meter el entorno con la otra clase
 		//tankC.ControlLeft(); esta funcion se paso al statemovetankleft
@@ -30,8 +30,8 @@ public class TestTankController {
 	@Test
 	public void testMoversePorDerecha() {
 		Orientation orientation = Orientation.RIGHT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador());
 		//tankC.ControlRigth(); se paso asu estado correspondiente
@@ -41,8 +41,8 @@ public class TestTankController {
 	@Test
 	public void testMoversePorAbajo() {
 		Orientation orientation = Orientation.DOWN;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador());
 	//	tankC.ControlDown(); se paso asu estado correspondiente
@@ -52,8 +52,8 @@ public class TestTankController {
 	@Test
 	public void testMoversePorArriba() {
 		Orientation orientation = Orientation.UP;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador());
 		//tankC.ControlUp(); se paso asu estado correspondiente
@@ -64,8 +64,8 @@ public class TestTankController {
 	@Test
 	public void testDisparar() {
 		Orientation orientation = Orientation.LEFT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador());
 		tankC.getTank().disparar();

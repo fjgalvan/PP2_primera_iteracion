@@ -2,14 +2,13 @@ package app.main;
 
 import static org.junit.Assert.assertNotEquals;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
 import app.enums.Orientation;
-import app.object.Coordinate;
-import app.object.Size;
 import app.object.Tank;
 
 public class TestMain {
@@ -19,11 +18,11 @@ public class TestMain {
 	
 		Game juego= new Game();
 		
-		Tank tank = new Tank(Orientation.UP,new Coordinate(400,400),new Size(40,40));
-		Tank enemyTank = new Tank(Orientation.UP,new Coordinate(600,100),new Size(40,40));
-		Tank enemyTank2 = new Tank(Orientation.UP,new Coordinate(500,100),new Size(40,40));
-		Tank enemyTank3 = new Tank(Orientation.UP,new Coordinate(400,100),new Size(40,40));
-		Tank enemyTank4 = new Tank(Orientation.UP,new Coordinate(300,100),new Size(40,40));
+		Tank tank = new Tank(Orientation.UP,new Point(400,400),new Point(40,40));
+		Tank enemyTank = new Tank(Orientation.UP,new Point(600,100),new Point(40,40));
+		Tank enemyTank2 = new Tank(Orientation.UP,new Point(500,100),new Point(40,40));
+		Tank enemyTank3 = new Tank(Orientation.UP,new Point(400,100),new Point(40,40));
+		Tank enemyTank4 = new Tank(Orientation.UP,new Point(300,100),new Point(40,40));
 		
 		List<Tank> tanks = new ArrayList<Tank>();
 		List<Tank> enemysTanks = new ArrayList<Tank>();

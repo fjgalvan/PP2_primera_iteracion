@@ -84,7 +84,7 @@ public class TestColisionador {
 	}
 
 	@Test
-	public void hayColision() {
+	public void hayColision() throws Exception {
 		Colisionador colisionador = new Colisionador();
 		GraphicMap mapa = new GraphicMap(new Map(new Point(280, 280)), new Point(20, 20));
 		ListStructures estructuras = new ListStructures(mapa, 10);
@@ -107,7 +107,7 @@ public class TestColisionador {
 	}
 
 	@Test
-	public void hayColisionArriba() {
+	public void hayColisionArriba() throws Exception {
 		Colisionador colisionador = new Colisionador();
 		GraphicMap mapa = new GraphicMap(new Map(new Point(280, 280)), new Point(20, 20));
 		ListStructures estructuras = new ListStructures(mapa, 10);
