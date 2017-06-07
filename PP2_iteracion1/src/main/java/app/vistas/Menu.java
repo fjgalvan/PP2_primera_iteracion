@@ -58,7 +58,7 @@ public class Menu extends JFrame {
 	private ImageIcon icono_Bomberman;
 	private ImageIcon imagen_Pacman;
 	private ImageIcon icono_Pacman;
-
+	final JPanel panelTank;
 	
 	public EleccionMenu eleccion= null;
 	
@@ -100,21 +100,52 @@ public class Menu extends JFrame {
 		rdbtnTank.setBackground(Color.ORANGE);
 		rdbtnTank.setBounds(43, 38, 109, 23);
 		contentPane.add(rdbtnTank);
+		rdbtnTank.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnTank.isSelected())
+					panelTank.setVisible(true);
+				else
+					panelTank.setVisible(false);
+			}
+		});
+
 		bg.add(rdbtnTank);
 		
 		final JRadioButton rdbtnBomberman = new JRadioButton("BOMBERMAN");
 		rdbtnBomberman.setBackground(new Color(255, 102, 51));
 		rdbtnBomberman.setBounds(43, 123, 109, 23);
 		contentPane.add(rdbtnBomberman);
+		rdbtnBomberman.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnBomberman.isSelected())
+					panelTank.setVisible(false);
+			}
+		});
 		bg.add(rdbtnBomberman);
 		
 		final JRadioButton rdbtnPacman = new JRadioButton("PACMAN");
 		rdbtnPacman.setBackground(new Color(255, 255, 0));
 		rdbtnPacman.setBounds(43, 203, 109, 23);
 		contentPane.add(rdbtnPacman);
+		rdbtnPacman.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnBomberman.isSelected())
+					panelTank.setVisible(false);
+			}
+		});
 		bg.add(rdbtnPacman);
 		
-		final JPanel panelTank = new JPanel();
+		//final JPanel panelTank = new JPanel();
+		panelTank = new JPanel();
 		panelTank.setBackground(Color.ORANGE);
 		panelTank.setBounds(223, 11, 450, 105);
 		contentPane.add(panelTank);
