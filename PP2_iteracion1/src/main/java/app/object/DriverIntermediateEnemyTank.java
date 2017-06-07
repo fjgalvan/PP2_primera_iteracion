@@ -4,60 +4,19 @@ package app.object;
 import java.util.List;
 import java.util.Random;
 
-import entorno.Entorno;
-import entorno.Herramientas;
 import app.enums.Orientation;
-import app.enums.TankShot;
-import app.modelo.Colisionador;
 //import app.main.Game;
 //import app.util.Util;
 //import sonido.Sonido;
 import app.modelo.ObjetoGrafico;
 
 
-public class DriverIntermediateEnemyTank {
-	private Tank enemyTank;
-	private Colisionador colisionador;
-	
+public class DriverIntermediateEnemyTank extends DriverEnemyTank{
 	
 	public DriverIntermediateEnemyTank(Tank enemyTank){
-		this.enemyTank= enemyTank;
-		this.colisionador = new Colisionador();
+		super(enemyTank);
 	}
 	
-	
-	public void ControlUp()
-	{
-		if(enemyTank.getCoordinate().getY() >= 25)
-			enemyTank.moverse(Orientation.UP);
-	}
-	public void ControlDown()
-	{
-		if(enemyTank.getCoordinate().getY() <= 547)
-			enemyTank.moverse(Orientation.DOWN);
-	}
-	public void ControlRigth()
-	{
-		if(enemyTank.getCoordinate().getX() <= 946 )
-			enemyTank.moverse(Orientation.RIGHT);
-	}
-	public void ControlLeft()
-	{
-		if(enemyTank.getCoordinate().getX() >= 25)
-			enemyTank.moverse(Orientation.LEFT);
-	}
-	
-	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos)
-	{
-		//SIEMPRE EL TANQUE GIRA A LA DERECHA CUANDO LLEGA AL LIMITE DEL MAPA
-		
-		controChoqueArribaMap();
-		controlChoqueDerechaMap();
-		controlChoqueAbajoMap();
-		controlChoqueIzquierdaMap();
-		controlDisparoTankEnemy(ent,objetos); // FALTARIA UN TEMPORIZADOR PARA QUE NO DISPARE A PENAS bullet==null
-		ControlTank(objetos);
-	}
 	public void controChoqueArribaMap(){
 		if(enemyTank.getOrientation().equals(Orientation.UP)){
 			ControlUp();
@@ -94,123 +53,41 @@ public class DriverIntermediateEnemyTank {
 			}
 		}
 	}
-	public void controlDisparoTankEnemy(Entorno ent, List<ObjetoGrafico> objetos){
-		control_bullet(ent,objetos);
-		if(this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS)){
-			enemyTank.disparar();
-		}
-	}
 	
-	/*
-	public void controlChoqueConEstructuras(){
-		
-	}
-	*/
-	
-	
-	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos){
-		if(this.enemyTank.getTankBullet().equals(TankShot.EXISTS)){
-			this.enemyTank.getBullet().avanzarBullet();
-			/*entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX(), 
-					this.tank.getBullet().getCoordinate().getY(), 10, Color.gray);*/
-			entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bala_2.png"), this.enemyTank.getBullet().getCoordinate().getX(), 
-					this.enemyTank.getBullet().getCoordinate().getY(), 0);
-			if(colisionador.colisionBullet(this.enemyTank.getBullet(), objetos)){
-				this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
-				this.enemyTank.setBullet(null);
-			}
-		}
-	}
-
-	public Tank getTank() {
-		return enemyTank;
-	}
-
-	public void setTank(Tank tank) {
-		this.enemyTank = tank;
-	}
-	
-	
-	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista)
-	{
-		boolean ret = false;
-		for(ObjetoGrafico obj : lista)
-		{
-			ret = ret || colisionador.hayColision(enemyTank, obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
-		}
-		/*if(ret == true){
-			System.out.println("colicion: "+ret);
-		}*/
-		return ret;
-	}
-	public int colicionEn(List<ObjetoGrafico> lista){
-		int tipoColicion=0;
-		boolean ret = false;
-		for(ObjetoGrafico obj : lista)
-		{
-			ret = ret || colisionador.hayColision(enemyTank, obj);//enemyTank.getStateMove().hayColision(obj); // dependiendo el estado va atener una colision !=
-			if(ret == true){
-				if(colisionador.hayColisionArriba(enemyTank, obj)){
-					tipoColicion=1;
-				}
-				if(colisionador.hayColisionDerecha(enemyTank, obj)){
-					tipoColicion=2;
-				}
-				if(colisionador.hayColisionAbajo(enemyTank, obj)){
-					tipoColicion=3;
-				}
-				if(colisionador.hayColisionIzquierda(enemyTank, obj)){
-					tipoColicion=4;
-				}
-			}
-		}
-		return tipoColicion;
-	}
 	public void ControlTank(List<ObjetoGrafico> objetos){
 		if(hayColisionConUnObjeto(objetos)){
 			
 			if(colicionEn(objetos)==1){//colicion arriba
 				//System.out.println("colicion arriba");
 				enemyTank.girar(Orientation.DOWN);
-				enemyTank.moverse(Orientation.DOWN);
+				enemyTank.moverseAbajo();
 				enemyTank.girar(Orientation.RIGHT);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==2){//colicion derecha
 				//System.out.println("colicion derecha");
 				enemyTank.girar(Orientation.LEFT);
-				enemyTank.moverse(Orientation.LEFT);
+				enemyTank.moverseIzquierda();
 				enemyTank.girar(Orientation.DOWN);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==3){//colicion abajo
 				//System.out.println("colicion abajo");
 				enemyTank.girar(Orientation.UP);
-				enemyTank.moverse(Orientation.UP);
+				enemyTank.moverseArriba();
 				enemyTank.girar(Orientation.LEFT);
 				girarRandom();
 			}
 			if(colicionEn(objetos)==4){//colicion izquierda
 				//System.out.println("colicion izquierda");
 				enemyTank.girar(Orientation.RIGHT);
-				enemyTank.moverse(Orientation.RIGHT);
+				enemyTank.moverseDerecha();
 				enemyTank.girar(Orientation.UP);
 				girarRandom();
 			}
 		}
 	}
 
-
-	public Tank getEnemyTank() {
-		return enemyTank;
-	}
-
-
-	public void setEnemyTank(Tank enemyTank) {
-		this.enemyTank = enemyTank;
-	}
-	
-	
 	/*** RANDOM GIRO ***/
 	public void girarRandom(){
 		//generador de numeros aleatorios
@@ -220,46 +97,43 @@ public class DriverIntermediateEnemyTank {
 	    int numeroAleatorio = 1+generadorAleatorios.nextInt(4);
 	   // System.out.println("numeroAleatorio: "+ numeroAleatorio);
 	    if((numeroAleatorio == 1) && (!enemyTank.getOrientation().equals(Orientation.UP) )){
-	    	enemyTank.moverse(Orientation.UP);
+	    	enemyTank.moverseArriba();
 	    	enemyTank.girar(Orientation.UP);
 	    	
 	    }
 	    if((numeroAleatorio == 1) && (enemyTank.getOrientation().equals(Orientation.UP) )){
-	    	enemyTank.moverse(Orientation.DOWN);
+	    	enemyTank.moverseAbajo();
 	    	enemyTank.girar(Orientation.DOWN);
 	    	
 	    }
 	    
 	    if((numeroAleatorio == 2) && (!enemyTank.getOrientation().equals(Orientation.RIGHT) )){
-	    	enemyTank.moverse(Orientation.RIGHT);
+	    	enemyTank.moverseDerecha();
 	    	enemyTank.girar(Orientation.RIGHT);
 	    	
 	    }
 	    if((numeroAleatorio == 2) && (enemyTank.getOrientation().equals(Orientation.RIGHT) )){
-	    	enemyTank.moverse(Orientation.LEFT);
+	    	enemyTank.moverseIzquierda();
 	    	enemyTank.girar(Orientation.LEFT);
 	    	
 	    }
 	    
 	    if((numeroAleatorio == 3) && (!enemyTank.getOrientation().equals(Orientation.DOWN) )){
 	    	enemyTank.girar(Orientation.DOWN);
-	    	enemyTank.moverse(Orientation.DOWN);
+	    	enemyTank.moverseAbajo();
 	    }
 	    if((numeroAleatorio == 3) && (enemyTank.getOrientation().equals(Orientation.DOWN) )){
 	    	enemyTank.girar(Orientation.UP);
-	    	enemyTank.moverse(Orientation.UP);
+	    	enemyTank.moverseArriba();
 	    }
 	    
 	    if((numeroAleatorio == 4) && (!enemyTank.getOrientation().equals(Orientation.LEFT) )){
 	    	enemyTank.girar(Orientation.LEFT);
-	    	enemyTank.moverse(Orientation.LEFT);
+	    	enemyTank.moverseIzquierda();
 	    }
 	    if((numeroAleatorio == 4) && (enemyTank.getOrientation().equals(Orientation.LEFT) )){
 	    	enemyTank.girar(Orientation.RIGHT);
-	    	enemyTank.moverse(Orientation.RIGHT);
+	    	enemyTank.moverseDerecha();
 	    }
-	}
-	public void destruirTank(){
-		this.enemyTank = null;
 	}
 }
