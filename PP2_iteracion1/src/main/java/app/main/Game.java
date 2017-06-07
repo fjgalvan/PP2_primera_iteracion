@@ -38,7 +38,7 @@ public class Game extends InterfaceJuego {
 	private List<Tank> tanks;
 	private List<Tank> enemysTanks;
 	private boolean modoJuegoCop = true;
-	private static Player2 player2;
+	private static Player1 player2;
 	private Tank tankCop;
 	private TankController tControlCop;
 
@@ -68,10 +68,10 @@ public class Game extends InterfaceJuego {
 		this.enemysTanks = new ArrayList<Tank>();
 		// COP
 		if (modoJuegoCop) {
-			Game.player2 = new Player2(0, 0, dibujador);
+			Game.player2 = new Player1(0, 0, dibujador);
 			// ver como ubicar el tanque
 			this.tankCop = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40), 2);
-			this.tControlCop = new TankController(tankCop, player2.getListenerCop(), destructor.getColisionador());
+			this.tControlCop = new TankController(tankCop, player2.getListener(), destructor.getColisionador());
 			this.tanks.add(tankCop);
 		}
 	}
@@ -100,9 +100,9 @@ public class Game extends InterfaceJuego {
 			}
 			// COOP
 			if (this.tanks.contains(tankCop)) {
-				player2.getListenerCop().inicializar(tankCop);
+				player2.getListener().inicializarCooperativo(tankCop);
 				this.dibujador.dibujarTankCop(tankCop);
-				this.tControlCop.ControlTankCop(estructuras.getLista());
+				this.tControlCop.ControlTank(estructuras.getLista());
 				this.tControlCop.control_bullet(dibujador.getEntorno(), estructuras.getLista(), this.enemysTanks);
 				destructor.destruccionTanksEnemys(tankCop, tanks, enemysTanks, "2", enemyTank, enemyTankControl,
 						enemyTank2, enemyTankControl2, enemyTank3, enemyTankControl3, enemyTank4, enemyTankControl4);

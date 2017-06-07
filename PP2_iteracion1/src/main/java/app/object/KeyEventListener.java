@@ -31,10 +31,6 @@ public class KeyEventListener
 		{
 			this.estado = new StateMoveTankLeft(tanque);
 		}
-		else 
-		{
-		//	this.estado = new StateMoveTankUp(tanque); // por defecto
-		}
 	}
 	
 	
@@ -56,6 +52,26 @@ public class KeyEventListener
 	public boolean seActivoDisparo() 
 	{
 		return entorno.estaPresionada(entorno.TECLA_ENTER);
+	}
+
+	public void inicializarCooperativo(Tank tankCop) {
+		if(this.entorno.estaPresionada(entorno.TECLA_S))
+		{
+			this.estado = new StateMoveTankDown(tankCop);
+		}
+		else if (this.entorno.estaPresionada(entorno.TECLA_W))
+		{
+			this.estado = new StateMoveTankUp(tankCop);
+		}
+		else if (this.entorno.estaPresionada(entorno.TECLA_D))
+		{
+			this.estado = new StateMoveTankRight(tankCop);
+		}
+		else if (this.entorno.estaPresionada(entorno.TECLA_A))
+		{
+			this.estado = new StateMoveTankLeft(tankCop);
+		}
+		
 	}
 	
 }

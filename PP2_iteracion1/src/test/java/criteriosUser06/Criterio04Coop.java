@@ -31,7 +31,7 @@ public class Criterio04Coop extends InterfaceJuego {
 	private KeyEventListener listener;
 	private TankController tControl;
 
-	private Player2 player2;
+	private Player1 player2;
 	private Tank tankCop;
 	private TankController tControlCop;
 	private KeyEventListenerCop listenerCop;
@@ -48,7 +48,7 @@ public class Criterio04Coop extends InterfaceJuego {
 		this.tank = new Tank(Orientation.DOWN, new Point(100, 50), new Point(40, 40), 2);
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
-		this.player2 = new Player2(0, 0, dibujador);
+		this.player2 = new Player1(0, 0, dibujador);
 		this.tankCop = new Tank(Orientation.UP, new Point(100, 300), new Point(40, 40), 2);
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);

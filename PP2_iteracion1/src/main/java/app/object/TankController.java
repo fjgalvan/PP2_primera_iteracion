@@ -27,12 +27,12 @@ public class TankController {
 		this.colisionador = colisionador;
 	}
 	
-	public TankController(Tank tank, KeyEventListenerCop kel,Colisionador colisionador)
+	/*public TankController(Tank tank, KeyEventListenerCop kel,Colisionador colisionador)
 	{
 		this.tank = tank;
 		this.listenerCop = kel;
 		this.colisionador = colisionador;
-	}
+	}*/
 	
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista)
 	{
@@ -64,7 +64,7 @@ public class TankController {
 		}
 	}
 	
-	public void ControlTankCop(List<ObjetoGrafico> objetos)
+	/*public void ControlTankCop(List<ObjetoGrafico> objetos)
 	{
 		if(listenerCop.existeEstadoDeMovimiento())
 		{
@@ -82,7 +82,7 @@ public class TankController {
 			Sonido.TanqueDisparo.play();
 			this.tank.disparar();
 		}
-	}
+	}*/
 
 	public void control_bullet(Entorno entorno,List<ObjetoGrafico> objetos, List<Tank> enemysTanks){
 		if(this.tank.getTankBullet().equals(TankShot.EXISTS)){

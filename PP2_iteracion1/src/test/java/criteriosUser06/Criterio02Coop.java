@@ -47,7 +47,7 @@ public class Criterio02Coop extends InterfaceJuego {
 	private List<Tank> enemysTanks;
 
 	private boolean modoJuegoCop = true;
-	private Player2 player2;
+	private Player1 player2;
 	private Tank tankCop;
 	private TankController tControlCop;
 	private KeyEventListenerCop listenerCop;
@@ -79,7 +79,7 @@ public class Criterio02Coop extends InterfaceJuego {
 		// COP
 		this.tanks.add(tank);
 		if (modoJuegoCop) {
-			this.player2 = new Player2(0, 0, dibujador);
+			this.player2 = new Player1(0, 0, dibujador);
 			// ver como ubicar el tanque
 			this.tankCop = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40), 2);
 			this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
