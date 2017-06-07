@@ -11,73 +11,81 @@ public class Tank extends ObjetoGrafico {
 	private Bullet bullet;
 	private StateMoveTank stateMove;
 	private double velocidadDeMovimiento;
-	private Energy energy;
-	
-	
-	
-	public Tank(Orientation orientation, Coordinate coordinate,	Size size){
+	private Integer energy;
+
+	public Tank(Orientation orientation, Coordinate coordinate, Size size) {
 		this.orientation = orientation;
 		this.coordinate = coordinate;
 		this.size = size;
 		this.tankShot = TankShot.NO_EXISTS;
 		this.velocidadDeMovimiento = Configuracion.VelocidadTanque;
 	}
-	
-	public Tank(Orientation orientation, Coordinate coordinate,	Size size,Energy energy){
+
+	public Tank(Orientation orientation, Coordinate coordinate, Size size, Integer energy) {
 		this(orientation, coordinate, size);
 		this.energy = energy;
 	}
-	
-	//dependiendo del estado en que se encuentre se gira
-	//le paso una nueva orientacion que reemplaza a la anterior, y cuando lo dibuje girara el tanque
-	public void girar(Orientation orientation)
-	{
+
+	// dependiendo del estado en que se encuentre se gira
+	// le paso una nueva orientacion que reemplaza a la anterior, y cuando lo
+	// dibuje girara el tanque
+	public void girar(Orientation orientation) {
 		this.setOrientation(orientation);
 	}
-	
-	//dependiendo del estado en que se encuentre se mueve
-	public void moverse(Orientation o){
-		if(getOrientation().equals(o)) setearMovimiento(o);  
+
+	// dependiendo del estado en que se encuentre se mueve
+	public void moverse(Orientation o) {
+		if (getOrientation().equals(o))
+			setearMovimiento(o);
 		this.girar(o);
 	}
-	
-	public void setearMovimiento(Orientation o){
-		if(o.equals(Orientation.RIGHT)) this.coordinate.setX(this.coordinate.getX()+this.velocidadDeMovimiento);
-		else if(o.equals(Orientation.LEFT))	this.coordinate.setX(this.coordinate.getX()-this.velocidadDeMovimiento);
-		else if(o.equals(Orientation.UP)) this.coordinate.setY(this.coordinate.getY()-this.velocidadDeMovimiento);
-		else this.coordinate.setY(this.coordinate.getY()+this.velocidadDeMovimiento);
+
+	public void setearMovimiento(Orientation o) {
+		if (o.equals(Orientation.RIGHT))
+			this.coordinate.setX(this.coordinate.getX() + this.velocidadDeMovimiento);
+		else if (o.equals(Orientation.LEFT))
+			this.coordinate.setX(this.coordinate.getX() - this.velocidadDeMovimiento);
+		else if (o.equals(Orientation.UP))
+			this.coordinate.setY(this.coordinate.getY() - this.velocidadDeMovimiento);
+		else
+			this.coordinate.setY(this.coordinate.getY() + this.velocidadDeMovimiento);
 	}
 
-	public void disparar(){
-		if(tankShot.equals(TankShot.NO_EXISTS)){
-			bullet = new Bullet(orientation, 
-					new Coordinate(this.coordinate.getX()+20,this.coordinate.getY()+20),
+	public void disparar() {
+		if (tankShot.equals(TankShot.NO_EXISTS)) {
+			bullet = new Bullet(orientation, new Coordinate(this.coordinate.getX() + 20, this.coordinate.getY() + 20),
 					new Size(10, 10));
 			tankShot = TankShot.EXISTS;
 		}
 	}
-	
-	//dependiendo del estado en que se encuentre se mueve en esa posicion
-	public void moverse(){
-		//controlar que no choque con las estructuras o el limite del mapa
-		if(!Util.estaEnElLimiteDeTablero(orientation, coordinate)){					// esta funcion no se utiliza
+
+	// dependiendo del estado en que se encuentre se mueve en esa posicion
+	public void moverse() {
+		// controlar que no choque con las estructuras o el limite del mapa
+		if (!Util.estaEnElLimiteDeTablero(orientation, coordinate)) { // esta
+																		// funcion
+																		// no se
+																		// utiliza
 			Util.moverse(orientation, coordinate, velocidadDeMovimiento);
 		}
 	}
-	
+
 	public double getAngulo() {
-		if(this.orientation.equals(Orientation.UP)){
+		if (this.orientation.equals(Orientation.UP)) {
 			return 0;
-		}if(this.orientation.equals(Orientation.DOWN)){
-			return Math.PI;
-		}if(this.orientation.equals(Orientation.LEFT)){
-			return Math.PI*1.5;
-		}if(this.orientation.equals(Orientation.RIGHT)){
-			return Math.PI/2;
 		}
-	return 0;
+		if (this.orientation.equals(Orientation.DOWN)) {
+			return Math.PI;
+		}
+		if (this.orientation.equals(Orientation.LEFT)) {
+			return Math.PI * 1.5;
+		}
+		if (this.orientation.equals(Orientation.RIGHT)) {
+			return Math.PI / 2;
+		}
+		return 0;
 	}
-	
+
 	public Orientation getOrientation() {
 		return orientation;
 	}
@@ -118,38 +126,44 @@ public class Tank extends ObjetoGrafico {
 		this.bullet = bullet;
 	}
 
-	public StateMoveTank getStateMove()
-	{
+	public StateMoveTank getStateMove() {
 		return stateMove;
 	}
-	
-	public void setStateMove(StateMoveTank state)
-	{
+
+	public void setStateMove(StateMoveTank state) {
 		this.stateMove = state;
 	}
 
-	public boolean existeDisparoEnEjecucion() 
-	{
-		return getTankBullet().equals(TankShot.EXISTS);	
+	public boolean existeDisparoEnEjecucion() {
+		return getTankBullet().equals(TankShot.EXISTS);
 	}
-	
-	public Integer getEnergyVal()
-	{
-		return energy.getValor();
+
+	public Integer getEnergyVal() {
+		return this.energy;
 	}
-	
-	public void increaseHP()
-	{
-		energy.subirEnergy();
+
+	public void increaseHP() {
+		this.energy += 1;
+		validarEnergy();
 	}
-	
-	public void decreaseHP()
-	{
-		energy.bajarEnergy();
+
+	public void decreaseHP() {
+		this.energy -= 1;
+		validarEnergy();
 	}
-	
-	public boolean sinEnergy()
-	{
-		return energy.getValor().equals(0);
+
+	public boolean sinEnergy() {
+		if (this.energy == 0) {
+			return true;
+		}
+		return false;
+	}
+
+	private void validarEnergy() {
+		if (this.energy < 0) {
+			this.energy = 0;
+		} else if (this.energy > 3) {
+			this.energy = 3;
+		}
 	}
 }
