@@ -9,25 +9,26 @@ public class ListStructures
 {
 	private int lenght;
 	private List<ObjetoGrafico> estructuras;
-	private boolean listaLenghtValidate;
 	
-	public ListStructures(GraphicMap map, int length)
+	public ListStructures(GraphicMap map, int lenght) throws Exception
 	{
-		this.setLenght(length);
-		this.estructuras = new ArrayList<ObjetoGrafico>();
-		this.inicializarLista(map);
+		if(lenght>Configuracion.CantidadMenorLista && lenght<Configuracion.CantidadMayorLista){
+			this.lenght=lenght;
+			this.estructuras = new ArrayList<ObjetoGrafico>();
+			inicializarLista(map);	
+		}
+		else{
+			throw new Exception("El largo de lista pasado por parametro no esta en el rango [0-50]");
+		}
 	}
 	
 	private void inicializarLista(GraphicMap mapa) 
 	{
-		if(listaLenghtValidate)
+		for(int i=0;i<lenght;i++)
 		{
-			for(int i=0;i<lenght;i++)
-			{
-				this.estructuras.add((ObjetoGrafico)new EstructuraAcero());
-				this.estructuras.add((ObjetoGrafico)new EstructuraAgua());
-				this.estructuras.add((ObjetoGrafico)new EstructuraLadrillo());
-			}
+			this.estructuras.add(new EstructuraAcero());
+			this.estructuras.add(new EstructuraAgua());
+			this.estructuras.add(new EstructuraLadrillo());
 		}
 		for(ObjetoGrafico o : estructuras)
 		{
@@ -46,14 +47,7 @@ public class ListStructures
 		return lenght;
 	}
 
-	public void setLenght(int lenght) 
-	{
-		this.lenght = lenght;
-		this.listaLenghtValidate = lenght>0 && lenght<50;
-	}
-
 	public List<ObjetoGrafico> getLista() {
 		return estructuras;
 	}
-		
 }

@@ -10,7 +10,7 @@ public class Tank extends ObjetoGrafico {
 	private TankShot tankShot;
 	private Bullet bullet;
 	private StateMoveTank stateMove;
-	private double velocidadDeMovimiento = 2;
+	private double velocidadDeMovimiento;
 	private Energy energy;
 	
 	
@@ -20,8 +20,7 @@ public class Tank extends ObjetoGrafico {
 		this.coordinate = coordinate;
 		this.size = size;
 		this.tankShot = TankShot.NO_EXISTS;
-		//this.energy = energy;
-		//this.stateMove = new StateMoveTankUp(this); // el tanque como posicion inicial va empezar mirando hacia arriba
+		this.velocidadDeMovimiento = Configuracion.VelocidadTanque;
 	}
 	
 	public Tank(Orientation orientation, Coordinate coordinate,	Size size,Energy energy){
