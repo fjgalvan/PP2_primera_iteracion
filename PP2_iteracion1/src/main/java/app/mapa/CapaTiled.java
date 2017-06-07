@@ -1,14 +1,14 @@
 package app.mapa;
 
-import app.object.Coordinate;
-import app.object.Size;
+import java.awt.Point;
 
 public abstract class CapaTiled {
-	protected Size size;
-	protected Coordinate coordinate;
-	
-	public CapaTiled(Size size, Coordinate coordinate){
+	protected Point size;
+	protected Point coordinate;
+
+	public CapaTiled(Point size, Point coordinate) {
 		this.size = size;
 		this.coordinate = coordinate;
 	}
+	
 }

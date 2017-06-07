@@ -1,12 +1,11 @@
 package app.mapa;
 
-import app.object.Coordinate;
-import app.object.Size;
+import java.awt.Point;
 
-public class CapaSprites extends CapaTiled{
+public class CapaSprites extends CapaTiled {
 	private int[] sprites;
-	
-	public CapaSprites(Size size, Coordinate coordinate, int []sprites){
+
+	public CapaSprites(Point size, Point coordinate, int[] sprites) {
 		super(size, coordinate);
 		this.sprites = sprites;
 	}
@@ -14,5 +13,5 @@ public class CapaSprites extends CapaTiled{
 	public int[] getSprites() {
 		return sprites;
 	}
-	
+
 }

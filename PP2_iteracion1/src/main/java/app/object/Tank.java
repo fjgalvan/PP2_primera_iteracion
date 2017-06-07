@@ -1,6 +1,9 @@
 package app.object;
 
-import app.enums.*;
+import java.awt.Point;
+
+import app.enums.Orientation;
+import app.enums.TankShot;
 import app.modelo.ObjetoGrafico;
 import app.state_tank.StateMoveTank;
 import app.util.Util;
@@ -13,15 +16,14 @@ public class Tank extends ObjetoGrafico {
 	private double velocidadDeMovimiento;
 	private Integer energy;
 
-	public Tank(Orientation orientation, Coordinate coordinate, Size size) {
+	public Tank(Orientation orientation, Point coordinate, Point size) {
+		super(coordinate, size);
 		this.orientation = orientation;
-		this.coordinate = coordinate;
-		this.size = size;
 		this.tankShot = TankShot.NO_EXISTS;
 		this.velocidadDeMovimiento = Configuracion.VelocidadTanque;
 	}
 
-	public Tank(Orientation orientation, Coordinate coordinate, Size size, Integer energy) {
+	public Tank(Orientation orientation, Point coordinate, Point size, Integer energy) {
 		this(orientation, coordinate, size);
 		this.energy = energy;
 	}
@@ -42,19 +44,20 @@ public class Tank extends ObjetoGrafico {
 
 	public void setearMovimiento(Orientation o) {
 		if (o.equals(Orientation.RIGHT))
-			this.coordinate.setX(this.coordinate.getX() + this.velocidadDeMovimiento);
+			this.coordinate.setLocation(coordinate.getX() + velocidadDeMovimiento, coordinate.getY());
 		else if (o.equals(Orientation.LEFT))
-			this.coordinate.setX(this.coordinate.getX() - this.velocidadDeMovimiento);
+			this.coordinate.setLocation(coordinate.getX() - velocidadDeMovimiento, coordinate.getY());
 		else if (o.equals(Orientation.UP))
-			this.coordinate.setY(this.coordinate.getY() - this.velocidadDeMovimiento);
+			this.coordinate.setLocation(coordinate.getX(), coordinate.getY() - velocidadDeMovimiento);
 		else
-			this.coordinate.setY(this.coordinate.getY() + this.velocidadDeMovimiento);
+			this.coordinate.setLocation(coordinate.getX(), coordinate.getY() + velocidadDeMovimiento);
 	}
 
 	public void disparar() {
+		Point aux = new Point();
 		if (tankShot.equals(TankShot.NO_EXISTS)) {
-			bullet = new Bullet(orientation, new Coordinate(this.coordinate.getX() + 20, this.coordinate.getY() + 20),
-					new Size(10, 10));
+			aux.setLocation(this.coordinate.getX() + 20, this.coordinate.getY() + 20);
+			bullet = new Bullet(orientation, aux, new Point(10, 10));
 			tankShot = TankShot.EXISTS;
 		}
 	}
@@ -100,22 +103,6 @@ public class Tank extends ObjetoGrafico {
 
 	public void setTankBullet(TankShot tankShot) {
 		this.tankShot = tankShot;
-	}
-
-	public Coordinate getCoordinate() {
-		return coordinate;
-	}
-
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
-	}
-
-	public Size getSize() {
-		return size;
-	}
-
-	public void setSize(Size size) {
-		this.size = size;
 	}
 
 	public Bullet getBullet() {
