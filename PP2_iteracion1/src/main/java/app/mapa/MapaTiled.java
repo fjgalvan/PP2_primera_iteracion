@@ -100,7 +100,6 @@ public class MapaTiled {
 		return null;
 	}
 	
-
 	public void crearEstructuras(ListStructures estructuras){
 		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
 			int totalTilesPorCapa = 0;
