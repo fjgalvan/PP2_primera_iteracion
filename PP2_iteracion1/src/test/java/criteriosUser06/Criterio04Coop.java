@@ -1,14 +1,13 @@
 package criteriosUser06;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 import app.enums.Orientation;
 import app.enums.TankShot;
 import app.modelo.Colisionador;
-import app.object.Coordinate;
 import app.object.Draftsman;
-import app.object.Energy;
 import app.object.GraphicMap;
 import app.object.KeyEventListener;
 import app.object.KeyEventListenerCop;
@@ -16,8 +15,6 @@ import app.object.ListStructures;
 import app.object.Map;
 import app.object.Player1;
 import app.object.Player2;
-import app.object.Puntaje;
-import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
@@ -44,18 +41,22 @@ public class Criterio04Coop extends InterfaceJuego {
 	private List<Tank> enemysTanks;
 
 	public Criterio04Coop() {
-		this.mapa = new GraphicMap(new Map(new Size(250, 600)), new Size(20, 20));
+		this.mapa = new GraphicMap(new Map(new Point(250, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
-		this.player1 = new Player1(new Puntaje(0,0),dibujador);
-		this.tank = new Tank(Orientation.DOWN, new Coordinate(100, 50), new Size(40, 40), new Energy(2));
+		this.player1 = new Player1(0, 0, dibujador);
+		this.tank = new Tank(Orientation.DOWN, new Point(100, 50), new Point(40, 40), 2);
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
-		this.player2 = new Player2(new Puntaje(0,0),dibujador);
-		this.tankCop = new Tank(Orientation.UP, new Coordinate(100, 300), new Size(40, 40), new Energy(2));
+		this.player2 = new Player2(0, 0, dibujador);
+		this.tankCop = new Tank(Orientation.UP, new Point(100, 300), new Point(40, 40), 2);
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
-		this.estructuras = new ListStructures(mapa, 0);
+		try {
+			this.estructuras = new ListStructures(mapa, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		this.tanks.add(tank);
@@ -98,10 +99,13 @@ public class Criterio04Coop extends InterfaceJuego {
 	}
 
 	private void sumarPuntaje(Tank tank, String player) {
-		if (player.equals("1"))
-			player1.setPuntaje(new Puntaje(500,0));
-		else
-			player2.setPuntaje(new Puntaje(500,0));
+		if (player.equals("1")) {
+			player1.setPuntaje(500);
+			player1.setCantidadDeEnemigosAsesinados(0);
+		} else {
+			player2.setPuntaje(500);
+			player2.setCantidadDeEnemigosAsesinados(0);
+		}
 	}
 
 	public void destruccionTank(Tank enemyTank, List<Tank> tanks) {

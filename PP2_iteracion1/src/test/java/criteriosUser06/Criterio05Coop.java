@@ -1,21 +1,19 @@
 package criteriosUser06;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 import app.enums.Orientation;
 import app.enums.TankShot;
 import app.modelo.Colisionador;
-import app.object.Coordinate;
 import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
-import app.object.Energy;
 import app.object.GraphicMap;
 import app.object.KeyEventListener;
 import app.object.KeyEventListenerCop;
 import app.object.ListStructures;
 import app.object.Map;
-import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
@@ -42,23 +40,27 @@ public class Criterio05Coop extends InterfaceJuego {
 	private ListStructures estructuras;
 
 	public void gameOver() {
-		this.mapa = new GraphicMap(new Map(new Size(250, 600)), new Size(20, 20));
+		this.mapa = new GraphicMap(new Map(new Point(250, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
-		this.tank = new Tank(Orientation.UP, new Coordinate(50, 50), new Size(40, 40), new Energy(2));
+		this.tank = new Tank(Orientation.UP, new Point(50, 50), new Point(40, 40), 2);
 		this.listener = new KeyEventListener(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
-		this.tankCop = new Tank(Orientation.UP, new Coordinate(100, 50), new Size(40, 40), new Energy(2));
+		this.tankCop = new Tank(Orientation.UP, new Point(100, 50), new Point(40, 40), 2);
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
-		this.enemyTank = new Tank(Orientation.UP, new Coordinate(50, 550), new Size(40, 40), new Energy(1));
+		this.enemyTank = new Tank(Orientation.UP, new Point(50, 550), new Point(40, 40), 2);
 		this.enemyTankControl = new DriverEasyEnemyTank(enemyTank);
-		this.enemyTank2 = new Tank(Orientation.UP, new Coordinate(100, 550), new Size(40, 40), new Energy(1));
+		this.enemyTank2 = new Tank(Orientation.UP, new Point(100, 550), new Point(40, 40), 2);
 		this.enemyTankControl2 = new DriverEasyEnemyTank(enemyTank2);
 		this.tanks = new ArrayList<Tank>();
 		this.tanks.add(tank);
 		this.tanks.add(tankCop);
-		this.estructuras = new ListStructures(mapa, 0);
+		try {
+			this.estructuras = new ListStructures(mapa, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void tick() {
