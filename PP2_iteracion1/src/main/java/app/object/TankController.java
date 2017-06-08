@@ -7,6 +7,7 @@ import entorno.Entorno;
 import entorno.Herramientas;
 import app.enums.Orientation;
 import app.enums.TankShot;
+import app.interfaces.IKeyEventListener;
 import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
 import app.state_tank.StateMoveTankUp;

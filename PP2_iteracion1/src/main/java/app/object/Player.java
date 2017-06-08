@@ -1,5 +1,7 @@
 package app.object;
 
+import app.interfaces.IKeyEventListener;
+
 public class Player {
 	private double puntaje;
 	private int cantidadDeEnemigosAsesinados;

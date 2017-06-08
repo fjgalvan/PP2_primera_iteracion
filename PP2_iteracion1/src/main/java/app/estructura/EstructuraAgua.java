@@ -2,6 +2,7 @@ package app.estructura;
 
 import java.awt.Color;
 
+import app.interfaces.Estructura;
 import app.modelo.ObjetoGrafico;
 
 //SE COMENTARON LOS @Override

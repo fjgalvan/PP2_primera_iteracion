@@ -1,5 +1,6 @@
-package app.object;
+package app.interfaces;
 
+import app.object.Tank;
 import app.state_tank.StateMoveTank;
 
 public interface IKeyEventListener {

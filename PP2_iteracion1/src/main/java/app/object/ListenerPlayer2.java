@@ -1,6 +1,7 @@
 package app.object;
 
 import entorno.Entorno;
+import app.interfaces.IKeyEventListener;
 import app.state_tank.StateMoveTank;
 import app.state_tank.StateMoveTankDown;
 import app.state_tank.StateMoveTankLeft;
