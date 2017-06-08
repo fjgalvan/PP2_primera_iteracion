@@ -13,7 +13,7 @@ public class ListenerPlayer2 extends KeyEventListener {
 	}
 
 	@Override
-	public void inicializar(Tank tanque) {
+	public void seMovio(Tank tanque) {
 		if (this.entorno.estaPresionada(entorno.TECLA_S)) {
 			this.estado = new StateMoveTankDown(tanque);
 		} else if (this.entorno.estaPresionada(entorno.TECLA_W)) {

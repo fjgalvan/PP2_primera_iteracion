@@ -23,7 +23,7 @@ public abstract class KeyEventListener {
 		return (this.estado != null);
 	}
 	
-	abstract public void inicializar(Tank tanque);
+	abstract public void seMovio(Tank tanque);
 
 	abstract public boolean seActivoDisparo();
 

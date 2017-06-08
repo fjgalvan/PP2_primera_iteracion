@@ -92,7 +92,7 @@ public class Game extends InterfaceJuego {
 				this.dibujador.dibujarEstructura(e);
 			}
 			if (this.tanks.contains(tank)) {
-				player1.getListener().inicializar(tank);
+				player1.getListener().seMovio(tank);
 				this.dibujador.dibujarTank(tank);
 				this.tControl.ControlTank(estructuras.getLista());
 				this.tControl.control_bullet(dibujador.getEntorno(), estructuras.getLista(), this.enemysTanks);
@@ -101,7 +101,7 @@ public class Game extends InterfaceJuego {
 			}
 			// COOP
 			if (this.tanks.contains(tankCop)) {
-				player2.getListener().inicializar(tankCop);
+				player2.getListener().seMovio(tankCop);
 				this.dibujador.dibujarTankCop(tankCop);
 				this.tControlCop.ControlTank(estructuras.getLista());
 				this.tControlCop.control_bullet(dibujador.getEntorno(), estructuras.getLista(), this.enemysTanks);
