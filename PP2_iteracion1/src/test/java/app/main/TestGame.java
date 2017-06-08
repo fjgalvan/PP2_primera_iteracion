@@ -2,20 +2,20 @@ package app.main;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import app.enums.Orientation;
 import app.modelo.Colisionador;
 import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
-<<<<<<< HEAD
+import app.object.ListenerPlayer1;
 import app.object.ListenerPlayer2;
-=======
-import app.object.KeyEventListener;
->>>>>>> origin/mejoras_diseño
 import app.object.Map;
 import app.object.Player;
 import app.object.Tank;
@@ -76,18 +76,13 @@ public class TestGame {
 		InterfaceJuego i = null;
 		GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
-<<<<<<< HEAD
-		ListenerPlayer2 listenerCop = new ListenerPlayer2(dibujador.getEntorno());
-=======
-		KeyEventListener listenerCop = new KeyEventListener(dibujador.getEntorno());
->>>>>>> origin/mejoras_diseño
 		Colisionador colisionador = new Colisionador();
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		// ver como meter el entorno con la otra clase
-		TankController tankC = new TankController(tank, listenerCop, null);
+		TankController tankC = new TankController(tank, new ListenerPlayer2(dibujador.getEntorno()), null);
 
 		Orientation orientation2 = Orientation.RIGHT;
 		Point coordinate2 = new Point(300, 400);
@@ -104,7 +99,7 @@ public class TestGame {
 		InterfaceJuego i = null;
 		GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
-		Player player1 = new Player(0, 0, dibujador);
+		Player player1 = new Player(0, 0, new ListenerPlayer1(dibujador.getEntorno()));
 		Game juego = new Game();
 		juego.sumarPuntaje(player1.toString());
 

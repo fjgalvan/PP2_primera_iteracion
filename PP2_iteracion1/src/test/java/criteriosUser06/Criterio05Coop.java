@@ -10,13 +10,9 @@ import app.modelo.Colisionador;
 import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
-<<<<<<< HEAD
+import app.object.ListStructures;
 import app.object.ListenerPlayer1;
 import app.object.ListenerPlayer2;
-=======
-import app.object.KeyEventListener;
->>>>>>> origin/mejoras_diseño
-import app.object.ListStructures;
 import app.object.Map;
 import app.object.Tank;
 import app.object.TankController;
@@ -27,19 +23,10 @@ public class Criterio05Coop extends InterfaceJuego {
 	private Draftsman dibujador;
 	private GraphicMap mapa;
 	private Colisionador colisionador;
-
 	private Tank tank;
-	private ListenerPlayer1 listener;
 	private TankController tControl;
-
 	private Tank tankCop;
 	private TankController tControlCop;
-<<<<<<< HEAD
-	private ListenerPlayer2 listenerCop;
-=======
-	private KeyEventListener listenerCop;
->>>>>>> origin/mejoras_diseño
-
 	private Tank enemyTank;
 	private DriverEasyEnemyTank enemyTankControl;
 	private Tank enemyTank2;
@@ -52,15 +39,9 @@ public class Criterio05Coop extends InterfaceJuego {
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
 		this.tank = new Tank(Orientation.UP, new Point(50, 50), new Point(40, 40), 2);
-		this.listener = new ListenerPlayer1(dibujador.getEntorno());
-		this.tControl = new TankController(tank, listener, colisionador);
+		this.tControl = new TankController(tank, new ListenerPlayer1(dibujador.getEntorno()), colisionador);
 		this.tankCop = new Tank(Orientation.UP, new Point(100, 50), new Point(40, 40), 2);
-<<<<<<< HEAD
-		this.listenerCop = new ListenerPlayer2(dibujador.getEntorno());
-=======
-		this.listenerCop = new KeyEventListener(dibujador.getEntorno());
->>>>>>> origin/mejoras_diseño
-		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
+		this.tControlCop = new TankController(tankCop, new ListenerPlayer2(dibujador.getEntorno()), colisionador);
 		this.enemyTank = new Tank(Orientation.UP, new Point(50, 550), new Point(40, 40), 2);
 		this.enemyTankControl = new DriverEasyEnemyTank(enemyTank);
 		this.enemyTank2 = new Tank(Orientation.UP, new Point(100, 550), new Point(40, 40), 2);
@@ -78,11 +59,9 @@ public class Criterio05Coop extends InterfaceJuego {
 	public void tick() {
 		if (!this.tanks.isEmpty()) {
 			if (this.tanks.contains(tank)) {
-				this.listener.inicializar(tank);
 				this.dibujador.dibujarTank(tank);
 			}
 			if (this.tanks.contains(tankCop)) {
-				this.listenerCop.inicializar(tankCop);
 				this.dibujador.dibujarTank(tankCop);
 			}
 			if (!(enemyTankControl.getTank() == null)) {
