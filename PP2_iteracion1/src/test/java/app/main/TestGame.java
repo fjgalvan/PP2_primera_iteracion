@@ -27,11 +27,11 @@ public class TestGame {
 	public void testIniciar() {
 		Game juego = new Game();
 
-		Tank tank = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40));
-		Tank enemyTank = new Tank(Orientation.UP, new Point(600, 100), new Point(40, 40));
-		Tank enemyTank2 = new Tank(Orientation.UP, new Point(500, 100), new Point(40, 40));
-		Tank enemyTank3 = new Tank(Orientation.UP, new Point(400, 100), new Point(40, 40));
-		Tank enemyTank4 = new Tank(Orientation.UP, new Point(300, 100), new Point(40, 40));
+		Tank tank = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40),2);
+		Tank enemyTank = new Tank(Orientation.UP, new Point(600, 100), new Point(40, 40),1);
+		Tank enemyTank2 = new Tank(Orientation.UP, new Point(500, 100), new Point(40, 40),1);
+		Tank enemyTank3 = new Tank(Orientation.UP, new Point(400, 100), new Point(40, 40),1);
+		Tank enemyTank4 = new Tank(Orientation.UP, new Point(300, 100), new Point(40, 40),1);
 
 		List<Tank> tanks = new ArrayList<Tank>();
 		List<Tank> enemysTanks = new ArrayList<Tank>();
@@ -80,14 +80,14 @@ public class TestGame {
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Tank tank = new Tank(orientation, coordinate, size,2);
 		// ver como meter el entorno con la otra clase
 		TankController tankC = new TankController(tank, new ListenerPlayer2(dibujador.getEntorno()), null);
 
 		Orientation orientation2 = Orientation.RIGHT;
 		Point coordinate2 = new Point(300, 400);
 		Point size2 = new Point(40, 40);
-		Tank tankEnemy = new Tank(orientation, coordinate, size);
+		Tank tankEnemy = new Tank(orientation, coordinate, size,1);
 		DriverEasyEnemyTank tankEnemyD = new DriverEasyEnemyTank(tankEnemy);
 
 		tankC.destruirTank();

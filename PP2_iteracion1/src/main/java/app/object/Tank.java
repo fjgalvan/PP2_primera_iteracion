@@ -16,15 +16,11 @@ public class Tank extends ObjetoGrafico {
 	private double velocidadDeMovimiento;
 	private Integer energy;
 
-	public Tank(Orientation orientation, Point coordinate, Point size) {
+	public Tank(Orientation orientation, Point coordinate, Point size, Integer energy) {
 		super(coordinate, size);
 		this.orientation = orientation;
 		this.tankShot = TankShot.NO_EXISTS;
 		this.velocidadDeMovimiento = Configuracion.VelocidadTanque;
-	}
-
-	public Tank(Orientation orientation, Point coordinate, Point size, Integer energy) {
-		this(orientation, coordinate, size);
 		this.energy = energy;
 	}
 

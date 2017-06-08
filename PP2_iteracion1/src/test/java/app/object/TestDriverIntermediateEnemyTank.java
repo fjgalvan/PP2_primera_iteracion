@@ -14,7 +14,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Tank tank = new Tank(orientation, coordinate, size,2);
 		// TankController tankC = new TankController(tank,null); // ver como
 		// meter el entorno con la otra clase
 		// tankC.ControlLeft(); esta funcion se paso al statemovetankleft
@@ -26,7 +26,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.RIGHT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		// TankController tankC = new TankController(enemyTank, null);
 		// tankC.ControlRigth(); se paso asu estado correspondiente
 		assertNotEquals(400.50, enemyTank.getCoordinate().getX());
@@ -37,7 +37,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.DOWN;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		// TankController tankC = new TankController(enemyTank,null);
 		// tankC.ControlDown(); se paso asu estado correspondiente
 		assertNotEquals(400.50, enemyTank.getCoordinate().getY());
@@ -48,7 +48,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.UP;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		// TankController tankC = new TankController(enemyTank,null);
 		// tankC.ControlUp(); se paso asu estado correspondiente
 		assertNotEquals(400.50, enemyTank.getCoordinate().getY());
@@ -60,7 +60,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		TankController tankC = new TankController(enemyTank, new ListenerPlayer1(new Entorno(null, null, 0, 0)),
 				Colisionador.getColisionador());
 		tankC.getTank().disparar();
@@ -74,7 +74,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.UP;
 		Point coordinate = new Point(400, 50);// (400, 26);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		DriverIntermediateEnemyTank enemyTankC = new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.UP)) {
@@ -95,7 +95,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.RIGHT;
 		Point coordinate = new Point(900, 400);// (943, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		DriverIntermediateEnemyTank enemyTankC = new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.RIGHT)) {
@@ -115,7 +115,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.DOWN;
 		Point coordinate = new Point(400, 500);// (400, 544);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		DriverIntermediateEnemyTank enemyTankC = new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.DOWN)) {
@@ -135,7 +135,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(50, 400);// (28, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		DriverIntermediateEnemyTank enemyTankC = new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.LEFT)) {
@@ -157,7 +157,7 @@ public class TestDriverIntermediateEnemyTank {
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(28, 400);
 		Point size = new Point(40, 40);
-		Tank enemyTank = new Tank(orientation, coordinate, size);
+		Tank enemyTank = new Tank(orientation, coordinate, size,2);
 		DriverIntermediateEnemyTank enemyTankC = new DriverIntermediateEnemyTank(enemyTank);
 		System.out.println(
 				"Orientacion del tanque enemigo antes del choque con estructura: " + enemyTank.getOrientation());

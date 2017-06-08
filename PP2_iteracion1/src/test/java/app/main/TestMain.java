@@ -18,11 +18,11 @@ public class TestMain {
 	
 		Game juego= new Game();
 		
-		Tank tank = new Tank(Orientation.UP,new Point(400,400),new Point(40,40));
-		Tank enemyTank = new Tank(Orientation.UP,new Point(600,100),new Point(40,40));
-		Tank enemyTank2 = new Tank(Orientation.UP,new Point(500,100),new Point(40,40));
-		Tank enemyTank3 = new Tank(Orientation.UP,new Point(400,100),new Point(40,40));
-		Tank enemyTank4 = new Tank(Orientation.UP,new Point(300,100),new Point(40,40));
+		Tank tank = new Tank(Orientation.UP,new Point(400,400),new Point(40,40),2);
+		Tank enemyTank = new Tank(Orientation.UP,new Point(600,100),new Point(40,40),1);
+		Tank enemyTank2 = new Tank(Orientation.UP,new Point(500,100),new Point(40,40),1);
+		Tank enemyTank3 = new Tank(Orientation.UP,new Point(400,100),new Point(40,40),1);
+		Tank enemyTank4 = new Tank(Orientation.UP,new Point(300,100),new Point(40,40),1);
 		
 		List<Tank> tanks = new ArrayList<Tank>();
 		List<Tank> enemysTanks = new ArrayList<Tank>();
