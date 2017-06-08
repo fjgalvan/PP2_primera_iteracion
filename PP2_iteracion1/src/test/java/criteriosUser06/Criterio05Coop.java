@@ -10,8 +10,8 @@ import app.modelo.Colisionador;
 import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
-import app.object.KeyEventListener;
-import app.object.KeyEventListenerCop;
+import app.object.ListenerPlayer1;
+import app.object.ListenerPlayer2;
 import app.object.ListStructures;
 import app.object.Map;
 import app.object.Tank;
@@ -25,12 +25,12 @@ public class Criterio05Coop extends InterfaceJuego {
 	private Colisionador colisionador;
 
 	private Tank tank;
-	private KeyEventListener listener;
+	private ListenerPlayer1 listener;
 	private TankController tControl;
 
 	private Tank tankCop;
 	private TankController tControlCop;
-	private KeyEventListenerCop listenerCop;
+	private ListenerPlayer2 listenerCop;
 
 	private Tank enemyTank;
 	private DriverEasyEnemyTank enemyTankControl;
@@ -44,10 +44,10 @@ public class Criterio05Coop extends InterfaceJuego {
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
 		this.tank = new Tank(Orientation.UP, new Point(50, 50), new Point(40, 40), 2);
-		this.listener = new KeyEventListener(dibujador.getEntorno());
+		this.listener = new ListenerPlayer1(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
 		this.tankCop = new Tank(Orientation.UP, new Point(100, 50), new Point(40, 40), 2);
-		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
+		this.listenerCop = new ListenerPlayer2(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
 		this.enemyTank = new Tank(Orientation.UP, new Point(50, 550), new Point(40, 40), 2);
 		this.enemyTankControl = new DriverEasyEnemyTank(enemyTank);

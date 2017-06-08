@@ -12,15 +12,17 @@ import app.object.DriverEasyEnemyTank;
 import app.object.DriverIntermediateEnemyTank;
 import app.object.GraphicMap;
 import app.object.ListStructures;
+import app.object.ListenerPlayer1;
+import app.object.ListenerPlayer2;
 import app.object.Map;
-import app.object.Player1;
-import app.object.Player2;
+import app.object.Player;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
 
 public class Game extends InterfaceJuego {
-	private static Player1 player1;
+	private static Player player1;
+	private static Player player2;
 	private Tank tank;
 	private Draftsman dibujador;
 	private GraphicMap mapa;
@@ -38,7 +40,6 @@ public class Game extends InterfaceJuego {
 	private List<Tank> tanks;
 	private List<Tank> enemysTanks;
 	private boolean modoJuegoCop = true;
-	private static Player1 player2;
 	private Tank tankCop;
 	private TankController tControlCop;
 
@@ -62,13 +63,13 @@ public class Game extends InterfaceJuego {
 		this.enemyTankControl3 = new DriverEasyEnemyTank(enemyTank3);
 		this.enemyTank4 = new Tank(Orientation.UP, new Point(300, 300), new Point(40, 40), 2);
 		this.enemyTankControl4 = new DriverIntermediateEnemyTank(enemyTank4);
-		Game.player1 = new Player1(0, 0, dibujador);
+		Game.player1 = new Player(0, 0, new ListenerPlayer1(dibujador.getEntorno()));
 		this.tControl = new TankController(tank, player1.getListener(), destructor.getColisionador());
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		// COP
 		if (modoJuegoCop) {
-			Game.player2 = new Player1(0, 0, dibujador);
+			Game.player2 = new Player(0, 0, new ListenerPlayer2(dibujador.getEntorno()));
 			// ver como ubicar el tanque
 			this.tankCop = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40), 2);
 			this.tControlCop = new TankController(tankCop, player2.getListener(), destructor.getColisionador());
@@ -100,7 +101,7 @@ public class Game extends InterfaceJuego {
 			}
 			// COOP
 			if (this.tanks.contains(tankCop)) {
-				player2.getListener().inicializarCooperativo(tankCop);
+				player2.getListener().inicializar(tankCop);
 				this.dibujador.dibujarTankCop(tankCop);
 				this.tControlCop.ControlTank(estructuras.getLista());
 				this.tControlCop.control_bullet(dibujador.getEntorno(), estructuras.getLista(), this.enemysTanks);

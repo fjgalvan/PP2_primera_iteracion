@@ -12,11 +12,11 @@ import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.DriverIntermediateEnemyTank;
 import app.object.GraphicMap;
-import app.object.KeyEventListener;
-import app.object.KeyEventListenerCop;
+import app.object.ListenerPlayer1;
+import app.object.ListenerPlayer2;
 import app.object.ListStructures;
 import app.object.Map;
-import app.object.Player1;
+import app.object.Player;
 import app.object.Player2;
 import app.object.Tank;
 import app.object.TankController;
@@ -25,14 +25,14 @@ import entorno.InterfaceJuego;
 // Se debe de llevar la cuenta de cuantos tanques enemigos elimino cada
 // player, sin resetearse al pasar de nivel.
 public class Criterio02Coop extends InterfaceJuego {
-	private Player1 player1;
+	private Player player1;
 	private Tank tank;
 	private Draftsman dibujador;
 	private GraphicMap mapa;
 	private ListStructures estructuras;
 	private TankController tControl;
 	private Colisionador colisionador;
-	private KeyEventListener listener;
+	private ListenerPlayer1 listener;
 	private Tank enemyTank;
 	private DriverEasyEnemyTank enemyTankControl;
 	private Tank enemyTank2;
@@ -47,17 +47,17 @@ public class Criterio02Coop extends InterfaceJuego {
 	private List<Tank> enemysTanks;
 
 	private boolean modoJuegoCop = true;
-	private Player1 player2;
+	private Player player2;
 	private Tank tankCop;
 	private TankController tControlCop;
-	private KeyEventListenerCop listenerCop;
+	private ListenerPlayer2 listenerCop;
 
 	public Criterio02Coop() {
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
 		this.tank = new Tank(Orientation.DOWN, new Point(100, 50), new Point(40, 40), 2);
-		this.listener = new KeyEventListener(dibujador.getEntorno());
+		this.listener = new ListenerPlayer1(dibujador.getEntorno());
 		try {
 			this.estructuras = new ListStructures(mapa, 0);
 		} catch (Exception e) {
@@ -72,17 +72,17 @@ public class Criterio02Coop extends InterfaceJuego {
 		this.enemyTank4 = new Tank(Orientation.UP, new Point(300, 300), new Point(40, 40), 2);
 		this.enemyTankControl4 = new DriverIntermediateEnemyTank(enemyTank4);
 
-		this.player1 = new Player1(0, 0, dibujador);
+		this.player1 = new Player(0, 0, dibujador);
 		this.tControl = new TankController(tank, listener, colisionador);
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		// COP
 		this.tanks.add(tank);
 		if (modoJuegoCop) {
-			this.player2 = new Player1(0, 0, dibujador);
+			this.player2 = new Player(0, 0, dibujador);
 			// ver como ubicar el tanque
 			this.tankCop = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40), 2);
-			this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
+			this.listenerCop = new ListenerPlayer2(dibujador.getEntorno());
 			this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
 			this.tanks.add(tankCop);
 		}

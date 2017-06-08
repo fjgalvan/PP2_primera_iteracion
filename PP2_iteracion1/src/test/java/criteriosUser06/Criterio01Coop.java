@@ -9,11 +9,11 @@ import app.enums.TankShot;
 import app.modelo.Colisionador;
 import app.object.Draftsman;
 import app.object.GraphicMap;
-import app.object.KeyEventListener;
-import app.object.KeyEventListenerCop;
+import app.object.ListenerPlayer1;
+import app.object.ListenerPlayer2;
 import app.object.ListStructures;
 import app.object.Map;
-import app.object.Player1;
+import app.object.Player;
 import app.object.Player2;
 import app.object.Tank;
 import app.object.TankController;
@@ -26,15 +26,15 @@ public class Criterio01Coop extends InterfaceJuego {
 	private GraphicMap mapa;
 	private Colisionador colisionador;
 
-	private Player1 player1;
+	private Player player1;
 	private Tank tank;
-	private KeyEventListener listener;
+	private ListenerPlayer1 listener;
 	private TankController tControl;
 
-	private Player1 player2;
+	private Player player2;
 	private Tank tankCop;
 	private TankController tControlCop;
-	private KeyEventListenerCop listenerCop;
+	private ListenerPlayer2 listenerCop;
 
 	private ListStructures estructuras;
 	private List<Tank> tanks;
@@ -44,13 +44,13 @@ public class Criterio01Coop extends InterfaceJuego {
 		this.mapa = new GraphicMap(new Map(new Point(250, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.colisionador = new Colisionador();
-		this.player1 = new Player1(0, 0, dibujador);
+		this.player1 = new Player(0, 0, dibujador);
 		this.tank = new Tank(Orientation.DOWN, new Point(100, 50), new Point(40, 40), 2);
-		this.listener = new KeyEventListener(dibujador.getEntorno());
+		this.listener = new ListenerPlayer1(dibujador.getEntorno());
 		this.tControl = new TankController(tank, listener, colisionador);
-		this.player2 = new Player1(0, 0, dibujador);
+		this.player2 = new Player(0, 0, dibujador);
 		this.tankCop = new Tank(Orientation.UP, new Point(100, 300), new Point(40, 40), 2);
-		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
+		this.listenerCop = new ListenerPlayer2(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
 		try {
 			this.estructuras = new ListStructures(mapa, 0);
