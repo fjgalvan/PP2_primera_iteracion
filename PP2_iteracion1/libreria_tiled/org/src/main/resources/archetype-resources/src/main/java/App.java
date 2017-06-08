@@ -1,4 +1,4 @@
-package $json-simple-1.1.1;
+package $org;
 
 /**
  * Hello world!
