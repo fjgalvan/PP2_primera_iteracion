@@ -5,6 +5,7 @@ import app.enums.Orientation;
 import app.enums.TankShot;
 import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
+import app.object.Configuracion;
 import entorno.Entorno;
 import entorno.Herramientas;
 
@@ -16,47 +17,54 @@ public abstract class DriverEnemyTank {
 		this.enemyTank = enemyTank;
 		this.colisionador = Colisionador.getColisionador();
 	}
+	
+	public boolean CanMoveUp(){
+		return (enemyTank.getCoordinate().getY() >= Configuracion.MinimoY);
+	}
+	
+	public boolean CanMoveDown(){
+		return (enemyTank.getCoordinate().getY() <= Configuracion.MaximoY);
+	}
+	
+	public boolean CanMoveRight(){
+		return (enemyTank.getCoordinate().getX() <= Configuracion.MaximoX);
+	}
+	
+	public boolean CanMoveLeft(){
+		return (enemyTank.getCoordinate().getX() >= Configuracion.MinimoX);
+	}
 
 	public void ControlUp() {
-		if (enemyTank.getCoordinate().getY() >= 25)
+		if (CanMoveUp())
 			enemyTank.moverse(Orientation.UP);
 	}
 
 	public void ControlDown() {
-		if (enemyTank.getCoordinate().getY() <= 547)
+		if (CanMoveDown())
 			enemyTank.moverse(Orientation.DOWN);
 	}
 
-	public void ControlRigth() {
-		if (enemyTank.getCoordinate().getX() <= 946)
+	public void ControlRight() {
+		if (CanMoveRight())
 			enemyTank.moverse(Orientation.RIGHT);
 	}
 
 	public void ControlLeft() {
-		if (enemyTank.getCoordinate().getX() >= 25)
+		if (CanMoveLeft())
 			enemyTank.moverse(Orientation.LEFT);
 	}
 
 	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos) {
 		// SIEMPRE EL TANQUE GIRA A LA DERECHA CUANDO LLEGA AL LIMITE DEL MAPA
 
-		controChoqueArribaMap();
-		controlChoqueDerechaMap();
-		controlChoqueAbajoMap();
-		controlChoqueIzquierdaMap();
+		controlChoque();
 		controlDisparoTankEnemy(ent, objetos); // FALTARIA UN TEMPORIZADOR PARA
 												// QUE NO DISPARE A PENAS
 												// bullet==null
 		ControlTank(objetos);
 	}
 
-	abstract public void controChoqueArribaMap();
-
-	abstract public void controlChoqueDerechaMap();
-
-	abstract public void controlChoqueAbajoMap();
-
-	abstract public void controlChoqueIzquierdaMap();
+	abstract public void controlChoque();
 
 	public void controlDisparoTankEnemy(Entorno ent, List<ObjetoGrafico> objetos) {
 		control_bullet(ent, objetos);

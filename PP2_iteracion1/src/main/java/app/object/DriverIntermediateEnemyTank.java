@@ -11,43 +11,32 @@ public class DriverIntermediateEnemyTank extends DriverEnemyTank {
 		super(enemyTank);
 	}
 
-	public void controChoqueArribaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.UP)) {
-			ControlUp();
-			if (enemyTank.getCoordinate().getY() <= 26) {// 25){
-				// enemyTank.girar(Orientation.RIGHT);
-				girarRandom();
-			}
-		}
-	}
-
-	public void controlChoqueDerechaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.RIGHT)) {
-			ControlRigth();
-			if (enemyTank.getCoordinate().getX() >= 934) {// 933){
-				// enemyTank.girar(Orientation.DOWN);
-				girarRandom();
-			}
-		}
-	}
-
-	public void controlChoqueAbajoMap() {
-		if (enemyTank.getOrientation().equals(Orientation.DOWN)) {
-			ControlDown();
-			if (enemyTank.getCoordinate().getY() >= 544) {
-				// enemyTank.girar(Orientation.LEFT);
-				girarRandom();
-			}
-		}
-	}
-
-	public void controlChoqueIzquierdaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.LEFT)) {
-			ControlLeft();
-			if (enemyTank.getCoordinate().getX() <= 28) {// 27){
-				// enemyTank.girar(Orientation.UP);
-				girarRandom();
-			}
+	public void controlChoque() {
+		switch(enemyTank.getOrientation()){
+			case UP:
+				ControlUp();
+				if (CanMoveUp()) {
+					girarRandom();
+				}
+				break;
+			case RIGHT:
+				ControlRight();
+				if (CanMoveRight()) {
+					girarRandom();
+				}
+				break;
+			case DOWN:
+				ControlDown();
+				if (CanMoveDown()) {
+					girarRandom();
+				}
+				break;
+			case LEFT:
+				ControlLeft();
+				if (CanMoveLeft()) {
+					girarRandom();
+				}
+				break;
 		}
 	}
 

@@ -10,39 +10,32 @@ public class DriverEasyEnemyTank extends DriverEnemyTank {
 		super(enemyTank);
 	}
 
-	public void controChoqueArribaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.UP)) {
-			ControlUp();
-			if (enemyTank.getCoordinate().getY() <= 26) {// 25){
-				enemyTank.girar(Orientation.RIGHT);
-			}
-		}
-	}
-
-	public void controlChoqueDerechaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.RIGHT)) {
-			ControlRigth();
-			if (enemyTank.getCoordinate().getX() >= 934) {// 933){
-				enemyTank.girar(Orientation.DOWN);
-			}
-		}
-	}
-
-	public void controlChoqueAbajoMap() {
-		if (enemyTank.getOrientation().equals(Orientation.DOWN)) {
-			ControlDown();
-			if (enemyTank.getCoordinate().getY() >= 544) {
-				enemyTank.girar(Orientation.LEFT);
-			}
-		}
-	}
-
-	public void controlChoqueIzquierdaMap() {
-		if (enemyTank.getOrientation().equals(Orientation.LEFT)) {
-			ControlLeft();
-			if (enemyTank.getCoordinate().getX() <= 28) {// 27){
-				enemyTank.girar(Orientation.UP);
-			}
+	public void controlChoque() {
+		switch(enemyTank.getOrientation()){
+			case UP:
+				ControlUp();
+				if (CanMoveUp()) {
+					enemyTank.girar(Orientation.UP);
+				}
+				break;
+			case RIGHT:
+				ControlRight();
+				if (CanMoveRight()) {
+					enemyTank.girar(Orientation.RIGHT);
+				}
+				break;
+			case DOWN:
+				ControlDown();
+				if (CanMoveDown()) {
+					enemyTank.girar(Orientation.DOWN);
+				}
+				break;
+			case LEFT:
+				ControlLeft();
+				if (CanMoveLeft()) {
+					enemyTank.girar(Orientation.LEFT);
+				}
+				break;
 		}
 	}
 
