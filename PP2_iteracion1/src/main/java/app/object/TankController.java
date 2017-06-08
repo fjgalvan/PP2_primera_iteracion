@@ -52,17 +52,6 @@ public class TankController {
 		}
 	}
 
-	/*
-	 * public void ControlTankCop(List<ObjetoGrafico> objetos) {
-	 * if(listenerCop.existeEstadoDeMovimiento()) {
-	 * tank.setStateMove(listenerCop.getEstado());
-	 * tank.girar(tank.getStateMove().getOrientacion());
-	 * if(!hayColisionConUnObjeto(objetos)) { tank.getStateMove().control();
-	 * listenerCop.borrarEstado(); } } if(listenerCop.seActivoDisparo() &&
-	 * !tank.existeDisparoEnEjecucion()) { Sonido.TanqueDisparo.stop();
-	 * Sonido.TanqueDisparo.play(); this.tank.disparar(); } }
-	 */
-
 	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos, List<Tank> enemysTanks) {
 		if (this.tank.getTankBullet().equals(TankShot.EXISTS)) {
 			this.tank.getBullet().avanzarBullet();
@@ -79,8 +68,8 @@ public class TankController {
 		return tank;
 	}
 
-	public void setTank(Tank tank) // si este set no se usa , quitar!
-	{
+	// si este set no se usa, quitar!
+	public void setTank(Tank tank) {
 		this.tank = tank;
 	}
 

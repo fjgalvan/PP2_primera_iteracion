@@ -65,10 +65,8 @@ public class Tank extends ObjetoGrafico {
 	// dependiendo del estado en que se encuentre se mueve en esa posicion
 	public void moverse() {
 		// controlar que no choque con las estructuras o el limite del mapa
-		if (!Util.estaEnElLimiteDeTablero(orientation, coordinate)) { // esta
-																		// funcion
-																		// no se
-																		// utiliza
+		// esta funcion no se utiliza
+		if (!Util.estaEnElLimiteDeTablero(orientation, coordinate)) {
 			Util.moverse(orientation, coordinate, velocidadDeMovimiento);
 		}
 	}
