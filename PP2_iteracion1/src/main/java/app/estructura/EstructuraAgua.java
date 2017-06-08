@@ -5,29 +5,22 @@ import java.awt.Color;
 import app.interfaces.Estructura;
 import app.modelo.ObjetoGrafico;
 
-//SE COMENTARON LOS @Override
 public class EstructuraAgua extends ObjetoGrafico implements Estructura {
-	
 
-	public EstructuraAgua()
-	{
-		super.imagen = "imagen/agua.png";
-		//this.imagen = new Imagen("/PP2/src/imagen/agua.png");
-		//System.out.println("me construi , estructura agua");
-		this.color = Color.BLUE;
-	}
-	
-	
-	public void colisionBala(){
-		
+	public EstructuraAgua() {
+		super("imagen/agua.png", Color.BLUE);
 	}
 
+	@Override
+	public void colisionBala() {
+		// TODO Auto-generated method stub
 
+	}
+
+	@Override
 	public void destruir() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
 }
-

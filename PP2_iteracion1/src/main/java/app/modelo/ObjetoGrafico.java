@@ -19,6 +19,12 @@ public abstract class ObjetoGrafico {
 		this.coordinate = coordinate;
 		this.size = size;
 	}
+	
+	public ObjetoGrafico(String imagen, Color color){
+		this.imagen = imagen;
+		this.color = color;
+		this.radio = 0;
+	}
 
 	public Color getColor() {
 		return color;

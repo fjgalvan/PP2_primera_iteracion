@@ -5,28 +5,23 @@ import java.awt.Color;
 import app.interfaces.Estructura;
 import app.modelo.ObjetoGrafico;
 
-//SE COMENTARON LOS @Override
-public class EstructuraLadrillo extends ObjetoGrafico implements Estructura{
-		
-	
-	public EstructuraLadrillo()
-	{
-		super.imagen = "imagen/ladrillo.png";
-		//this.imagen = new Imagen("agua.png");
-		//System.out.println("me construi estructura ladrillo");
-		this.color = Color.RED;
+public class EstructuraLadrillo extends ObjetoGrafico implements Estructura {
+
+	public EstructuraLadrillo() {
+		super("imagen/ladrillo.png", Color.RED);
 	}
 
+	@Override
 	public void colisionBala() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void destruir() {
 		// TODO Auto-generated method stub
 		
 	}
-		
-	
-	
+
+
 }
