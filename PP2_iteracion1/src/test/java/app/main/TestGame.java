@@ -11,7 +11,7 @@ import app.modelo.Colisionador;
 import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
-import app.object.KeyEventListenerCop;
+import app.object.KeyEventListener;
 import app.object.Map;
 import app.object.Player1;
 import app.object.Tank;
@@ -72,7 +72,7 @@ public class TestGame {
 		InterfaceJuego i = null;
 		GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
-		KeyEventListenerCop listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
+		KeyEventListener listenerCop = new KeyEventListener(dibujador.getEntorno());
 		Colisionador colisionador = new Colisionador();
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
