@@ -12,12 +12,19 @@ import app.object.Draftsman;
 import app.object.DriverEasyEnemyTank;
 import app.object.DriverIntermediateEnemyTank;
 import app.object.GraphicMap;
+<<<<<<< HEAD
 import app.object.ListenerPlayer1;
 import app.object.ListenerPlayer2;
 import app.object.ListStructures;
 import app.object.Map;
 import app.object.Player;
 import app.object.Player2;
+=======
+import app.object.KeyEventListener;
+import app.object.ListStructures;
+import app.object.Map;
+import app.object.Player1;
+>>>>>>> origin/mejoras_diseño
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
@@ -50,7 +57,11 @@ public class Criterio02Coop extends InterfaceJuego {
 	private Player player2;
 	private Tank tankCop;
 	private TankController tControlCop;
+<<<<<<< HEAD
 	private ListenerPlayer2 listenerCop;
+=======
+	private KeyEventListener listenerCop;
+>>>>>>> origin/mejoras_diseño
 
 	public Criterio02Coop() {
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
@@ -82,7 +93,11 @@ public class Criterio02Coop extends InterfaceJuego {
 			this.player2 = new Player(0, 0, dibujador);
 			// ver como ubicar el tanque
 			this.tankCop = new Tank(Orientation.UP, new Point(400, 400), new Point(40, 40), 2);
+<<<<<<< HEAD
 			this.listenerCop = new ListenerPlayer2(dibujador.getEntorno());
+=======
+			this.listenerCop = new KeyEventListener(dibujador.getEntorno());
+>>>>>>> origin/mejoras_diseño
 			this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
 			this.tanks.add(tankCop);
 		}
@@ -113,7 +128,7 @@ public class Criterio02Coop extends InterfaceJuego {
 			if (this.tanks.contains(tankCop)) {
 				this.listenerCop.inicializar(tankCop);
 				this.dibujador.dibujarTankCop(tankCop);
-				this.tControlCop.ControlTankCop(estructuras.getLista());
+				this.tControlCop.ControlTank(estructuras.getLista());
 				this.tControlCop.control_bullet(dibujador.getEntorno(), estructuras.getLista(), this.enemysTanks);
 				destruccionTanksEnemys(tankCop, tanks, enemysTanks, "2");
 			}

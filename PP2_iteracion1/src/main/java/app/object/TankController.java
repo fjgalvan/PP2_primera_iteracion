@@ -16,7 +16,11 @@ import sonido.Sonido;
 @SuppressWarnings("unused")
 public class TankController {
 	private Tank tank;
+<<<<<<< HEAD
 	private IKeyEventListener listener;
+=======
+	private KeyEventListener listener;
+>>>>>>> origin/mejoras_diseño
 	private Colisionador colisionador;
 
 	public TankController(Tank tank, IKeyEventListener listener, Colisionador colisionador) {
@@ -43,7 +47,12 @@ public class TankController {
 				listener.borrarEstado();
 			}
 		}
+<<<<<<< HEAD
 		if (listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion()) {
+=======
+		if(listener.seActivoDisparo() || listener.seActivoDisparoCop() && !tank.existeDisparoEnEjecucion())
+		{
+>>>>>>> origin/mejoras_diseño
 			Sonido.TanqueDisparo.stop();
 			Sonido.TanqueDisparo.play();
 			this.tank.disparar();

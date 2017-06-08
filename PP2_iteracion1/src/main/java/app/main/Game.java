@@ -15,7 +15,11 @@ import app.object.ListStructures;
 import app.object.ListenerPlayer1;
 import app.object.ListenerPlayer2;
 import app.object.Map;
+<<<<<<< HEAD
 import app.object.Player;
+=======
+import app.object.Player1;
+>>>>>>> origin/mejoras_diseño
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
