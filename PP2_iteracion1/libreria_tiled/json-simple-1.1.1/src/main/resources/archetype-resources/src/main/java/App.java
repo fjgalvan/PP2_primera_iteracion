@@ -1,4 +1,4 @@
-package $org;
+package $org.json.simple;
 
 /**
  * Hello world!

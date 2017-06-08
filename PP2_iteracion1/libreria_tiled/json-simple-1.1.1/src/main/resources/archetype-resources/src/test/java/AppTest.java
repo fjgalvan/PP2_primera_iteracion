@@ -1,4 +1,4 @@
-package $org;
+package $org.json.simple;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
