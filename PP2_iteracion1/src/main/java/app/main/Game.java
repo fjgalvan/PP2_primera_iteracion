@@ -14,7 +14,6 @@ import app.object.GraphicMap;
 import app.object.ListStructures;
 import app.object.Map;
 import app.object.Player1;
-import app.object.Player2;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;

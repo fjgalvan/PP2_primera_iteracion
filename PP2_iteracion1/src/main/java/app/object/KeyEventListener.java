@@ -53,6 +53,11 @@ public class KeyEventListener
 	{
 		return entorno.estaPresionada(entorno.TECLA_ENTER);
 	}
+	
+	public boolean seActivoDisparoCop() 
+	{
+		return entorno.estaPresionada(entorno.TECLA_ESPACIO);
+	}
 
 	public void inicializarCooperativo(Tank tankCop) {
 		if(this.entorno.estaPresionada(entorno.TECLA_S))
