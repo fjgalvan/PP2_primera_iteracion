@@ -26,6 +26,11 @@
     	<artifactId>entorno</artifactId>
     	<version>1</version>
     </dependency>
+    <dependency>
+    	<groupId>org</groupId>
+    	<artifactId>org</artifactId>
+    	<version>1</version>
+    </dependency>
   </dependencies>
   
   <build>
