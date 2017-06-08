@@ -62,7 +62,7 @@ public class TestDriverIntermediateEnemyTank {
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(enemyTank, new ListenerPlayer1(new Entorno(null, null, 0, 0)),
-				new Colisionador());
+				Colisionador.getColisionador());
 		tankC.getTank().disparar();
 		assertNotEquals(null, tankC.getTank().getBullet());
 	}

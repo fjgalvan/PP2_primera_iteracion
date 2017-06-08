@@ -14,7 +14,7 @@ public abstract class DriverEnemyTank {
 
 	public DriverEnemyTank(Tank enemyTank) {
 		this.enemyTank = enemyTank;
-		this.colisionador = new Colisionador();
+		this.colisionador = Colisionador.getColisionador();
 	}
 
 	public void ControlUp() {

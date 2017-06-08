@@ -9,9 +9,16 @@ import app.modelo.ObjetoGrafico;
 public class Colisionador {
 	private Tank tankADestruir;
 	private ObjetoGrafico objetoADestruir;
-
-	public Colisionador() {
-
+	private static Colisionador colisionador;
+	
+	private Colisionador() {
+	}
+	
+	public static Colisionador getColisionador(){
+		if(colisionador==null){
+			return colisionador = new Colisionador();
+		}
+		return colisionador;
 	}
 
 	/** BULLET */

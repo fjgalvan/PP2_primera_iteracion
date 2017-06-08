@@ -1,15 +1,12 @@
 package app.object;
 
-import app.interfaces.KeyEventListener;
 import app.state_tank.*;
 import entorno.Entorno;
 
-public class ListenerPlayer1 implements KeyEventListener {
-	private Entorno entorno;
-	private StateMoveTank estado;
-
+public class ListenerPlayer1 extends KeyEventListener {
+	
 	public ListenerPlayer1(Entorno e) {
-		this.entorno = e;
+		super(e);
 	}
 
 	@Override
@@ -29,17 +26,4 @@ public class ListenerPlayer1 implements KeyEventListener {
 	public boolean seActivoDisparo() {
 		return entorno.estaPresionada(entorno.TECLA_ENTER);
 	}
-
-	public StateMoveTank getEstado() {
-		return estado;
-	}
-
-	public void borrarEstado() {
-		this.estado = null;
-	}
-
-	public boolean existeEstadoDeMovimiento() {
-		return (this.estado != null);
-	}
-
 }

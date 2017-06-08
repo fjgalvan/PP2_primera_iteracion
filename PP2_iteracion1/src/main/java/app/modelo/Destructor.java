@@ -13,7 +13,7 @@ public class Destructor {
 	private Colisionador colisionador;
 	
 	public Destructor(){
-		this.colisionador = new Colisionador();
+		this.colisionador = Colisionador.getColisionador();
 	}
 	//Player
 	public void destruccionTank(Tank enemyTank, List<Tank> tanks, Tank tank,TankController tControl,TankController tControlCop){
