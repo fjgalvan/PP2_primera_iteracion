@@ -3,7 +3,7 @@ package app.interfaces;
 import app.object.Tank;
 import app.state_tank.StateMoveTank;
 
-public interface IKeyEventListener {
+public interface KeyEventListener {
 
 	public void inicializar(Tank tanque);
 

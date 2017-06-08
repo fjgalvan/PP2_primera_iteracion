@@ -1,14 +1,14 @@
 package app.object;
 
 import entorno.Entorno;
-import app.interfaces.IKeyEventListener;
+import app.interfaces.KeyEventListener;
 import app.state_tank.StateMoveTank;
 import app.state_tank.StateMoveTankDown;
 import app.state_tank.StateMoveTankLeft;
 import app.state_tank.StateMoveTankRight;
 import app.state_tank.StateMoveTankUp;
 
-public class ListenerPlayer2 implements IKeyEventListener {
+public class ListenerPlayer2 implements KeyEventListener {
 	private Entorno entorno;
 	private StateMoveTank estado;
 

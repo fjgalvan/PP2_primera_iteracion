@@ -1,13 +1,13 @@
 package app.object;
 
-import app.interfaces.IKeyEventListener;
+import app.interfaces.KeyEventListener;
 
 public class Player {
 	private double puntaje;
 	private int cantidadDeEnemigosAsesinados;
-	private IKeyEventListener listener;
+	private KeyEventListener listener;
 
-	public Player(double puntaje, int cantidadDeEnemigosAsesinados, IKeyEventListener listener) {
+	public Player(double puntaje, int cantidadDeEnemigosAsesinados, KeyEventListener listener) {
 		this.puntaje = puntaje;
 		this.cantidadDeEnemigosAsesinados = cantidadDeEnemigosAsesinados;
 		this.listener = listener;
@@ -29,7 +29,7 @@ public class Player {
 		this.cantidadDeEnemigosAsesinados += cantidadDeEnemigosAsesinados;
 	}
 
-	public IKeyEventListener getListener() {
+	public KeyEventListener getListener() {
 		return listener;
 	}
 }

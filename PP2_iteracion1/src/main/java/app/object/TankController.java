@@ -7,7 +7,7 @@ import entorno.Entorno;
 import entorno.Herramientas;
 import app.enums.Orientation;
 import app.enums.TankShot;
-import app.interfaces.IKeyEventListener;
+import app.interfaces.KeyEventListener;
 import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
 import app.state_tank.StateMoveTankUp;
@@ -17,10 +17,10 @@ import sonido.Sonido;
 @SuppressWarnings("unused")
 public class TankController {
 	private Tank tank;
-	private IKeyEventListener listener;
+	private KeyEventListener listener;
 	private Colisionador colisionador;
 
-	public TankController(Tank tank, IKeyEventListener listener, Colisionador colisionador) {
+	public TankController(Tank tank, KeyEventListener listener, Colisionador colisionador) {
 		this.tank = tank;
 		this.listener = listener;
 		this.colisionador = colisionador;

@@ -1,10 +1,10 @@
 package app.object;
 
-import app.interfaces.IKeyEventListener;
+import app.interfaces.KeyEventListener;
 import app.state_tank.*;
 import entorno.Entorno;
 
-public class ListenerPlayer1 implements IKeyEventListener {
+public class ListenerPlayer1 implements KeyEventListener {
 	private Entorno entorno;
 	private StateMoveTank estado;
 
