@@ -27,7 +27,7 @@
     	<version>1</version>
     </dependency>
     <dependency>
-    	<groupId>org</groupId>
+    	<groupId>json-simple-1.1.1</groupId>
     	<artifactId>org</artifactId>
     	<version>1</version>
     </dependency>
