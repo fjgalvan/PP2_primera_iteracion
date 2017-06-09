@@ -1,7 +1,8 @@
 package app.object;
 
-import java.awt.Color; 
+import java.awt.Color;
 
+import app.enums.Orientation;
 import app.modelo.ObjetoGrafico;
 import entorno.*;
 
@@ -79,7 +80,14 @@ public class Draftsman {
 	}
 
 	public void dibujarBomberman(Tank t){
-		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanUP.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		if(t.getOrientation().equals(Orientation.UP))
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanUP.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+		if(t.getOrientation().equals(Orientation.DOWN))
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanDOWN.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, 0,2);
+		if(t.getOrientation().equals(Orientation.LEFT))
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanLEFT.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, 0,2);
+		if(t.getOrientation().equals(Orientation.RIGHT))
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanRIGHT.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, 0,2);
 	}
 	
 	public void dibujarTankCop(Tank t)

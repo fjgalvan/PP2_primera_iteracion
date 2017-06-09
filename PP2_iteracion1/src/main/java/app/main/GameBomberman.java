@@ -55,8 +55,8 @@ public class GameBomberman extends InterfaceJuego{
     	{
     		this.dibujador.dibujarEstructura(e);
     	}
+    	this.player1.getListener().inicializar(tank); 
     	this.dibujador.dibujarBomberman(tank);
-    	player1.getListener().inicializar(tank); 
     	this.tControl.ControlTank(estructuras.getLista());
 
     }
