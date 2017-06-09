@@ -8,9 +8,9 @@ import app.modelo.ObjetoGrafico;
 public class EstructuraAgua extends ObjetoGrafico implements Estructura {
 	
 
-	public EstructuraAgua()
+	public EstructuraAgua(String imagen)
 	{
-		super.imagen = "imagen/agua.png";
+		super.imagen = imagen;
 		//this.imagen = new Imagen("/PP2/src/imagen/agua.png");
 		//System.out.println("me construi , estructura agua");
 		this.color = Color.BLUE;

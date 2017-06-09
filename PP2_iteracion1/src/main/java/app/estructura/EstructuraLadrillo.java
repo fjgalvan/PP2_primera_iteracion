@@ -8,9 +8,9 @@ import app.modelo.ObjetoGrafico;
 public class EstructuraLadrillo extends ObjetoGrafico implements Estructura{
 		
 	
-	public EstructuraLadrillo()
+	public EstructuraLadrillo(String imagen)
 	{
-		super.imagen = "imagen/ladrillo.png";
+		super.imagen = imagen;
 		//this.imagen = new Imagen("agua.png");
 		//System.out.println("me construi estructura ladrillo");
 		this.color = Color.RED;

@@ -8,11 +8,9 @@ import app.modelo.ObjetoGrafico;
 public class EstructuraAcero extends ObjetoGrafico implements Estructura{
 
 	
-	public EstructuraAcero()
+	public EstructuraAcero(String imagen)
 	{
-		super.imagen = "imagen/acero.png";
-		//this.imagen = new Imagen("agua.png");
-		//System.out.println("me construi, estructura acero ");
+		super.imagen = imagen;
 		this.color = Color.ORANGE;
 	}
 	
@@ -22,7 +20,6 @@ public class EstructuraAcero extends ObjetoGrafico implements Estructura{
 	}
 
 	public void destruir() {
-		// TODO Auto-generated method stub
 		
 	}
 

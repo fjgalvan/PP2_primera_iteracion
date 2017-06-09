@@ -7,9 +7,9 @@ import app.modelo.ObjetoGrafico;
 public class EstructuraFondo  extends ObjetoGrafico implements Estructura{
 	
 	//SE COMENTARON LOS @Override
-		public EstructuraFondo()
+		public EstructuraFondo(String imagen)
 		{
-			super.imagen = "imagen/fondo.png";
+			super.imagen = imagen;
 			//this.imagen = new Imagen("agua.png");
 			//System.out.println("me construi estructura ladrillo");
 			this.color = Color.RED;

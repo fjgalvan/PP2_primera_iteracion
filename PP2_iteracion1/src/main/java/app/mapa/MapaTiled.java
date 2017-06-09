@@ -15,6 +15,7 @@ public class MapaTiled {
 	private int anchoMapaEnTiles;
 	private int altoMapaEnTiles;
 	private JSONArray capas;
+	private JSONArray capasDeImagenes;
 	private ArrayList<CapaSprites> capasDeSprites;
 	
 	public MapaTiled(final String ruta){
@@ -29,19 +30,21 @@ public class MapaTiled {
 
 		//CAPAS
 		capas = obtenerArrayJSON(globalJSON.get("layers").toString());
+		capasDeImagenes = obtenerArrayJSON(globalJSON.get("tilesets").toString());
 		this.capasDeSprites = new ArrayList<CapaSprites>();
-		
 		//INICIAR CAPAS
 		//RECORRE TODAS LAS CAPAS
 		for(int i=0; i < capas.size(); i++){
 			JSONObject datosCapa = obtenerObjetoJSON(capas.get(i).toString());
+			JSONObject datosCapaDeImagen = obtenerObjetoJSON(capasDeImagenes.get(i).toString());
 
 			int anchoCapa = obtenerIntDesdeJSON(datosCapa, "width");
 			int altoCapa = obtenerIntDesdeJSON(datosCapa, "height");
 			int xCapa = obtenerIntDesdeJSON(datosCapa, "y");
 			int yCapa = obtenerIntDesdeJSON(datosCapa, "x");
 			String nombreCapa = obtenerStringDesdeJSON(datosCapa, "name");
-			
+			String imagenCapa = obtenerStringDesdeJSON(datosCapaDeImagen, "image");
+			System.out.println(imagenCapa);
 			String tipo = datosCapa.get("type").toString();
 			
 			switch(tipo){
@@ -53,7 +56,7 @@ public class MapaTiled {
 						int codigoSprite = Integer.parseInt(sprites.get(j).toString());
 						spritesCapa[j] = codigoSprite -1;
 					}
-					this.capasDeSprites.add(new CapaSprites(nombreCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa));
+					this.capasDeSprites.add(new CapaSprites(nombreCapa, imagenCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa));
 					break;
 			}
 		}
@@ -110,7 +113,7 @@ public class MapaTiled {
 					coordenadas.add(obtenerCoordenada(40, altoMapaEnTiles, anchoMapaEnTiles, j)); //GUARDO TODAS LAS COORDENADAS
 				}
 			}
-			estructuras.inicializarListaConTiled(capasDeSprites.get(i).getNombre(), totalTilesPorCapa,
+			estructuras.inicializarListaConTiled(capasDeSprites.get(i).getNombre(), capasDeSprites.get(i).getImagenCapa(), totalTilesPorCapa,
 					coordenadas);
 			coordenadas.removeAll(coordenadas);
 		}

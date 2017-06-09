@@ -58,7 +58,7 @@ public class Criterio05Coop extends InterfaceJuego {
 		this.tanks = new ArrayList<Tank>();
 		this.tanks.add(tank);
 		this.tanks.add(tankCop);
-		this.estructuras = new ListStructures(mapa, 0);
+		this.estructuras = new ListStructures();
 	}
 
 	public void tick() {

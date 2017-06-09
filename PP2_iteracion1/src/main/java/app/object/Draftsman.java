@@ -77,6 +77,10 @@ public class Draftsman {
 		//this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/Tank1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo());
 		//	this.entorno.dibujarRectangulo(x, y, ancho, alto, angulo, color);
 	}
+
+	public void dibujarBomberman(Tank t){
+		this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanUP.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),2);
+	}
 	
 	public void dibujarTankCop(Tank t)
 	{

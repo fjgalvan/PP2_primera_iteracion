@@ -36,13 +36,16 @@ public class Game extends InterfaceJuego {
 	private static Player2 player2;
     private Tank tankCop;
 	private TankController tControlCop;
+
+	private String mapaAJugar = "/mapas/MapaTank05.csv";
+	
 	public Game() 
 	{
 		this.mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.estructuras = new ListStructures();
 		
-		this.mapaTiled = new MapaTiled("/mapas/MapaTank05.csv");
+		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.crearEstructuras(estructuras);
 		
 		this.tank = new Tank(Orientation.UP,new Coordinate(560,520),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe

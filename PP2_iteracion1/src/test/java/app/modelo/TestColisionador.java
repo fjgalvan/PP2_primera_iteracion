@@ -89,8 +89,7 @@ public class TestColisionador {
 	@Test
 	public void hayColision(){
 		Colisionador colisionador = new Colisionador();
-		GraphicMap mapa = new GraphicMap(new Map(new Size(280, 280)), new Size(20, 20));
-		ListStructures estructuras = new ListStructures(mapa, 10);
+		ListStructures estructuras = new ListStructures();
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
 		
@@ -110,8 +109,7 @@ public class TestColisionador {
 	@Test
 	public void hayColisionArriba(){
 		Colisionador colisionador = new Colisionador();
-		GraphicMap mapa = new GraphicMap(new Map(new Size(280, 280)), new Size(20, 20));
-		ListStructures estructuras = new ListStructures(mapa, 10);
+		ListStructures estructuras = new ListStructures();
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
 		

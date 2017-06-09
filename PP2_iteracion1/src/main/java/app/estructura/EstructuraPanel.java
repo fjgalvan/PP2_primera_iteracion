@@ -8,9 +8,9 @@ import app.modelo.ObjetoGrafico;
 public class EstructuraPanel extends ObjetoGrafico implements Estructura{
 
 	
-	public EstructuraPanel()
+	public EstructuraPanel(String imagen)
 	{
-		super.imagen = "imagen/panel.png";
+		super.imagen = imagen;
 		this.color = Color.ORANGE;
 	}
 	

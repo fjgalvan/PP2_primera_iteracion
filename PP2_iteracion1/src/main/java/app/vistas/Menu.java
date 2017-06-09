@@ -14,23 +14,8 @@ import javax.swing.JRadioButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.FileInputStream; 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Properties; 
 
 
-
-
-
-
-
-
-
-//import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -39,8 +24,6 @@ import clase_properties.EleccionMenu;
 import clase_properties.Principal;
 
 import java.awt.Color;
-import java.io.FileReader;
-import java.util.Properties;
 
 
 public class Menu extends JFrame {
@@ -58,7 +41,12 @@ public class Menu extends JFrame {
 	private ImageIcon icono_Bomberman;
 	private ImageIcon imagen_Pacman;
 	private ImageIcon icono_Pacman;
-	final JPanel panelTank;
+	private JPanel panelTank;
+	private JRadioButton rdbtnTank;
+	private JRadioButton rdbtnBomberman;
+	private JRadioButton rdbtnPacman;
+	private JButton btnOk;
+	private JButton btnAceptar;
 	
 	public EleccionMenu eleccion= null;
 	
@@ -91,12 +79,13 @@ public class Menu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(51, 204, 102));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		bg= new ButtonGroup();
 		
-		final JRadioButton rdbtnTank = new JRadioButton("TANK");
+		rdbtnTank = new JRadioButton("TANK");
 		rdbtnTank.setBackground(Color.ORANGE);
 		rdbtnTank.setBounds(43, 38, 109, 23);
 		contentPane.add(rdbtnTank);
@@ -114,7 +103,7 @@ public class Menu extends JFrame {
 
 		bg.add(rdbtnTank);
 		
-		final JRadioButton rdbtnBomberman = new JRadioButton("BOMBERMAN");
+		rdbtnBomberman = new JRadioButton("BOMBERMAN");
 		rdbtnBomberman.setBackground(new Color(255, 102, 51));
 		rdbtnBomberman.setBounds(43, 123, 109, 23);
 		contentPane.add(rdbtnBomberman);
@@ -129,7 +118,7 @@ public class Menu extends JFrame {
 		});
 		bg.add(rdbtnBomberman);
 		
-		final JRadioButton rdbtnPacman = new JRadioButton("PACMAN");
+		rdbtnPacman = new JRadioButton("PACMAN");
 		rdbtnPacman.setBackground(new Color(255, 255, 0));
 		rdbtnPacman.setBounds(43, 203, 109, 23);
 		contentPane.add(rdbtnPacman);
@@ -152,7 +141,7 @@ public class Menu extends JFrame {
 		panelTank.setLayout(null);
 		panelTank.setVisible(false);
 		
-		JButton btnAceptar = new JButton("ACEPTAR");
+		btnAceptar = new JButton("ACEPTAR");
 		btnAceptar.setForeground(new Color(0, 0, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -221,7 +210,7 @@ public class Menu extends JFrame {
 		comboBox_VIDAS.setBounds(348, 36, 92, 20);
 		panelTank.add(comboBox_VIDAS);
 		
-		JButton btnOk = new JButton("OK");
+		btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String comboBox_nivel =  (String) comboBox_NIVELES.getSelectedItem();
@@ -283,6 +272,24 @@ public class Menu extends JFrame {
 	public void setEleccion(EleccionMenu eleccion) {
 		this.eleccion = eleccion;
 	}
-	
-	
+
+	public JRadioButton getRdbtnTank() {
+		return rdbtnTank;
+	}
+
+	public JRadioButton getRdbtnBomberman() {
+		return rdbtnBomberman;
+	}
+
+	public JRadioButton getRdbtnPacman() {
+		return rdbtnPacman;
+	}
+
+	public JButton getBtnOk() {
+		return btnOk;
+	}
+
+	public JButton getBtnAceptar() {
+		return btnAceptar;
+	}
 }

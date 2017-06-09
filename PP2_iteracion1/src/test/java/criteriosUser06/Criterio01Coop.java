@@ -55,7 +55,7 @@ public class Criterio01Coop extends InterfaceJuego{
 		this.tankCop = new Tank(Orientation.UP, new Coordinate(100, 300), new Size(40, 40), new Energy(2));
 		this.listenerCop = new KeyEventListenerCop(dibujador.getEntorno());
 		this.tControlCop = new TankController(tankCop, listenerCop, colisionador);
-		this.estructuras = new ListStructures(mapa, 0);
+		this.estructuras = new ListStructures();
 		this.tanks = new ArrayList<Tank>();
 		this.enemysTanks = new ArrayList<Tank>();
 		this.tanks.add(tank);
