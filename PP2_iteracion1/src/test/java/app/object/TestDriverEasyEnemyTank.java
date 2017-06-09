@@ -80,9 +80,9 @@ public class TestDriverEasyEnemyTank {
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.UP)) {
 			enemyTank.moverse(Orientation.UP);
-			enemyTankC.controChoqueArribaMap();
+			enemyTankC.controlChoque();
 		}
-		enemyTankC.controChoqueArribaMap();
+		enemyTankC.controlChoque();
 		System.out.println("Orientacion Despues del limite: " + enemyTank.getOrientation());
 		assertNotEquals(orientation, enemyTank.getOrientation());
 		// assertNotEquals(26.0, enemyTankC.getTank().getCoordinate().getY());
@@ -101,7 +101,7 @@ public class TestDriverEasyEnemyTank {
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.RIGHT)) {
 			enemyTank.moverse(Orientation.RIGHT);
-			enemyTankC.controlChoqueDerechaMap();
+			enemyTankC.controlChoque();
 		}
 		System.out.println("Orientacion Despues del limite: " + enemyTank.getOrientation());
 		assertNotEquals(orientation, enemyTank.getOrientation());
@@ -121,7 +121,7 @@ public class TestDriverEasyEnemyTank {
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.DOWN)) {
 			enemyTank.moverse(Orientation.DOWN);
-			enemyTankC.controlChoqueAbajoMap();
+			enemyTankC.controlChoque();
 		}
 		System.out.println("Orientacion Despues del limite: " + enemyTank.getOrientation());
 		assertNotEquals(orientation, enemyTank.getOrientation());
@@ -141,7 +141,7 @@ public class TestDriverEasyEnemyTank {
 		System.out.println("Orientacion Antes del limite: " + enemyTank.getOrientation());
 		while (enemyTank.getOrientation().equals(Orientation.LEFT)) {
 			enemyTank.moverse(Orientation.LEFT);
-			enemyTankC.controlChoqueIzquierdaMap();
+			enemyTankC.controlChoque();
 		}
 		System.out.println("Orientacion Despues del limite: " + enemyTank.getOrientation());
 		assertNotEquals(orientation, enemyTank.getOrientation());
