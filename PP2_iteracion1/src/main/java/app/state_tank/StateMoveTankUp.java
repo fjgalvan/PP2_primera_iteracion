@@ -15,7 +15,7 @@ public class StateMoveTankUp extends StateMoveTank
 	
 	public boolean hayColision(ObjetoGrafico obj) 
 	{
-		Colisionador col = Colisionador.getColisionador();
+		Colisionador col = Colisionador.getInstance();
 		return col.hayColisionArriba(tank, obj);
 	}
 

@@ -49,7 +49,7 @@ public class Criterio02Coop extends InterfaceJuego {
 	public Criterio02Coop() {
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
-		this.colisionador = Colisionador.getColisionador();
+		this.colisionador = Colisionador.getInstance();
 		this.tank = new Tank(Orientation.DOWN, new Point(100, 50), new Point(40, 40), 2);
 		try {
 			this.estructuras = new ListStructures(mapa, 0);

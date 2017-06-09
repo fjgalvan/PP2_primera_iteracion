@@ -49,7 +49,7 @@ public class TestColisionador {
 
 	@Test
 	public void colisionBulletConTank() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Point size = new Point(10, 10);
 		Point coordinate = new Point(200, 200);
@@ -67,7 +67,7 @@ public class TestColisionador {
 
 	@Test
 	public void noColisionBulletConTank() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Point size = new Point(10, 10);
 		Point coordinate = new Point(200, 200);
@@ -85,7 +85,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayColision() throws Exception {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 		GraphicMap mapa = new GraphicMap(new Map(new Point(280, 280)), new Point(20, 20));
 		ListStructures estructuras = new ListStructures(mapa, 10);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
@@ -108,7 +108,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayColisionArriba() throws Exception {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 		GraphicMap mapa = new GraphicMap(new Map(new Point(280, 280)), new Point(20, 20));
 		ListStructures estructuras = new ListStructures(mapa, 10);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
@@ -134,7 +134,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayCoilision() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(120, 120);
@@ -150,7 +150,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayCoilisionAbajo() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(120, 120);
@@ -166,7 +166,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayCoilisionArriba() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(120, 120);
@@ -182,7 +182,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayCoilisionDerecha() {
-		Colisionador colisionador =Colisionador.getColisionador();
+		Colisionador colisionador =Colisionador.getInstance();
 
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(120, 120);
@@ -198,7 +198,7 @@ public class TestColisionador {
 
 	@Test
 	public void hayCoilisionIzquierda() {
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(120, 120);

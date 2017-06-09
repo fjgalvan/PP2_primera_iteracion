@@ -51,7 +51,7 @@ public class TestGame {
 		assertNotEquals(null, tanks);
 		assertNotEquals(null, enemysTanks);
 
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 		GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 
 		/*
@@ -76,7 +76,7 @@ public class TestGame {
 		InterfaceJuego i = null;
 		GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
-		Colisionador colisionador = Colisionador.getColisionador();
+		Colisionador colisionador = Colisionador.getInstance();
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(400, 400);
 		Point size = new Point(40, 40);

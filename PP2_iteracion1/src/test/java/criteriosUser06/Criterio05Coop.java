@@ -37,7 +37,7 @@ public class Criterio05Coop extends InterfaceJuego {
 	public void gameOver() {
 		this.mapa = new GraphicMap(new Map(new Point(250, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
-		this.colisionador = Colisionador.getColisionador();
+		this.colisionador = Colisionador.getInstance();
 		this.tank = new Tank(Orientation.UP, new Point(50, 50), new Point(40, 40), 2);
 		this.tControl = new TankController(tank, new ListenerPlayer1(dibujador.getEntorno()), colisionador);
 		this.tankCop = new Tank(Orientation.UP, new Point(100, 50), new Point(40, 40), 2);

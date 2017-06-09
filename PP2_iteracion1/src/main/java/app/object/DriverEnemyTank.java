@@ -15,7 +15,7 @@ public abstract class DriverEnemyTank {
 
 	public DriverEnemyTank(Tank enemyTank) {
 		this.enemyTank = enemyTank;
-		this.colisionador = Colisionador.getColisionador();
+		this.colisionador = Colisionador.getInstance();
 	}
 	
 	public boolean CanMoveUp(){

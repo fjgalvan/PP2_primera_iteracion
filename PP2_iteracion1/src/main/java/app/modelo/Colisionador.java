@@ -14,7 +14,7 @@ public class Colisionador {
 	private Colisionador() {
 	}
 	
-	public static Colisionador getColisionador(){
+	public static Colisionador getInstance(){
 		if(colisionador==null){
 			return colisionador = new Colisionador();
 		}

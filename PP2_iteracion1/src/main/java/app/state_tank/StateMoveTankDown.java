@@ -16,7 +16,7 @@ public class StateMoveTankDown extends StateMoveTank
 	@Override
 	public boolean hayColision(ObjetoGrafico obj) 
 	{
-		Colisionador col = Colisionador.getColisionador();
+		Colisionador col = Colisionador.getInstance();
 		return col.hayColisionAbajo(tank, obj);
 	}
 
