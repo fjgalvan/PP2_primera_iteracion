@@ -14,25 +14,25 @@ public class DriverEasyEnemyTank extends DriverEnemyTank {
 		switch(enemyTank.getOrientation()){
 			case UP:
 				ControlUp();
-				if (CanMoveUp()) {
+				if (!CanMoveUp()) {
 					enemyTank.girar(Orientation.RIGHT);
 				}
 				break;
 			case RIGHT:
 				ControlRight();
-				if (CanMoveRight()) {
+				if (!CanMoveRight()) {
 					enemyTank.girar(Orientation.DOWN);
 				}
 				break;
 			case DOWN:
 				ControlDown();
-				if (CanMoveDown()) {
+				if (!CanMoveDown()) {
 					enemyTank.girar(Orientation.LEFT);
 				}
 				break;
 			case LEFT:
 				ControlLeft();
-				if (CanMoveLeft()) {
+				if (!CanMoveLeft()) {
 					enemyTank.girar(Orientation.UP);
 				}
 				break;

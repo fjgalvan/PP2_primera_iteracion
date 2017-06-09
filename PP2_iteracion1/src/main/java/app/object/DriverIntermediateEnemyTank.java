@@ -15,25 +15,25 @@ public class DriverIntermediateEnemyTank extends DriverEnemyTank {
 		switch(enemyTank.getOrientation()){
 			case UP:
 				ControlUp();
-				if (CanMoveUp()) {
+				if (!CanMoveUp()) {
 					girarRandom();
 				}
 				break;
 			case RIGHT:
 				ControlRight();
-				if (CanMoveRight()) {
+				if (!CanMoveRight()) {
 					girarRandom();
 				}
 				break;
 			case DOWN:
 				ControlDown();
-				if (CanMoveDown()) {
+				if (!CanMoveDown()) {
 					girarRandom();
 				}
 				break;
 			case LEFT:
 				ControlLeft();
-				if (CanMoveLeft()) {
+				if (!CanMoveLeft()) {
 					girarRandom();
 				}
 				break;
