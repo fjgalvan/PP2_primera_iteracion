@@ -16,6 +16,7 @@ import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
 import entorno.InterfaceJuego;
+import sonido.Sonido;
 
 public class GamePacman extends InterfaceJuego{
 
@@ -55,9 +56,10 @@ public class GamePacman extends InterfaceJuego{
     	{
     		this.dibujador.dibujarEstructura(e);
     	}
-//    	this.dibujador.dibujarBomberman(tank);
-//    	player1.getListener().inicializar(tank); 
-//    	this.tControl.ControlTank(estructuras.getLista());
+    	this.dibujador.dibujarPacman(tank);
+    	player1.getListener().inicializar(tank);
+    	Sonido.PacmanChomp.loop();
+    	this.tControl.ControlTank(estructuras.getLista());
 
     }
 }

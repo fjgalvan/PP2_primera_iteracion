@@ -10,7 +10,7 @@ public class Tank extends ObjetoGrafico {
 	private TankShot tankShot;
 	private Bullet bullet;
 	private StateMoveTank stateMove;
-	private double velocidadDeMovimiento = 2;
+	private double velocidadDeMovimiento = 5;
 	private Energy energy;
 	
 	

@@ -90,6 +90,14 @@ public class Draftsman {
 			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/bombermanRIGHT.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, 0,2);
 	}
 	
+	public void dibujarPacman(Tank t)
+	{
+//		if(t.getEnergyVal()==1)
+//		{
+			this.entorno.dibujarImagen(Herramientas.cargarImagen("imagen/PacMov1.png"), t.getCoordinate().getX()+(t.getSize().getAncho()/2), t.getCoordinate().getY()+t.getSize().getAlto()/2, t.getAngulo(),1);
+//		}
+	}
+	
 	public void dibujarTankCop(Tank t)
 	{
 		if(t.getEnergyVal()==1)
