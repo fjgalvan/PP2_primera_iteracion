@@ -2,21 +2,14 @@ package app.main;
 
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Test;
-
-import entorno.Entorno;
 import entorno.InterfaceJuego;
 import app.enums.Orientation;
-import app.modelo.Colisionador;
 import app.object.Coordinate;
 import app.object.Draftsman;
-import app.object.DriverEasyEnemyTank;
 import app.object.GraphicMap;
-import app.object.KeyEventListener;
 import app.object.KeyEventListenerCop;
 import app.object.Map;
 import app.object.Player1;
@@ -54,8 +47,6 @@ public class TestGame {
 		assertNotEquals(null,enemysTanks);
 		
 		
-		Colisionador colisionador= new Colisionador();
-		GraphicMap mapa= new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		
 		/*Draftsman dibujador= new Draftsman(this, mapa, "Battle-Ungs");
 		KeyEventListener listener= = new KeyEventListener(dibujador.getEntorno());
@@ -79,19 +70,11 @@ public class TestGame {
 		GraphicMap mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
 		KeyEventListenerCop listenerCop= new KeyEventListenerCop(dibujador.getEntorno());
-		Colisionador colisionador = new Colisionador();
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(400, 400);
 		Size size = new Size(40, 40);
 		Tank tank = new Tank(orientation, coordinate, size);
 		TankController tankC = new TankController(tank,listenerCop,null); // ver como meter el entorno con la otra clase
-		
-		Orientation orientation2 = Orientation.RIGHT; 
-		Coordinate coordinate2 = new Coordinate(300, 400);
-		Size size2 = new Size(40, 40);
-		Tank tankEnemy = new Tank(orientation, coordinate, size);
-		DriverEasyEnemyTank tankEnemyD = new DriverEasyEnemyTank(tankEnemy);
-		
 		tankC.destruirTank();
 		assertEquals(null,tankC.getTank());
 	}
@@ -104,12 +87,8 @@ public class TestGame {
 		GraphicMap mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
 		Draftsman dibujador = new Draftsman(i, mapa, "Battle-Ungs");
 		Player1 player1 = new Player1(new Puntaje(0,0),dibujador);
-		Game juego= new Game();
-		juego.sumarPuntaje(player1.toString());
-		
 		assertNotEquals(null,player1.toString());
 		player1.setPuntaje(new Puntaje(500,0));
-		
 		String player2= "1";
 		assertEquals("1",player2);
 	}

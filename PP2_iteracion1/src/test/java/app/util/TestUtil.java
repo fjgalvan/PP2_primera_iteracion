@@ -70,9 +70,9 @@ public class TestUtil {
 	/**moverse*/
 	@Test
 	public void testMoversePorIzquierda() {
-		double velocidadDeMovimiento = 2;
-		Orientation orientation = Orientation.DOWN;
-		Coordinate coordinate = new Coordinate(50, 579);
+//		double velocidadDeMovimiento = 2;
+//		Orientation orientation = Orientation.DOWN;
+//		Coordinate coordinate = new Coordinate(50, 579);
 		//assertTrue(Util.moverse(orientation, coordinate, velocidadDeMovimiento));
 	}
 	

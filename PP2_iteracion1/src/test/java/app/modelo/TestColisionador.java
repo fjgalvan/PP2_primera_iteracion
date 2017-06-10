@@ -1,18 +1,13 @@
 package app.modelo;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Test;
-
 import app.enums.Orientation;
 import app.object.Bullet;
 import app.object.Coordinate;
-import app.object.GraphicMap;
 import app.object.ListStructures;
-import app.object.Map;
 import app.object.Size;
 import app.object.Tank;
 
@@ -134,7 +129,6 @@ public class TestColisionador {
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(120, 120);
 		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
 		Coordinate coordinate2 = new Coordinate(140, 160);
 		
 		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
@@ -149,7 +143,6 @@ public class TestColisionador {
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(120, 120);
 		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
 		Coordinate coordinate2 = new Coordinate(140, 160);
 		
 		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
@@ -164,7 +157,6 @@ public class TestColisionador {
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(120, 120);
 		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
 		Coordinate coordinate2 = new Coordinate(140, 160);
 		
 		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
@@ -179,7 +171,6 @@ public class TestColisionador {
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(120, 120);
 		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
 		Coordinate coordinate2 = new Coordinate(140, 160);
 		
 		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
@@ -194,7 +185,6 @@ public class TestColisionador {
 		Orientation orientation = Orientation.LEFT;
 		Coordinate coordinate = new Coordinate(120, 120);
 		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
 		Coordinate coordinate2 = new Coordinate(140, 160);
 		
 		ObjetoGrafico objGraf1= new Tank(orientation,coordinate,size);
