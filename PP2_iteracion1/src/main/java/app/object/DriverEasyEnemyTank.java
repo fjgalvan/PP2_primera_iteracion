@@ -17,7 +17,6 @@ public class DriverEasyEnemyTank {
 	private Tank enemyTank;
 	private Colisionador colisionador;
 	
-	
 	public DriverEasyEnemyTank(Tank enemyTank){
 		this.enemyTank= enemyTank;
 		this.colisionador = new Colisionador();

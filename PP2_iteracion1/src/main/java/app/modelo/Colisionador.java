@@ -29,7 +29,8 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua") && !obj.getClass().getName().equals("app.estructura.EstructuraFondo")){
+			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua") 
+					&& !obj.getClass().getName().equals("app.estructura.EstructuraFondo")){
 				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
 			}
 			if(ret && objetoADestruir==null){
