@@ -15,7 +15,7 @@ public class ListStructures
 		this.estructuras = new ArrayList<ObjetoGrafico>();
 	}
 	
-	public void inicializarListaConTiled(String tipoEstructura, String imagen, int totalDePaneles, ArrayList<Coordinate> coordenadas){
+	public void inicializarListaConTiled(String tipoEstructura, String imagen, int totalDePaneles, ArrayList<Coordinate> coordenadas, ArrayList<String> spritesCapaDeImagenes){
 		for(int i=0;i<totalDePaneles;i++){
 			if(tipoEstructura.equals("Fondo"))
 				this.estructuras.add((ObjetoGrafico)new EstructuraFondo(imagen));
@@ -33,6 +33,8 @@ public class ListStructures
 				if(this.estructuras.get(est).getClass().getName().equals("app.estructura.Estructura"+tipoEstructura)){
 					this.estructuras.get(est).setCoordinate(coordenadas.get(j));
 					this.estructuras.get(est).setSize(new Size(40,40));
+					this.estructuras.get(est).setImagen(spritesCapaDeImagenes.get(j));
+					spritesCapaDeImagenes.remove(spritesCapaDeImagenes.get(j));
 					coordenadas.remove(coordenadas.get(j));
 					break;
 				}

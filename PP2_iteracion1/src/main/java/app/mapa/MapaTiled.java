@@ -44,24 +44,36 @@ public class MapaTiled {
 			int yCapa = obtenerIntDesdeJSON(datosCapa, "x");
 			String nombreCapa = obtenerStringDesdeJSON(datosCapa, "name");
 			String imagenCapa = obtenerStringDesdeJSON(datosCapaDeImagen, "image");
-			System.out.println(imagenCapa);
+
 			String tipo = datosCapa.get("type").toString();
 			
 			switch(tipo){
 				case "tilelayer":
 					JSONArray sprites = obtenerArrayJSON(datosCapa.get("data").toString());
 					int[] spritesCapa = new int [sprites.size()];
+					String[] spritesCapaDeImagenes = new String [sprites.size()];//ESTO ES PARA PACMAN
 					for(int j=0; j < sprites.size();j++){
 						//aca tenemos cada numero del vector de una capa
 						int codigoSprite = Integer.parseInt(sprites.get(j).toString());
 						spritesCapa[j] = codigoSprite -1;
+						spritesCapaDeImagenes[j] = traerImagenDesdeJSON(spritesCapa[j]+1);//ESTO ES PARA PACMAN
 					}
-					this.capasDeSprites.add(new CapaSprites(nombreCapa, imagenCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa));
+					this.capasDeSprites.add(new CapaSprites(nombreCapa, imagenCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa,spritesCapaDeImagenes));
 					break;
 			}
 		}
 	}
 	
+	private String traerImagenDesdeJSON(int spriteCapa) {//ESTO ES PARA PACMAN
+		for(int i=0; i < capasDeImagenes.size(); i++){//obtengo una de las capas de imagenes
+			JSONObject datosCapaDeImagen = obtenerObjetoJSON(capasDeImagenes.get(i).toString());
+			if(obtenerStringDesdeJSON(datosCapaDeImagen, "firstgid").equals(""+spriteCapa)){
+				return obtenerStringDesdeJSON(datosCapaDeImagen, "image");
+			}
+		}	
+		return "-1";
+	}
+
 	private JSONObject obtenerObjetoJSON(final String codigoJSON){
 		JSONParser lector = new JSONParser();
 		JSONObject objetoJSON = null;
@@ -107,14 +119,16 @@ public class MapaTiled {
 		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
 			int totalTilesPorCapa = 0;
 			ArrayList<Coordinate> coordenadas = new ArrayList<>();
+			ArrayList<String> imagenes = new ArrayList<>();
 			for (int j = 0; j < capasDeSprites.get(i).getSprites().length; j++) {//RECORRO LOS TILES DE CADA CAPA
 				if (capasDeSprites.get(i).getSprites()[j] != -1) {
 					totalTilesPorCapa = totalTilesPorCapa + 1; //GUARDO EL TOTAL DE TILES DE LA CAPA
 					coordenadas.add(obtenerCoordenada(40, altoMapaEnTiles, anchoMapaEnTiles, j)); //GUARDO TODAS LAS COORDENADAS
+					imagenes.add(capasDeSprites.get(i).getSpritesImagenes()[j]);
 				}
 			}
 			estructuras.inicializarListaConTiled(capasDeSprites.get(i).getNombre(), capasDeSprites.get(i).getImagenCapa(), totalTilesPorCapa,
-					coordenadas);
+					coordenadas,imagenes);
 			coordenadas.removeAll(coordenadas);
 		}
 	}

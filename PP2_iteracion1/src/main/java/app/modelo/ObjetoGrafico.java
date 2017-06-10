@@ -49,5 +49,10 @@ public abstract class ObjetoGrafico {
 	{
 		return this.imagen;
 	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	
 }

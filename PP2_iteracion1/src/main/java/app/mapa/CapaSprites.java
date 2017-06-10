@@ -6,11 +6,13 @@ import app.object.Size;
 public class CapaSprites extends CapaTiled{
 	private String imagenCapa;
 	private int[] sprites;
+	private String[] spritesImagenes;
 	
-	public CapaSprites(String nombre, String imagenCapa, Size size, Coordinate coordinate, int []sprites){
+	public CapaSprites(String nombre, String imagenCapa, Size size, Coordinate coordinate, int []sprites, String[] spritesCapaDeImagenes){
 		super(nombre, size, coordinate);
 		this.imagenCapa = imagenCapa;
 		this.sprites = sprites;
+		this.spritesImagenes = spritesCapaDeImagenes;
 	}
 
 	public int[] getSprites() {
@@ -19,5 +21,9 @@ public class CapaSprites extends CapaTiled{
 
 	public String getImagenCapa() {
 		return imagenCapa;
+	}
+
+	public String[] getSpritesImagenes() {
+		return spritesImagenes;
 	}
 }
