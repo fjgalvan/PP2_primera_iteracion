@@ -74,6 +74,7 @@ public class Menu extends JFrame {
 		frmMenu.setLocationRelativeTo(null);
 		
 		bg= new ButtonGroup();
+		frmMenu.getContentPane().setLayout(null);
 		
 		rdbtnTank = new JRadioButton("TANK");
 		rdbtnTank.setBackground(Color.ORANGE);
