@@ -95,4 +95,9 @@ public class ControlGame implements ActionListener{
 			principal.ModificarArchivo(this.menu.getEleccion());
 		}
 	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+	
 }

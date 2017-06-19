@@ -172,4 +172,22 @@ public class Game extends InterfaceJuego {
 		else
 			player2.setPuntaje(new Puntaje(0,1));
 	}
+
+	public Draftsman getDibujador() {
+		return dibujador;
+	}
+
+	public GraphicMap getMapa() {
+		return mapa;
+	}
+
+	public MapaTiled getMapaTiled() {
+		return mapaTiled;
+	}
+
+	public String getMapaAJugar() {
+		return mapaAJugar;
+	}
+	
+	
 }
