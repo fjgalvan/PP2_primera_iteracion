@@ -1,25 +1,24 @@
 package app.object;
 
+import java.awt.Point;
+
 import app.enums.Orientation;
 import app.modelo.ObjetoGrafico;
 import app.util.Util;
 
-public class Bullet extends ObjetoGrafico{
+public class Bullet extends ObjetoGrafico {
 	private Orientation orientation;
-	private Coordinate coordinate;
-	private Size size;
 	private double velocidadDeMovimiento = 5;
-	
-	public Bullet(Orientation orientation, Coordinate coordinate, Size size){
+
+	public Bullet(Orientation orientation, Point coordinate, Point size) {
+		super(coordinate, size);
 		this.orientation = orientation;
-		this.coordinate = coordinate;
-		this.size = size;
 	}
-	
-	public void avanzarBullet(){
+
+	public void avanzarBullet() {
 		Util.moverse(orientation, coordinate, velocidadDeMovimiento);
 	}
-	
+
 	public Orientation getOrientation() {
 		return orientation;
 	}
@@ -28,19 +27,4 @@ public class Bullet extends ObjetoGrafico{
 		this.orientation = orientation;
 	}
 
-	public Coordinate getCoordinate() {
-		return coordinate;
-	}
-
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
-	}
-
-	public Size getSize() {
-		return size;
-	}
-
-	public void setSize(Size size) {
-		this.size = size;
-	}
 }

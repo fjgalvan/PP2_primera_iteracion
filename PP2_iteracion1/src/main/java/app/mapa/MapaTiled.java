@@ -1,12 +1,11 @@
 package app.mapa;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import app.object.Coordinate;
 import app.object.ListStructures;
-import app.object.Size;
 import app.util.CargadorRecursos;
 
 public class MapaTiled {
@@ -58,7 +57,7 @@ public class MapaTiled {
 						spritesCapa[j] = codigoSprite -1;
 						spritesCapaDeImagenes[j] = traerImagenDesdeJSON(spritesCapa[j]+1);//ESTO ES PARA PACMAN
 					}
-					this.capasDeSprites.add(new CapaSprites(nombreCapa, imagenCapa, new Size (anchoCapa,altoCapa),new Coordinate (xCapa,yCapa),spritesCapa,spritesCapaDeImagenes));
+					this.capasDeSprites.add(new CapaSprites(nombreCapa, imagenCapa, new Point (anchoCapa,altoCapa),new Point (xCapa,yCapa),spritesCapa,spritesCapaDeImagenes));
 					break;
 			}
 		}
@@ -102,12 +101,12 @@ public class MapaTiled {
 		return arrayJSON;
 	}
 	
-	public Coordinate obtenerCoordenada(int tamañoDeTiles, int altoMapa, int anchoMapa, int lugarDelSprite){
+	public Point obtenerCoordenada(int tamañoDeTiles, int altoMapa, int anchoMapa, int lugarDelSprite){
 		int contador = 0;
 		for(int y=0; y < altoMapa;y++){
 			for(int x=0; x < anchoMapa; x++){
 				if(contador == lugarDelSprite){
-					return new Coordinate (x*tamañoDeTiles,y*tamañoDeTiles);
+					return new Point (x*tamañoDeTiles,y*tamañoDeTiles);
 				}
 				contador = contador + 1 ;
 			}
@@ -118,7 +117,7 @@ public class MapaTiled {
 	public void crearEstructuras(ListStructures estructuras){
 		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
 			int totalTilesPorCapa = 0;
-			ArrayList<Coordinate> coordenadas = new ArrayList<>();
+			ArrayList<Point> coordenadas = new ArrayList<>();
 			ArrayList<String> imagenes = new ArrayList<>();
 			for (int j = 0; j < capasDeSprites.get(i).getSprites().length; j++) {//RECORRO LOS TILES DE CADA CAPA
 				if (capasDeSprites.get(i).getSprites()[j] != -1) {

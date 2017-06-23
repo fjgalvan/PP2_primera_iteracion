@@ -1,22 +1,25 @@
 package app.object;
 
+import java.awt.Point;
 import org.junit.Test;
-
 import app.enums.Orientation;
+import app.levels.DataLevelGame;
+import app.levels.ManagerLevel;
 import app.main.Game;
-import entorno.Entorno;
+import clase_properties.Principal;
 
 public class TestDraftsman {
-	private Entorno entorno;
 	
 	@Test
 	public void testDibujarMapa(){
-		Game juegoPrueba= new Game();
-		GraphicMap mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
-		juegoPrueba.getClass();
-		Tank tank= tank = new Tank(Orientation.UP,new Coordinate(560,520),new Size(40,40),new Energy(2));
-		Coordinate coordinate = new Coordinate(30, 50);
-		Size size= new Size(20,20);
+		Principal principal= new Principal();
+		DataLevelGame data = new ManagerLevel(principal).getDataLevelGame();
+		Game juegoPrueba= new Game(data);
+		//GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
+		//Draftsman dibujador = new Draftsman(null, mapa, "Battle-Ungs");
+		Tank tank = new Tank(Orientation.UP,new Point(560,520),new Point(40,40),2);
+		Point coordinate = new Point(30, 50);
+		Point size= new Point(20,20);
 		try{
 			juegoPrueba.getMapa();
 		} catch(Exception e){
@@ -37,61 +40,61 @@ public class TestDraftsman {
 		
 		
 		try{
-		juegoPrueba.getDibujador().dibujarImagen("imagen/bala_2.png", coordinate);
+			juegoPrueba.getDibujador().dibujarImagen("imagen/bala_2.png", coordinate);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Imagen1!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarImagen("imagen/bala_2.png", coordinate, 0);
+			juegoPrueba.getDibujador().dibujarImagen("imagen/bala_2.png", coordinate, 0);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Imagen2!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarRectangulo(coordinate, size, 0, null);
+			juegoPrueba.getDibujador().dibujarRectangulo(coordinate, size, 0, null);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Rectangulo!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarCirculo(coordinate, 20, null);
+			juegoPrueba.getDibujador().dibujarCirculo(coordinate, 20, null);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Circulo!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarTank(tank);
+			juegoPrueba.getDibujador().dibujarTank(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Tank!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarBomberman(tank);
+			juegoPrueba.getDibujador().dibujarBomberman(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Bomberman!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarPacman(tank);
+			juegoPrueba.getDibujador().dibujarPacman(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar Pacman!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarTankCop(tank);
+			juegoPrueba.getDibujador().dibujarTankCop(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar TankCop!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarEnemyTank(tank);
+			juegoPrueba.getDibujador().dibujarEnemyTank(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar EnemyTank!!");
 	    }
 		
 		try{
-		juegoPrueba.getDibujador().dibujarEnemyTankIntermediate(tank);
+			juegoPrueba.getDibujador().dibujarEnemyTankIntermediate(tank);
 		} catch(Exception e){
 	        //System.out.println("No se pudo dibujar EnemyTankIntermediate!!");
 	    }

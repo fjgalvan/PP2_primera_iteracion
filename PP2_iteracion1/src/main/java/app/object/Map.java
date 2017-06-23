@@ -1,15 +1,16 @@
 package app.object;
 
+import java.awt.Point;
+
 public class Map {
-	private Size sizeMap;
-	
-	public Map(Size sizeMap)
-	{
+	private Point sizeMap;
+
+	public Map(Point sizeMap) {
 		this.sizeMap = sizeMap;
 	}
 
-	public Size getSizeMap() 
-	{
+	public Point getSizeMap() {
 		return sizeMap;
 	}
+
 }

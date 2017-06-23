@@ -1,7 +1,5 @@
 package app.main;
 
-import java.awt.event.ActionEvent;
-
 import org.junit.Test;
 
 public class TestControlGame {
@@ -11,10 +9,10 @@ public class TestControlGame {
 	@Test
 	public void testIniciar() {
 		control.iniciar();
-		control.getMenu();
+		//control.getMenu();
 		//NO SE QUIÉN ES e
-		ActionEvent e= new ActionEvent(control.getMenu(), 10, "", 10);//ActionEvent(menu, 10, "");
+		//ActionEvent e= new ActionEvent(control.getMenu(), 10, "", 10);//ActionEvent(menu, 10, "");
 
-		control.actionPerformed(e);
+		//control.actionPerformed(e);
 	}
 }

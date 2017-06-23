@@ -1,11 +1,11 @@
 package app.main;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
+import app.levels.DataLevelGame;
+import app.levels.ManagerLevel;
 import app.vistas.Menu;
-import clase_properties.EleccionMenu;
-import clase_properties.Principal;
+import clase_properties.*;
 
 public class ControlGame implements ActionListener{
 	private Menu menu;
@@ -25,45 +25,36 @@ public class ControlGame implements ActionListener{
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(this.menu.getRdbtnTank().isSelected()){
-			System.out.println("selecciono tank!");
-			this.menu.getPanelTank().setVisible(true);
-		}else{
-			this.menu.getPanelTank().setVisible(false);
-		}
+	public void actionPerformed(ActionEvent e) 
+	{		
+		this.menu.getPanelTank().setVisible(this.menu.getRdbtnTank().isSelected());
+		this.menu.getLblImagenBomberman().setEnabled(menu.getRdbtnBomberman().isSelected());		
+		this.menu.getLblImagenPacman().setEnabled(menu.getRdbtnPacman().isSelected());
+		this.menu.getLblTank().setEnabled(menu.getRdbtnTank().isSelected());
 		
-		if(this.menu.getRdbtnBomberman().isSelected())
-			this.menu.getPanelTank().setVisible(false);
-		if(this.menu.getRdbtnPacman().isSelected())
-			this.menu.getPanelTank().setVisible(false);
-	
-		if(e.getSource() == this.menu.getBtnAceptar()){
-			if(this.menu.getRdbtnTank().isSelected()==true){
-				System.out.println("selecciono tank!");
-				this.menu.getPanelTank().setVisible(true);
-			}
-			else{
-				this.menu.getPanelTank().setVisible(false);
-			}
+		if(e.getSource() == this.menu.getBtnAceptar())
+		{
+			this.menu.getPanelTank().setVisible(this.menu.getRdbtnTank().isSelected());
 			
-			if(this.menu.getRdbtnBomberman().isSelected()==true){
-				System.out.println("selecciono Bomberman!");
-				
-				this.menu.setEleccion(new EleccionMenu("facil", "0", "Bomberman", "1", "1"));
+			if(this.menu.getRdbtnBomberman().isSelected()==true)
+			{		
+				this.menu.setEleccion(new EleccionMenu("facil", 0, "Bomberman", "1",1));
 				Principal principal= new Principal();
 				principal.ModificarArchivo(this.menu.getEleccion());
 			}
 			
-			if(this.menu.getRdbtnPacman().isSelected()==true){
-				System.out.println("selecciono Pacman!");
-				this.menu.setEleccion(new EleccionMenu("facil", "0", "pacman", "1", "1"));
+			if(this.menu.getRdbtnPacman().isSelected()){
+				this.menu.setEleccion(new EleccionMenu("facil", 0, "pacman", "1", 1));
 				Principal principal= new Principal();
 				principal.ModificarArchivo(this.menu.getEleccion());
 			}
 			//ESTO ES AL FINAL
 			if(this.menu.getRdbtnTank().isSelected()){
-				Game game = new Game();
+				this.setTankEleccionMenu();
+				Principal principal= new Principal();
+	//			principal.ModificarArchivo(this.menu.getEleccion());
+				DataLevelGame data = new ManagerLevel(principal).getDataLevelGame();
+				Game game = new Game(data);
 				game.iniciar();
 			}
 			else if(this.menu.getRdbtnPacman().isSelected()){
@@ -76,28 +67,27 @@ public class ControlGame implements ActionListener{
 			}
 			this.menu.setVisible(false);
 		}
-		else if(e.getSource() == this.menu.getBtnOk()){
-			String comboBox_nivel =  (String) this.menu.getComboBox_NIVELES().getSelectedItem();
-			System.out.println("comboBox_nivel: "+comboBox_nivel);
-			
-			String comboBox_enemigos =  (String) this.menu.getComboBox_ENEMIGOS().getSelectedItem();
-			System.out.println("comboBox_enemigos: "+comboBox_enemigos);
-			
-			String comboBox_dificultad =  (String) this.menu.getComboBox_DIFICULTAD().getSelectedItem();
-			System.out.println("comboBox_nivel: "+comboBox_dificultad);
-			
-			String comboBox_vidas =  (String) this.menu.getComboBox_VIDAS().getSelectedItem();
-			System.out.println("comboBox_nivel: "+comboBox_vidas);
-			
-			this.menu.setEleccion(new EleccionMenu(comboBox_dificultad, comboBox_enemigos, "tank", comboBox_nivel, comboBox_vidas));
-			
+		
+		else if(e.getSource() == this.menu.getBtnOk())
+		{				
+			this.setTankEleccionMenu();
 			Principal principal= new Principal();
 			principal.ModificarArchivo(this.menu.getEleccion());
 		}
+		
 	}
-
+	
 	public Menu getMenu() {
 		return menu;
 	}
-	
+
+	public void setTankEleccionMenu()
+	{
+		String comboBox_nivel =  (String) this.menu.getComboBox_NIVELES().getSelectedItem();			
+		int comboBox_enemigos =  Integer.parseInt((String)this.menu.getComboBox_ENEMIGOS().getSelectedItem());
+		String comboBox_dificultad =  (String) this.menu.getComboBox_DIFICULTAD().getSelectedItem();
+		int comboBox_vidas =  Integer.parseInt((String)this.menu.getComboBox_VIDAS().getSelectedItem());
+		this.menu.setEleccion(new EleccionMenu(comboBox_dificultad, comboBox_enemigos, "tank", comboBox_nivel, comboBox_vidas));
+	}
+
 }

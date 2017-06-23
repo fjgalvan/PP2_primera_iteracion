@@ -1,11 +1,8 @@
 package app.vistas;
 
 import static org.junit.Assert.assertTrue;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-
 import org.junit.Test;
 
 

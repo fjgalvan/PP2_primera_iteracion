@@ -1,25 +1,15 @@
 package app.main;
 
+import java.awt.Point;
 import app.enums.Orientation;
 import app.mapa.MapaTiled;
-import app.modelo.Destructor;
-import app.modelo.ObjetoGrafico;
-import app.object.Coordinate;
-import app.object.Draftsman;
-import app.object.Energy;
-import app.object.GraphicMap;
-import app.object.ListStructures;
-import app.object.Map;
-import app.object.Player1;
-import app.object.Puntaje;
-import app.object.Size;
-import app.object.Tank;
-import app.object.TankController;
+import app.modelo.*;
+import app.object.*;
 import entorno.InterfaceJuego;
 
 public class GameBomberman extends InterfaceJuego{
 
-	private Player1 player1;
+	private Player player1;
     private Tank tank;
     private Draftsman dibujador;
     private GraphicMap mapa;
@@ -27,26 +17,22 @@ public class GameBomberman extends InterfaceJuego{
 	private MapaTiled mapaTiled;
 	private TankController tControl;
 	private Destructor destructor;
-    
 	private String mapaAJugar = "/mapas/Bomberman01.csv";
 	
 	public GameBomberman() 
 	{
-		this.mapa = new GraphicMap(new Map(new Size(1000, 600)), new Size(20, 20));
+		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Bomberman-Ungs");
 		this.estructuras = new ListStructures();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.crearEstructuras(estructuras);
-		this.tank = new Tank(Orientation.UP,new Coordinate(440,200),new Size(40,40),new Energy(2)); // ver como ubicar el tanqe
+		this.tank = new Tank(Orientation.UP ,new Point(440,200), new Point(36,36), 2); 
 		this.destructor = new Destructor();
-		this.player1 = new Player1(new Puntaje(0,0),dibujador);
+		this.player1 = new Player(0,0,new ListenerPlayer1(dibujador.getEntorno()));
 		this.tControl = new TankController(tank,this.player1.getListener(),destructor.getColisionador());
-		
 	}
 	
-	public void iniciar()
-	{
-	}
+	public void iniciar(){}
 	
     public void tick() 
     {   	
@@ -55,9 +41,8 @@ public class GameBomberman extends InterfaceJuego{
     	{
     		this.dibujador.dibujarEstructura(e);
     	}
-    	this.player1.getListener().inicializar(tank); 
+    	this.player1.getListener().seMovio(tank); 
     	this.dibujador.dibujarBomberman(tank);
     	this.tControl.ControlTank(estructuras.getLista());
-
     }
 }

@@ -15,14 +15,14 @@ public class StateMoveTankUp extends StateMoveTank
 	
 	public boolean hayColision(ObjetoGrafico obj) 
 	{
-		Colisionador col = new Colisionador();
+		Colisionador col = Colisionador.getInstance();
 		return col.hayColisionArriba(tank, obj);
 	}
 
 	public void control() 
 	{
 		if(tank.getCoordinate().getY() >= 20)
-			tank.moverseArriba();		
+			tank.moverse(Orientation.UP);		
 	}
 
 	public Orientation getOrientacion() 

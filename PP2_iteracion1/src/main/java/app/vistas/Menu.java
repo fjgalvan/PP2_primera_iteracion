@@ -41,6 +41,7 @@ public class Menu extends JFrame {
 	private JComboBox<String> comboBox_ENEMIGOS;
 	private JComboBox<String> comboBox_NIVELES;
 	public EleccionMenu eleccion = null;
+	private JLabel lblImagenBomberman,lblTank,lblImagenPacman;
 	
 	/**
 	 * Launch the application.
@@ -106,8 +107,8 @@ public class Menu extends JFrame {
 		btnAceptar.setBounds(42, 292, 156, 23);
 		frmMenu.getContentPane().add(btnAceptar);
 		
-		JLabel lblNIVELES = new JLabel("NIVELES");
-		lblNIVELES.setBounds(10, 11, 68, 14);
+		JLabel lblNIVELES = new JLabel("JUGADORES");
+		lblNIVELES.setBounds(10, 11, 75, 14);
 		panelTank.add(lblNIVELES);
 		
 		JLabel lblENEMIGOS = new JLabel("ENEMIGOS");
@@ -118,7 +119,7 @@ public class Menu extends JFrame {
 		lblNewLabel.setBounds(237, 11, 68, 14);
 		panelTank.add(lblNewLabel);
 		
-		JLabel lblVidas = new JLabel("VIDAS");
+		JLabel lblVidas = new JLabel("ENERGIA");
 		lblVidas.setBounds(348, 11, 68, 14);
 		panelTank.add(lblVidas);
 		
@@ -147,8 +148,9 @@ public class Menu extends JFrame {
 		btnOk.setBounds(10, 72, 89, 23);
 		panelTank.add(btnOk);
 		
-		JLabel lblTank = new JLabel("");
-		lblTank.setBounds(53, 68, 145, 48);
+		lblTank = new JLabel("");
+		lblTank.setBounds(63, 70, 145, 48);
+		lblTank.setEnabled(false);
 		frmMenu.getContentPane().add(lblTank);
 		
 		imagen_Tank= new ImageIcon(getClass().getResource("/imagen/tank.png")); 
@@ -157,8 +159,9 @@ public class Menu extends JFrame {
 		
 		
 		
-		JLabel lblImagenBomberman = new JLabel("");
-		lblImagenBomberman.setBounds(53, 148, 145, 48);
+		lblImagenBomberman = new JLabel("");
+		lblImagenBomberman.setBounds(79, 150, 145, 48);
+		lblImagenBomberman.setEnabled(false);
 		frmMenu.getContentPane().add(lblImagenBomberman);
 		
 		imagen_Bomberman= new ImageIcon(getClass().getResource("/imagen/Bomberman.png")); 
@@ -166,8 +169,9 @@ public class Menu extends JFrame {
 		lblImagenBomberman.setIcon(icono_Bomberman);
 		
 		
-		JLabel lblImagenPacman = new JLabel("");
-		lblImagenPacman.setBounds(53, 233, 145, 48);
+		lblImagenPacman = new JLabel("");
+		lblImagenPacman.setBounds(65, 231, 145, 50);
+		lblImagenPacman.setEnabled(false);
 		frmMenu.getContentPane().add(lblImagenPacman);
 		
 		imagen_Pacman= new ImageIcon(getClass().getResource("/imagen/pacman.png"));
@@ -318,6 +322,18 @@ public class Menu extends JFrame {
 
 	public void setComboBox_NIVELES(JComboBox<String> comboBox_NIVELES) {
 		this.comboBox_NIVELES = comboBox_NIVELES;
+	}
+
+	public JLabel getLblImagenBomberman() {
+		return lblImagenBomberman;
+	}
+
+	public JLabel getLblTank() {
+		return lblTank;
+	}
+
+	public JLabel getLblImagenPacman() {
+		return lblImagenPacman;
 	}
 
 	public JFrame getFrmMenu() {

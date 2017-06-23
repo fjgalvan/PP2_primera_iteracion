@@ -1,16 +1,12 @@
 package app.object;
 
 import static org.junit.Assert.*;
-
+import java.awt.Point;
 import org.junit.Test;
-
 import app.enums.Orientation;
 import app.modelo.Colisionador;
-import app.object.Coordinate;
-import app.object.Size;
 import app.object.Tank;
 import app.object.TankController;
-import entorno.Entorno;
 
 public class TestTankController {
 
@@ -19,9 +15,9 @@ public class TestTankController {
 	@Test
 	public void testMoversePorIzquierda() {
 		Orientation orientation = Orientation.LEFT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size,1);
 		//tankC.ControlLeft(); esta funcion se paso al statemovetankleft
 		assertNotEquals(400.50,tank.getCoordinate().getX());
 	}
@@ -29,9 +25,9 @@ public class TestTankController {
 	@Test
 	public void testMoversePorDerecha() {
 		Orientation orientation = Orientation.RIGHT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size,1);
 		//tankC.ControlRigth(); se paso asu estado correspondiente
 		assertNotEquals(400.50,tank.getCoordinate().getX());
 	}
@@ -39,18 +35,18 @@ public class TestTankController {
 	@Test
 	public void testMoversePorAbajo() {
 		Orientation orientation = Orientation.DOWN;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size,1);
 		assertNotEquals(400.50,tank.getCoordinate().getY());
 	}
 	
 	@Test
 	public void testMoversePorArriba() {
 		Orientation orientation = Orientation.UP;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size,1);
 		assertNotEquals(400.50,tank.getCoordinate().getY());
 	}
 	
@@ -58,10 +54,10 @@ public class TestTankController {
 	@Test
 	public void testDisparar() {
 		Orientation orientation = Orientation.LEFT;
-		Coordinate coordinate = new Coordinate(400, 400);
-		Size size = new Size(40, 40);
-		Tank tank = new Tank(orientation, coordinate, size);
-		TankController tankC = new TankController(tank,new KeyEventListener(new Entorno(null, null, 0, 0)),new Colisionador());
+		Point coordinate = new Point(400, 400);
+		Point size = new Point(40, 40);
+		Tank tank = new Tank(orientation, coordinate, size,1);
+		TankController tankC = new TankController(tank,null,new Colisionador());
 		tankC.getTank().disparar();
 		assertNotEquals(null,tankC.getTank().getBullet());
 	}

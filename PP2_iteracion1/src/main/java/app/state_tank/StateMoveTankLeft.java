@@ -16,7 +16,7 @@ public class StateMoveTankLeft extends StateMoveTank
 	@Override
 	public boolean hayColision(ObjetoGrafico obj)
 	{
-		Colisionador col = new Colisionador();
+		Colisionador col = Colisionador.getInstance();
 		return col.hayColisionIzquierda(tank, obj);
 	}
 
@@ -24,7 +24,7 @@ public class StateMoveTankLeft extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getX() >= 20)
-			tank.moverseIzquierda();
+			tank.moverse(Orientation.LEFT);
 	}
 
 	@Override
