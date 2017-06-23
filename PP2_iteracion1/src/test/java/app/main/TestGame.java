@@ -34,9 +34,9 @@ public class TestGame {
 		assertNotEquals(null,tanks);
 		assertNotEquals(null,enemysTanks);
 	}
-	@Test
+	/*@Test
 	public void sumarPuntaje() {
-	}
+	}*/
 	
 	@Test
 	public void testDestruccionTank1() {
