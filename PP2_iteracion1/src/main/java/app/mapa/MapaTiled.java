@@ -80,8 +80,8 @@ public class MapaTiled {
 			Object recuperado = lector.parse(codigoJSON);
 			objetoJSON = (JSONObject) recuperado;
 		}catch(ParseException e){
-			System.out.println("Posicion: " + e.getPosition());
-			System.out.println(e);
+			//System.out.println("Posicion: " + e.getPosition());
+			//System.out.println(e);
 		}
 		
 		return objetoJSON;
@@ -94,8 +94,8 @@ public class MapaTiled {
 			Object recuperado = lector.parse(codigoJSON);
 			arrayJSON = (JSONArray) recuperado;
 		}catch(ParseException e){
-			System.out.println("Posicion: " + e.getPosition());
-			System.out.println(e);
+			//System.out.println("Posicion: " + e.getPosition());
+			//System.out.println(e);
 		}
 		
 		return arrayJSON;
