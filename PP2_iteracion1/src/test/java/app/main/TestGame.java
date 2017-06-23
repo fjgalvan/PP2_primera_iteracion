@@ -34,7 +34,10 @@ public class TestGame {
 		assertNotEquals(null,tanks);
 		assertNotEquals(null,enemysTanks);
 	}
-
+	@Test
+	public void sumarPuntaje() {
+	}
+	
 	@Test
 	public void testDestruccionTank1() {
 		Orientation orientation = Orientation.LEFT;
@@ -48,6 +51,8 @@ public class TestGame {
 	
 	@Test
 	public void testSumarPuntaje() {
+		Game.sumarCantidadDeEnemigosAsesinados("2");
+		Game.sumarPuntaje("1");
 		Player player1 = new Player(0,0,null);
 		assertNotEquals(null,player1.toString());
 		player1.setPuntaje(500);

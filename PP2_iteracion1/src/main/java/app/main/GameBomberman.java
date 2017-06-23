@@ -45,4 +45,9 @@ public class GameBomberman extends InterfaceJuego{
     	this.dibujador.dibujarBomberman(tank);
     	this.tControl.ControlTank(estructuras.getLista());
     }
+    
+
+	public Tank getTank() {
+		return tank;
+	}
 }
