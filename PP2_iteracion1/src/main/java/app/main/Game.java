@@ -38,6 +38,7 @@ public class Game extends InterfaceJuego {
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
 		this.estructuras = new ListStructures();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
+		this.mapaTiled.inicializar();
 		this.mapaTiled.crearEstructuras(estructuras);
 		//prueba de apoco el lector de datos del combo .. 1 test modo cop
 		levelGame = new LevelEasy(data);

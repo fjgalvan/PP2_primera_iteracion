@@ -2,6 +2,7 @@ package app.mapa;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -18,19 +19,32 @@ public class MapaTiled {
 	private ArrayList<CapaSprites> capasDeSprites;
 	
 	public MapaTiled(final String ruta){
-		contenido = CargadorRecursos.leerArchivoTexto(ruta);
-		inicializar();
+		controlarCargaDeMapa(ruta);
+	}
+	
+	public void controlarCargaDeMapa(final String ruta){
+		try{
+			contenido = CargadorRecursos.leerArchivoTexto(ruta);
+		}
+		catch(Exception e){
+			//e.addSuppressed(new ExceptionInInitializerError("Error!! Mapa invalido"));
+			JOptionPane.showMessageDialog(null,"El mapa no existe o no es del formato .csv","Error!! Mapa invalido", JOptionPane.WARNING_MESSAGE);
+		}
 	}
 	
 	public void inicializar(){
 		globalJSON = obtenerObjetoJSON(contenido);
 		anchoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"width");
 		altoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"height");
-
 		//CAPAS
 		capas = obtenerArrayJSON(globalJSON.get("layers").toString());
 		capasDeImagenes = obtenerArrayJSON(globalJSON.get("tilesets").toString());
 		this.capasDeSprites = new ArrayList<CapaSprites>();
+		System.out.println(capasDeImagenes.get(0).toString());
+		obtenerCapas();
+	}
+	
+	public void obtenerCapas(){
 		//INICIAR CAPAS
 		//RECORRE TODAS LAS CAPAS
 		for(int i=0; i < capas.size(); i++){
@@ -63,7 +77,7 @@ public class MapaTiled {
 		}
 	}
 	
-	private String traerImagenDesdeJSON(int spriteCapa) {//ESTO ES PARA PACMAN
+	public String traerImagenDesdeJSON(int spriteCapa) {//ESTO ES PARA PACMAN
 		for(int i=0; i < capasDeImagenes.size(); i++){//obtengo una de las capas de imagenes
 			JSONObject datosCapaDeImagen = obtenerObjetoJSON(capasDeImagenes.get(i).toString());
 			if(obtenerStringDesdeJSON(datosCapaDeImagen, "firstgid").equals(""+spriteCapa)){
@@ -83,7 +97,6 @@ public class MapaTiled {
 			//System.out.println("Posicion: " + e.getPosition());
 			//System.out.println(e);
 		}
-		
 		return objetoJSON;
 	}
 	

@@ -28,6 +28,7 @@ public class GamePacman extends InterfaceJuego{
 		this.dibujador = new Draftsman(this, mapa, "Pacman-Ungs");
 		this.estructuras = new ListStructures();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
+		this.mapaTiled.inicializar();
 		this.mapaTiled.crearEstructuras(estructuras);
 		this.tank = new Tank(Orientation.RIGHT,new Point(440,200),new Point(36,36), 2); 
 		this.destructor = new Destructor();
