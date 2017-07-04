@@ -50,7 +50,7 @@ public class TestGame {
 	}
 	
 	//ERROR DE TEST EN MAVEN
-	/*@Test
+	@Test
 	public void testSumarPuntaje() {
 		Game.sumarCantidadDeEnemigosAsesinados("2");
 		Game.sumarPuntaje("1");
@@ -59,7 +59,7 @@ public class TestGame {
 		player1.setPuntaje(500);
 		String player2= "1";
 		assertEquals("1",player2);
-	}*/
+	}
 	
 	
 }
