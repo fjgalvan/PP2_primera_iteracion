@@ -17,5 +17,17 @@ public class Sonido {
 	public static final AudioClip PacmanChomp = Applet
 			.newAudioClip(Sonido.class.getResource
 					("pacman_chomp.wav"));//("/sonido/Tanque Disparo Explocion.wav"));
+
+	public static AudioClip getTanquedisparo() {
+		return TanqueDisparo;
+	}
+
+	public static AudioClip getTanquedisparoexplocion() {
+		return TanqueDisparoExplocion;
+	}
+
+	public static AudioClip getPacmanchomp() {
+		return PacmanChomp;
+	}
 					
 }

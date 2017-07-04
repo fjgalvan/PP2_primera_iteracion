@@ -10,5 +10,11 @@ public class TestSonido {
 		assertNotNull(Sonido.PacmanChomp);
 		assertNotNull(Sonido.TanqueDisparo);
 		assertNotNull(Sonido.TanqueDisparoExplocion);
+		
+		//Sonido sonido= new Sonido();
+		Sonido.getPacmanchomp();
+		Sonido.getTanquedisparo();
+		Sonido.getTanquedisparoexplocion();
+		
 	}
 }
