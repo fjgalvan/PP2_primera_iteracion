@@ -27,7 +27,6 @@ public class MapaTiled {
 			contenido = CargadorRecursos.leerArchivoTexto(ruta);
 		}
 		catch(Exception e){
-			//e.addSuppressed(new ExceptionInInitializerError("Error!! Mapa invalido"));
 			JOptionPane.showMessageDialog(null,"El mapa no existe o no es del formato .csv","Error!! Mapa invalido", JOptionPane.WARNING_MESSAGE);
 		}
 	}
@@ -40,7 +39,6 @@ public class MapaTiled {
 		capas = obtenerArrayJSON(globalJSON.get("layers").toString());
 		capasDeImagenes = obtenerArrayJSON(globalJSON.get("tilesets").toString());
 		this.capasDeSprites = new ArrayList<CapaSprites>();
-		System.out.println(capasDeImagenes.get(0).toString());
 		obtenerCapas();
 	}
 	
