@@ -1,6 +1,6 @@
 package app.PP2_iteracion1;
 
-import junit.framework.Test;
+import junit.framework.Test; 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -31,8 +31,12 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    @SuppressWarnings("null")
+	public void testApp()
     {
+    	App saludo = null;
+    	saludo.getSaludo(); 
         assertTrue( true );
     }
+    
 }
