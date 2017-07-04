@@ -1,6 +1,7 @@
 package app.vistas;
 
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class TestMenu {
 		});
 	}
 	//ERROR DE TEST CON MAVEN
-	/*@Test
+	@Test
 	public void testMenu(){
 		Menu menu= new Menu();
 		menu.getEleccion();
@@ -32,7 +33,7 @@ public class TestMenu {
 		menu.getRdbtnPacman();
 		menu.getBtnAceptar();
 		menu.getBtnOk();
-		menu.getSerialversionuid();
+		//menu.getSerialversionuid();
 		menu.getBg();
 		menu.getIcono_Tank();
 		menu.getIcono_Pacman();
@@ -47,8 +48,14 @@ public class TestMenu {
 		menu.getImagen_Pacman();
 		menu.getImagen_Tank();
 		
-		menu.main(null);
+		//menu.main(null);
 		
-	}*/
+	}
+	public JFrame getFrmMenu() {
+		return frmMenu;
+	}
+	public void setFrmMenu(JFrame frmMenu) {
+		this.frmMenu = frmMenu;
+	}
 	
 }
