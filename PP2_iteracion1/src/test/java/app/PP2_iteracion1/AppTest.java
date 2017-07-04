@@ -1,6 +1,6 @@
 package app.PP2_iteracion1;
 
-import junit.framework.Test;
+import junit.framework.Test; 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -17,7 +17,10 @@ public class AppTest
      */
     public AppTest( String testName )
     {
+    	
         super( testName );
+        App saludo = new App();
+    	saludo.getSaludo(); 
     }
 
     /**
@@ -25,14 +28,20 @@ public class AppTest
      */
     public static Test suite()
     {
+    	App saludo = new App();
+    	saludo.getSaludo(); 
         return new TestSuite( AppTest.class );
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+
+	public void testApp()
     {
+		App saludo = new App();
+    	saludo.getSaludo(); 
         assertTrue( true );
     }
+    
 }

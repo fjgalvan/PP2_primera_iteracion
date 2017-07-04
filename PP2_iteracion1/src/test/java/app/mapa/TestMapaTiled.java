@@ -11,7 +11,7 @@ import app.object.ListStructures;*/
 public class TestMapaTiled {
 	/*@Test
 	public void testIniciar() {
-		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
+		MapaTiled mapa = new MapaTiled("MapaTank03.csv");
 		mapa.inicializar();
 		assertNotNull(mapa);
 	}*/
