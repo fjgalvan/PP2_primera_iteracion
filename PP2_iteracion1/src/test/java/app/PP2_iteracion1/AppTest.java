@@ -17,7 +17,10 @@ public class AppTest
      */
     public AppTest( String testName )
     {
+    	
         super( testName );
+        App saludo = new App();
+    	saludo.getSaludo(); 
     }
 
     /**
@@ -25,16 +28,18 @@ public class AppTest
      */
     public static Test suite()
     {
+    	App saludo = new App();
+    	saludo.getSaludo(); 
         return new TestSuite( AppTest.class );
     }
 
     /**
      * Rigourous Test :-)
      */
-    @SuppressWarnings("null")
+
 	public void testApp()
     {
-    	App saludo = null;
+		App saludo = new App();
     	saludo.getSaludo(); 
         assertTrue( true );
     }
