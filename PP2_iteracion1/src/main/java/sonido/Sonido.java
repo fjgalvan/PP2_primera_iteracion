@@ -18,15 +18,15 @@ public class Sonido {
 			.newAudioClip(Sonido.class.getResource
 					("pacman_chomp.wav"));//("/sonido/Tanque Disparo Explocion.wav"));
 
-	public static AudioClip getTanquedisparo() {
+	public AudioClip getTanquedisparo() {
 		return TanqueDisparo;
 	}
 
-	public static AudioClip getTanquedisparoexplocion() {
+	public AudioClip getTanquedisparoexplocion() {
 		return TanqueDisparoExplocion;
 	}
 
-	public static AudioClip getPacmanchomp() {
+	public AudioClip getPacmanchomp() {
 		return PacmanChomp;
 	}
 					
