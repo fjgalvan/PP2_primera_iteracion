@@ -20,7 +20,7 @@ public class Destructor {
 				tank.decreaseHP();
 				if(tank.getEnergyVal()==0)
 				{
-					if(level.getTankPlayer1().coordinate.equals(tank))
+					if(level.getTankPlayer1().coordinate.equals(tank.coordinate))
 						level.destruirTankPlayer1(tank);
 					else
 						level.destruirTankPlayer2(tank);
