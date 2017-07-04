@@ -1,20 +1,20 @@
 package app.mapa;
 
-/*import static org.junit.Assert.*;  
+import static org.junit.Assert.*;  
 
 import java.awt.Point;
 
 import org.junit.Test;
 
-import app.object.ListStructures;*/
+import app.object.ListStructures;
 
 public class TestMapaTiled {
-	/*@Test
+	@Test
 	public void testIniciar() {
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
 		mapa.inicializar();
 		assertNotNull(mapa);
-	}*/
+	}
 	
 	/*@Test
 	public void testObtenerCapas(){
