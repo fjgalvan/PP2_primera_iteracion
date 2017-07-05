@@ -67,11 +67,6 @@ public class TankController {
 		return tank;
 	}
 
-	// si este set no se usa, quitar!
-	public void setTank(Tank tank) {
-		this.tank = tank;
-	}
-
 	public void destruirTank() {
 		this.tank = null;
 	}

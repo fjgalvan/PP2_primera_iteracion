@@ -34,19 +34,12 @@ public class TestMenu {
 		menu.getBtnAceptar();
 		menu.getBtnOk();
 		//menu.getSerialversionuid();
-		menu.getBg();
-		menu.getIcono_Tank();
-		menu.getIcono_Pacman();
-		menu.getIcono_Bomberman();
 		menu.getPanelTank();
 		menu.getComboBox_DIFICULTAD();
 		menu.getComboBox_ENEMIGOS();
 		menu.getComboBox_NIVELES();
 		menu.getComboBox_VIDAS();
 		menu.getFrmMenu();
-		menu.getImagen_Bomberman();
-		menu.getImagen_Pacman();
-		menu.getImagen_Tank();
 		
 		//menu.main(null);
 		

@@ -208,88 +208,8 @@ public class Menu extends JFrame {
 		return btnAceptar;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public ButtonGroup getBg() {
-		return bg;
-	}
-
-	public ImageIcon getImagen_Tank() {
-		return imagen_Tank;
-	}
-
-	public ImageIcon getIcono_Tank() {
-		return icono_Tank;
-	}
-
-	public ImageIcon getImagen_Bomberman() {
-		return imagen_Bomberman;
-	}
-
-	public ImageIcon getIcono_Bomberman() {
-		return icono_Bomberman;
-	}
-
-	public ImageIcon getImagen_Pacman() {
-		return imagen_Pacman;
-	}
-
-	public ImageIcon getIcono_Pacman() {
-		return icono_Pacman;
-	}
-
 	public JPanel getPanelTank() {
 		return panelTank;
-	}
-
-	public void setImagen_Tank(ImageIcon imagen_Tank) {
-		this.imagen_Tank = imagen_Tank;
-	}
-
-	public void setIcono_Tank(ImageIcon icono_Tank) {
-		this.icono_Tank = icono_Tank;
-	}
-
-	public void setImagen_Bomberman(ImageIcon imagen_Bomberman) {
-		this.imagen_Bomberman = imagen_Bomberman;
-	}
-
-	public void setIcono_Bomberman(ImageIcon icono_Bomberman) {
-		this.icono_Bomberman = icono_Bomberman;
-	}
-
-	public void setImagen_Pacman(ImageIcon imagen_Pacman) {
-		this.imagen_Pacman = imagen_Pacman;
-	}
-
-	public void setIcono_Pacman(ImageIcon icono_Pacman) {
-		this.icono_Pacman = icono_Pacman;
-	}
-
-	public void setPanelTank(JPanel panelTank) {
-		this.panelTank = panelTank;
-	}
-
-	public void setRdbtnTank(JRadioButton rdbtnTank) {
-		this.rdbtnTank = rdbtnTank;
-	}
-
-	public void setRdbtnBomberman(JRadioButton rdbtnBomberman) {
-		this.rdbtnBomberman = rdbtnBomberman;
-	}
-
-	public void setRdbtnPacman(JRadioButton rdbtnPacman) {
-		this.rdbtnPacman = rdbtnPacman;
-	}
-
-	public void setBtnOk(JButton btnOk) {
-		this.btnOk = btnOk;
-	}
-
-	public void setBtnAceptar(JButton btnAceptar) {
-		this.btnAceptar = btnAceptar;
 	}
 
 	public JComboBox<String> getComboBox_VIDAS() {
@@ -308,22 +228,6 @@ public class Menu extends JFrame {
 		return comboBox_NIVELES;
 	}
 
-	public void setComboBox_VIDAS(JComboBox<String> comboBox_VIDAS) {
-		this.comboBox_VIDAS = comboBox_VIDAS;
-	}
-
-	public void setComboBox_DIFICULTAD(JComboBox<String> comboBox_DIFICULTAD) {
-		this.comboBox_DIFICULTAD = comboBox_DIFICULTAD;
-	}
-
-	public void setComboBox_ENEMIGOS(JComboBox<String> comboBox_ENEMIGOS) {
-		this.comboBox_ENEMIGOS = comboBox_ENEMIGOS;
-	}
-
-	public void setComboBox_NIVELES(JComboBox<String> comboBox_NIVELES) {
-		this.comboBox_NIVELES = comboBox_NIVELES;
-	}
-
 	public JLabel getLblImagenBomberman() {
 		return lblImagenBomberman;
 	}
@@ -338,9 +242,5 @@ public class Menu extends JFrame {
 
 	public JFrame getFrmMenu() {
 		return frmMenu;
-	}
-
-	public void setFrmMenu(JFrame frmMenu) {
-		this.frmMenu = frmMenu;
 	}
 }
