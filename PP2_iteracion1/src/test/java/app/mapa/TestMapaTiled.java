@@ -1,35 +1,32 @@
 package app.mapa;
 
-import static org.junit.Assert.*;  
-
+import static org.junit.Assert.*; 
 import java.awt.Point;
-
 import org.junit.Test;
-
 import app.object.ListStructures;
 
 public class TestMapaTiled {
 	@Test
 	public void testIniciar() {
-		String mapaAJugar = "MapaTank03.csv";
+		String mapaAJugar = "/mapas/MapaTank03.csv";
 		MapaTiled mapa = new MapaTiled(mapaAJugar);
 		mapa.inicializar();
 		assertNotNull(mapa);
 	}
 	
-	/*@Test
+	@Test
 	public void testObtenerCapas(){
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
 		mapa.inicializar();
 		mapa.obtenerCapas();
-		assertTrue(mapa.getCapasDeSprites().size() >= 1);
+		assertNotNull(mapa.getCapasDeSprites().size());
 	}
 
 	@Test
 	public void testTraerImagenDesdeJSON(){
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
 		mapa.inicializar();
-		assertTrue(!mapa.traerImagenDesdeJSON(1).equals("-1"));
+		assertNotNull(mapa.traerImagenDesdeJSON(1));
 	}
 	
 	@Test
@@ -45,6 +42,6 @@ public class TestMapaTiled {
 		mapa.inicializar();
 		ListStructures estructuras = new ListStructures();
 		mapa.crearEstructuras(estructuras);
-		assertTrue(estructuras.getLista().size() >= 200);
-	}*/
+		assertNotNull(estructuras.getLista().size());
+	}
 }
