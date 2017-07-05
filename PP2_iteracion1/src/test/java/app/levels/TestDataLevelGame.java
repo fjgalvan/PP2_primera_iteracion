@@ -80,7 +80,9 @@ public class TestDataLevelGame {
 	public void testGetNewDriverEnemy() 
 	{
 		DataLevelGame data = new DataLevelGame();
-		DriverEnemyTank driver = data.getNewDriverEnemy(new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2));
+		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
+		data.cargarClavesNiveles();
+		DriverEnemyTank driver = data.getNewDriverEnemy(tank);
 		assertTrue(driver!=null);
 	}
 
