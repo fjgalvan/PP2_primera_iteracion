@@ -10,16 +10,16 @@ public class Util {
 	// asegurarse que no salga del limite del mapa
 	public static boolean estaEnElLimiteDeTablero(Orientation orientation, Point coordinate) { // ,Posicion
 																								// posicion
-		if (orientation.equals(Orientation.LEFT) && coordinate.getX() <= 30) {
+		if (orientation.equals(Orientation.LEFT) && coordinate.getX() <= 40) {
 			return true; // izquierda
 		}
-		if (orientation.equals(Orientation.RIGHT) && coordinate.getX() >= 980) {
+		if (orientation.equals(Orientation.RIGHT) && coordinate.getX() >= 880) {
 			return true; // derecha
 		}
-		if (orientation.equals(Orientation.UP) && coordinate.getY() <= 30) {
+		if (orientation.equals(Orientation.UP) && coordinate.getY() <= 40) {
 			return true;// arriba
 		}
-		if (orientation.equals(Orientation.DOWN) && coordinate.getY() >= 580) {
+		if (orientation.equals(Orientation.DOWN) && coordinate.getY() >= 560) {
 			return true; // abajo
 		}
 		return false;

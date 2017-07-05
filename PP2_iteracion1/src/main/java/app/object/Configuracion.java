@@ -14,7 +14,7 @@ public class Configuracion
 	public static final int MinimoX = 40;
 	public static final int MaximoX = 880;
 	public static final int MinimoY = 40;
-	public static final int MaximoY = 520;
+	public static final int MaximoY = 560;
 
 	public static String IMGFANTASMA = "imagen/fantasma"+String.valueOf((new Random().nextInt(4)+1))+".png";
 }

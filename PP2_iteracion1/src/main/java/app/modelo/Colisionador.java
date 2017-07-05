@@ -21,8 +21,8 @@ public class Colisionador {
 	/**BULLET*/
 	public boolean colisionBullet(Bullet bullet, List<ObjetoGrafico> objetos){
 		if(bullet!=null){
-		if(Util.estaEnElLimiteDeTablero(bullet.getOrientation(), bullet.getCoordinate())){
-			return true;
+			if(Util.estaEnElLimiteDeTablero(bullet.getOrientation(), bullet.getCoordinate())){
+				return true;
 		}
 		return bulletHayColisionConUnObjeto(bullet, objetos);
 		}

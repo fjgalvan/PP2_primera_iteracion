@@ -48,25 +48,21 @@ public class DriverEasyEnemyTank extends DriverEnemyTank {
 		if (hayColisionConUnObjeto(objetos)) {
 			// girarRandom();
 			if (colicionEn(objetos) == 1) {// colicion arriba
-				// System.out.println("colicion arriba");
 				enemyTank.girar(Orientation.DOWN);
 				enemyTank.moverse(Orientation.DOWN);
 				enemyTank.girar(Orientation.RIGHT);
 			}
 			if (colicionEn(objetos) == 2) {// colicion derecha
-				// System.out.println("colicion derecha");
 				enemyTank.girar(Orientation.LEFT);
 				enemyTank.moverse(Orientation.LEFT);
 				enemyTank.girar(Orientation.DOWN);
 			}
 			if (colicionEn(objetos) == 3) {// colicion abajo
-				// System.out.println("colicion abajo");
 				enemyTank.girar(Orientation.UP);
 				enemyTank.moverse(Orientation.UP);
 				enemyTank.girar(Orientation.LEFT);
 			}
 			if (colicionEn(objetos) == 4) {// colicion izquierda
-				// System.out.println("colicion izquierda");
 				enemyTank.girar(Orientation.RIGHT);
 				enemyTank.moverse(Orientation.RIGHT);
 				enemyTank.girar(Orientation.UP);

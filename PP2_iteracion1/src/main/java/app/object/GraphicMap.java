@@ -4,8 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.modelo.ObjetoGrafico;
-
 public class GraphicMap {
 	private Map map;
 	private Point sizeMarco;
@@ -34,32 +32,10 @@ public class GraphicMap {
 			valorY = (int) (0 + sizeMarco.getY());
 			valorX = valorX + 40;
 		}
-		// int i=1;
-		// for(Coordinate c : coordenadas){System.out.println(i+" "+c);i++;}
-		// System.out.println("");
-		// System.out.println("cant filas "+ filas + " cant columnas"
-		// +columnas);
-		// System.out.println("Coordenadas cargadas: " + coordenadas.size());
-	}
-
-	public Point getCoordenada(int posicion) {
-		return coordenadas.get(posicion);
 	}
 
 	public Point getSizeMarco() {
 		return sizeMarco;
-	}
-
-	public void setSizeMarco(Point sizeMarco) {
-		this.sizeMarco = sizeMarco;
-	}
-
-	public List<Point> listaCoordenadas() {
-		return coordenadas;
-	}
-
-	public ObjetoGrafico getObjetoEnCoordenada(Point coor) {
-		return null;
 	}
 
 	public Point getSize() {

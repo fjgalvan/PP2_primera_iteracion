@@ -59,8 +59,6 @@ public abstract class DriverEnemyTank {
 	}
 	
 	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos) {
-		// SIEMPRE EL TANQUE GIRA A LA DERECHA CUANDO LLEGA AL LIMITE DEL MAPA
-
 		controlChoque();
 		controlDisparoTankEnemy(ent, objetos); // FALTARIA UN TEMPORIZADOR PARA
 												// QUE NO DISPARE A PENAS
@@ -77,32 +75,9 @@ public abstract class DriverEnemyTank {
 		}
 	}
 
-	/*
-	 * public void controlChoqueConEstructuras(){
-	 * 
-	 * }
-	 * 
-	 * 
-	 * 
-	 * private void ControlCpu(Orientation direction) {
-	 * if(direction.equals(Orientation.UP)) ControlUp();
-	 * if(direction.equals(Orientation.DOWN)) ControlDown();
-	 * if(direction.equals(Orientation.RIGHT)) ControlRigth();
-	 * if(direction.equals(Orientation.LEFT)) ControlLeft(); } private
-	 * Orientation genDirection() { int pick = new
-	 * Random().nextInt(Orientation.values().length); return
-	 * Orientation.values()[pick]; } public void ai() { Orientation dir =
-	 * this.genDirection(); for(int i=0;i<1;i++) { this.ControlCpu(dir); }
-	 * //tank.disparar(); }
-	 */
 	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos) {
 		if (this.enemyTank.getTankBullet().equals(TankShot.EXISTS)) {
 			this.enemyTank.getBullet().avanzarBullet();
-			/*
-			 * entorno.dibujarCirculo(this.tank.getBullet().getCoordinate().getX
-			 * (), this.tank.getBullet().getCoordinate().getY(), 10,
-			 * Color.gray);
-			 */
 			if (colisionador.colisionBullet(this.enemyTank.getBullet(), objetos)) {
 				this.enemyTank.setTankBullet(TankShot.NO_EXISTS);
 				this.enemyTank.setBullet(null);
@@ -123,9 +98,6 @@ public abstract class DriverEnemyTank {
 																	// colision
 																	// !=
 		}
-		/*
-		 * if(ret == true){ System.out.println("colicion: "+ret); }
-		 */
 		return ret;
 	}
 

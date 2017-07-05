@@ -61,21 +61,11 @@ public class Principal {
 				FileOutputStream file = new FileOutputStream("src/main/java/properties/archivo.properties");//("C:/Users/Usuario/git/PP2_primera_iteracion/PP2_iteracion1/src/main/java/properties/archivo.properties");
 				propiedades.store(file, "Escribiendo");			
 				file.close();
-//				
-//				Principal principal= new Principal();
-//				principal.leerArchivo();
+				
 				return true;				
 			} catch (IOException e) {
 				  System.out.println("Error, El archivo no exite o no se puede leer");
 				return false;
 			}
 	 }
- 
-	 public static void main(String arg[]) 
-	 {
-	 	 Principal miPrincipal = new Principal();
-		  miPrincipal.leerArchivo();
-	 }
- 
-
 }

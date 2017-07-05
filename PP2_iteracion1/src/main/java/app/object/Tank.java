@@ -1,13 +1,11 @@
 package app.object;
 
 import java.awt.Point;
-
 import app.enums.Orientation;
 import app.enums.TankShot;
 import app.modelo.ObjetoGrafico;
 import app.state_tank.StateMoveTank;
 import app.state_tank.StateMoveTankDown;
-import app.util.Util;
 
 public class Tank extends ObjetoGrafico {
 	private Orientation orientation;
@@ -57,15 +55,6 @@ public class Tank extends ObjetoGrafico {
 			aux.setLocation(this.coordinate.getX() + 20, this.coordinate.getY() + 20);
 			bullet = new Bullet(orientation, aux, new Point(10, 10));
 			tankShot = TankShot.EXISTS;
-		}
-	}
-
-	// dependiendo del estado en que se encuentre se mueve en esa posicion
-	public void moverse() {
-		// controlar que no choque con las estructuras o el limite del mapa
-		// esta funcion no se utiliza
-		if (!Util.estaEnElLimiteDeTablero(orientation, coordinate)) {
-			Util.moverse(orientation, coordinate, velocidadDeMovimiento);
 		}
 	}
 
