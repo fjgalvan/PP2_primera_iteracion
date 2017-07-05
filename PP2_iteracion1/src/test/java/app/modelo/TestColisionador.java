@@ -14,22 +14,21 @@ import app.object.Tank;
 
 public class TestColisionador {
 	
-    // ERROR EN TEST
-	/*@Test
+	@Test
 	public void colisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
 		ListStructures estructuras = new ListStructures();
 		MapaTiled mapaTiled = new MapaTiled("/mapas/MapaTank04.csv");
+		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
 				
 		Point size = new Point(10, 10);
-		Point coordinate = new Point(200, 200);
+		Point coordinate = new Point(881, 200);
 		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
-		
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
 		assertTrue(colisionador.colisionBullet(bullet, objetos));
-	}*/
+	}
 	
 	@Test
 	public void noColisionBulletConEstructura() {
@@ -82,11 +81,12 @@ public class TestColisionador {
 	}
 	
 	//ERROR TEST
-	/*@Test
+	@Test
 	public void hayColision(){
 		Colisionador colisionador = new Colisionador();
 		ListStructures estructuras = new ListStructures();
 		MapaTiled mapaTiled = new MapaTiled("/mapas/MapaTank04.csv");
+		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
@@ -102,13 +102,14 @@ public class TestColisionador {
 		}
 		
 		assertTrue(ret);
-	}*/
+	}
 
-	/*@Test
+	@Test
 	public void hayColisionArriba(){
 		Colisionador colisionador = new Colisionador();
 		ListStructures estructuras = new ListStructures();
 		MapaTiled mapaTiled = new MapaTiled("/mapas/MapaTank04.csv");
+		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
 		objetos.addAll(estructuras.getLista());
@@ -125,7 +126,7 @@ public class TestColisionador {
 		
 		assertTrue(ret);
 		
-	}*/
+	}
 	
 	@Test
 	public void hayCoilision(){
