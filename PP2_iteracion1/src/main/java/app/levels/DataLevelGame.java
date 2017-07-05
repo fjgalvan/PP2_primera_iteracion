@@ -61,7 +61,7 @@ public class DataLevelGame
 		this.cantEnemigos = cantEnemigos;
 	}
 
-	private void cargarClavesNiveles() 
+	public void cargarClavesNiveles() 
 	{
 		this.dificultad.put("facil", new DriverEasyEnemyTank());
 		this.dificultad.put("intermedio", new DriverIntermediateEnemyTank());
@@ -74,12 +74,12 @@ public class DataLevelGame
 		d.setEnemyTank(enemy);
 		return d;
 	}
-	
-//	protected void setDriverEnemy()
-//	{
-//	//	this.driver = getNewDriverEnemy();
-//	}
 
+	public HashMap<String, DriverEnemyTank> getMapa()
+	{
+		return this.dificultad;
+	}
+	
 	public int getPlayers() {
 		return players;
 	}
