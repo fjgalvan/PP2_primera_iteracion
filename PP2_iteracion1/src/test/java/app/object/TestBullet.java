@@ -17,7 +17,7 @@ public class TestBullet {
 		assertTrue(Util.estaEnElLimiteDeTablero(orientation, coordinate));
 		
 		Orientation orientation2 = Orientation.LEFT;
-		Point coordinate2 = new Point(31, 50);
+		Point coordinate2 = new Point(50, 50);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation2, coordinate2));
 		
 		Orientation orientation3 = Orientation.RIGHT;
@@ -25,7 +25,7 @@ public class TestBullet {
 		assertTrue(Util.estaEnElLimiteDeTablero(orientation3, coordinate3));
 		
 		Orientation orientation4 = Orientation.RIGHT;
-		Point coordinate4 = new Point(979, 50);
+		Point coordinate4 = new Point(900, 50);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation4, coordinate4));
 		
 		Orientation orientation5 = Orientation.UP;
@@ -33,7 +33,7 @@ public class TestBullet {
 		assertTrue(Util.estaEnElLimiteDeTablero(orientation5, coordinate5));
 		
 		Orientation orientation6 = Orientation.UP;
-		Point coordinate6 = new Point(50, 31);
+		Point coordinate6 = new Point(50, 50);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation6, coordinate6));
 		
 		Orientation orientation7 = Orientation.DOWN;
@@ -41,7 +41,7 @@ public class TestBullet {
 		assertTrue(Util.estaEnElLimiteDeTablero(orientation7, coordinate7));
 		
 		Orientation orientation8 = Orientation.DOWN;
-		Point coordinate8 = new Point(50, 579);
+		Point coordinate8 = new Point(50, 540);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation8, coordinate8));
 	}
 	

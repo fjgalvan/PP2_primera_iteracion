@@ -13,7 +13,7 @@ public class Util {
 		if (orientation.equals(Orientation.LEFT) && coordinate.getX() <= 40) {
 			return true; // izquierda
 		}
-		if (orientation.equals(Orientation.RIGHT) && coordinate.getX() >= 880) {
+		if (orientation.equals(Orientation.RIGHT) && coordinate.getX() >= 920) {
 			return true; // derecha
 		}
 		if (orientation.equals(Orientation.UP) && coordinate.getY() <= 40) {

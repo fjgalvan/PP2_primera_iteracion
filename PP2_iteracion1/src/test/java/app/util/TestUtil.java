@@ -22,7 +22,7 @@ public class TestUtil {
 	@Test
 	public void testNoEstaEnElLimiteDeTableroPorIzquierda() {
 		Orientation orientation = Orientation.LEFT;
-		Point coordinate = new Point(31, 50);
+		Point coordinate = new Point(50, 50);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation, coordinate));
 	}
 	
@@ -50,7 +50,7 @@ public class TestUtil {
 	@Test
 	public void testNoEstaEnElLimiteDeTableroPorArriba() {
 		Orientation orientation = Orientation.UP;
-		Point coordinate = new Point(50, 31);
+		Point coordinate = new Point(50, 50);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation, coordinate));
 	}
 	
@@ -64,7 +64,7 @@ public class TestUtil {
 	@Test
 	public void testNoEstaEnElLimiteDeTableroPorAbajo() {
 		Orientation orientation = Orientation.DOWN;
-		Point coordinate = new Point(50, 579);
+		Point coordinate = new Point(50, 520);
 		assertFalse(Util.estaEnElLimiteDeTablero(orientation, coordinate));
 	}
 	
