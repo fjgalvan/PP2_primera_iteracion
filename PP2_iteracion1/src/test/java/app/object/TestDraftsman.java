@@ -4,7 +4,7 @@ import java.awt.Point;
 import org.junit.Test;
 import app.enums.Orientation;
 import app.levels.DataLevelGame;
-import app.levels.ManagerLevel;
+import app.levels.ManagerLevelGameMain;
 import app.main.Game;
 import clase_properties.Principal;
 

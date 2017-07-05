@@ -22,12 +22,7 @@ public class DataLevelGame
 		this.typeDriver = typeDriver;
 	}
 	
-	public static DataLevelGame getDefaultDataGame()
-	{
-		return new DataLevelGame();
-	}
-	
-	private DataLevelGame()
+	public DataLevelGame()
 	{
 		this.dificultad = new HashMap<String, DriverEnemyTank>();
 		this.setPlayers(1);

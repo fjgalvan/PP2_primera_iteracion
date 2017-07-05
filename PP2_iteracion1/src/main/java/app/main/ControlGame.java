@@ -1,9 +1,8 @@
 package app.main;
 
 import java.awt.event.*;
-
 import app.levels.DataLevelGame;
-import app.levels.ManagerLevel;
+import app.levels.ManagerLevelGameMain;
 import app.vistas.Menu;
 import clase_properties.*;
 
@@ -53,7 +52,7 @@ public class ControlGame implements ActionListener{
 				this.setTankEleccionMenu();
 				Principal principal= new Principal();
 	//			principal.ModificarArchivo(this.menu.getEleccion());
-				DataLevelGame data = new ManagerLevel(principal).getDataLevelGame();
+				DataLevelGame data = new ManagerLevelGameMain(principal).buildDataGame();
 				Game game = new Game(data);
 				game.iniciar();
 			}
