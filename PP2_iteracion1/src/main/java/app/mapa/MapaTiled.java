@@ -2,7 +2,6 @@ package app.mapa;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,17 +18,17 @@ public class MapaTiled {
 	private ArrayList<CapaSprites> capasDeSprites;
 	
 	public MapaTiled(final String ruta){
-		controlarCargaDeMapa(ruta);
+		contenido = CargadorRecursos.leerArchivoTexto(ruta);
 	}
 	
-	public void controlarCargaDeMapa(final String ruta){
+/*	public void controlarCargaDeMapa(final String ruta){
 		try{
 			contenido = CargadorRecursos.leerArchivoTexto(ruta);
 		}
 		catch(Exception e){
 			JOptionPane.showMessageDialog(null,"El mapa no existe o no es del formato .csv","Error!! Mapa invalido", JOptionPane.WARNING_MESSAGE);
 		}
-	}
+	}*/
 	
 	public void inicializar(){
 		globalJSON = obtenerObjetoJSON(contenido);

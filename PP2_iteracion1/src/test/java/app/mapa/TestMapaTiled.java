@@ -6,7 +6,7 @@ import org.junit.Test;
 import app.object.ListStructures;
 
 public class TestMapaTiled {
-	/*@Test
+	@Test
 	public void testIniciar() {
 		String mapaAJugar ="/mapas/MapaTank03.csv";
 		MapaTiled mapa = new MapaTiled(mapaAJugar);
@@ -14,7 +14,7 @@ public class TestMapaTiled {
 		assertNotNull(mapa);
 	}
 	
-	/*@Test
+	@Test
 	public void testObtenerCapas(){
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
 		mapa.inicializar();
@@ -43,5 +43,5 @@ public class TestMapaTiled {
 		ListStructures estructuras = new ListStructures();
 		mapa.crearEstructuras(estructuras);
 		assertNotNull(estructuras.getLista().size());
-	}*/
+	}
 }
