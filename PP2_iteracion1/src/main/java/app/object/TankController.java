@@ -14,6 +14,7 @@ public class TankController {
 	private Tank tank;
 	private KeyEventListener listener;
 	private Colisionador colisionador;
+	private int contTick;
 
 	public TankController(Tank tank, KeyEventListener listener, Colisionador colisionador) {
 		this.tank = tank;
@@ -41,7 +42,8 @@ public class TankController {
 			}
 		}
 
-		if (listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion()) {
+		if (listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion() && contTick > 30) {
+			contTick = 0;
 			Sonido.TanqueDisparo.stop();
 			Sonido.TanqueDisparo.play();
 			this.tank.disparar();
@@ -69,5 +71,13 @@ public class TankController {
 
 	public void destruirTank() {
 		this.tank = null;
+	}
+
+	public int getContTick() {
+		return contTick;
+	}
+
+	public void setContTick(int contTick) {
+		this.contTick = contTick;
 	}
 }
