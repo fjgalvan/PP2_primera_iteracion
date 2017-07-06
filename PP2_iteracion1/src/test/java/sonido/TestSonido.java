@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class TestSonido {
 	//ERROR DE TEST CON MAVEN
-	/*@Test
+	@Test
 	public void testSonido() {
 		//assertNotNull(Sonido.PacmanChomp);
 		//assertNotNull(Sonido.TanqueDisparo);
@@ -16,5 +16,5 @@ public class TestSonido {
 		sonido.getTanquedisparo();
 		sonido.getTanquedisparoexplocion();
 
-	}*/
+	}
 }
