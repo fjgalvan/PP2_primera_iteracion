@@ -107,6 +107,7 @@ public class Game extends InterfaceJuego {
 				this.dibujador.dibujarEnemyTank(driver.getEnemyTank());
 				driver.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
 				destructor.destruccionTank(driver.getEnemyTank(), levelGame);
+				driver.setContTick(driver.getContTick() + 1);
 				if(driver.getEnemyTank().existeDisparoEnEjecucion()){
 					dibujador.dibujarBullet(driver.getEnemyTank().getBullet());
 				}

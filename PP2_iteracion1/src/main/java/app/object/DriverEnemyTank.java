@@ -11,6 +11,7 @@ import entorno.Entorno;
 public abstract class DriverEnemyTank {
 	protected Tank enemyTank;
 	private Colisionador colisionador;
+	private int contTick;
 
 	public DriverEnemyTank() 
 	{
@@ -70,7 +71,8 @@ public abstract class DriverEnemyTank {
 
 	public void controlDisparoTankEnemy(Entorno ent, List<ObjetoGrafico> objetos) {
 		control_bullet(ent, objetos);
-		if (this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS)) {
+		if (this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS) && contTick > 30) {
+			contTick = 0;
 			enemyTank.disparar();
 		}
 	}
@@ -144,5 +146,13 @@ public abstract class DriverEnemyTank {
 
 	public void destruirTank() {
 		this.enemyTank = null;
+	}
+	
+	public int getContTick() {
+		return contTick;
+	}
+
+	public void setContTick(int contTick) {
+		this.contTick = contTick;
 	}
 }
