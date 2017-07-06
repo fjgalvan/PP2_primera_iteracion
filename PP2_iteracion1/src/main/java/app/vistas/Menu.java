@@ -139,7 +139,7 @@ public class Menu extends JFrame {
 		panelTank.add(comboBox_DIFICULTAD);
 		
 		comboBox_VIDAS = new JComboBox<String>();
-		comboBox_VIDAS.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3"}));
+		comboBox_VIDAS.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2"}));
 		comboBox_VIDAS.setBounds(348, 36, 92, 20);
 		panelTank.add(comboBox_VIDAS);
 		
