@@ -1,7 +1,9 @@
 package clase_properties;
 
 import java.io.*;
-import java.util.Properties; 
+import java.util.Properties;
+
+import app.object.Configuracion; 
  
 /**
  * @author CHENAO
@@ -22,7 +24,7 @@ public class Principal {
 			  Properties propiedades = new Properties();
 			  
 			  /**Cargamos el archivo desde la ruta especificada*/
-			  propiedades.load(new FileReader("src/main/java/properties/archivo.properties"));//("C:/Users/Usuario/git/PP2_primera_iteracion/PP2_iteracion1/src/main/java/properties/archivo.properties"));
+			  propiedades.load(new FileReader(Configuracion.rutaProperties));//("C:/Users/Usuario/git/PP2_primera_iteracion/PP2_iteracion1/src/main/java/properties/archivo.properties"));
 			  	 
 			  /**Obtenemos los parametros definidos en el archivo*/
 			  String juego = propiedades.getProperty("juego");	  
