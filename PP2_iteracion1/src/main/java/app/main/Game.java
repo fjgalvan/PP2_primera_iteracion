@@ -24,7 +24,6 @@ public class Game extends InterfaceJuego {
 	private Tank enemyTank2;
 	private Tank enemyTank3;
 	private Tank enemyTank4;
-	//private DriverEnemyTank enemyTankControl4;
 	private List<Tank> tanks;
 	private List<Tank> enemysTanks;
 	private boolean modoJuegoCop = true;
@@ -84,8 +83,10 @@ public class Game extends InterfaceJuego {
 				this.tControl.ControlTank(estructuras.getLista());
 				this.tControl.control_bullet(estructuras.getLista(), this.enemysTanks);
 				if(tank.existeDisparoEnEjecucion()){
-					dibujador.dibujarBullet(tank.getBullet());}
+					dibujador.dibujarBullet(tank.getBullet());
+				}
 				destructor.destruccionTanksEnemys(tank,levelGame,LevelEasy.P1);
+				this.tControl.setContTick(this.tControl.getContTick() + 1);
 			}
 			// COOP
 			if (levelGame.containsPlayer2()) 
@@ -94,9 +95,11 @@ public class Game extends InterfaceJuego {
 				this.dibujador.dibujarTankCop(tankCop);
 				this.tControlCop.ControlTank(estructuras.getLista());
 				if(tankCop.existeDisparoEnEjecucion()){
-					dibujador.dibujarBullet(tankCop.getBullet());}
+					dibujador.dibujarBullet(tankCop.getBullet());
+				}
 				this.tControlCop.control_bullet(estructuras.getLista(), this.enemysTanks);
 				destructor.destruccionTanksEnemys(tankCop,levelGame,LevelEasy.P2);
+				this.tControlCop.setContTick(this.tControlCop.getContTick() + 1);
 			}
 
 			for (DriverEnemyTank driver : levelGame.getDrives())
