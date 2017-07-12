@@ -1,15 +1,10 @@
 package app.object;
 
-import java.awt.Color;
 import java.util.*;
-import entorno.*;
 import app.enums.*;
 import app.modelo.*;
-import app.state_tank.StateMoveTankUp;
-import app.util.Util;
 import sonido.Sonido;
 
-@SuppressWarnings("unused")
 public class TankController {
 	private Tank tank;
 	private KeyEventListener listener;
@@ -26,8 +21,9 @@ public class TankController {
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
 			// dependiendo del estado va a tener una colision
-			if(obj.getClass().getName()!="app.estructura.EstructuraFondo")
+			if(!obj.getNombre().equals("Fondo")){
 				ret = ret || tank.getStateMove().hayColision(obj);
+			}
 		}
 		return ret;
 	}

@@ -1,11 +1,29 @@
 package app.estructura;
 
+import app.modelo.ObjetoGrafico;
 
-
-//abstracto
-public interface Estructura {
+public class Estructura extends ObjetoGrafico {
+	//private String nombre;
+	//private String imagen;
 	
-	public void colisionBala();
-	public void destruir();
-		
+	public Estructura(String nombre, String imagen)
+	{
+		super(nombre,imagen);
+	}
+
+//	public String getNombre() {
+//		return nombre;
+//	}
+//
+//	public String getImagen() {
+//		return imagen;
+//	}
+//
+//	public void setNombre(String nombre) {
+//		this.nombre = nombre;
+//	}
+//
+//	public void setImagen(String imagen) {
+//		this.imagen = imagen;
+//	}
 }

@@ -1,8 +1,6 @@
 package app.object;
 
-import java.awt.Point;
 import java.util.*;
-
 import app.estructura.*;
 import app.modelo.ObjetoGrafico;
 
@@ -16,32 +14,20 @@ public class ListStructures
 		this.estructuras = new ArrayList<ObjetoGrafico>();
 	}
 	
-	public void inicializarListaConTiled(String tipoEstructura, String imagen, int totalDePaneles, ArrayList<Point> coordenadas, ArrayList<String> spritesCapaDeImagenes){
-		for(int i=0;i<totalDePaneles;i++){
-			if(tipoEstructura.equals("Fondo"))
-				this.estructuras.add((ObjetoGrafico)new EstructuraFondo(imagen));
-			if(tipoEstructura.equals("Panel"))
-				this.estructuras.add((ObjetoGrafico)new EstructuraPanel(imagen));
-			if(tipoEstructura.equals("Acero"))
-				this.estructuras.add((ObjetoGrafico)new EstructuraAcero(imagen));
-			if(tipoEstructura.equals("Agua"))
-				this.estructuras.add((ObjetoGrafico)new EstructuraAgua(imagen));
-			if(tipoEstructura.equals("Ladrillo"))
-				this.estructuras.add((ObjetoGrafico)new EstructuraLadrillo(imagen));
-		}
-		for(int est=0; est < this.estructuras.size(); est++){
-			for(int j=0; j < coordenadas.size(); j++){
-				if(this.estructuras.get(est).getClass().getName().equals("app.estructura.Estructura"+tipoEstructura)){
-					this.estructuras.get(est).setCoordinate(coordenadas.get(j));
-					this.estructuras.get(est).setSize(new Point(40,40));
-					this.estructuras.get(est).setImagen(spritesCapaDeImagenes.get(j));
-					spritesCapaDeImagenes.remove(spritesCapaDeImagenes.get(j));
-					coordenadas.remove(coordenadas.get(j));
-					break;
-				}
-			}
-		}
-	}
+//	public void inicializar(MapaTiled mapa){
+//		inicializarListaConTiled(mapa.getNombre(), mapa.getImagen(), mapa.getEstructurasMapa());
+//	}
+	
+//	public void inicializarListaConTiled(ArrayList<String> tipoEstructura, ArrayList<String> imagen, Point[][] points){
+//		for(int est=0; est < tipoEstructura.size(); est++){
+//			for(int j=0; j < points[est].length; j++){
+//				this.estructuras.add(new Estructura(tipoEstructura.get(est),imagen.get(est)));
+//				this.estructuras.get(j).setCoordinate(points[est][j]);
+//				this.estructuras.get(j).setSize(new Point(40,40));
+//				this.estructuras.get(j).setImagen(imagen.get(j));
+//			}
+//		}
+//	}
 	
 	public int getLenght() 
 	{
@@ -51,5 +37,8 @@ public class ListStructures
 	public List<ObjetoGrafico> getLista() {
 		return estructuras;
 	}
-		
+	
+	public void add(Estructura estructura){
+		estructuras.add(estructura);
+	}
 }

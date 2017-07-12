@@ -34,8 +34,8 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(!obj.getClass().getName().equals("app.estructura.EstructuraAgua") 
-					&& !obj.getClass().getName().equals("app.estructura.EstructuraFondo")){
+			if(!obj.getNombre().equals("Agua") 
+					&& !obj.getNombre().equals("Fondo")){
 				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
 			}
 			if(ret && objetoADestruir==null){
@@ -97,7 +97,7 @@ public class Colisionador {
 				lista.remove(obj);
 				for (ObjetoGrafico obj2 : lista) {
 					if (obj2 != null) {
-						if (!obj.getClass().getName().equals("estructura.EstructuraAgua")) {
+						if (!obj.getNombre().equals("Agua")) {
 							// dependiendo el estado va a tener una colision !=
 							ret = ret || bulletChocaConEstructura(obj, obj2);
 						}
@@ -175,58 +175,4 @@ public class Colisionador {
 				&& objGraf1.getCoordinate().getY() + objGraf1.getSize().getY() > objGraf2.getCoordinate().getY();
 		return colisionIzq;
 	}
-
-	/** PARA COLOCAR LAS ESTRUCTURAS */
-	// public void posicionar(Plataforma[] plataformas, Entorno unEntorno) {
-	// boolean setocan;
-	// int i, k;
-	//
-	// do {
-	// // Posiciono al azar
-	// posicionAlAzar(unEntorno);
-	//
-	// setocan = false;
-	// i = 0;
-	// k = 0;
-	// do {
-	// // Validar que no se toque con ningÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºn otro
-	// if (!this.posicionado
-	// && this.seTocan(plataformas[i], this.separacion)) {
-	// k++;
-	// if (k == 2)
-	// // Se toca consigo y uno mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s
-	// setocan = true;
-	// }
-	// i++;
-	// } while (i < plataformas.length && !setocan);
-	//
-	// } while (setocan);
-	//
-	// }
-	//
-	// private void posicionAlAzar(Entorno unEntorno) {
-	// Random azar = new Random();
-	//
-	// this.x = this.ancho
-	// + azar.nextInt(unEntorno.ancho() - ((int) this.ancho * 2));
-	//
-	// this.y = unEntorno.alto() * 0.1
-	// + azar.nextInt((int) (unEntorno.alto() * 0.75));
-	// }
-	//
-	// private boolean seTocan(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2,
-	// double unaSeparacion) {
-	// double dX = objGraf1.getCoordinate().getX() -
-	// objGraf2.getCoordinate().getX();
-	// double dY = objGraf1.getCoordinate().getY() -
-	// objGraf2.getCoordinate().getY();
-	// boolean enX = (Math.abs(dX) < (objGraf1.getSize().getAncho() / 2 +
-	// objGraf2.getSize().getAncho() / 2)
-	// + unaSeparacion);
-	// boolean enY = (Math.abs(dY) < (objGraf1.getSize().getAlto() / 2 +
-	// objGraf2.getSize().getAlto() / 2)
-	// + unaSeparacion);
-	// return (enX && enY);
-	// }
-	//
 }

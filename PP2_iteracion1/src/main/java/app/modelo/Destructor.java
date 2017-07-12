@@ -59,7 +59,7 @@ public class Destructor {
 		//ESTRUCTURAS
 		public void destruirEstructuras(ListStructures estructuras){
 			if(colisionador.getObjetoADestruir()!=null){
-				if(colisionador.getObjetoADestruir().getClass().getName().equals("app.estructura.EstructuraLadrillo")){
+				if(colisionador.getObjetoADestruir().getNombre().equals("Ladrillo")){
 					estructuras.getLista().remove(colisionador.getObjetoADestruir());
 				}
 				colisionador.setObjetoADestruir(null);

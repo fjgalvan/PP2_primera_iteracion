@@ -90,15 +90,8 @@ public abstract class DriverEnemyTank {
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista) {
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
-			if(obj.getClass().getName()!="app.estructura.EstructuraFondo")
-			ret = ret || colisionador.hayColision(enemyTank, obj);// enemyTank.getStateMove().hayColision(obj);
-																	// //
-																	// dependiendo
-																	// el estado
-																	// va atener
-																	// una
-																	// colision
-																	// !=
+			if(!obj.getNombre().equals("Fondo"))
+			ret = ret || colisionador.hayColision(enemyTank, obj);
 		}
 		return ret;
 	}
@@ -107,14 +100,7 @@ public abstract class DriverEnemyTank {
 		int tipoColicion = 0;
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
-			ret = ret || colisionador.hayColision(enemyTank, obj);// enemyTank.getStateMove().hayColision(obj);
-																	// //
-																	// dependiendo
-																	// el estado
-																	// va atener
-																	// una
-																	// colision
-																	// !=
+			ret = ret || colisionador.hayColision(enemyTank, obj);
 			if (ret == true) {
 				if (colisionador.hayColisionArriba(enemyTank, obj)) {
 					tipoColicion = 1;
