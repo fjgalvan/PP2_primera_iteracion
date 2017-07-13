@@ -8,7 +8,9 @@ public abstract class ObjetoGrafico {
 	protected String nombre;
 	protected String imagen;
 	
-	public ObjetoGrafico (String nombre, String imagen){
+	public ObjetoGrafico (Point coordinate, Point size, String nombre, String imagen){
+		this.coordinate = coordinate;
+		this.size = size;
 		this.nombre = nombre;
 		this.imagen = imagen;
 	}

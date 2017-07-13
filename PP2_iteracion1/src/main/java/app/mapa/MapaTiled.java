@@ -80,9 +80,9 @@ public class MapaTiled {
 	public void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, ArrayList<String> imagen, Point[][] coordenadas, ListStructures estructuras){
 		for(int i = 0; i < coordenadas.length; i++){
 			for(int j=0; j < coordenadas[i].length; j++){
-				estructuras.add(new Estructura(tipoEstructura.get(i),imagen.get(i)));
-				estructuras.getLista().get(estructuras.getLista().size()-1).setCoordinate(coordenadas[i][j]);
-				estructuras.getLista().get(estructuras.getLista().size()-1).setSize(new Point(40,40));
+				estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), tipoEstructura.get(i),imagen.get(i)));
+				//estructuras.getLista().get(estructuras.getLista().size()-1).setCoordinate(coordenadas[i][j]);
+				//estructuras.getLista().get(estructuras.getLista().size()-1).setSize(new Point(40,40));
 			}
 		}
 	}
