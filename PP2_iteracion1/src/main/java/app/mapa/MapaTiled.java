@@ -12,14 +12,14 @@ public class MapaTiled {
 	private JsonTiled jsonTiled;
 	private Point[][] estructurasMapa; 
 	private ArrayList<String> nombres;
-	private ArrayList<String> imagenes;
+	private String[][] imagenes;
 	
 	public MapaTiled(final String ruta){
 		contenido = CargadorRecursos.leerArchivoTexto(ruta);
 		jsonTiled = new JsonTiled(contenido);
 		this.capasDeSprites = new ArrayList<CapaSprites>();
 		this.nombres = new ArrayList<>();
-		this.imagenes = new ArrayList<>();
+		//this.imagenes = new ArrayList<>();
 	}
 	
 /*	public void controlarCargaDeMapa(final String ruta){
@@ -51,6 +51,7 @@ public class MapaTiled {
 	
 	public void crearEstructuras(ListStructures estructuras){
 		this.estructurasMapa = new Point[capasDeSprites.size()][];
+		this.imagenes = new String [capasDeSprites.size()][];
 		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
 			int totalTilesPorCapa = 0;
 			ArrayList<Point> coordenadas = new ArrayList<>();
@@ -63,11 +64,18 @@ public class MapaTiled {
 				}
 			}
 			insertarCoordenadasEnLaMatriz(i, coordenadas);
+			insertarImagenesEnLaMatriz(i, imagenes);
 			this.nombres.add(capasDeSprites.get(i).getNombre());
-			this.imagenes.add(capasDeSprites.get(i).getImagenCapa());
 			coordenadas.removeAll(coordenadas);
 		}
 		adaptarMatrizAEstructuraYCrearlas(this.nombres, this.imagenes, this.estructurasMapa, estructuras);
+	}
+
+	private void insertarImagenesEnLaMatriz(int i, ArrayList<String> imagenes) {
+		this.imagenes[i] = new String [imagenes.size()];
+		for (int img=0; img < imagenes.size();img++){
+			this.imagenes[i][img] = imagenes.get(img);
+		}
 	}
 
 	private void insertarCoordenadasEnLaMatriz(int i, ArrayList<Point> coordenadas) {
@@ -77,25 +85,11 @@ public class MapaTiled {
 		}
 	}
 
-	public void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, ArrayList<String> imagen, Point[][] coordenadas, ListStructures estructuras){
+	public void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, String[][] imagen, Point[][] coordenadas, ListStructures estructuras){
 		for(int i = 0; i < coordenadas.length; i++){
 			for(int j=0; j < coordenadas[i].length; j++){
-				estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), tipoEstructura.get(i),imagen.get(i)));
-				//estructuras.getLista().get(estructuras.getLista().size()-1).setCoordinate(coordenadas[i][j]);
-				//estructuras.getLista().get(estructuras.getLista().size()-1).setSize(new Point(40,40));
+				estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), tipoEstructura.get(i),imagen[i][j]));
 			}
 		}
-	}
-
-	public ArrayList<String> getNombre() {
-		return nombres;
-	}
-
-	public Point[][] getEstructurasMapa() {
-		return estructurasMapa;
-	}
-
-	public ArrayList<String> getImagen() {
-		return imagenes;
 	}
 }
