@@ -19,7 +19,6 @@ public class MapaTiled {
 		jsonTiled = new JsonTiled(contenido);
 		this.capasDeSprites = new ArrayList<CapaSprites>();
 		this.nombres = new ArrayList<>();
-		//this.imagenes = new ArrayList<>();
 	}
 	
 /*	public void controlarCargaDeMapa(final String ruta){
@@ -85,7 +84,7 @@ public class MapaTiled {
 		}
 	}
 
-	public void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, String[][] imagen, Point[][] coordenadas, ListStructures estructuras){
+	private void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, String[][] imagen, Point[][] coordenadas, ListStructures estructuras){
 		for(int i = 0; i < coordenadas.length; i++){
 			for(int j=0; j < coordenadas[i].length; j++){
 				estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), tipoEstructura.get(i),imagen[i][j]));

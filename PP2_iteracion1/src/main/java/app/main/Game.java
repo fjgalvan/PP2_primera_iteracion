@@ -39,7 +39,6 @@ public class Game extends InterfaceJuego {
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
 		this.mapaTiled.crearEstructuras(estructuras);
-		//this.mapaTiled.inicializarListaConTiled(mapaTiled.getNombre(), mapaTiled.getImagen(), mapaTiled.getEstructurasMapa(), estructuras);
 		//prueba de apoco el lector de datos del combo .. 1 test modo cop
 		levelGame = new LevelEasy(data);
 		// ver como ubicar el tanque
