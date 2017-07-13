@@ -30,7 +30,7 @@ public class Game extends InterfaceJuego {
 	private Tank tankCop;
 	private TankController tControlCop;
 	private LevelEasy levelGame;
-	private String mapaAJugar = "/mapas/MapaTank03.csv";
+	private String mapaAJugar = Configuracion.MapaTank;
 	
 	public Game(DataLevelGame data) {
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));

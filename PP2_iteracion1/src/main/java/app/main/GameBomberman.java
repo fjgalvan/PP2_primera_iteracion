@@ -17,7 +17,7 @@ public class GameBomberman extends InterfaceJuego{
 	private MapaTiled mapaTiled;
 	private TankController tControl;
 	private Destructor destructor;
-	private String mapaAJugar = "/mapas/Bomberman01.csv";
+	private String mapaAJugar = Configuracion.MapaBomberman;
 	
 	public GameBomberman() 
 	{

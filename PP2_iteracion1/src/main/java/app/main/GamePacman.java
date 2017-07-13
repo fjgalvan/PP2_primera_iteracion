@@ -18,7 +18,7 @@ public class GamePacman extends InterfaceJuego{
 	private MapaTiled mapaTiled;
 	private TankController tControl;
 	private Destructor destructor;
-	private String mapaAJugar = "/mapas/Pacman01.csv";
+	private String mapaAJugar = Configuracion.MapaPacman;
 	private DriverIntermediateEnemyTank driver1, driver2, driver3, driver4;
 	private Tank enemy1, enemy2,enemy3,enemy4;
 	
