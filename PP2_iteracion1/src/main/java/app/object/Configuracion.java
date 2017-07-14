@@ -20,4 +20,9 @@ public class Configuracion
 	public static String MapaTank = "/mapas/MapaTank0" + String.valueOf((new Random().nextInt(5)+1))+".csv";
 	public static String MapaBomberman = "/mapas/Bomberman01.csv";
 	public static String MapaPacman = "/mapas/Pacman01.csv";
+	
+	public static final int MinCoordinateX = 20;
+	public static final int MaxCoordinateX = 946;
+	public static final int MinCoordinateY = 20;
+	public static final int MaxCoordinateY = 547;
 }

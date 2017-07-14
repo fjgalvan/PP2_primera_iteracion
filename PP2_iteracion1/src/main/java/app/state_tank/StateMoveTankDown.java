@@ -3,6 +3,7 @@ package app.state_tank;
 import app.enums.Orientation;
 import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
+import app.object.Configuracion;
 import app.object.Tank;
 
 public class StateMoveTankDown extends StateMoveTank
@@ -23,7 +24,7 @@ public class StateMoveTankDown extends StateMoveTank
 	@Override
 	public void control() 
 	{
-		if(tank.getCoordinate().getY() <= 547)
+		if(tank.getCoordinate().getY() <= Configuracion.MaxCoordinateY)//547)
 			tank.moverse(Orientation.DOWN);
 	}
 
