@@ -9,14 +9,14 @@ import app.util.CargadorRecursos;
 public class MapaTiled {
 	private String contenido;
 	private ArrayList<CapaSprites> capasDeSprites;
-	private JsonTiled jsonTiled;
+	private LectorTiled lectorTiled;
 	private Point[][] estructurasMapa; 
 	private ArrayList<String> tiposDeEstructuras;
 	private String[][] imagenes;
 	
 	public MapaTiled(final String ruta){
 		contenido = CargadorRecursos.leerArchivoTexto(ruta);
-		jsonTiled = new JsonTiled(contenido);
+		lectorTiled = new LectorTiled(contenido);
 		this.capasDeSprites = new ArrayList<CapaSprites>();
 		this.tiposDeEstructuras = new ArrayList<>();
 	}
@@ -31,7 +31,7 @@ public class MapaTiled {
 	}*/
 	
 	public void inicializar(){
-		jsonTiled.obtenerCapas(capasDeSprites);
+		lectorTiled.obtenerCapas(capasDeSprites);
 	}
 	
 		
@@ -58,7 +58,7 @@ public class MapaTiled {
 			for (int j = 0; j < capasDeSprites.get(i).getSprites().length; j++) {//RECORRO LOS TILES DE CADA CAPA
 				if (capasDeSprites.get(i).getSprites()[j] != -1) {
 					totalTilesPorCapa = totalTilesPorCapa + 1; //GUARDO EL TOTAL DE TILES DE LA CAPA
-					coordenadas.add(obtenerCoordenada(40, jsonTiled.getAltoMapaEnTiles(), jsonTiled.getAnchoMapaEnTiles(), j)); //GUARDO TODAS LAS COORDENADAS
+					coordenadas.add(obtenerCoordenada(40, lectorTiled.getAltoMapaEnTiles(), lectorTiled.getAnchoMapaEnTiles(), j)); //GUARDO TODAS LAS COORDENADAS
 					imagenes.add(capasDeSprites.get(i).getSpritesImagenes()[j]);
 				}
 			}

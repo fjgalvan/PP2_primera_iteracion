@@ -7,14 +7,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JsonTiled {
+public class LectorTiled {
 	private int anchoMapaEnTiles;
 	private int altoMapaEnTiles;
 	private JSONObject globalJSON;
 	private JSONArray capas;
 	private JSONArray capasDeImagenes;
 	
-	public JsonTiled(String contenido){
+	public LectorTiled(String contenido){
 		globalJSON = obtenerObjetoJSON(contenido);
 		anchoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"width");
 		altoMapaEnTiles = obtenerIntDesdeJSON(globalJSON,"height");
