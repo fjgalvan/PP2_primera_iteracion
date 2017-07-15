@@ -11,14 +11,14 @@ public class MapaTiled {
 	private ArrayList<CapaSprites> capasDeSprites;
 	private JsonTiled jsonTiled;
 	private Point[][] estructurasMapa; 
-	private ArrayList<String> nombres;
+	private ArrayList<String> tiposDeEstructuras;
 	private String[][] imagenes;
 	
 	public MapaTiled(final String ruta){
 		contenido = CargadorRecursos.leerArchivoTexto(ruta);
 		jsonTiled = new JsonTiled(contenido);
 		this.capasDeSprites = new ArrayList<CapaSprites>();
-		this.nombres = new ArrayList<>();
+		this.tiposDeEstructuras = new ArrayList<>();
 	}
 	
 /*	public void controlarCargaDeMapa(final String ruta){
@@ -64,10 +64,10 @@ public class MapaTiled {
 			}
 			insertarCoordenadasEnLaMatriz(i, coordenadas);
 			insertarImagenesEnLaMatriz(i, imagenes);
-			this.nombres.add(capasDeSprites.get(i).getNombre());
+			this.tiposDeEstructuras.add(capasDeSprites.get(i).getNombre());
 			coordenadas.removeAll(coordenadas);
 		}
-		adaptarMatrizAEstructuraYCrearlas(this.nombres, this.imagenes, this.estructurasMapa, estructuras);
+		adaptarMatrizAEstructuraYCrearlas(this.tiposDeEstructuras, this.imagenes, this.estructurasMapa, estructuras);
 	}
 
 	private void insertarImagenesEnLaMatriz(int i, ArrayList<String> imagenes) {
