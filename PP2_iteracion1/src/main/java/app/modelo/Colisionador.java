@@ -4,6 +4,7 @@ import java.util.List;
 import app.object.Bullet;
 import app.object.Tank;
 import app.util.Util;
+import app.estructura.Estructura;
 import app.modelo.ObjetoGrafico;
 
 public class Colisionador {
@@ -34,8 +35,9 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(!obj.getNombre().equals("Agua") 
-					&& !obj.getNombre().equals("Fondo")){
+			if(((Estructura) obj).getTipoDeEstructura().isColisicionBullet()){
+			//if(!obj.getNombre().equals("Agua") 
+					//&& !obj.getNombre().equals("Fondo")){
 				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
 			}
 			if(ret && objetoADestruir==null){
@@ -97,7 +99,8 @@ public class Colisionador {
 				lista.remove(obj);
 				for (ObjetoGrafico obj2 : lista) {
 					if (obj2 != null) {
-						if (!obj.getNombre().equals("Agua")) {
+						//if (!obj.getNombre().equals("Agua")) {
+						if(((Estructura) obj).getTipoDeEstructura().isColisicionBullet()){
 							// dependiendo el estado va a tener una colision !=
 							ret = ret || bulletChocaConEstructura(obj, obj2);
 						}

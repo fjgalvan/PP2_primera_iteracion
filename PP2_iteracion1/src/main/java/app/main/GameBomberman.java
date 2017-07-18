@@ -1,6 +1,9 @@
 package app.main;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
 import app.enums.Orientation;
 import app.mapa.MapaTiled;
 import app.modelo.*;
@@ -13,7 +16,7 @@ public class GameBomberman extends InterfaceJuego{
     private Tank tank;
     private Draftsman dibujador;
     private GraphicMap mapa;
-	private ListStructures estructuras;
+	private List<ObjetoGrafico> estructuras;
 	private MapaTiled mapaTiled;
 	private TankController tControl;
 	private Destructor destructor;
@@ -23,7 +26,7 @@ public class GameBomberman extends InterfaceJuego{
 	{
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Bomberman-Ungs");
-		this.estructuras = new ListStructures();
+		estructuras = new ArrayList<>();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
 		this.mapaTiled.crearEstructuras(estructuras);
@@ -38,13 +41,13 @@ public class GameBomberman extends InterfaceJuego{
     public void tick() 
     {   	
     	this.dibujador.dibujarMarco(mapa); 
-    	for (ObjetoGrafico e:estructuras.getLista()) 
+    	for (ObjetoGrafico e:estructuras) 
     	{
     		this.dibujador.dibujarEstructura(e);
     	}
     	this.player1.getListener().seMovio(tank); 
     	this.dibujador.dibujarBomberman(tank);
-    	this.tControl.ControlTank(estructuras.getLista());
+    	this.tControl.ControlTank(estructuras);
     }
     
 

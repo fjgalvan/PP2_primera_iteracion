@@ -5,13 +5,11 @@ import java.awt.Point;
 public abstract class ObjetoGrafico {
 	protected Point coordinate;
 	protected Point size;
-	protected String nombre;
 	protected String imagen;
 	
-	public ObjetoGrafico (Point coordinate, Point size, String nombre, String imagen){
+	public ObjetoGrafico (Point coordinate, Point size, String imagen){
 		this.coordinate = coordinate;
 		this.size = size;
-		this.nombre = nombre;
 		this.imagen = imagen;
 	}
 	
@@ -46,9 +44,5 @@ public abstract class ObjetoGrafico {
 	
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
-	}
-
-	public String getNombre() {
-		return nombre;
 	}
 }

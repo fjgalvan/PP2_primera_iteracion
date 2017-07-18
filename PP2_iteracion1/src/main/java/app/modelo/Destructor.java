@@ -1,5 +1,9 @@
 package app.modelo;
 
+import java.util.List;
+
+import app.enums.TipoEstructura;
+import app.estructura.Estructura;
 import app.levels.LevelEasy;
 import app.main.Game;
 import app.object.*;
@@ -57,10 +61,10 @@ public class Destructor {
 		}
 	
 		//ESTRUCTURAS
-		public void destruirEstructuras(ListStructures estructuras){
+		public void destruirEstructuras(List<ObjetoGrafico>  estructuras){
 			if(colisionador.getObjetoADestruir()!=null){
-				if(colisionador.getObjetoADestruir().getNombre().equals("Ladrillo")){
-					estructuras.getLista().remove(colisionador.getObjetoADestruir());
+				if(((Estructura)(colisionador.getObjetoADestruir())).getTipoDeEstructura().getTipo().equals(TipoEstructura.DESTRUCTIBLE)){//.getNombre().equals("Ladrillo")
+					estructuras.remove(colisionador.getObjetoADestruir());
 				}
 				colisionador.setObjetoADestruir(null);
 			}

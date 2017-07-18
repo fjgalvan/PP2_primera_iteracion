@@ -2,8 +2,12 @@ package app.mapa;
 
 import static org.junit.Assert.*; 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
-import app.object.ListStructures;
+
+import app.modelo.ObjetoGrafico;
 
 public class TestMapaTiled {
 	@Test
@@ -40,8 +44,8 @@ public class TestMapaTiled {
 	public void testCrearEstructuras(){
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
 		mapa.inicializar();
-		ListStructures estructuras = new ListStructures();
+		List<ObjetoGrafico> estructuras = new ArrayList<>();
 		mapa.crearEstructuras(estructuras);
-		assertNotNull(estructuras.getLista().size());
+		assertNotNull(estructuras.size());
 	}
 }

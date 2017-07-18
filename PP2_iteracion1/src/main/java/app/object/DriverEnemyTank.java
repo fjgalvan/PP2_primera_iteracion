@@ -3,6 +3,7 @@ package app.object;
 import java.util.List;
 import app.enums.Orientation;
 import app.enums.TankShot;
+import app.estructura.Estructura;
 import app.modelo.Colisionador;
 import app.modelo.ObjetoGrafico;
 import app.object.Configuracion;
@@ -90,8 +91,8 @@ public abstract class DriverEnemyTank {
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista) {
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
-			if(!obj.getNombre().equals("Fondo"))
-			ret = ret || colisionador.hayColision(enemyTank, obj);
+			if(((Estructura) obj).getTipoDeEstructura().isColisicionTank())//.get.equals("Fondo")
+				ret = ret || colisionador.hayColision(enemyTank, obj);
 		}
 		return ret;
 	}

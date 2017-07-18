@@ -2,6 +2,7 @@ package app.object;
 
 import java.util.*;
 import app.enums.*;
+import app.estructura.Estructura;
 import app.modelo.*;
 import sonido.Sonido;
 
@@ -21,7 +22,8 @@ public class TankController {
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
 			// dependiendo del estado va a tener una colision
-			if(!obj.getNombre().equals("Fondo")){
+			if(((Estructura) obj).getTipoDeEstructura().isColisicionTank()){
+			//if(!obj.getNombre().equals("Fondo")){
 				ret = ret || tank.getStateMove().hayColision(obj);
 			}
 		}

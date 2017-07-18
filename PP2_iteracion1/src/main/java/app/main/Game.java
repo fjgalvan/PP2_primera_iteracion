@@ -16,7 +16,7 @@ public class Game extends InterfaceJuego {
 	private Tank tank;
 	private Draftsman dibujador;
 	private GraphicMap mapa;
-	private ListStructures estructuras;
+	private List<ObjetoGrafico> estructuras;
 	private MapaTiled mapaTiled;
 	private TankController tControl;
 	private Destructor destructor;
@@ -35,7 +35,7 @@ public class Game extends InterfaceJuego {
 	public Game(DataLevelGame data) {
 		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
-		this.estructuras = new ListStructures();
+		estructuras = new ArrayList<>();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
 		this.mapaTiled.crearEstructuras(estructuras);
@@ -72,7 +72,7 @@ public class Game extends InterfaceJuego {
 		this.dibujador.dibujarMarco(mapa);
 		if (!levelGame.finishLevel()) 
 		{
-			for (ObjetoGrafico e : estructuras.getLista()) 
+			for (ObjetoGrafico e : estructuras) 
 			{
 				this.dibujador.dibujarEstructura(e);
 			}
@@ -80,8 +80,8 @@ public class Game extends InterfaceJuego {
 			{
 				player1.getListener().seMovio(tank);
 				this.dibujador.dibujarTank(tank);
-				this.tControl.ControlTank(estructuras.getLista());
-				this.tControl.control_bullet(estructuras.getLista(), this.enemysTanks);
+				this.tControl.ControlTank(estructuras);
+				this.tControl.control_bullet(estructuras, this.enemysTanks);
 				if(tank.existeDisparoEnEjecucion()){
 					dibujador.dibujarBullet(tank.getBullet());
 				}
@@ -93,11 +93,11 @@ public class Game extends InterfaceJuego {
 			{	
 				player2.getListener().seMovio(tankCop);
 				this.dibujador.dibujarTankCop(tankCop);
-				this.tControlCop.ControlTank(estructuras.getLista());
+				this.tControlCop.ControlTank(estructuras);
 				if(tankCop.existeDisparoEnEjecucion()){
 					dibujador.dibujarBullet(tankCop.getBullet());
 				}
-				this.tControlCop.control_bullet(estructuras.getLista(), this.enemysTanks);
+				this.tControlCop.control_bullet(estructuras, this.enemysTanks);
 				destructor.destruccionTanksEnemys(tankCop,levelGame,LevelEasy.P2);
 				this.tControlCop.setContTick(this.tControlCop.getContTick() + 1);
 			}
@@ -105,7 +105,7 @@ public class Game extends InterfaceJuego {
 			for (DriverEnemyTank driver : levelGame.getDrives())
 			{
 				this.dibujador.dibujarEnemyTank(driver.getEnemyTank());
-				driver.ControlEnemyTank(dibujador.getEntorno(), estructuras.getLista());
+				driver.ControlEnemyTank(dibujador.getEntorno(), estructuras);
 				destructor.destruccionTank(driver.getEnemyTank(), levelGame);
 				driver.setContTick(driver.getContTick() + 1);
 				if(driver.getEnemyTank().existeDisparoEnEjecucion()){

@@ -1,15 +1,12 @@
 package app.modelo;
 
 import static org.junit.Assert.*;
-
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 import app.enums.Orientation;
-import app.mapa.MapaTiled;
 import app.object.Bullet;
-import app.object.ListStructures;
 import app.object.Tank;
 
 public class TestColisionador {
@@ -33,9 +30,9 @@ public class TestColisionador {
 	@Test
 	public void noColisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
-		ListStructures estructuras = new ListStructures();
+		List<ObjetoGrafico> estructuras = new ArrayList<>();
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
-		objetos.addAll(estructuras.getLista());
+		objetos.addAll(estructuras);
 		
 		Point size = new Point(10, 10);
 		Point coordinate = new Point(200, 200);

@@ -14,7 +14,6 @@ public class LevelEasy
 	private List<Point> coordinates;
 	private DataLevelGame level;
 	private TankController tankController, tankCopController ;
-	//private Destructor destructor;
 	public static String P1 = "0";
 	public static String P2 = "0";
 	private int index=0;
@@ -31,13 +30,13 @@ public class LevelEasy
 		this.cargarEnemys();
 	}
 	
-	public void inicializar(ListStructures objetos)
+	public void inicializar(List<ObjetoGrafico> objetos)
 	{
 		this.crearTanquesPlayers();
 		//this.cargarCoordenadasValidas();
 		this.cargarEnemys();
-		this.controlTanquesEnemigos(objetos.getLista());
-		this.accionarDeEnemys(objetos);
+		this.controlTanquesEnemigos(objetos);
+		//this.accionarDeEnemys(objetos);
 	}
 
 	public DriverEnemyTank crearDriverEnemyTank(Tank t)
@@ -120,15 +119,15 @@ public class LevelEasy
         //	destructor.destruccionTanksEnemys(tank2, this, P2);
         }
 	}
-	
-	public void accionarDeEnemys(ListStructures lista)
-	{
-		//for(Tank enemy : enemigos)
-		{
-		///	this.destructor.destruccionTank(enemy, this);
-		}
-    	//destructor.destruirEstructuras(lista);
-	}
+//	
+//	public void accionarDeEnemys(ListStructures lista)
+//	{
+//		//for(Tank enemy : enemigos)
+//		{
+//		///	this.destructor.destruccionTank(enemy, this);
+//		}
+//    	//destructor.destruirEstructuras(lista);
+//	}
 	
 	public List<Tank> getEnemigos() 
 	{

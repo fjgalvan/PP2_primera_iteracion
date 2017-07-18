@@ -2,8 +2,11 @@ package app.mapa;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.List;
+import app.enums.TipoEstructura;
 import app.estructura.Estructura;
-import app.object.ListStructures;
+import app.estructura.TipoDeEstructura;
+import app.modelo.ObjetoGrafico;
 import app.util.CargadorRecursos;
 
 public class MapaTiled {
@@ -48,7 +51,7 @@ public class MapaTiled {
 		return null;
 	}
 	
-	public void crearEstructuras(ListStructures estructuras){
+	public void crearEstructuras(List<ObjetoGrafico>  estructuras){
 		this.estructurasMapa = new Point[capasDeSprites.size()][];
 		this.imagenes = new String [capasDeSprites.size()][];
 		for (int i = 0; i < capasDeSprites.size(); i++) {//RECORRO LAS CAPAS
@@ -84,10 +87,17 @@ public class MapaTiled {
 		}
 	}
 
-	private void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, String[][] imagen, Point[][] coordenadas, ListStructures estructuras){
+	private void adaptarMatrizAEstructuraYCrearlas(ArrayList<String> tipoEstructura, String[][] imagen, Point[][] coordenadas, List<ObjetoGrafico>  estructuras){
 		for(int i = 0; i < coordenadas.length; i++){
 			for(int j=0; j < coordenadas[i].length; j++){
-				estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), tipoEstructura.get(i),imagen[i][j]));
+				if(tipoEstructura.get(i).equals("Agua"))
+					estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), imagen[i][j], new TipoDeEstructura(TipoEstructura.INDESTRUCTIBLE,false,true)));//tipoEstructura.get(i),
+				else if(tipoEstructura.get(i).equals("Fondo"))
+					estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), imagen[i][j], new TipoDeEstructura(TipoEstructura.INDESTRUCTIBLE,false,false)));
+				else if(tipoEstructura.get(i).equals("Ladrillo"))
+					estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), imagen[i][j], new TipoDeEstructura(TipoEstructura.DESTRUCTIBLE,true,true)));
+				else
+					estructuras.add(new Estructura(coordenadas[i][j], new Point(40,40), imagen[i][j], new TipoDeEstructura(TipoEstructura.INDESTRUCTIBLE,true, true)));
 			}
 		}
 	}
