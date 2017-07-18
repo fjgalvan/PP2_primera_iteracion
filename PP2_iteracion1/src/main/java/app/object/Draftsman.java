@@ -8,13 +8,13 @@ import entorno.*;
 public class Draftsman {
 	private Entorno entorno;
 
-	public Draftsman(InterfaceJuego i, GraphicMap gm, String title) {
+	public Draftsman(InterfaceJuego i, Point gm, String title) {
 		this.dibujarEscenario(i, gm, title);
 	}
 
-	public void dibujarEscenario(InterfaceJuego i, GraphicMap gm, String title) 
+	public void dibujarEscenario(InterfaceJuego i, Point gm, String title) 
 	{
-		this.entorno = new Entorno(i, title, (int) gm.getSize().getX(), (int) gm.getSize().getY());
+		this.entorno = new Entorno(i, title,(int) gm.getX() - 10, (int) gm.getY() - 30);
 		Configuracion.ENTORNO = entorno;
 	}
 
@@ -29,18 +29,6 @@ public class Draftsman {
 				}
 			}
 		}
-	}
-
-	public void dibujarMarco(GraphicMap gm) {
-		Color color = Color.GRAY;
-		// linea de arriba y de lado izquierdo
-		this.entorno.dibujarRectangulo(10, 10, gm.getSizeMarco().getX(), gm.getSize().getY() * 2, 0, color);
-		this.entorno.dibujarRectangulo(10, 10, gm.getSize().getX() * 2, gm.getSizeMarco().getY(), 0, color);
-		// linea de abajo y lado derecho
-		this.entorno.dibujarRectangulo(gm.getSize().getX(), 0, gm.getSizeMarco().getX(), gm.getSize().getY() * 2 + 20,
-				0, color);
-		this.entorno.dibujarRectangulo(10, gm.getSize().getY(), gm.getSize().getX() * 2, gm.getSizeMarco().getY(), 0,
-				color);
 	}
 
 	public void dibujarEstructura(ObjetoGrafico e) {

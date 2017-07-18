@@ -15,7 +15,6 @@ public class GamePacman extends InterfaceJuego{
 	private Player player1;
     private Tank tank;
     private Draftsman dibujador;
-    private GraphicMap mapa;
 	private List<ObjetoGrafico> estructuras;
 	private MapaTiled mapaTiled;
 	private TankController tControl;
@@ -26,8 +25,7 @@ public class GamePacman extends InterfaceJuego{
 	
 	public GamePacman() 
 	{
-		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
-		this.dibujador = new Draftsman(this, mapa, "Pacman-Ungs");
+		this.dibujador = new Draftsman(this, new Point(1000, 600), "Pacman-Ungs");
 		estructuras = new ArrayList<>();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
@@ -50,7 +48,6 @@ public class GamePacman extends InterfaceJuego{
 	
     public void tick() 
     {   	
-    	this.dibujador.dibujarMarco(mapa); 
     	for (ObjetoGrafico e:estructuras) 
     	{
     		this.dibujador.dibujarEstructura(e);

@@ -7,7 +7,6 @@ import app.levels.LevelEasy;
 import app.mapa.MapaTiled;
 import app.modelo.*;
 import app.object.*;
-import app.object.Map;
 import entorno.InterfaceJuego;
 
 public class Game extends InterfaceJuego {
@@ -15,7 +14,6 @@ public class Game extends InterfaceJuego {
 	private static Player player2;
 	private Tank tank;
 	private Draftsman dibujador;
-	private GraphicMap mapa;
 	private List<ObjetoGrafico> estructuras;
 	private MapaTiled mapaTiled;
 	private TankController tControl;
@@ -33,8 +31,7 @@ public class Game extends InterfaceJuego {
 	private String mapaAJugar = Configuracion.MapaTank;
 	
 	public Game(DataLevelGame data) {
-		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
-		this.dibujador = new Draftsman(this, mapa, "Battle-Ungs");
+		this.dibujador = new Draftsman(this, new Point(1000, 600), "Battle-Ungs");
 		estructuras = new ArrayList<>();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
@@ -69,7 +66,6 @@ public class Game extends InterfaceJuego {
 	}
 
 	public void tick(){ 
-		this.dibujador.dibujarMarco(mapa);
 		if (!levelGame.finishLevel()) 
 		{
 			for (ObjetoGrafico e : estructuras) 
@@ -143,9 +139,6 @@ public class Game extends InterfaceJuego {
 			player2.setPuntaje(0);
 			player2.setCantidadDeEnemigosAsesinados(1);
 		}
-	}
-	public GraphicMap getMapa() {
-		return mapa;
 	}
 
 	public Draftsman getDibujador() {

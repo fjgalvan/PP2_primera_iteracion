@@ -15,7 +15,6 @@ public class GameBomberman extends InterfaceJuego{
 	private Player player1;
     private Tank tank;
     private Draftsman dibujador;
-    private GraphicMap mapa;
 	private List<ObjetoGrafico> estructuras;
 	private MapaTiled mapaTiled;
 	private TankController tControl;
@@ -24,8 +23,7 @@ public class GameBomberman extends InterfaceJuego{
 	
 	public GameBomberman() 
 	{
-		this.mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
-		this.dibujador = new Draftsman(this, mapa, "Bomberman-Ungs");
+		this.dibujador = new Draftsman(this, new Point(1000, 600), "Bomberman-Ungs");
 		estructuras = new ArrayList<>();
 		this.mapaTiled = new MapaTiled(mapaAJugar);
 		this.mapaTiled.inicializar();
@@ -40,7 +38,6 @@ public class GameBomberman extends InterfaceJuego{
 	
     public void tick() 
     {   	
-    	this.dibujador.dibujarMarco(mapa); 
     	for (ObjetoGrafico e:estructuras) 
     	{
     		this.dibujador.dibujarEstructura(e);
