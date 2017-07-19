@@ -1,6 +1,5 @@
 package app.vistas;
-
-//import java.awt.BorderLayout; 
+ 
 import java.awt.EventQueue; 
 import java.awt.Image;
 import javax.swing.ButtonGroup;
@@ -79,25 +78,25 @@ public class Menu extends JFrame {
 		
 		rdbtnTank = new JRadioButton("TANK");
 		rdbtnTank.setBackground(Color.ORANGE);
-		rdbtnTank.setBounds(43, 38, 109, 23);
+		rdbtnTank.setBounds(43, 38, 135, 23);
 		frmMenu.getContentPane().add(rdbtnTank);
 		bg.add(rdbtnTank);
 		
 		rdbtnBomberman = new JRadioButton("BOMBERMAN");
 		rdbtnBomberman.setBackground(new Color(255, 102, 51));
-		rdbtnBomberman.setBounds(43, 123, 109, 23);
+		rdbtnBomberman.setBounds(43, 123, 135, 23);
 		frmMenu.getContentPane().add(rdbtnBomberman);
 		bg.add(rdbtnBomberman);
 		
 		rdbtnPacman = new JRadioButton("PACMAN");
 		rdbtnPacman.setBackground(new Color(255, 255, 0));
-		rdbtnPacman.setBounds(43, 203, 109, 23);
+		rdbtnPacman.setBounds(43, 203, 135, 23);
 		frmMenu.getContentPane().add(rdbtnPacman);
 		bg.add(rdbtnPacman);
 		
 		panelTank = new JPanel();
 		panelTank.setBackground(Color.ORANGE);
-		panelTank.setBounds(223, 11, 450, 105);
+		panelTank.setBounds(223, 11, 465, 105);
 		frmMenu.getContentPane().add(panelTank);
 		panelTank.setLayout(null);
 		panelTank.setVisible(false);
@@ -108,15 +107,15 @@ public class Menu extends JFrame {
 		frmMenu.getContentPane().add(btnAceptar);
 		
 		JLabel lblNIVELES = new JLabel("JUGADORES");
-		lblNIVELES.setBounds(10, 11, 75, 14);
+		lblNIVELES.setBounds(10, 11, 93, 14);
 		panelTank.add(lblNIVELES);
 		
 		JLabel lblENEMIGOS = new JLabel("ENEMIGOS");
-		lblENEMIGOS.setBounds(118, 11, 68, 14);
+		lblENEMIGOS.setBounds(118, 11, 92, 14);
 		panelTank.add(lblENEMIGOS);
 		
 		JLabel lblNewLabel = new JLabel("DIFICULTAD");
-		lblNewLabel.setBounds(237, 11, 68, 14);
+		lblNewLabel.setBounds(237, 11, 96, 14);
 		panelTank.add(lblNewLabel);
 		
 		JLabel lblVidas = new JLabel("ENERGIA");
@@ -149,7 +148,7 @@ public class Menu extends JFrame {
 		panelTank.add(btnOk);
 		
 		lblTank = new JLabel("");
-		lblTank.setBounds(63, 70, 145, 48);
+		lblTank.setBounds(80, 70, 133, 48);
 		lblTank.setEnabled(false);
 		frmMenu.getContentPane().add(lblTank);
 		
@@ -160,7 +159,7 @@ public class Menu extends JFrame {
 		
 		
 		lblImagenBomberman = new JLabel("");
-		lblImagenBomberman.setBounds(79, 150, 145, 48);
+		lblImagenBomberman.setBounds(90, 150, 145, 48);
 		lblImagenBomberman.setEnabled(false);
 		frmMenu.getContentPane().add(lblImagenBomberman);
 		
@@ -170,7 +169,7 @@ public class Menu extends JFrame {
 		
 		
 		lblImagenPacman = new JLabel("");
-		lblImagenPacman.setBounds(65, 231, 145, 50);
+		lblImagenPacman.setBounds(80, 231, 145, 50);
 		lblImagenPacman.setEnabled(false);
 		frmMenu.getContentPane().add(lblImagenPacman);
 		
