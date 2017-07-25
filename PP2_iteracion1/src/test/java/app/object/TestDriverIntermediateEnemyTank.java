@@ -71,12 +71,12 @@ public class TestDriverIntermediateEnemyTank {
 		Point coordinate = new Point(400, 50);//(400, 26);
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
-		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
+		//DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		while(enemyTank.getOrientation().equals(Orientation.UP)){
 			enemyTank.moverse(orientation);
-			enemyTankC.controlChoque();
+			//enemyTankC.controlChoque();
 		}
-		enemyTankC.controlChoque();
+		//enemyTankC.controlChoque();
 		assertNotEquals(orientation, enemyTank.getOrientation());
 	}
 	
@@ -86,10 +86,10 @@ public class TestDriverIntermediateEnemyTank {
 		Point coordinate = new Point(900,400);//(943, 400);
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
-		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
+		//DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		while(enemyTank.getOrientation().equals(Orientation.RIGHT)){
 			enemyTank.moverse(orientation);
-			enemyTankC.controlChoque();
+			
 		}
 		assertNotEquals(orientation, enemyTank.getOrientation());
 	}
@@ -100,10 +100,10 @@ public class TestDriverIntermediateEnemyTank {
 		Point coordinate = new Point(400,500);//(400, 544);
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
-		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
+		//DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		while(enemyTank.getOrientation().equals(Orientation.DOWN)){
 			enemyTank.moverse(orientation);
-			enemyTankC.controlChoque();
+			
 		}
 		assertNotEquals(orientation, enemyTank.getOrientation());;
 	}
@@ -114,10 +114,10 @@ public class TestDriverIntermediateEnemyTank {
 		Point coordinate = new Point(50,400);//(28, 400);
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
-		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
+		//DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
 		while(enemyTank.getOrientation().equals(Orientation.LEFT)){
 			enemyTank.moverse(orientation);
-			enemyTankC.controlChoque();
+			
 		}
 		assertNotEquals(orientation, enemyTank.getOrientation());
 	}
@@ -130,9 +130,9 @@ public class TestDriverIntermediateEnemyTank {
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
-		while(enemyTankC.enemyTank.getOrientation().equals(Orientation.LEFT)){
+		/*while(enemyTankC.enemyTank.getOrientation().equals(Orientation.LEFT)){
 			enemyTankC.girarRandom();
-		}
+		}*/
 		assertNotEquals(Orientation.LEFT, enemyTankC.enemyTank.getOrientation());
 		
 	}
