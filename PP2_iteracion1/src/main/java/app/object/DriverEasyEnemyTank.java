@@ -1,72 +1,40 @@
 package app.object;
 
-import java.util.List;
+import java.util.HashMap;
 import app.enums.Orientation;
-import app.modelo.ObjetoGrafico;
+import app.state_tank.*;
 
 public class DriverEasyEnemyTank extends DriverEnemyTank {
-
+	
+	private HashMap<Orientation, StateMoveTank> movimientos;
+	
 	public DriverEasyEnemyTank() 
 	{
 		super();
+		this.movimientos = new HashMap<Orientation, StateMoveTank>();
+		this.cargarMovimientos();
 	}
 	
 	public DriverEasyEnemyTank(Tank enemyTank) {
 		super(enemyTank);
+		this.movimientos = new HashMap<Orientation, StateMoveTank>();
+		this.cargarMovimientos();
 	}
 
-	public void controlChoque() {
-		switch(enemyTank.getOrientation()){
-			case UP:
-				ControlUp();
-				if (!CanMoveUp()) {
-					enemyTank.girar(Orientation.RIGHT);
-				}
-				break;
-			case RIGHT:
-				ControlRight();
-				if (!CanMoveRight()) {
-					enemyTank.girar(Orientation.DOWN);
-				}
-				break;
-			case DOWN:
-				ControlDown();
-				if (!CanMoveDown()) {
-					enemyTank.girar(Orientation.LEFT);
-				}
-				break;
-			case LEFT:
-				ControlLeft();
-				if (!CanMoveLeft()) {
-					enemyTank.girar(Orientation.UP);
-				}
-				break;
-		}
+	public void cargarMovimientos()
+	{
+		this.movimientos.clear();
+		this.movimientos.put(Orientation.UP, new StateMoveTankRight());
+		this.movimientos.put(Orientation.DOWN, new StateMoveTankLeft());
+		this.movimientos.put(Orientation.LEFT, new StateMoveTankUp());
+		this.movimientos.put(Orientation.RIGHT, new StateMoveTankDown());
 	}
-
-	public void ControlTank(List<ObjetoGrafico> objetos) {
-		if (hayColisionConUnObjeto(objetos)) {
-			// girarRandom();
-			if (colicionEn(objetos) == 1) {// colicion arriba
-				enemyTank.girar(Orientation.DOWN);
-				enemyTank.moverse(Orientation.DOWN);
-				enemyTank.girar(Orientation.RIGHT);
-			}
-			if (colicionEn(objetos) == 2) {// colicion derecha
-				enemyTank.girar(Orientation.LEFT);
-				enemyTank.moverse(Orientation.LEFT);
-				enemyTank.girar(Orientation.DOWN);
-			}
-			if (colicionEn(objetos) == 3) {// colicion abajo
-				enemyTank.girar(Orientation.UP);
-				enemyTank.moverse(Orientation.UP);
-				enemyTank.girar(Orientation.LEFT);
-			}
-			if (colicionEn(objetos) == 4) {// colicion izquierda
-				enemyTank.girar(Orientation.RIGHT);
-				enemyTank.moverse(Orientation.RIGHT);
-				enemyTank.girar(Orientation.UP);
-			}
-		}
+	
+	@Override
+	public void setNextStateMoveTank()
+	{
+		StateMoveTank aux = movimientos.get(enemyTank.getOrientation());
+		aux.setTank(enemyTank);
+		this.enemyTank.setStateMove(aux);
 	}
 }

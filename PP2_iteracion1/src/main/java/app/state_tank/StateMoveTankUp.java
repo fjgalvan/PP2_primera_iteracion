@@ -8,6 +8,7 @@ import app.object.Tank;
 
 public class StateMoveTankUp extends StateMoveTank
 {
+	public StateMoveTankUp(){}
 	
 	public StateMoveTankUp(Tank tanque) 
 	{
@@ -23,7 +24,7 @@ public class StateMoveTankUp extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getY() >= Configuracion.MinCoordinateY)//20)
-			tank.moverse(Orientation.UP);		
+			tank.moverse(getOrientacion());		
 	}
 
 	public Orientation getOrientacion() 

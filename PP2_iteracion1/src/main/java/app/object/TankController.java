@@ -33,7 +33,7 @@ public class TankController {
 	public void ControlTank(List<ObjetoGrafico> objetos) {
 		if (listener.existeEstadoDeMovimiento()) {
 			tank.setStateMove(listener.getEstado());
-			tank.girar(tank.getStateMove().getOrientacion());
+			tank.girar();
 			if (!hayColisionConUnObjeto(objetos)) {
 				tank.getStateMove().control();
 				listener.borrarEstado();

@@ -8,7 +8,8 @@ import app.object.Tank;
 
 public class StateMoveTankLeft extends StateMoveTank
 {
-
+	public StateMoveTankLeft(){}
+	
 	public StateMoveTankLeft(Tank tanque) 
 	{
 		super(tanque);
@@ -25,7 +26,7 @@ public class StateMoveTankLeft extends StateMoveTank
 	public void control() 
 	{
 		if(tank.getCoordinate().getX() >= Configuracion.MinCoordinateX)//20)
-			tank.moverse(Orientation.LEFT);
+			tank.moverse(getOrientacion());
 	}
 
 	@Override

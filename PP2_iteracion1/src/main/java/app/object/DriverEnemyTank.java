@@ -24,61 +24,20 @@ public abstract class DriverEnemyTank {
 		this.colisionador = Colisionador.getInstance();
 	}
 	
-	public boolean CanMoveUp(){
-		return (enemyTank.getCoordinate().getY() >= Configuracion.MinimoY);
-	}
-	
-	public boolean CanMoveDown(){
-		return (enemyTank.getCoordinate().getY() <= Configuracion.MaximoY);
-	}
-	
-	public boolean CanMoveRight(){
-		return (enemyTank.getCoordinate().getX() <= Configuracion.MaximoX);
-	}
-	
-	public boolean CanMoveLeft(){
-		return (enemyTank.getCoordinate().getX() >= Configuracion.MinimoX);
-	}
-
-	public void ControlUp() {
-		if (CanMoveUp())
-			enemyTank.moverse(Orientation.UP);
-	}
-
-	public void ControlDown() {
-		if (CanMoveDown())
-			enemyTank.moverse(Orientation.DOWN);
-	}
-
-	public void ControlRight() {
-		if (CanMoveRight())
-			enemyTank.moverse(Orientation.RIGHT);
-	}
-
-	public void ControlLeft() {
-		if (CanMoveLeft())
-			enemyTank.moverse(Orientation.LEFT);
-	}
-	
 	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos) {
-		controlChoque();
-		controlDisparoTankEnemy(ent, objetos); // FALTARIA UN TEMPORIZADOR PARA
-												// QUE NO DISPARE A PENAS
-												// bullet==null
+		controlDisparoTankEnemy(objetos);
 		ControlTank(objetos);
 	}
 
-	abstract public void controlChoque();
-
-	public void controlDisparoTankEnemy(Entorno ent, List<ObjetoGrafico> objetos) {
-		control_bullet(ent, objetos);
+	public void controlDisparoTankEnemy(List<ObjetoGrafico> objetos) {
+		control_bullet(objetos);
 		if (this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS) && contTick > 30) {
 			contTick = 0;
 			enemyTank.disparar();
 		}
 	}
 
-	public void control_bullet(Entorno entorno, List<ObjetoGrafico> objetos) {
+	public void control_bullet(List<ObjetoGrafico> objetos) {
 		if (this.enemyTank.getTankBullet().equals(TankShot.EXISTS)) {
 			this.enemyTank.getBullet().avanzarBullet();
 			if (colisionador.colisionBullet(this.enemyTank.getBullet(), objetos)) {
@@ -91,36 +50,33 @@ public abstract class DriverEnemyTank {
 	public boolean hayColisionConUnObjeto(List<ObjetoGrafico> lista) {
 		boolean ret = false;
 		for (ObjetoGrafico obj : lista) {
-			if(((Estructura) obj).getTipoDeEstructura().isColisicionTank())//.get.equals("Fondo")
-				ret = ret || colisionador.hayColision(enemyTank, obj);
+			if(((Estructura) obj).getTipoDeEstructura().isColisicionTank()){//.get.equals("Fondo"){
+				ret = ret || enemyTank.getStateMove().hayColision(obj);
+			}
 		}
 		return ret;
 	}
 
-	public int colicionEn(List<ObjetoGrafico> lista) {
-		int tipoColicion = 0;
-		boolean ret = false;
-		for (ObjetoGrafico obj : lista) {
-			ret = ret || colisionador.hayColision(enemyTank, obj);
-			if (ret == true) {
-				if (colisionador.hayColisionArriba(enemyTank, obj)) {
-					tipoColicion = 1;
-				}
-				if (colisionador.hayColisionDerecha(enemyTank, obj)) {
-					tipoColicion = 2;
-				}
-				if (colisionador.hayColisionAbajo(enemyTank, obj)) {
-					tipoColicion = 3;
-				}
-				if (colisionador.hayColisionIzquierda(enemyTank, obj)) {
-					tipoColicion = 4;
-				}
+
+	public void ControlTank(List<ObjetoGrafico> objetos) 
+	{
+		if (!enemyTank.estaEnLaMismaOrientacion())
+		{
+			this.enemyTank.girar();
+		}
+		else {
+			if (!hayColisionConUnObjeto(objetos)) 
+			{
+				this.enemyTank.getStateMove().control();				
+			} 
+			else
+			{
+				this.setNextStateMoveTank();	
 			}
 		}
-		return tipoColicion;
 	}
 
-	abstract public void ControlTank(List<ObjetoGrafico> objetos);
+	public abstract void setNextStateMoveTank();
 
 	public Tank getEnemyTank() {
 		return enemyTank;

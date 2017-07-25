@@ -27,15 +27,16 @@ public class Tank extends ObjetoGrafico {
 	// dependiendo del estado en que se encuentre se gira
 	// le paso una nueva orientacion que reemplaza a la anterior, y cuando lo
 	// dibuje girara el tanque
-	public void girar(Orientation orientation) {
-		this.setOrientation(orientation);
+	public void girar() 
+	{
+		this.setOrientation(getStateMove().getOrientacion());
 	}
 
 	// dependiendo del estado en que se encuentre se mueve
 	public void moverse(Orientation o) {
-		if (getOrientation().equals(o))
+		if (getOrientation().equals(o)){
 			setearMovimiento(o);
-		this.girar(o);
+		}
 	}
 
 	public void setearMovimiento(Orientation o) {
@@ -141,5 +142,10 @@ public class Tank extends ObjetoGrafico {
 		} else if (this.energy > 3) {
 			this.energy = 3;
 		}
+	}
+	
+	public boolean estaEnLaMismaOrientacion() 
+	{
+		return this.getOrientation().equals(this.getStateMove().getOrientacion());
 	}
 }
