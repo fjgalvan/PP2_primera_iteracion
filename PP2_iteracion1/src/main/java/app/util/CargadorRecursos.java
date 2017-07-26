@@ -1,39 +1,28 @@
 package app.util;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 public class CargadorRecursos {
-
 	public static String leerArchivoTexto(final String ruta) {
 		String contenido = "";
-
 		InputStream entradaBytes = ClassLoader.class.getResourceAsStream(ruta);
 		BufferedReader lector = new BufferedReader(new InputStreamReader(entradaBytes));
-
 		String linea;
-
 		try {
 			while ((linea = lector.readLine()) != null) {
-				contenido += linea;
-			}
+				contenido += linea;}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				if (entradaBytes != null) {
-					entradaBytes.close();
-				}
+					entradaBytes.close();}
 				if (lector != null) {
-					lector.close();
-				}
+					lector.close();}
 			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
+				ex.printStackTrace();}
 		}
-
 		return contenido;
 	}
 }

@@ -5,10 +5,10 @@ import org.junit.Test;
 
 public class TestCargadorRecursos {
 	
-	/*@Test
+	@Test
 	public void testLeerArchivoDeTexto() {
 		String mapaAJugar = "/mapas/MapaTank03.csv";
 		CargadorRecursos.leerArchivoTexto(mapaAJugar);
 		assertNotNull(mapaAJugar);
-	}*/
+	}
 }
