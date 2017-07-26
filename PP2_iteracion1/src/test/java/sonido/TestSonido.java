@@ -11,10 +11,17 @@ public class TestSonido {
 		//assertNotNull(Sonido.TanqueDisparo);
 		//assertNotNull(Sonido.TanqueDisparoExplocion);
 		
-		/*Sonido sonido= new Sonido();
-		sonido.getPacmanchomp();
-		sonido.getTanquedisparo();
-		sonido.getTanquedisparoexplocion();*/
+		//Sonido sonido= new Sonido();
+		Sonido.getPacmanchomp();
+		Sonido.getTanquedisparo();
+		Sonido.getTanquedisparoexplocion();
+		Sonido.TanqueDisparo.play();
+		Sonido.TanqueDisparo.stop();
+		
+		Sonido.PacmanChomp.stop();
+		Sonido.PacmanChomp.play();
+		Sonido.TanqueDisparoExplocion.stop();
+		Sonido.TanqueDisparoExplocion.play();
 
 	}
 }
