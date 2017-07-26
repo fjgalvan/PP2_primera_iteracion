@@ -9,19 +9,13 @@ public class CargadorRecursos {
 		InputStream entradaBytes = ClassLoader.class.getResourceAsStream(ruta);
 		BufferedReader lector = new BufferedReader(new InputStreamReader(entradaBytes));
 		String linea;
-		try {
-			while ((linea = lector.readLine()) != null) {
-				contenido += linea;}
-		} catch (IOException e) {
-			e.printStackTrace();
+		try {while ((linea = lector.readLine()) != null) {contenido += linea;}
+		} catch (IOException e) {e.printStackTrace();
 		} finally {
 			try {
-				if (entradaBytes != null) {
-					entradaBytes.close();}
-				if (lector != null) {
-					lector.close();}
-			} catch (IOException ex) {
-				ex.printStackTrace();}
+				if (entradaBytes != null) {entradaBytes.close();}
+				if (lector != null) {lector.close();}
+			} catch (IOException ex) {ex.printStackTrace();}
 		}
 		return contenido;
 	}
