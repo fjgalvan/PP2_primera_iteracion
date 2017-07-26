@@ -11,5 +11,9 @@ public class TestEleccionMenu {
 		eleccion.getJuego_elegido();
 		eleccion.getNivel_elegido();
 		eleccion.getVidas_elegido();
+		eleccion.dificultad_elegido= "facil";
+		eleccion.enemigos_elegido= 3;
+		eleccion.juego_elegido="tank";
+		eleccion.vidas_elegido=2;
 	}
 }
