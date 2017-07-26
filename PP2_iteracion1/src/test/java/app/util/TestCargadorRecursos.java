@@ -10,5 +10,6 @@ public class TestCargadorRecursos {
 		String mapaAJugar = "/mapas/MapaTank03.csv";
 		CargadorRecursos.leerArchivoTexto(mapaAJugar);
 		assertNotNull(mapaAJugar);
+		CargadorRecursos.leerArchivoTexto("");
 	}
 }
