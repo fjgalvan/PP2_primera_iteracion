@@ -24,9 +24,10 @@ public class TestMenu {
 		});
 	}
 	//ERROR DE TEST CON MAVEN
-	/*@Test
+	@Test
 	public void testMenu(){
 		Menu menu= new Menu();
+		menu.getFrmMenu();
 		menu.getEleccion();
 		menu.getRdbtnTank();
 		menu.getRdbtnBomberman();
@@ -43,7 +44,7 @@ public class TestMenu {
 		
 		//menu.main(null);
 		
-	}*/
+	}
 	public JFrame getFrmMenu() {
 		return frmMenu;
 	}
