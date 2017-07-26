@@ -14,6 +14,12 @@ public class TestEleccionMenu {
 		eleccion.dificultad_elegido= "facil";
 		eleccion.enemigos_elegido= 3;
 		eleccion.juego_elegido="tank";
+		eleccion.nivel_elegido="1";
 		eleccion.vidas_elegido=2;
+		eleccion.setDificultad_elegido("facil");
+		eleccion.setEnemigos_elegido(3);
+		eleccion.setJuego_elegido("tank");
+		eleccion.setNivel_elegido("1");
+		eleccion.setVidas_elegido(2);
 	}
 }
