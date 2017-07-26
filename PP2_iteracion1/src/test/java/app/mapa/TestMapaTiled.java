@@ -10,7 +10,7 @@ import org.junit.Test;
 import app.modelo.ObjetoGrafico;
 
 public class TestMapaTiled {
-	@Test
+	/*@Test
 	public void testIniciar() {
 		//String mapaAJugar ="/mapas/MapaTank03.csv";
 		MapaTiled mapa = new MapaTiled("/mapas/MapaTank03.csv");
@@ -47,5 +47,5 @@ public class TestMapaTiled {
 		List<ObjetoGrafico> estructuras = new ArrayList<>();
 		mapa.crearEstructuras(estructuras);
 		assertNotNull(estructuras.size());
-	}
+	}*/
 }
