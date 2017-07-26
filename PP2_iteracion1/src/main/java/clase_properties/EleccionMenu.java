@@ -16,29 +16,19 @@ public class EleccionMenu {
 		this.vidas_elegido= vidas;
 	}
 
-	public String getDificultad_elegido() 
-	{
-		return dificultad_elegido;
-	}
+	public String getDificultad_elegido() {
+		return dificultad_elegido;}
 
-	public int getEnemigos_elegido() 
-	{
-		return enemigos_elegido;
-	}
+	public int getEnemigos_elegido() {
+		return enemigos_elegido;}
 
-	public String getJuego_elegido() 
-	{
-		return juego_elegido;
-	}
+	public String getJuego_elegido() {
+		return juego_elegido;}
 
-	public String getNivel_elegido() 
-	{
-		return nivel_elegido;
-	}
+	public String getNivel_elegido() {
+		return nivel_elegido;}
 
-	public int getVidas_elegido() 
-	{
-		return vidas_elegido;
-	}
+	public int getVidas_elegido() {
+		return vidas_elegido;}
 	
 }
