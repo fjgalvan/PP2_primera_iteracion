@@ -67,7 +67,7 @@ public class TestDriverEasyEnemyTank {
 	}
 	
 	/**girar cuando choca con el limite del mapa -inicio- **/
-	@Test
+	/*@Test
 	public void testControlChoqueArribaMap(){
 		Orientation orientation = Orientation.UP;
 		Point coordinate = new Point(400, 50);//(400, 26);
@@ -125,7 +125,7 @@ public class TestDriverEasyEnemyTank {
 			
 		}
 		assertNotEquals(orientation, enemyTank.getOrientation());
-	}
+	}*/
 	/**girar cuando choca con el limite del mapa -fin- **/
 	
 	

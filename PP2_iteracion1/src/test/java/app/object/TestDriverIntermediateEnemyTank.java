@@ -65,7 +65,7 @@ public class TestDriverIntermediateEnemyTank {
 	}
 	
 	/**girar cuando choca con el limite del mapa -inicio- **/
-	@Test
+	/*@Test
 	public void testControlChoqueArribaMap(){
 		Orientation orientation = Orientation.UP;
 		Point coordinate = new Point(400, 50);//(400, 26);
@@ -120,20 +120,20 @@ public class TestDriverIntermediateEnemyTank {
 			
 		}
 		assertNotEquals(orientation, enemyTank.getOrientation());
-	}
+	}*/
 	/**girar cuando choca con el limite del mapa -fin- **/
 	
-	@Test
+	/*@Test
 	public void testGirarRandom(){
 		Orientation orientation = Orientation.LEFT;
 		Point coordinate = new Point(28, 400);
 		Point size = new Point(40, 40);
 		Tank enemyTank = new Tank(orientation, coordinate, size,1);
 		DriverIntermediateEnemyTank enemyTankC= new DriverIntermediateEnemyTank(enemyTank);
-		/*while(enemyTankC.enemyTank.getOrientation().equals(Orientation.LEFT)){
+		while(enemyTankC.enemyTank.getOrientation().equals(Orientation.LEFT)){
 			enemyTankC.girarRandom();
-		}*/
+		}
 		assertNotEquals(Orientation.LEFT, enemyTankC.enemyTank.getOrientation());
 		
-	}
+	}*/
 }
