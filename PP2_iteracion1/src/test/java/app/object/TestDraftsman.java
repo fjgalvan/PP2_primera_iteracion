@@ -1,12 +1,19 @@
 package app.object;
 
-import java.awt.Point;
+import java.awt.Point; 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+
 import app.enums.Orientation;
 import app.levels.DataLevelGame;
+import app.levels.LevelEasy;
 import app.levels.ManagerLevelGameMain;
-import app.main.Game;
+//import app.main.Game;
+//import app.modelo.ObjetoGrafico;
 import clase_properties.Principal;
+import entorno.InterfaceJuego;
 
 public class TestDraftsman {
 	//ERROR DE TEST CON MAVEN
@@ -14,79 +21,111 @@ public class TestDraftsman {
 	public void testDibujarMapa(){
 		Principal principal= new Principal();
 		DataLevelGame data = new ManagerLevelGameMain(principal).getDataLevelGame();
-		Game juegoPrueba= new Game(data);
+		//Game juegoPrueba= new Game(data);
 		//GraphicMap mapa = new GraphicMap(new Map(new Point(1000, 600)), new Point(20, 20));
 		//Draftsman dibujador = new Draftsman(null, mapa, "Battle-Ungs");
-		Tank tank = new Tank(Orientation.UP,new Point(560,520),new Point(40,40),2);
+		//Tank tank = new Tank(Orientation.UP,new Point(560,520),new Point(40,40),2);
 		Point coordinate = new Point(30, 50);
 		Point size= new Point(20,20);
 		Bullet bullet= new Bullet(Orientation.UP, coordinate, size);
+		LevelEasy level= new LevelEasy(data);
+		Tank tankPlayer1 = new Tank(Orientation.UP,new Point(560,520),new Point(40,40),level.getEnergyPlayer());
+		List<Tank> players= new ArrayList<Tank>();;
+		players.add(tankPlayer1);
+		level.setPlayers(players);
+		
+		//juegoPrueba.iniciar();
+		
+		InterfaceJuego interfaz= new InterfaceJuego();
+		Draftsman dibujador= new Draftsman(interfaz, size, null);
+		try{
+			//juegoPrueba.getDibujador().dibujarMapa(100, 100, 100, 1, "");
+			dibujador.dibujarMapa(100, 100, 100, 1, "");
+		} catch(Exception e){
+	        System.out.println("No se pudo dibujar Mapa!!");
+	    }
+		
+		/*try{
+			//juegoPrueba.getDibujador().dibujarEstructura(tank);
+			 dibujador.dibujarEstructura(tankPlayer1);
+		} catch(Exception e){
+	        System.out.println("No se pudo dibujar estructura!!");
+	    }*/
 		
 		try{
-			juegoPrueba.getDibujador().dibujarMapa(100, 100, 100, 1, "");
+			//juegoPrueba.getDibujador().dibujarBomberman(tank);
+			dibujador.dibujarBomberman(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Mapa!!");
+	        System.out.println("No se pudo dibujar Bomberman!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarEstructura(tank);
+			//juegoPrueba.getDibujador().dibujarTank(tank);
+			dibujador.dibujarTank(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Mapa!!");
+	        System.out.println("No se pudo dibujar Tank!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarBomberman(tank);
+			dibujador.dibujarBullet(bullet);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Bomberman!!");
+	        System.out.println("No se pudo dibujar Tank!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarTank(tank);
+			dibujador.dibujarBomberman(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Tank!");
+	        System.out.println("No se pudo dibujar Bomberman!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarBullet(bullet);
+			dibujador.dibujarPacman(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Tank!");
+	        System.out.println("No se pudo dibujar Pacman!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarBomberman(tank);
+			dibujador.dibujarTankCop(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Bomberman!!");
+	        System.out.println("No se pudo dibujar TankCop!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarPacman(tank);
+			dibujador.dibujarEnemyTank(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar Pacman!!");
+	        System.out.println("No se pudo dibujar EnemyTank!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarTankCop(tank);
+			dibujador.dibujarEnemyTankIntermediate(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar TankCop!!");
+	        System.out.println("No se pudo dibujar EnemyTankIntermediate!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarEnemyTank(tank);
+			dibujador.dibujarFinDeJuego();
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar EnemyTank!!");
+	        System.out.println("No se pudo dibujar finDeJuego!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarEnemyTankIntermediate(tank);
+			dibujador.dibujarPuntaje("tank", 100, 1, 50, 50);;
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar EnemyTankIntermediate!!");
+	        System.out.println("No se pudo dibujar puntaje!!");
 	    }
 		
 		try{
-			juegoPrueba.getDibujador().dibujarFinDeJuego();
+			dibujador.dibujarFantasma(tankPlayer1);
 		} catch(Exception e){
-	        //System.out.println("No se pudo dibujar EnemyTankIntermediate!!");
+	        System.out.println("No se pudo dibujarFantasma!!");
+	    }
+		
+		try{
+			dibujador.getEntorno();
+		} catch(Exception e){
+	        System.out.println("No se pudo dibujarFantasma!!");
 	    }
 	}
+	
 	
 }

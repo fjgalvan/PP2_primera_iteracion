@@ -161,6 +161,14 @@ public class LevelEasy
 	
 	
 	
+	public void setEnemigos(List<Tank> enemigos) {
+		this.enemigos = enemigos;
+	}
+
+	public void setPlayers(List<Tank> players) {
+		this.players = players;
+	}
+
 	/** destruir drivers enemys */
 	public void encontrarDriverDeTankEnemy(Tank enemy)
 	{
