@@ -6,8 +6,11 @@ import static org.junit.Assert.*;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import app.enums.Orientation;
+import app.levels.DataLevelGame;
 import app.object.Player;
 import app.object.Tank;
 import app.object.TankController;
@@ -33,6 +36,11 @@ public class TestGame {
 		
 		assertNotEquals(null,tanks);
 		assertNotEquals(null,enemysTanks);
+		
+		DataLevelGame data= new DataLevelGame();
+		
+		Game juego= new Game(data);
+		juego.tick();
 	}
 
 	@Test

@@ -6,14 +6,14 @@ import clase_properties.Principal;
 
 public class TestManagerLevelGameMain {
 
-	@Test
+	/*@Test
 	public void testGetDataLevelGame()
 	{
 		ManagerLevelGameMain main = new ManagerLevelGameMain(new Principal());
 		assertTrue(main.getDataLevelGame()!=null);
 		ManagerLevelGameMain error = new ManagerLevelGameMain(null);
 		assertTrue(error.getDataLevelGame()==null);
-	}	
+	}*/	
 	
 	@Test
 	public void testBuildDataGame()
