@@ -16,7 +16,7 @@ public class ValidateFile
 	
 	public boolean existeElArchivo()		// o no se puede leer
 	{
-		return configuracion.leerArchivo()!=null;
+		return configuracion!=null && configuracion.leerArchivo()!=null;
 	}
 	
 	public boolean validacionesDeDatos()
@@ -32,7 +32,6 @@ public class ValidateFile
 			return ret;
 		}
 		JOptionPane.showMessageDialog(null, "No existe el archivo o no se puede leer - clase validate");
-		JOptionPane.showMessageDialog(null, "QUe hacer , se ccrea o se juega por default");
 		return false;
 	}
 	

@@ -13,7 +13,7 @@ public abstract class ManagerLevelGame
 			return data;
 		
 		if (next!=null)
-			return next.getDataLevelGame();
+			return next.buildDataGame();
 		else 
 			return new ManagerLevelGameDefault().getDataLevelGame();
 	}
