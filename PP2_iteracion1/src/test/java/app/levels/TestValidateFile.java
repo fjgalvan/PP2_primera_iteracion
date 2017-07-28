@@ -20,8 +20,8 @@ public class TestValidateFile {
 	@Test	
 	public void testValidacionesDeDatos()
 	{
-		//ValidateFile valida = new ValidateFile(new Principal());
-		//assertTrue(valida.validacionesDeDatos());
+		ValidateFile valida = new ValidateFile(new Principal());
+		assertTrue(valida.validacionesDeDatos());
 		ValidateFile validaFalla = new ValidateFile(null);
 		assertFalse(validaFalla.validacionesDeDatos());
 	}
@@ -29,8 +29,8 @@ public class TestValidateFile {
 	@Test
 	public void testArchivoValido()
 	{
-		//ValidateFile valida = new ValidateFile(new Principal());
-		//assertTrue(valida.archivoValido());		
+		ValidateFile valida = new ValidateFile(new Principal());
+		assertTrue(valida.archivoValido());		
 		ValidateFile validaFalla = new ValidateFile(null);
 		assertFalse(validaFalla.archivoValido());
 	}
