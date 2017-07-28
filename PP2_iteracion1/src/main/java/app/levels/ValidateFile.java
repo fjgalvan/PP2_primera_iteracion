@@ -31,7 +31,7 @@ public class ValidateFile
 			ret = ret && (e.getNivel_elegido().equals("1") || e.getNivel_elegido().equals("2"));
 			return ret;
 		}
-		JOptionPane.showMessageDialog(null, "No existe el archivo o no se puede leer - clase validate");
+		//JOptionPane.showMessageDialog(null, "No existe el archivo o no se puede leer - clase validate");
 		return false;
 	}
 	

@@ -27,7 +27,7 @@ public class ManagerLevelGameMain extends ManagerLevelGame
 			String typeDriver = eleccion.getDificultad_elegido();
 			return new DataLevelGame(players, cant, energyPlayer, typeDriver);
 		}
-		JOptionPane.showMessageDialog(null, "Errores de datos en el archivo");
+		//JOptionPane.showMessageDialog(null, "Errores de datos en el archivo");
 		return null;
 	}	
 	

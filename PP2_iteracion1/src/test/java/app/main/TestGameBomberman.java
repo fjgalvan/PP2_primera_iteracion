@@ -24,7 +24,7 @@ public class TestGameBomberman extends InterfaceJuego{
 	
 	@Test
 	public void testIniciar() {
-		/*GameBomberman bomberman = new GameBomberman();
+		//GameBomberman bomberman = new GameBomberman();
 		//bomberman.iniciar();
 		//bomberman.getTank();
 		//assertNotEquals(null, bomberman.getTank());
@@ -37,15 +37,14 @@ public class TestGameBomberman extends InterfaceJuego{
 		Tank tank= new Tank(Orientation.UP ,new Point(440,200), new Point(36,36), 2);
 		Destructor destructor= new Destructor();
 		Player player1= new Player(0,0,new ListenerPlayer1(dibujador.getEntorno()));
-	    
-		
 		TankController tControl= new TankController(tank,player1.getListener(),destructor.getColisionador());
 		
 		try{
+			GameBomberman bomberman = new GameBomberman();
 			bomberman.getTank();
 		} catch(Exception e){
 	        System.out.println("No se pudo getTank()!!");
-	    }*/
+	    }
 		
 	}
 }
