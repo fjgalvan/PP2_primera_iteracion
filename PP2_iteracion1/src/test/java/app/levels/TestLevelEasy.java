@@ -34,6 +34,15 @@ public class TestLevelEasy {
 		easy.destruirTankEnemy(tank);
 		easy.destruirTankPlayer(tank);
 		easy.destruirTankPlayer1(tank);
+		easy.getDrives();
+		easy.getEnemigos();
+		easy.getEnergyPlayer();
+		easy.getNextCoordinate();
+		easy.getPlayers();
+		easy.getTankController();
+		easy.getTankCopController();
+		easy.getTankPlayer1();
+		easy.getTankPlayer2();
 		//easy.destruirTankPlayer2(tank);
 		easy.finishLevel();
 	}
