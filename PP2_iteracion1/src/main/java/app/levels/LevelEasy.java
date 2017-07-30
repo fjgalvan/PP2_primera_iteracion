@@ -73,12 +73,8 @@ public class LevelEasy
 	}
 	
 	public Point getNextCoordinate()
-	{
-		if(index > 4){
-			index=0;}
-		return coordinates.get(index);
-	}
-	
+	{   if(index > 4){   index=0;}
+		return coordinates.get(index);}
 	public void crearTanquesPlayers()
 	{
 		tankPlayer1 = new Tank(Orientation.UP,new Point(560,520),new Point(40,40),level.getEnergyPlayer());
@@ -119,138 +115,42 @@ public class LevelEasy
         //	destructor.destruccionTanksEnemys(tank2, this, P2);
         }
 	}
-//	
-//	public void accionarDeEnemys(ListStructures lista)
-//	{
-//		//for(Tank enemy : enemigos)
-//		{
-//		///	this.destructor.destruccionTank(enemy, this);
-//		}
-//    	//destructor.destruirEstructuras(lista);
-//	}
-	
-	public List<Tank> getEnemigos() 
-	{
-		return enemigos;
-	}
-
-	public List<Tank> getPlayers() 
-	{
-		return players;
-	}
-
-	public void puntajes()
-	{
+	public List<Tank> getEnemigos() {    return enemigos;}
+	public List<Tank> getPlayers() {    return players;}
+	public void puntajes(){
 //		player1 = new Player1(new Puntaje(0,0),dibujador);
 //		player2 = new Player2(new Puntaje(0,0),dibujador);
 	}
-	
 	public boolean finishLevel()
-	{
-		return players.isEmpty() || enemigos.isEmpty(); // ver si funciona estoo
-	}
-	
+	{   return players.isEmpty() || enemigos.isEmpty(); }// ver si funciona estoo}
 	public void destruirTankEnemy(Tank enemy)
-	{
-		this.enemigos.remove(enemy);
-		encontrarDriverDeTankEnemy(enemy);
-	}
-	
-	
-	
-	
-	
-	
-	public void setEnemigos(List<Tank> enemigos) {
-		this.enemigos = enemigos;
-	}
-
-	public void setPlayers(List<Tank> players) {
-		this.players = players;
-	}
-
-	/** destruir drivers enemys */
-	public void encontrarDriverDeTankEnemy(Tank enemy)
-	{
+	{   this.enemigos.remove(enemy);
+		encontrarDriverDeTankEnemy(enemy);}
+	public void setEnemigos(List<Tank> enemigos) {this.enemigos = enemigos;}
+	public void setPlayers(List<Tank> players) {this.players = players;}
+	public void encontrarDriverDeTankEnemy(Tank enemy){/** destruir drivers enemys */
 		for(int i = 0; i < this.drives.size();i++){
 			if(this.drives.get(i).getEnemyTank().equals(enemy))
-				this.drives.remove(i);
-		}
+				this.drives.remove(i);}
 	}
-	
-	
 	public void destruirDriverEnemy(DriverEnemyTank driver)
-	{
-		this.drives.remove(driver);
-	}
-		
-	/** fin de destruir drivers enemys */
-	
-	
-	
-	
-	
+	{  this.drives.remove(driver);}/** fin de destruir drivers enemys */
 	public void destruirTankPlayer(Tank player)
-	{
-		this.tankController.destruirTank(); // ver como hacer lo del cop
-		this.players.remove(player);
-	}
-	
-	
+	{   this.tankController.destruirTank(); // ver como hacer lo del cop
+		this.players.remove(player);}
 	public void destruirTankPlayer1(Tank player)
-	{
-		this.tankController.destruirTank(); // ver como hacer lo del cop
-		this.players.remove(this.tankPlayer1);
-	}
+	{   this.tankController.destruirTank(); // ver como hacer lo del cop
+		this.players.remove(this.tankPlayer1);}
 	public void destruirTankPlayer2(Tank player)
-	{
-		this.tankCopController.destruirTank(); // ver como hacer lo del cop
-		this.players.remove(this.tankPlayer2);
-	}
-	
-	
-	
-	
-	
-	
-	public Integer getEnergyPlayer() 
-	{
-		return level.getEnergyPlayer();
-	}
-
-	public List<DriverEnemyTank> getDrives() 
-	{
-		return drives;
-	}
-
-	public boolean containsPlayer1() 
-	{
-		return players.contains(tankPlayer1);
-	}
-	
-	public boolean containsPlayer2() 
-	{
-		return players.contains(tankPlayer2);
-	}
-
-	public Tank getTankPlayer1() 
-	{
-		return tankPlayer1;
-	}
-	
-	public Tank getTankPlayer2() 
-	{
-		return tankPlayer2;
-	}
-
-	public TankController getTankController() 
-	{
-		return tankController;
-	}
-
-	public TankController getTankCopController() 
-	{
-		return tankCopController;
-	}
+	{   this.tankCopController.destruirTank(); // ver como hacer lo del cop
+		this.players.remove(this.tankPlayer2);}
+	public Integer getEnergyPlayer() {return level.getEnergyPlayer();}
+	public List<DriverEnemyTank> getDrives() {return drives;}
+	public boolean containsPlayer1() {return players.contains(tankPlayer1);}
+	public boolean containsPlayer2() {return players.contains(tankPlayer2);}
+	public Tank getTankPlayer1() {return tankPlayer1;}
+	public Tank getTankPlayer2() {return tankPlayer2;}
+	public TankController getTankController() {return tankController;}
+	public TankController getTankCopController() {return tankCopController;}
 
 }
