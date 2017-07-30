@@ -24,7 +24,7 @@ import app.object.Tank;
 import app.object.TankController;
 
 public class TestGame extends InterfaceJuego{
-	@Test
+	/*@Test
 	public void testIniciar() {
 		
 		Tank tank_1 = new Tank(Orientation.UP,new Point(400,400),new Point(40,40), 1);
@@ -76,7 +76,7 @@ public class TestGame extends InterfaceJuego{
 		levelGame.finishLevel();
 		juego.iniciar();
 		juego.tick();
-	}
+	}*/
 
 	@Test
 	public void testDestruccionTank1() {
