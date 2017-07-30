@@ -11,12 +11,6 @@ public class CargadorRecursos {
 		String linea;
 		try {while ((linea = lector.readLine()) != null) {contenido += linea;}
 		} catch (IOException e) {e.printStackTrace();
-		} finally {
-			try {
-				if (entradaBytes != null) {entradaBytes.close();}
-				if (lector != null) {lector.close();}
-			} catch (IOException ex) {ex.printStackTrace();}
-		}
-		return contenido;
-	}
+		} finally {try {if (entradaBytes != null) {entradaBytes.close();}if (lector != null) {lector.close();}
+			} catch (IOException ex) {ex.printStackTrace();}}return contenido;}
 }
