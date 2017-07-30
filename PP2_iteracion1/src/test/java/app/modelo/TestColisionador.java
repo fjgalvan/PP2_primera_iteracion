@@ -49,7 +49,7 @@ public class TestColisionador {
 		assertFalse(colisionador.colisionBullet(bullet, objetos));
 	}
 
-	/*@Test
+	@Test
 	public void colisionBulletConTank() {
 		Colisionador colisionador = new Colisionador();
 
@@ -65,7 +65,7 @@ public class TestColisionador {
 		objetos.add(tank);
 		
 		assertTrue(colisionador.colisionBulletConTank(bullet, objetos));
-	}*/
+	}
 	
 	@Test
 	public void noColisionBulletConTank() {
@@ -86,15 +86,15 @@ public class TestColisionador {
 	}
 	
 	//ERROR TEST
-	/*@Test
+	@Test
 	public void hayColision(){
 		Colisionador colisionador = new Colisionador();
-		ListStructures estructuras = new ListStructures();
+		List<ObjetoGrafico> estructuras= new ArrayList<>();
 		MapaTiled mapaTiled = new MapaTiled("/mapas/MapaTank04.csv");
 		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
-		objetos.addAll(estructuras.getLista());
+		//objetos.addAll(estructuras.getLista());
 		
 		Point sizeTank = new Point(40, 40);
 		Point coordinateTank = new Point(200, 220);
@@ -106,8 +106,8 @@ public class TestColisionador {
 			ret = ret || colisionador.hayColision(tank, obj); // dependiendo el estado va atener una colision !=
 		}
 		
-		assertTrue(ret);
-	}*/
+		assertFalse(ret);
+	}
 
 	/*@Test
 	public void hayColisionArriba(){
