@@ -14,8 +14,7 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 		      String nivel = propiedades.getProperty("nivel");
 		      int vidas = Integer.parseInt(propiedades.getProperty("vidas"));
 		      return new EleccionMenu(dificultad, enemigos, juego, nivel, vidas);   } 
-		  catch (IOException e) {
-			  return null;} 
+		  catch (IOException e) {return null;} 
 	 }
 	 public boolean ModificarArchivo(EleccionMenu eleccion){
 			try {
@@ -31,8 +30,6 @@ public class Principal {//Lee un archivo de propiedades desde una ruta especific
 				propiedades.store(file, "Escribiendo");			
 				file.close();	
 				return true;				
-			} catch (IOException e) {
-				  System.out.println("Error, El archivo no exite o no se puede leer");
-				return false;}
+			} catch (IOException e) {System.out.println("Error, El archivo no exite o no se puede leer");return false;}
 	 }
 }

@@ -10,5 +10,8 @@ public class TestMain {
 		ControlGame controlGame = new ControlGame();
 		controlGame.setTankEleccionMenu();
 		assertNotEquals(null,controlGame.getMenu().isValid());   
+		
+		Main main= new Main();
+		main.getClass();
 	}
 }
