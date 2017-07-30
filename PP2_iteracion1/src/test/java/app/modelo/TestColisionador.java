@@ -1,31 +1,39 @@
 package app.modelo;
 
 import static org.junit.Assert.*;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import app.enums.Orientation;
+import app.mapa.MapaTiled;
 import app.object.Bullet;
+import app.object.Configuracion;
 import app.object.Tank;
 
 public class TestColisionador {
 	
-	/*@Test
+	@Test
 	public void colisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
-		ListStructures estructuras = new ListStructures();
-		MapaTiled mapaTiled = new MapaTiled("/mapas/MapaTank04.csv");
+		//ListStructures estructuras = new ListStructures();
+		List<ObjetoGrafico> estructuras= new ArrayList<>();
+		String mapaAJugar = Configuracion.MapaTank;
+		MapaTiled mapaTiled= new MapaTiled(mapaAJugar);
 		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
-				
+		
+		
 		Point size = new Point(10, 10);
 		Point coordinate = new Point(881, 200);
 		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
-		objetos.addAll(estructuras.getLista());
-		assertTrue(colisionador.colisionBullet(bullet, objetos));
-	}*/
+		//objetos.addAll(estructuras.getLista());
+		assertFalse(colisionador.colisionBullet(bullet, objetos));
+	}
 	
 	@Test
 	public void noColisionBulletConEstructura() {
