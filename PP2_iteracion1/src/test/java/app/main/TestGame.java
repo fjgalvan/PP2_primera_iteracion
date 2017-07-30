@@ -46,7 +46,7 @@ public class TestGame extends InterfaceJuego{
 		assertNotEquals(null,enemysTanks_1);
 		
 		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		data.cargarClavesNiveles();
+		//data.cargarClavesNiveles();
 		Game juego= new Game(data);
 		
 		String mapaAJugar = Configuracion.MapaTank;

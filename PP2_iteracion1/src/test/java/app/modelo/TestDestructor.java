@@ -15,7 +15,7 @@ public class TestDestructor {
 	public void testIniciar() {
 		
 		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		data.cargarClavesNiveles();
+		//data.cargarClavesNiveles();
 		Destructor destructor= new Destructor();
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
