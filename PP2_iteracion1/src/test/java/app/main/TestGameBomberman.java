@@ -40,8 +40,8 @@ public class TestGameBomberman extends InterfaceJuego{
 		TankController tControl= new TankController(tank,player1.getListener(),destructor.getColisionador());
 		
 		try{
-			GameBomberman bomberman = new GameBomberman();
-			bomberman.getTank();
+			//GameBomberman bomberman = new GameBomberman();
+			//bomberman.getTank();
 		} catch(Exception e){
 	        System.out.println("No se pudo getTank()!!");
 	    }
