@@ -49,7 +49,7 @@ public class Destructor {
 			level.getPlayers().add(tank);
 		}
 
-		private void debilitarEnemyTank(LevelEasy level,String player) 
+		public void debilitarEnemyTank(LevelEasy level,String player) 
 		{
 			Tank t = colisionador.getTankADestruir();
 			t.decreaseHP();
