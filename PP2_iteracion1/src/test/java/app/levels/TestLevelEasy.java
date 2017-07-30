@@ -5,6 +5,7 @@ import java.awt.Point;
 import org.junit.Test;
 
 import app.enums.Orientation;
+import app.object.DriverEasyEnemyTank;
 import app.object.DriverEnemyTank;
 import app.object.Tank;
 
@@ -20,6 +21,8 @@ public class TestLevelEasy {
 	@Test
 	public void testInicializar() 
 	{
+		DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank();
+		driverEasy.cargarMovimientos();
 		DataLevelGame data = new DataLevelGame();
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
 		data.cargarClavesNiveles();
@@ -50,6 +53,10 @@ public class TestLevelEasy {
 	@Test
 	public void testlevelE() 
 	{
+		
+		DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank();
+		driverEasy.cargarMovimientos();
+		
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
 		DataLevelGame data = new DataLevelGame();
 		LevelEasy easy= new LevelEasy(data);
