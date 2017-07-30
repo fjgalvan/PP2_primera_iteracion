@@ -15,7 +15,7 @@ public class TestDestructor {
 	public void testIniciar() {
 		
 		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		data.cargarClavesNiveles();
+		//data.cargarClavesNiveles();
 		Destructor destructor= new Destructor();
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
@@ -40,7 +40,7 @@ public class TestDestructor {
 	public void testDestruccionTank() {
 		Destructor destructor= new Destructor();
 		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		data.cargarClavesNiveles();
+		//data.cargarClavesNiveles();
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
 		Tank tank = levelGame.getTankPlayer1();
@@ -52,7 +52,7 @@ public class TestDestructor {
 	public void testDestruccionTankEnemys() {
 		Destructor destructor= new Destructor();
 		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		data.cargarClavesNiveles();
+		//data.cargarClavesNiveles();
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
 		Tank tank = levelGame.getTankPlayer1();
