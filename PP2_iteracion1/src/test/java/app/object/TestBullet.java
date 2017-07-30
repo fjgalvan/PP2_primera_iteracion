@@ -72,6 +72,16 @@ public class TestBullet {
 		Point coordinate2222 = new Point(50, 579);
 		Util.moverse(orientation1111, coordinate2222, velocidadDeMovimiento);
 		assertNotEquals(coordinate1111, coordinate2222);
+		
+		Bullet bala= new Bullet(orientation1, coordinate2222, coordinate2222);
+		bala.avanzarBullet();
+		bala.getCoordinate();
+		bala.getImagen();
+		bala.getOrientation();
+		bala.getSize();
+		bala.setCoordinate(coordinate2222);
+		bala.setOrientation(orientation1111);
+		bala.setSize(coordinate2222);
 	}
 	
 
