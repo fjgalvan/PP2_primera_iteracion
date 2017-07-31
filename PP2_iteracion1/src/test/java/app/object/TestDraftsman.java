@@ -28,12 +28,13 @@ public class TestDraftsman extends InterfaceJuego{
 	//ERROR DE TEST CON MAVEN
 	@Test
 	public void testDibujarMapa(){
-		Draftsman dibujador = new Draftsman(this, new Point(1000, 600), "Battle-Ungs");
+		
 		List<ObjetoGrafico> estructuras = new ArrayList<>();
 		String mapaAJugar = Configuracion.MapaTank;
 		MapaTiled mapaTiled = new MapaTiled(mapaAJugar);
 		mapaTiled.inicializar();
 		mapaTiled.crearEstructuras(estructuras);
+		Draftsman dibujador = new Draftsman(this, new Point(1000, 600), "Battle-Ungs");
 		//prueba de apoco el lector de datos del combo .. 1 test modo cop
 		DataLevelGame data = new DataLevelGame();
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
