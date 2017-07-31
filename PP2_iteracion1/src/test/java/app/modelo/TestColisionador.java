@@ -16,7 +16,7 @@ import app.object.Tank;
 
 public class TestColisionador {
 	
-	@Test
+	/*@Test
 	public void colisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
 		//ListStructures estructuras = new ListStructures();
@@ -34,7 +34,7 @@ public class TestColisionador {
 		objetos.add(bullet);
 		//objetos.addAll(estructuras.getLista());
 		assertFalse(colisionador.colisionBullet(bullet, objetos));
-	}
+	}*/
 	
 	@Test
 	public void noColisionBulletConEstructura() {
