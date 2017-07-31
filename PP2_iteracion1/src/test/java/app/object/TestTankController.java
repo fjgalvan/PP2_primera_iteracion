@@ -1,10 +1,19 @@
 package app.object;
 
 import static org.junit.Assert.*;
+
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+
 import app.enums.Orientation;
+import app.enums.TipoEstructura;
+import app.estructura.Estructura;
+import app.estructura.TipoDeEstructura;
 import app.modelo.Colisionador;
+import app.modelo.ObjetoGrafico;
 import app.object.Tank;
 import app.object.TankController;
 
@@ -60,6 +69,41 @@ public class TestTankController {
 		TankController tankC = new TankController(tank,null,new Colisionador());
 		tankC.getTank().disparar();
 		assertNotEquals(null,tankC.getTank().getBullet());
+		
+		List<ObjetoGrafico> estructuras = new ArrayList<>();
+		List<Tank> enemysTanks = new ArrayList<>();
+		List<ObjetoGrafico> tanksObjG = new ArrayList<>();
+		
+		
+		Tank enemyTank= new Tank(orientation, coordinate, size,1);
+		Tank enemyTank2= new Tank(orientation, coordinate, size,1);
+		Tank enemyTank3= new Tank(orientation, coordinate, size,1);
+		Tank enemyTank4= new Tank(orientation, coordinate, size,1);
+		enemysTanks.add(enemyTank);
+		enemysTanks.add(enemyTank2);
+		enemysTanks.add(enemyTank3);
+		enemysTanks.add(enemyTank4);
+		
+		TipoDeEstructura tipoDeEstructura= new TipoDeEstructura(TipoEstructura.INDESTRUCTIBLE, false, false);
+		Estructura estructura1= new Estructura(coordinate, size, "imagen/tank.png", tipoDeEstructura);
+		Estructura estructura2= new Estructura(coordinate, size, "imagen/tank.png", tipoDeEstructura);
+		Estructura estructura3= new Estructura(coordinate, size, "imagen/tank.png", tipoDeEstructura);
+		
+		estructuras.add(estructura1);
+		estructuras.add(estructura2);
+		estructuras.add(estructura3);
+
+		tanksObjG.add(enemyTank);
+		tanksObjG.add(enemyTank2);
+		
+		tankC.hayColisionConUnObjeto(estructuras);
+		//tankC.ControlTank(tanksObjG);
+		tankC.control_bullet(estructuras, enemysTanks);
+		tankC.getListener();
+		tankC.destruirTank();
+		tankC.getContTick();
+		tankC.setContTick(tankC.getContTick());
+		
 	}
 
 }
