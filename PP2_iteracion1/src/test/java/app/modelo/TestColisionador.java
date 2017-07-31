@@ -31,6 +31,7 @@ public class TestColisionador {
 		Point coordinate = new Point(881, 200);
 		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
+		objetos.add(bullet);
 		//objetos.addAll(estructuras.getLista());
 		assertFalse(colisionador.colisionBullet(bullet, objetos));
 	}
