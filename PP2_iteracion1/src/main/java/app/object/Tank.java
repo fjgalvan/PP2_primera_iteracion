@@ -139,8 +139,8 @@ public class Tank extends ObjetoGrafico {
 	private void validarEnergy() {
 		if (this.energy < 0) {
 			this.energy = 0;
-		} else if (this.energy > 3) {
-			this.energy = 3;
+		} else if (this.energy > 2) {
+			this.energy = 2;
 		}
 	}
 	
