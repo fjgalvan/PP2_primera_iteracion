@@ -18,6 +18,7 @@ public class TestStateMoveTankDown {
 		assertFalse(tank.getStateMove().hayColision(otro));
 		tank.setCoordinate(new Point(300, 175));
 		assertTrue(tank.getStateMove().hayColision(otro));
+		state.control();
 	} 
 	
 	@Test
