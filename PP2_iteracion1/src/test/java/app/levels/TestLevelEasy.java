@@ -25,8 +25,8 @@ public class TestLevelEasy {
 		//driverEasy.cargarMovimientos();
 		DataLevelGame data = new DataLevelGame();
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
-		DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
-		driverEasy.cargarMovimientos();
+		//DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
+		//driverEasy.cargarMovimientos();
 		data.cargarClavesNiveles();
 		DriverEnemyTank driver = data.getNewDriverEnemy(tank);
 		LevelEasy easy= new LevelEasy(data);
@@ -60,7 +60,7 @@ public class TestLevelEasy {
 		//driverEasy.cargarMovimientos();
 		DataLevelGame data = new DataLevelGame();
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
-		DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
+		//DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
 		//driverEasy.cargarMovimientos();
 		//DataLevelGame data = new DataLevelGame();
 		LevelEasy easy= new LevelEasy(data);
