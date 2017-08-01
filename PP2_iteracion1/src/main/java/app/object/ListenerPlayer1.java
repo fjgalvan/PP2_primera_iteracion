@@ -24,6 +24,5 @@ public class ListenerPlayer1 extends KeyEventListener {
 
 	@Override
 	public boolean seActivoDisparo() {
-		return entorno.estaPresionada(entorno.TECLA_ENTER);
-	}
+		return entorno.estaPresionada(entorno.TECLA_ENTER);}
 }

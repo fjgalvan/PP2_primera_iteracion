@@ -8,26 +8,11 @@ public class Player {
 	public Player(double puntaje, int cantidadDeEnemigosAsesinados, KeyEventListener listener) {
 		this.puntaje = puntaje;
 		this.cantidadDeEnemigosAsesinados = cantidadDeEnemigosAsesinados;
-		this.listener = listener;
-	}
+		this.listener = listener; }
 
-	public double getPuntaje() {
-		return this.puntaje;
-	}
-
-	public int getCantidadDeEnemigosAsesinados() {
-		return this.cantidadDeEnemigosAsesinados;
-	}
-
-	public void setPuntaje(double puntaje) {
-		this.puntaje += puntaje;
-	}
-
-	public void setCantidadDeEnemigosAsesinados(int cantidadDeEnemigosAsesinados) {
-		this.cantidadDeEnemigosAsesinados += cantidadDeEnemigosAsesinados;
-	}
-
-	public KeyEventListener getListener() {
-		return listener;
-	}
+	public double getPuntaje() { return this.puntaje;}
+	public int getCantidadDeEnemigosAsesinados() { return this.cantidadDeEnemigosAsesinados;}
+	public void setPuntaje(double puntaje) {this.puntaje += puntaje;}
+	public void setCantidadDeEnemigosAsesinados(int cantidadDeEnemigosAsesinados) {this.cantidadDeEnemigosAsesinados += cantidadDeEnemigosAsesinados;}
+    public KeyEventListener getListener() { return listener;}
 }
