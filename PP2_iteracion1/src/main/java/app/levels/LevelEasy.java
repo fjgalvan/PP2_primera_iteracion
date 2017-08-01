@@ -112,7 +112,6 @@ public class LevelEasy
         	player2.getListener().seMovio(tank2);
         	this.tankCopController.ControlTank(objetos);
         	this.tankCopController.control_bullet(objetos,enemigos);
-        //	destructor.destruccionTanksEnemys(tank2, this, P2);
         }
 	}
 	public List<Tank> getEnemigos() {    return enemigos;}

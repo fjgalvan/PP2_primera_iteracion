@@ -1,10 +1,16 @@
 package app.levels;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
 import app.enums.Orientation;
+import app.enums.TipoEstructura;
+import app.estructura.Estructura;
+import app.estructura.TipoDeEstructura;
+import app.modelo.ObjetoGrafico;
 import app.object.DriverEasyEnemyTank;
 import app.object.DriverEnemyTank;
 import app.object.Tank;
@@ -13,10 +19,16 @@ public class TestLevelEasy {
 	@Test
 	public void testLevelEasy() 
 	{
-		//DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
-		//LevelEasy easy= new LevelEasy(data);
+		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
+		LevelEasy easy= new LevelEasy(data);
+		List<ObjetoGrafico> estructuras = new ArrayList<>();
+		Point size = new Point(10, 10);
+		Point coordinate = new Point(200, 200);
+		TipoDeEstructura tipo= new TipoDeEstructura(TipoEstructura.DESTRUCTIBLE, false, false);
+		Estructura e1= new Estructura(size, coordinate, "imagen/tank.png", tipo);
+		estructuras.add(e1);
+		easy.cargarCoordenadasValidas();
 		
-		//easy.inicializar(objetos);
 	}
 	@Test
 	public void testInicializar() 
