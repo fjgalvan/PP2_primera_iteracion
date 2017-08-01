@@ -38,8 +38,8 @@ public class TestDraftsman extends InterfaceJuego{
 		//prueba de apoco el lector de datos del combo .. 1 test modo cop
 		DataLevelGame data = new DataLevelGame();
 		Tank tank = new Tank(Orientation.LEFT, new Point(300, 200), new Point(40, 40), 2);
-		DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
-		driverEasy.cargarMovimientos();
+		//DriverEasyEnemyTank driverEasy= new DriverEasyEnemyTank(tank);
+		//driverEasy.cargarMovimientos();
 		data.cargarClavesNiveles();
 		LevelEasy levelGame = new LevelEasy(data);
 		// ver como ubicar el tanque
