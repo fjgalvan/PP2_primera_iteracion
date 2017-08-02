@@ -32,7 +32,7 @@ public class TestDriverEnemyTank {
 		List<ObjetoGrafico> objetos= new ArrayList<>(); 
 		
 		TipoDeEstructura tipo= new TipoDeEstructura(TipoEstructura.DESTRUCTIBLE, false, false);
-		Estructura est= new Estructura(coordinate, size, "/imagen/tank.png", tipo);
+		Estructura est= new Estructura(coordinate, size, "src/main/java/imagen/tank.png", tipo);
 		
 		objetos.add(est);
 		
