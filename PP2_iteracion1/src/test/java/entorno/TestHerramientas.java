@@ -12,7 +12,7 @@ public class TestHerramientas {
 		Herramientas.radianes(0);
 		Herramientas.grados(0);
 		//Herramientas.play("/sonido/Tanque Disparo.wav");
-		Clip sonido = Herramientas.cargarSonido("Tanque Disparo.wav");
+		Clip sonido = Herramientas.cargarSonido("src/main/java/Tanque Disparo.wav");
 		sonido.loop(Clip.LOOP_CONTINUOUSLY);
 		Herramientas.play("Tanque Disparo.wav");
 	}
