@@ -74,8 +74,8 @@ public class TestGame extends InterfaceJuego{
 		}
 		
 		levelGame.finishLevel();
-		juego.iniciar();
-		juego.tick();
+		//juego.iniciar();
+		//juego.tick();
 	}*/
 
 	@Test
