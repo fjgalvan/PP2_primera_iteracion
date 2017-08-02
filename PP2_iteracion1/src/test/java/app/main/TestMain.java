@@ -11,7 +11,7 @@ public class TestMain {
 		controlGame.setTankEleccionMenu();
 		assertNotEquals(null,controlGame.getMenu().isValid());   
 		
-		Main main= new Main();
-		main.getClass();
+		Main main_principal= new Main();
+		main_principal.getClass();
 	}
 }
