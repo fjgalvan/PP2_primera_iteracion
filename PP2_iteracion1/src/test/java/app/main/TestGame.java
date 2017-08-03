@@ -27,14 +27,17 @@ import app.object.TankController;
 
 public class TestGame extends InterfaceJuego{
 	
-	/*@Test
+	@Test
 	public void testIniciarGame() {
-		Principal principal= new Principal();
+		/*Principal principal= new Principal();
 		//principal.ModificarArchivo(this.menu.getEleccion());
 		DataLevelGame data = new ManagerLevelGameMain(principal).buildDataGame();
 		Game game = new Game(data);
-		game.iniciar();		
-	}*/
+		game.iniciar();*/	
+		
+		ControlGame game = new ControlGame();
+		game.iniciar();
+	}
 				
 	/*@Test
 	public void testIniciar() {
