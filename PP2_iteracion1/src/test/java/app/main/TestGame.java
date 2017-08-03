@@ -9,10 +9,12 @@ import java.util.List;
 
 import org.junit.Test;
 
+import clase_properties.Principal;
 import entorno.InterfaceJuego;
 import app.enums.Orientation;
 import app.levels.DataLevelGame;
 import app.levels.LevelEasy;
+import app.levels.ManagerLevelGameMain;
 import app.mapa.MapaTiled;
 import app.modelo.Destructor;
 import app.modelo.ObjetoGrafico;
@@ -24,6 +26,16 @@ import app.object.Tank;
 import app.object.TankController;
 
 public class TestGame extends InterfaceJuego{
+	
+	/*@Test
+	public void testIniciarGame() {
+		Principal principal= new Principal();
+		//principal.ModificarArchivo(this.menu.getEleccion());
+		DataLevelGame data = new ManagerLevelGameMain(principal).buildDataGame();
+		Game game = new Game(data);
+		game.iniciar();		
+	}*/
+				
 	/*@Test
 	public void testIniciar() {
 		

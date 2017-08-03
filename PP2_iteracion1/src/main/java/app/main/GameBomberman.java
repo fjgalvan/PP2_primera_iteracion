@@ -51,4 +51,18 @@ public class GameBomberman extends InterfaceJuego{
 	public Tank getTank() {
 		return tank;
 	}
+	
+	public void setTank(Tank tank) {
+		this.tank = tank;
+	}
+
+	public Player getPlayer1() {
+		return player1;
+	}
+
+	public void setPlayer1(Player player1) {
+		this.player1 = player1;
+	}
+	
+	
 }

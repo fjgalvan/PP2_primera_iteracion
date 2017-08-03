@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import entorno.Entorno;
 import entorno.InterfaceJuego;
 import app.enums.Orientation;
 import app.mapa.MapaTiled;
@@ -40,7 +41,19 @@ public class TestGameBomberman extends InterfaceJuego{
 		TankController tControl= new TankController(tank,player1.getListener(),destructor.getColisionador());
 		
 		try{
+			
+			InterfaceJuego juego= new InterfaceJuego();
+			//Entorno(InterfaceJuego juego, String titulo, int ancho, int alto)
+			Entorno entorno = new Entorno(juego, "tank", 30, 30);
+			ListenerPlayer1 listener= new ListenerPlayer1(entorno);
+			tank.moverse(Orientation.DOWN);
+			listener.seMovio(tank);
+			entorno.estaPresionada(entorno.TECLA_ABAJO);
+			player1.setListener(listener); 
 			//GameBomberman bomberman = new GameBomberman();
+			//bomberman.setTank(tank);
+			//bomberman.setPlayer1(player1);
+			//bomberman.iniciar();
 			//bomberman.getTank();
 		} catch(Exception e){
 	        System.out.println("No se pudo getTank()!!");

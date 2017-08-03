@@ -15,4 +15,6 @@ public class Player {
 	public void setPuntaje(double puntaje) {this.puntaje += puntaje;}
 	public void setCantidadDeEnemigosAsesinados(int cantidadDeEnemigosAsesinados) {this.cantidadDeEnemigosAsesinados += cantidadDeEnemigosAsesinados;}
     public KeyEventListener getListener() { return listener;}
+    public void setListener(KeyEventListener listener) {  this.listener = listener;}
+
 }
