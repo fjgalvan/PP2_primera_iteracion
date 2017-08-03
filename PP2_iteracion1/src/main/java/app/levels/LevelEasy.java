@@ -151,5 +151,7 @@ public class LevelEasy
 	public Tank getTankPlayer2() {return tankPlayer2;}
 	public TankController getTankController() {return tankController;}
 	public TankController getTankCopController() {return tankCopController;}
+	public void setTankPlayer1(Tank tankPlayer1) { this.tankPlayer1 = tankPlayer1;}
+
 
 }

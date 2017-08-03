@@ -37,6 +37,21 @@ public class TestGame extends InterfaceJuego{
 		
 		ControlGame game = new ControlGame();
 		game.iniciar();
+		
+		DataLevelGame data = new DataLevelGame(2, 4, 2, "facil");
+		data.cargarClavesNiveles();
+		/*Game juego= new Game(data);
+		LevelEasy levelGame = new LevelEasy(data);
+		levelGame.cargarCoordenadasValidas();
+		levelGame.crearTanquesPlayers();
+		juego.setLevelGame(levelGame);
+		Tank tankPlayer1 = new Tank(Orientation.UP,new Point(400,400),new Point(40,40), 1);
+		juego.getLevelGame().setTankPlayer1(tankPlayer1);
+		System.out.println(juego.getLevelGame().finishLevel());
+		juego.iniciar();
+		juego.tick();*/
+		//juego.setLevelGame(levelGame);
+		
 	}
 				
 	/*@Test

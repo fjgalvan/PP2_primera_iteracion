@@ -73,4 +73,8 @@ public class Destructor {
 	public Colisionador getColisionador() {
 		return colisionador;
 	}
+	public void setColisionador(Colisionador colisionador) {
+		this.colisionador = colisionador;
+	}
+	
 }

@@ -121,6 +121,8 @@ public class Game extends InterfaceJuego {
 		}
 	}
 
+
+
 	public static void sumarPuntaje(String player) {
 		if (player.equals("1")) {
 			player1.setPuntaje(500);
@@ -143,5 +145,12 @@ public class Game extends InterfaceJuego {
 
 	public Draftsman getDibujador() {
 		return dibujador;
+	}
+
+	public void setLevelGame(LevelEasy levelGame) {
+		this.levelGame = levelGame;
+	}
+	public LevelEasy getLevelGame() {
+		return levelGame;
 	}
 }

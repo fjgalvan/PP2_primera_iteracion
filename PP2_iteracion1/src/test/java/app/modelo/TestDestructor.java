@@ -9,6 +9,7 @@ import org.junit.Test;
 import app.enums.Orientation;
 import app.levels.DataLevelGame;
 import app.levels.LevelEasy;
+import app.object.Bullet;
 import app.object.DriverEasyEnemyTank;
 import app.object.Player;
 import app.object.Tank;
@@ -23,6 +24,32 @@ public class TestDestructor {
 		//driverEasy.cargarMovimientos();
 		data.cargarClavesNiveles();
 		Destructor destructor= new Destructor();
+		Colisionador colisionador= new Colisionador();
+		List<ObjetoGrafico> estructuras = new ArrayList<>();
+		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
+		objetos.addAll(estructuras);
+		
+		Point size = new Point(10, 10);
+		Point coordinate = new Point(200, 200);
+		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
+		
+		Tank tank_1 = new Tank(Orientation.UP,new Point(400,400),new Point(40,40), 1);
+		Tank enemyTank = new Tank(Orientation.UP,new Point(600,100),new Point(40,40), 2);
+		Tank enemyTank2 = new Tank(Orientation.UP,new Point(500,100),new Point(40,40), 2);
+		Tank enemyTank3 = new Tank(Orientation.UP,new Point(400,100),new Point(40,40), 2);
+		Tank enemyTank4 = new Tank(Orientation.UP,new Point(300,100),new Point(40,40), 2);
+		
+		List<Tank> tanks_1 = new ArrayList<Tank>();
+		List<Tank> enemysTanks = new ArrayList<Tank>();
+		
+		tanks_1.add(tank_1);
+		enemysTanks.add(enemyTank);
+		enemysTanks.add(enemyTank2);
+		enemysTanks.add(enemyTank3);
+		enemysTanks.add(enemyTank4);
+		colisionador.colisionBulletConTank(bullet, enemysTanks);
+		
+		destructor.setColisionador(colisionador);
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
 		
@@ -34,8 +61,8 @@ public class TestDestructor {
 		
 		destructor.destruccionTanksEnemys(tank, levelGame, player1.toString());
 		
-		List<ObjetoGrafico> estructuras= new ArrayList<>();
-		destructor.destruirEstructuras(estructuras);
+		List<ObjetoGrafico> estructuras2= new ArrayList<>();
+		destructor.destruirEstructuras(estructuras2);
 		
 		destructor.getColisionador();
 		
