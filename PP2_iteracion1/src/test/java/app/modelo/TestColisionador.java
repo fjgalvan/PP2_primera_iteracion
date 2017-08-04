@@ -16,7 +16,7 @@ import app.object.Tank;
 
 public class TestColisionador {
 	
-	/*@Test
+	@Test
 	public void colisionBulletConEstructura() {
 		Colisionador colisionador = new Colisionador();
 		//ListStructures estructuras = new ListStructures();
@@ -28,13 +28,18 @@ public class TestColisionador {
 		
 		
 		Point size = new Point(10, 10);
-		Point coordinate = new Point(881, 200);
+		Point coordinate = new Point(200, 200);
 		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
 		List<ObjetoGrafico> objetos = new ArrayList<ObjetoGrafico>();
-		objetos.add(bullet);
-		//objetos.addAll(estructuras.getLista());
-		assertFalse(colisionador.colisionBullet(bullet, objetos));
-	}*/
+		Point sizeTank = new Point(40, 40);
+		Point coordinateTank = new Point(200, 200);
+		Tank tank = new Tank(Orientation.LEFT, coordinateTank, sizeTank,1);
+		objetos.add(tank);
+		
+		colisionador.hayColision(bullet, tank);
+		//objetos.addAll(objetos.getLista());
+		//assertTrue(colisionador.colisionBullet(bullet, objetos));
+	}
 	
 	@Test
 	public void noColisionBulletConEstructura() {
