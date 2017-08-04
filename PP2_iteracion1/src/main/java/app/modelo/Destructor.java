@@ -15,19 +15,15 @@ public class Destructor {
 		this.colisionador = Colisionador.getInstance();
 	}
 	//Player
-		public void destruccionTank(Tank enemyTank, LevelEasy level)
-		{
-			if(colisionador.colisionBulletConTank(enemyTank.getBullet(), level.getPlayers()))
-			{
+		public void destruccionTank(Tank enemyTank, LevelEasy level){
+			if(colisionador.colisionBulletConTank(enemyTank.getBullet(), level.getPlayers())){
 				enemyTank.impactBullet();
-				Tank tank = colisionador.getTankADestruir();
+				Tank tank = colisionador.getTankADestruir(); 
 				tank.decreaseHP();
-				if(tank.getEnergyVal()==0)
-				{
+				if(tank.getEnergyVal()==0) {  
 					if(level.getTankPlayer1().coordinate.equals(tank.coordinate))
-						level.destruirTankPlayer1(tank);
-					else
-						level.destruirTankPlayer2(tank);
+						{level.destruirTankPlayer1(tank);}
+					else{  level.destruirTankPlayer2(tank);}
 				}
 			}
 		}
@@ -35,17 +31,13 @@ public class Destructor {
 		//ENEMIGOS
 		public void destruccionTanksEnemys(Tank tank,LevelEasy level,String player) 
 		{
-			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos()))
-			{
+			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos())) {
 				tank.impactBullet();
 				debilitarEnemyTank(level,player);
-				Game.sumarPuntaje(player);
-			}
+				Game.sumarPuntaje(player); }
 			level.getPlayers().remove(tank);
-			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getPlayers()))
-			{
-				tank.impactBullet();
-			}
+			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getPlayers())) {
+				tank.impactBullet(); }
 			level.getPlayers().add(tank);
 		}
 
@@ -53,11 +45,9 @@ public class Destructor {
 		{
 			Tank t = colisionador.getTankADestruir();
 			t.decreaseHP();
-			if(t.getEnergyVal()==0)
-			{
+			if(t.getEnergyVal()==0){
 				level.destruirTankEnemy(t);
-				Game.sumarCantidadDeEnemigosAsesinados(player);
-			}
+				Game.sumarCantidadDeEnemigosAsesinados(player); }
 		}
 	
 		//ESTRUCTURAS
