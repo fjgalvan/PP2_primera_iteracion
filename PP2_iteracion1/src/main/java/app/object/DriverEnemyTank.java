@@ -14,12 +14,9 @@ public abstract class DriverEnemyTank {
 	private Colisionador colisionador;
 	private int contTick;
 
-	public DriverEnemyTank() 
-	{  this.colisionador = Colisionador.getInstance(); }
-	public DriverEnemyTank(Tank enemyTank) {
-		this.enemyTank = enemyTank; this.colisionador = Colisionador.getInstance();}
-	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos) {
-		controlDisparoTankEnemy(objetos); ControlTank(objetos);}
+	public DriverEnemyTank() {  this.colisionador = Colisionador.getInstance(); }
+	public DriverEnemyTank(Tank enemyTank) {   this.enemyTank = enemyTank; this.colisionador = Colisionador.getInstance();}
+	public void ControlEnemyTank(Entorno ent, List<ObjetoGrafico> objetos) {  controlDisparoTankEnemy(objetos); ControlTank(objetos);}
 	public void controlDisparoTankEnemy(List<ObjetoGrafico> objetos) {
 		control_bullet(objetos);
 		if (this.enemyTank.getTankBullet().equals(TankShot.NO_EXISTS) && contTick > 30) {
@@ -39,18 +36,11 @@ public abstract class DriverEnemyTank {
 		else {  if (!hayColisionConUnObjeto(objetos)) {  this.enemyTank.getStateMove().control();	} 
 			    else{  this.setNextStateMoveTank();	}  }   }
 	public abstract void setNextStateMoveTank();
-	public Tank getEnemyTank() {
-		return enemyTank;}
-	public void setEnemyTank(Tank enemyTank) {
-		this.enemyTank = enemyTank;}
-	public void destruirTank() {
-		this.enemyTank = null;}
-	public int getContTick() {
-		return contTick;}
-	public void setContTick(int contTick) {
-		this.contTick = contTick;}
-	public Colisionador getColisionador() {
-		return colisionador;}
-	public void setColisionador(Colisionador colisionador) {
-		this.colisionador = colisionador;}
+	public Tank getEnemyTank() { return enemyTank;}
+	public void setEnemyTank(Tank enemyTank) { this.enemyTank = enemyTank;}
+	public void destruirTank() {  this.enemyTank = null;}
+	public int getContTick() {  return contTick;}
+	public void setContTick(int contTick) {  this.contTick = contTick;}
+	public Colisionador getColisionador() {  return colisionador;}
+	public void setColisionador(Colisionador colisionador) {  this.colisionador = colisionador;}
 }
