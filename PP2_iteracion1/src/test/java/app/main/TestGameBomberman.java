@@ -60,7 +60,7 @@ public class TestGameBomberman extends InterfaceJuego{
 			Entorno entorno = new Entorno(juego, "tank", 30, 30);
 			ListenerPlayer1 listener= new ListenerPlayer1(entorno);
 			tank.moverse(Orientation.DOWN);
-			boolean esPresionada= entorno.estaPresionada(entorno.TECLA_ABAJO);
+			boolean esPresionada= entorno.estaPresionada(entorno.TECLA_IZQUIERDA);
 			System.out.println("esPresionada: "+esPresionada);
 			//listener.seMovio(tank);
 	        
@@ -78,12 +78,13 @@ public class TestGameBomberman extends InterfaceJuego{
 			
 				
 			player1.setListener(listener); 
+			entorno.presionarTeclaIzquierda();
 			GameBomberman bomberman = new GameBomberman();
 			entorno.presionarTeclaIzquierda();
-			//bomberman.setTank(tank);
-			//bomberman.setPlayer1(player1);
-			//bomberman.iniciar();
-			//bomberman.getTank();
+			bomberman.setTank(tank);
+			bomberman.setPlayer1(player1);
+			bomberman.iniciar();
+			bomberman.getTank();
 		} catch(Exception e){
 	        System.out.println("No se pudo getTank()!!");
 	    }
