@@ -13,10 +13,8 @@ public class Colisionador {
 	private static Colisionador colisionador;
 	
 	public static Colisionador getInstance(){
-		if(colisionador==null){
-			return colisionador = new Colisionador();
-		}
-		return colisionador;
+		if(colisionador==null){ return colisionador = new Colisionador();
+		}  return colisionador;
 	}
 
 	/**BULLET*/
@@ -24,10 +22,8 @@ public class Colisionador {
 		if(bullet!=null){
 			if(Util.estaEnElLimiteDeTablero(bullet.getOrientation(), bullet.getCoordinate())){
 				return true;
-		}
-		return bulletHayColisionConUnObjeto(bullet, objetos);
-		}
-		return false;
+		}  return bulletHayColisionConUnObjeto(bullet, objetos);
+		}  return false;
 	}
 	
 	public boolean bulletHayColisionConUnObjeto(ObjetoGrafico objeto,List<ObjetoGrafico> lista)
@@ -35,60 +31,33 @@ public class Colisionador {
 		boolean ret = false;
 		for(ObjetoGrafico obj : lista)
 		{
-			if(((Estructura) obj).getTipoDeEstructura().isColisicionBullet()){
-			//if(!obj.getNombre().equals("Agua") 
-					//&& !obj.getNombre().equals("Fondo")){
-				ret = ret || bulletChocaConEstructura(objeto, obj); // dependiendo el estado va atener una colision !=
-			}
-			if(ret && objetoADestruir==null){
-				objetoADestruir = obj;
-			}
-		}
-		return ret;
+			if(((Estructura) obj).getTipoDeEstructura().isColisicionBullet()){  //if(!obj.getNombre().equals("Agua")  //&& !obj.getNombre().equals("Fondo")){
+				ret = ret || bulletChocaConEstructura(objeto, obj);  } // dependiendo el estado va atener una colision !=
+			if(ret && objetoADestruir==null){ objetoADestruir = obj; }
+		}return ret;
 	}
 	
 	public boolean bulletChocaConEstructura(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {  
-    	if (objGraf2 == null)
-    		return false;
+    	if (objGraf2 == null) return false;
         double dX = Math.abs(objGraf1.getCoordinate().getX() - (objGraf2.getCoordinate().getX()+20));
         double dY = Math.abs(objGraf1.getCoordinate().getY() - (objGraf2.getCoordinate().getY()+20));
-        return (dX <= 25 && dY <= 25);
-    }
+        return (dX <= 25 && dY <= 25);}
 
 	//BULLET CON TANK
 	public boolean colisionBulletConTank(Bullet bullet, List<Tank> enemysTanks){
-		if(bullet!=null){
-			return bulletHayColisionConUnTank(bullet, enemysTanks);
-		}
-		return false;
-	}
+		if(bullet!=null){ return bulletHayColisionConUnTank(bullet, enemysTanks);
+		} return false;  }
 	
 	public boolean bulletHayColisionConUnTank(ObjetoGrafico objeto,List<Tank> enemysTanks)
-	{
-		boolean ret = false;
-		for(Tank enemyTank : enemysTanks)
-		{
+	{   boolean ret = false;
+		for(Tank enemyTank : enemysTanks){
 			ret = ret || bulletChocaConEstructura(objeto, enemyTank);
-			if(bulletChocaConEstructura(objeto, enemyTank)){
-				tankADestruir = enemyTank;
-			}
-		}
-		return ret;
+			if(bulletChocaConEstructura(objeto, enemyTank)){  tankADestruir = enemyTank;  }
+		}  return ret;
 	}
-	
-
-	public Tank getTankADestruir() {
-		return tankADestruir;
-		
-	}
-	
-	public void setObjetoADestruir(ObjetoGrafico objetoADestruir) {
-		this.objetoADestruir = objetoADestruir;
-	}
-
-	public ObjetoGrafico getObjetoADestruir() {
-		return objetoADestruir;
-	}
+	public Tank getTankADestruir() { return tankADestruir;	 }
+	public void setObjetoADestruir(ObjetoGrafico objetoADestruir) { this.objetoADestruir = objetoADestruir;  }
+	public ObjetoGrafico getObjetoADestruir() {  return objetoADestruir; }
 
 	/**FIN DE BULLET*/
 
@@ -102,11 +71,8 @@ public class Colisionador {
 						//if (!obj.getNombre().equals("Agua")) {
 						if(((Estructura) obj).getTipoDeEstructura().isColisicionBullet()){
 							// dependiendo el estado va a tener una colision !=
-							ret = ret || bulletChocaConEstructura(obj, obj2);
-						}
-						if (ret) {
-							objetoADestruir = obj;
-						}
+							ret = ret || bulletChocaConEstructura(obj, obj2);  }
+						if (ret) { objetoADestruir = obj; }
 					}
 				}
 			}
@@ -116,12 +82,10 @@ public class Colisionador {
 
 	// PARA TANQUE
 	public boolean chocaConEstructuraTank(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {
-		if (objGraf2 == null)
-			return false;
+		if (objGraf2 == null)    return false;
 		double dX = Math.abs(objGraf1.getCoordinate().getX() - (objGraf2.getCoordinate().getX()));
 		double dY = Math.abs(objGraf1.getCoordinate().getY() - (objGraf2.getCoordinate().getY()));
-		return (dX <= 40 && dY <= 40);
-	}
+		return (dX <= 40 && dY <= 40); }
 
 	public boolean hayColision(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {
 		// izquierda
