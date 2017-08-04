@@ -68,4 +68,13 @@ public class GamePacman extends InterfaceJuego{
 	public Tank getTank() {
 		return tank;
 	}
+
+	public void setPlayer1(Player player1) {
+		this.player1 = player1;
+	}
+
+	public void setTank(Tank tank) {
+		this.tank = tank;
+	}
+	
 }
