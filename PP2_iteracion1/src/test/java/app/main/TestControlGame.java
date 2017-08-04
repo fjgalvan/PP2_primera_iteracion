@@ -1,16 +1,15 @@
 package app.main;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import static org.junit.Assert.*;
-
 import org.junit.Test;
+import app.vistas.Menu;
 
 public class TestControlGame {
-	//Menu menu= new Menu();
+	Menu menu= new Menu();
 	ControlGame control= new ControlGame();
 	
-	//ERROR TEST CON MAVEN
-	/*@Test
+/*	@Test
 	public void testIniciar() {
 		control.iniciar();
 		ActionEvent e= new ActionEvent(control.getMenu(), 10, "", 10);//ActionEvent(menu, 10, "");
@@ -21,4 +20,11 @@ public class TestControlGame {
 		control.getMenu().getBtnAceptar().setSelected(true);
 		assertNotNull(control.getMenu().getRdbtnTank());
 	}*/
+
+	@Test
+	public void testMenu() {
+		control.iniciar();
+		control.setTankEleccionMenu();
+		assertNotNull(control.getMenu());
+	}
 }
