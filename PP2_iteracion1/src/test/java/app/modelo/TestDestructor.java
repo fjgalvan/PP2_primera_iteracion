@@ -57,8 +57,6 @@ public class TestDestructor {
 		
 		Tank tank2 = levelGame.getTankPlayer1();
 		
-		destructor.destruccionTank(tank, levelGame);
-		
 		destructor.destruccionTanksEnemys(tank_1, levelGame, player1.toString());
 		//(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos())
 		
@@ -67,7 +65,7 @@ public class TestDestructor {
 		destructor.destruirEstructuras(estructuras2);
 		
 		destructor.getColisionador();
-		
+		destructor.destruccionTank(tank, levelGame);
 		//destructor.debilitarEnemyTank(levelGame, player1.toString());
 	}
 	
