@@ -33,7 +33,7 @@ public class TestDestructor {
 		Point coordinate = new Point(200, 200);
 		Bullet bullet = new Bullet(Orientation.RIGHT,coordinate, size);
 		
-		Tank tank_1 = new Tank(Orientation.UP,new Point(400,400),new Point(40,40), 1);
+		Tank tank_1 = new Tank(Orientation.UP,new Point(200,200),new Point(40,40), 1);
 		Tank enemyTank = new Tank(Orientation.UP,new Point(600,100),new Point(40,40), 2);
 		Tank enemyTank2 = new Tank(Orientation.UP,new Point(500,100),new Point(40,40), 2);
 		Tank enemyTank3 = new Tank(Orientation.UP,new Point(400,100),new Point(40,40), 2);
@@ -47,19 +47,21 @@ public class TestDestructor {
 		enemysTanks.add(enemyTank2);
 		enemysTanks.add(enemyTank3);
 		enemysTanks.add(enemyTank4);
-		colisionador.colisionBulletConTank(bullet, enemysTanks);
-		
+		boolean colicion= colisionador.colisionBulletConTank(bullet, tanks_1);
+		System.out.println("colicion: " + colicion);
 		destructor.setColisionador(colisionador);
 		LevelEasy levelGame = new LevelEasy(data);
 		Player player1 = new Player(0, 0, levelGame.getTankController().getListener());
 		
-		
+		levelGame.setPlayers(enemysTanks);
 		
 		Tank tank2 = levelGame.getTankPlayer1();
 		
 		destructor.destruccionTank(tank, levelGame);
 		
-		destructor.destruccionTanksEnemys(tank, levelGame, player1.toString());
+		destructor.destruccionTanksEnemys(tank_1, levelGame, player1.toString());
+		//(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos())
+		
 		
 		List<ObjetoGrafico> estructuras2= new ArrayList<>();
 		destructor.destruirEstructuras(estructuras2);
