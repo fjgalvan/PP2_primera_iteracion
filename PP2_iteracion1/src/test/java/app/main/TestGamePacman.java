@@ -29,10 +29,6 @@ import entorno.InterfaceJuego;
 public class TestGamePacman extends InterfaceJuego{
 	@Test
 	public void testIniciar() {
-		//GameBomberman bomberman = new GameBomberman();
-		//bomberman.iniciar();
-		//bomberman.getTank();
-		//assertNotEquals(null, bomberman.getTank());
 		String mapaAJugar = Configuracion.MapaBomberman;
 		Draftsman dibujador= new Draftsman(this, new Point(1000, 600), "Bomberman-Ungs");
 		List<ObjetoGrafico> estructuras= new ArrayList<>();
