@@ -1,5 +1,6 @@
 package entorno;
 
+import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +9,9 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.Shape;
+import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 
@@ -269,5 +272,19 @@ public class Entorno extends JFrame
 			throw new RuntimeException( "Error! Se consult� si la tecla " + (int) key + " est� presionada, pero esa tecla no existe." );
 		
 		return keys[key];
+	}
+	
+	/**
+	 * Simula tecla izquierda presionada
+	 */
+	public void presionarTeclaIzquierda(){
+		try{
+		    Robot robot = new Robot();
+		    robot.keyPress(KeyEvent.VK_LEFT);
+		    System.out.println("KeyEvent.VK_LEFT: "+ KeyEvent.VK_LEFT);
+		    //entorno.keyUp(KeyEvent.VK_LEFT), 37);
+   }catch(AWTException a){
+		    a.printStackTrace();
+    }
 	}
 }
