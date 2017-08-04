@@ -2,10 +2,14 @@ package app.main;
 
 //import java.awt.event.ActionEvent;
 import static org.junit.Assert.*;
+
+import java.awt.event.ActionListener;
+
 import org.junit.Test;
+
 import app.vistas.Menu;
 
-public class TestControlGame {
+public abstract class TestControlGame implements ActionListener{
 	Menu menu= new Menu();
 	ControlGame control= new ControlGame();
 	

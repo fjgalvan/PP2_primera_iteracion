@@ -31,31 +31,18 @@ public class LevelEasy
 	}
 	
 	public void inicializar(List<ObjetoGrafico> objetos)
-	{
-		this.crearTanquesPlayers();
-		//this.cargarCoordenadasValidas();
+	{   this.crearTanquesPlayers();
 		this.cargarEnemys();
-		this.controlTanquesEnemigos(objetos);
-		//this.accionarDeEnemys(objetos);
+		this.controlTanquesEnemigos(objetos);	}
+
+	public DriverEnemyTank crearDriverEnemyTank(Tank t) { return level.getNewDriverEnemy(t); }
+	private void controlTanquesEnemigos(List<ObjetoGrafico> lista)  {
+		for(DriverEnemyTank driver : drives){
+			driver.ControlTank(lista);}
 	}
 
-	public DriverEnemyTank crearDriverEnemyTank(Tank t)
-	{
-		return level.getNewDriverEnemy(t);
-	}
-	
-	private void controlTanquesEnemigos(List<ObjetoGrafico> lista) 
-	{
-		for(DriverEnemyTank driver : drives)
-		{
-			driver.ControlTank(lista);
-		}
-	}
-
-	private void cargarEnemys() 
-	{
-		for (int i=0; i<level.getCantEnemigos(); i++)
-		{
+	private void cargarEnemys()  {
+		for (int i=0; i<level.getCantEnemigos(); i++) {
 			Tank tank_aux = new Tank(Orientation.UP,getNextCoordinate(),new Point(36,36),level.getEnergyEnemy());
 			this.enemigos.add(tank_aux);		
 			DriverEnemyTank driver_aux = level.getNewDriverEnemy(tank_aux);
@@ -90,11 +77,7 @@ public class LevelEasy
 			tankCopController = new TankController(tankPlayer2, new ListenerPlayer2(Configuracion.ENTORNO), Colisionador.getInstance());
 		}			
 	}
-	public boolean isModeCopActivate()
-	{
-		return level.getPlayers()==2;
-	}
-	
+	public boolean isModeCopActivate(){ return level.getPlayers()==2; }
 	public void controlarPlayer(Player player,Player player2, List<ObjetoGrafico> objetos)
 	{		
 		Tank tank1 = this.players.get(Integer.parseInt(P1)-1);
@@ -116,14 +99,9 @@ public class LevelEasy
 	}
 	public List<Tank> getEnemigos() {    return enemigos;}
 	public List<Tank> getPlayers() {    return players;}
-	public void puntajes(){
-//		player1 = new Player1(new Puntaje(0,0),dibujador);
-//		player2 = new Player2(new Puntaje(0,0),dibujador);
-	}
-	public boolean finishLevel()
-	{   return players.isEmpty() || enemigos.isEmpty(); }// ver si funciona estoo}
-	public void destruirTankEnemy(Tank enemy)
-	{   this.enemigos.remove(enemy);
+	public void puntajes(){}//		player1 = new Player1(new Puntaje(0,0),dibujador); //		player2 = new Player2(new Puntaje(0,0),dibujador);
+	public boolean finishLevel() {   return players.isEmpty() || enemigos.isEmpty(); }// ver si funciona estoo}
+	public void destruirTankEnemy(Tank enemy){   this.enemigos.remove(enemy);
 		encontrarDriverDeTankEnemy(enemy);}
 	public void setEnemigos(List<Tank> enemigos) {this.enemigos = enemigos;}
 	public void setPlayers(List<Tank> players) {this.players = players;}
@@ -152,6 +130,4 @@ public class LevelEasy
 	public TankController getTankController() {return tankController;}
 	public TankController getTankCopController() {return tankCopController;}
 	public void setTankPlayer1(Tank tankPlayer1) { this.tankPlayer1 = tankPlayer1;}
-
-
 }
