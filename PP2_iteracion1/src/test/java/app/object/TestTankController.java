@@ -96,10 +96,13 @@ public class TestTankController {
 		tanksObjG.add(enemyTank);
 		tanksObjG.add(enemyTank2);
 		
+		
+		
 		tankC.hayColisionConUnObjeto(estructuras);
 		//tankC.ControlTank(tanksObjG);
 		tankC.control_bullet(estructuras, enemysTanks);
 		tankC.getListener();
+		tankC.setListener(tankC.getListener());
 		tankC.destruirTank();
 		tankC.getContTick();
 		tankC.setContTick(tankC.getContTick());

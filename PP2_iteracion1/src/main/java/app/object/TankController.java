@@ -29,52 +29,37 @@ public class TankController {
 		}
 		return ret;
 	}
-
 	public void ControlTank(List<ObjetoGrafico> objetos) {
-		if (listener.existeEstadoDeMovimiento()) {
-			tank.setStateMove(listener.getEstado());
-			tank.girar();
-			if (!hayColisionConUnObjeto(objetos)) {
-				tank.getStateMove().control();
-				listener.borrarEstado();
-			}
+		if (listener.existeEstadoDeMovimiento()) {	tank.setStateMove(listener.getEstado());	tank.girar();
+			if (!hayColisionConUnObjeto(objetos)) 
+			{	tank.getStateMove().control();		listener.borrarEstado();	}
 		}
-
-		if (listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion() && contTick > 30) {
-			contTick = 0;
-			Sonido.TanqueDisparo.stop();
-			Sonido.TanqueDisparo.play();
-			this.tank.disparar();
-		}
+		if (listener.seActivoDisparo() && !tank.existeDisparoEnEjecucion() && contTick > 30) 
+		{	contTick = 0;	Sonido.TanqueDisparo.stop();	Sonido.TanqueDisparo.play();	this.tank.disparar();	}
 	}
-
 	public void control_bullet(List<ObjetoGrafico> objetos, List<Tank> enemysTanks) {
 		if (this.tank.getTankBullet().equals(TankShot.EXISTS)) {
 			this.tank.getBullet().avanzarBullet();
 			// aca se sibuja la bala
-			if (colisionador.colisionBullet(this.tank.getBullet(), objetos)) {
-				this.tank.impactBullet();
-			}
+			if (colisionador.colisionBullet(this.tank.getBullet(), objetos)) {	this.tank.impactBullet();	}
 		}
 	}
-
 	public KeyEventListener getListener()
 	{
 		return listener;
 	}
-	
+	public void setListener(KeyEventListener listener) {
+		this.listener = listener;
+	}
 	public Tank getTank() {
 		return tank;
 	}
-
 	public void destruirTank() {
 		this.tank = null;
 	}
-
 	public int getContTick() {
 		return contTick;
 	}
-
 	public void setContTick(int contTick) {
 		this.contTick = contTick;
 	}
