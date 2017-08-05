@@ -17,7 +17,8 @@ public abstract class TestControlGame implements ActionListener{
 	@Test
 	public void testIniciar() {
 		control.iniciar();
-		ActionEvent e= new ActionEvent(control.getMenu(), 10, "", 10);//ActionEvent(menu, 10, "");
+		control.setTankEleccionMenu();
+		ActionEvent e= new ActionEvent(control.getMenu(), 10, "");//, 10);//ActionEvent(menu, 10, "");
 		control.actionPerformed(e);
 		control.getMenu().getRdbtnTank().setSelected(true);
 		control.getMenu().getRdbtnTank().setSelected(true);
