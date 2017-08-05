@@ -131,19 +131,13 @@ public class Entorno extends JFrame
 	 * @param escala El factor de escala a utilizar para agrandar o achicar la imagen
 	 */
 	public void dibujarImagenConCentro(Image imagen, double x, double y, double centro_x, double centro_y, double angulo, double escala)
-	{
-		Graphics2D g2d = board.getG2D();
-		
-		if( g2d == null )	return;
-		
+	{	Graphics2D g2d = board.getG2D();
+		if( g2d == null ){	return;	 }
         AffineTransform transform = AffineTransform.getTranslateInstance(x, y);
         transform.concatenate( AffineTransform.getRotateInstance(angulo) );
         transform.concatenate( AffineTransform.getTranslateInstance(-escala*centro_x, -escala*centro_y) );
-        if (escala != 1.0)
-        	transform.concatenate( AffineTransform.getScaleInstance(escala, escala) );
-
-        g2d.drawImage(imagen, transform, null);
-	}
+        if (escala != 1.0){		transform.concatenate( AffineTransform.getScaleInstance(escala, escala) );		}
+        g2d.drawImage(imagen, transform, null);		}
 	/**
 	 * Dibuja un circulo en las coordenadas especificadas
 	 * @param x La coordenada x
@@ -152,15 +146,11 @@ public class Entorno extends JFrame
 	 * @param color El color del c�rculo
 	 */
 	public void dibujarCirculo(double x, double y, double diametro, Color color)
-	{
-		Graphics2D g2d = board.getG2D();
-		
-		if( g2d == null )	return;
-
+	{	Graphics2D g2d = board.getG2D();
+		if( g2d == null )	{	return;		}
 		Ellipse2D.Double circle = new Ellipse2D.Double(x-diametro/2, y-diametro/2, diametro, diametro);
 		g2d.setPaint(color);
-		g2d.fill(circle);
-	}
+		g2d.fill(circle);	}
 
 	/**
 	 * Dibuja un rect�ngulo con el ancho y el alto especificados, rotado seg�n el �ngulo dado 
@@ -173,23 +163,17 @@ public class Entorno extends JFrame
 	 * @param color El color del rect�ngulo
 	 */
 	public void dibujarRectangulo(double x, double y, double ancho, double alto, double angulo, Color color)
-	{
-		// Construyo el rect�ngulo
+	{	// Construyo el rect�ngulo
 		Shape rect = new Rectangle((int) x, (int) y, (int) ancho, (int) alto);
-				
 		// Lo roto
         AffineTransform at = AffineTransform.getTranslateInstance(x, y);    
         at.concatenate( AffineTransform.getRotateInstance(angulo) );
         at.concatenate( AffineTransform.getTranslateInstance(-x-ancho/2, -y-alto/2) );		
 		Shape rect_rotado = at.createTransformedShape(rect);
-
 		Graphics2D g2d = board.getG2D();
-		
-		if( g2d == null )	return;
-		
+		if( g2d == null )	{	return;  	}
 		g2d.setPaint(color);
-		g2d.fill(rect_rotado);
-	}
+		g2d.fill(rect_rotado);		}
 	
 	/**
 	 * Dibuja un tri�ngulo en las coordenadas especificadas y rotado seg�n el �ngulo dado.
@@ -216,9 +200,7 @@ public class Entorno extends JFrame
 
 		// Y lo dibujo
 		Graphics2D g2d = board.getG2D();
-		
-		if( g2d == null )	return;
-
+		if( g2d == null )	{	return;	 }
 		g2d.setPaint(color);
 		g2d.fill(t_rotado);
 	}
@@ -230,13 +212,9 @@ public class Entorno extends JFrame
 	 * @param y La coordenada y
 	 */
 	public void escribirTexto(String texto, double x, double y)
-	{
-		Graphics2D g2d = board.getG2D();
-		
-		if( g2d == null )	return;
-		
-        g2d.drawString(texto, (int) x, (int) y);
-    }
+	{	Graphics2D g2d = board.getG2D();
+		if( g2d == null )	{	return;		}
+		g2d.drawString(texto, (int) x, (int) y);	}
 	
 	/**
 	 * Cambia la fuente para las pr�ximas escrituras de texto.
@@ -245,14 +223,10 @@ public class Entorno extends JFrame
 	 * @param color El color del texto
 	 */
 	public void cambiarFont(String font, int tamano, Color color)
-	{
-		Graphics2D g2d = board.getG2D();
-		
+	{	Graphics2D g2d = board.getG2D();
 		if( g2d == null )	return;
-		
 		g2d.setColor(color);
-		g2d.setFont(new Font(font, Font.PLAIN, tamano));
-    }
+		g2d.setFont(new Font(font, Font.PLAIN, tamano));	}
 	
 	/**
 	 * Indica si la tecla especificada est� siendo presionada en este momento. 
@@ -260,13 +234,9 @@ public class Entorno extends JFrame
 	 * @return Verdadero si la tecla est� siendo presionada y Falso en caso contrario.
 	 */
 	public boolean estaPresionada(char key)
-	{
-		boolean[] keys = board.getKeys();
-		if( key < 0 || key >= keys.length )
-			throw new RuntimeException( "Error! Se consult� si la tecla " + (int) key + " est� presionada, pero esa tecla no existe." );
-		
-		return keys[key];
-	}
+	{   boolean[] keys = board.getKeys();
+		if( key < 0 || key >= keys.length ) { throw new RuntimeException( "Error! Se consult� si la tecla " + (int) key + " est� presionada, pero esa tecla no existe." ); }
+		return keys[key]; }
 	
 	/**
 	 * Simula tecla izquierda presionada
