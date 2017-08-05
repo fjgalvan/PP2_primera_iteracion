@@ -15,6 +15,7 @@ public class TestHerramientas {
 		Clip sonido = Herramientas.cargarSonido("src/main/java/Tanque Disparo.wav");
 		sonido.loop(Clip.LOOP_CONTINUOUSLY);
 		Herramientas.play("Tanque Disparo.wav");
+		Herramientas.loop("src/main/java/Tanque Disparo.wav");
 	}
 	
 }

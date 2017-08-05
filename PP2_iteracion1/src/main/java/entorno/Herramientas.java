@@ -79,10 +79,7 @@ public class Herramientas {
 			clip = AudioSystem.getClip();
 	        clip.open(audioIn);     
 		} 
-		catch (Exception  e) {
-			e.printStackTrace();
-		}
-		
+		catch (Exception  e) { e.printStackTrace(); }
 		return clip;
 	}
 }

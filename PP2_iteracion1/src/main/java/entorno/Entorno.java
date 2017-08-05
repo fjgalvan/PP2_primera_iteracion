@@ -134,8 +134,7 @@ public class Entorno extends JFrame
 	{
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 		
         AffineTransform transform = AffineTransform.getTranslateInstance(x, y);
         transform.concatenate( AffineTransform.getRotateInstance(angulo) );
@@ -156,8 +155,7 @@ public class Entorno extends JFrame
 	{
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 
 		Ellipse2D.Double circle = new Ellipse2D.Double(x-diametro/2, y-diametro/2, diametro, diametro);
 		g2d.setPaint(color);
@@ -187,8 +185,7 @@ public class Entorno extends JFrame
 
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 		
 		g2d.setPaint(color);
 		g2d.fill(rect_rotado);
@@ -220,8 +217,7 @@ public class Entorno extends JFrame
 		// Y lo dibujo
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 
 		g2d.setPaint(color);
 		g2d.fill(t_rotado);
@@ -237,8 +233,7 @@ public class Entorno extends JFrame
 	{
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 		
         g2d.drawString(texto, (int) x, (int) y);
     }
@@ -253,8 +248,7 @@ public class Entorno extends JFrame
 	{
 		Graphics2D g2d = board.getG2D();
 		
-		if( g2d == null )
-			return;
+		if( g2d == null )	return;
 		
 		g2d.setColor(color);
 		g2d.setFont(new Font(font, Font.PLAIN, tamano));
@@ -283,8 +277,6 @@ public class Entorno extends JFrame
 		    robot.keyPress(KeyEvent.VK_LEFT);
 		    System.out.println("KeyEvent.VK_LEFT: "+ KeyEvent.VK_LEFT);
 		    //entorno.keyUp(KeyEvent.VK_LEFT), 37);
-   }catch(AWTException a){
-		    a.printStackTrace();
-    }
-	}
+		}catch(AWTException a){	a.printStackTrace();	}
+		}
 }

@@ -65,15 +65,13 @@ public class Board extends JPanel implements ActionListener
         public void keyReleased(KeyEvent e)
         {
         	int key = e.getKeyCode();
-        	if( 0 <= key && key < teclas.length )
-        		teclas[key] = false;
+        	if( 0 <= key && key < teclas.length )	{   teclas[key] = false;	}
         }
 
         public void keyPressed(KeyEvent e)
         {
         	int key = e.getKeyCode();
-        	if( 0 <= key && key < teclas.length )
-        		teclas[key] = true;
+        	if( 0 <= key && key < teclas.length )	{	teclas[key] = true;		}
         }
     }
     

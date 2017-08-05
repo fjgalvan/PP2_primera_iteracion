@@ -22,7 +22,7 @@ public class TestEntorno {
 		entorno.dibujarTriangulo(20, 20, 30, 30, 0, Color.red);
 		entorno.escribirTexto("texto", 30, 30);
 		entorno.cambiarFont("font", 30, Color.CYAN);
-		entorno.estaPresionada('1');
+		entorno.estaPresionada(entorno.TECLA_ARRIBA);
 	}
 
 }
