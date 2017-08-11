@@ -19,10 +19,9 @@ public class Colisionador {
 
 	/**BULLET*/
 	public boolean colisionBullet(Bullet bullet, List<ObjetoGrafico> objetos){
-		if(bullet!=null){
-			if(Util.estaEnElLimiteDeTablero(bullet.getOrientation(), bullet.getCoordinate())){
-				return true;
-		}  return bulletHayColisionConUnObjeto(bullet, objetos);
+		if(bullet!=null)
+		{	if(Util.estaEnElLimiteDeTablero(bullet.getOrientation(), bullet.getCoordinate()))  {	return true;	} 
+		return bulletHayColisionConUnObjeto(bullet, objetos);
 		}  return false;
 	}
 	
@@ -89,32 +88,26 @@ public class Colisionador {
 
 	public boolean hayColision(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {
 		// izquierda
-		boolean colisionIzq = objGraf1.getCoordinate().getX() == objGraf2.getCoordinate().getX()
-				+ objGraf2.getSize().getX()
+		boolean colisionIzq = objGraf1.getCoordinate().getX() == objGraf2.getCoordinate().getX() + objGraf2.getSize().getX()
 				&& objGraf1.getCoordinate().getY() < objGraf2.getCoordinate().getY() + objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getY() + objGraf2.getSize().getY() > objGraf2.getCoordinate().getY();
-
 		// derecha
 		boolean colisionDer = objGraf1.getCoordinate().getX() + objGraf1.getSize().getX() == objGraf2.getCoordinate()
 				.getX() && objGraf1.getCoordinate().getY() < objGraf2.getCoordinate().getY() + objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getY() + objGraf1.getSize().getY() > objGraf2.getCoordinate().getY();
 		// arriba
-		boolean colisionArr = objGraf1.getCoordinate().getY() == objGraf2.getCoordinate().getY()
-				+ objGraf2.getSize().getY()
+		boolean colisionArr = objGraf1.getCoordinate().getY() == objGraf2.getCoordinate().getY()+ objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getX() < objGraf2.getCoordinate().getX() + objGraf2.getSize().getX()
 				&& objGraf1.getCoordinate().getX() + objGraf1.getSize().getX() > objGraf2.getCoordinate().getX();
-
 		// abajo
 		boolean colisionAbj = objGraf1.getCoordinate().getY() + objGraf1.getSize().getY() == objGraf2.getCoordinate()
 				.getY() && objGraf1.getCoordinate().getX() < objGraf2.getCoordinate().getX() + objGraf2.getSize().getX()
 				&& objGraf1.getCoordinate().getX() + objGraf1.getSize().getX() > objGraf2.getCoordinate().getX();
-
 		return (colisionIzq || colisionDer || colisionArr || colisionAbj);
 	}
 
 	public boolean hayColisionArriba(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {
-		boolean colisionArr = objGraf1.getCoordinate().getY() == objGraf2.getCoordinate().getY()
-				+ objGraf2.getSize().getY()
+		boolean colisionArr = objGraf1.getCoordinate().getY() == objGraf2.getCoordinate().getY() + objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getX() < objGraf2.getCoordinate().getX() + objGraf2.getSize().getX()
 				&& objGraf1.getCoordinate().getX() + objGraf1.getSize().getX() > objGraf2.getCoordinate().getX();
 		return colisionArr;
@@ -131,13 +124,11 @@ public class Colisionador {
 		boolean colisionDer = objGraf1.getCoordinate().getX() + objGraf1.getSize().getX() == objGraf2.getCoordinate()
 				.getX() && objGraf1.getCoordinate().getY() < objGraf2.getCoordinate().getY() + objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getY() + objGraf1.getSize().getY() > objGraf2.getCoordinate().getY();
-
 		return colisionDer;
 	}
 
 	public boolean hayColisionIzquierda(ObjetoGrafico objGraf1, ObjetoGrafico objGraf2) {
-		boolean colisionIzq = objGraf1.getCoordinate().getX() == objGraf2.getCoordinate().getX()
-				+ objGraf2.getSize().getX()
+		boolean colisionIzq = objGraf1.getCoordinate().getX() == objGraf2.getCoordinate().getX() + objGraf2.getSize().getX()
 				&& objGraf1.getCoordinate().getY() < objGraf2.getCoordinate().getY() + objGraf2.getSize().getY()
 				&& objGraf1.getCoordinate().getY() + objGraf1.getSize().getY() > objGraf2.getCoordinate().getY();
 		return colisionIzq;

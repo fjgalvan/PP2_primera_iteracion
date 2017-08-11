@@ -16,13 +16,10 @@ public class Destructor {
 	}
 	//Player
 		public void destruccionTank(Tank enemyTank, LevelEasy level){
-			if(colisionador.colisionBulletConTank(enemyTank.getBullet(), level.getPlayers())){
-				enemyTank.impactBullet();
-				Tank tank = colisionador.getTankADestruir(); 
-				tank.decreaseHP();
-				if(tank.getEnergyVal()==0) {  
-					if(level.getTankPlayer1().coordinate.equals(tank.coordinate))
-						{level.destruirTankPlayer1(tank);}
+			if(colisionador.colisionBulletConTank(enemyTank.getBullet(), level.getPlayers()))
+			{	enemyTank.impactBullet();	Tank tank = colisionador.getTankADestruir(); 	tank.decreaseHP();
+				if(tank.getEnergyVal()==0) 
+				{  	if(level.getTankPlayer1().coordinate.equals(tank.coordinate)){	 level.destruirTankPlayer1(tank);	}
 					else{  level.destruirTankPlayer2(tank);}
 				}
 			}
@@ -30,21 +27,16 @@ public class Destructor {
 		
 		//ENEMIGOS
 		public void destruccionTanksEnemys(Tank tank,LevelEasy level,String player) 
-		{
-			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos())) {
-				tank.impactBullet();
-				debilitarEnemyTank(level,player);
-				Game.sumarPuntaje(player); }
+		{	if(colisionador.colisionBulletConTank(tank.getBullet(), level.getEnemigos())) 
+			{	tank.impactBullet();	debilitarEnemyTank(level,player);	Game.sumarPuntaje(player); }
 			level.getPlayers().remove(tank);
-			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getPlayers())) {
-				tank.impactBullet(); }
+			if(colisionador.colisionBulletConTank(tank.getBullet(), level.getPlayers())) {	tank.impactBullet(); }
 			level.getPlayers().add(tank);
 		}
 
 		public void debilitarEnemyTank(LevelEasy level,String player) 
 		{
-			Tank t = colisionador.getTankADestruir();
-			t.decreaseHP();
+			Tank t = colisionador.getTankADestruir();	t.decreaseHP();
 			if(t.getEnergyVal()==0){
 				level.destruirTankEnemy(t);
 				Game.sumarCantidadDeEnemigosAsesinados(player); }
@@ -52,10 +44,9 @@ public class Destructor {
 	
 		//ESTRUCTURAS
 		public void destruirEstructuras(List<ObjetoGrafico>  estructuras){
-			if(colisionador.getObjetoADestruir()!=null){
-				if(((Estructura)(colisionador.getObjetoADestruir())).getTipoDeEstructura().getTipo().equals(TipoEstructura.DESTRUCTIBLE)){//.getNombre().equals("Ladrillo")
-					estructuras.remove(colisionador.getObjetoADestruir());
-				}
+			if(colisionador.getObjetoADestruir()!=null)
+			{	if(((Estructura)(colisionador.getObjetoADestruir())).getTipoDeEstructura().getTipo().equals(TipoEstructura.DESTRUCTIBLE)) //.getNombre().equals("Ladrillo")
+				{	estructuras.remove(colisionador.getObjetoADestruir());}
 				colisionador.setObjetoADestruir(null);
 			}
 		}
